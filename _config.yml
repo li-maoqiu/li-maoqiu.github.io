@@ -1,1 +1,3 @@
 ceshi3: "测试3"
+
+exclude: ["ceshi.html"]
