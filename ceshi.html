@@ -5,8 +5,24 @@ permalink: pvoink
 ceshi2: 测试2
 ---
 <style>
-    nav div{
+    html,body{
+      margin:0;
+      padding:0;
+   }
+   
+    nav div {
         width: 100%;
+        height: 100%;
+        background-image: url('blog.jpg');
+        background-repeat: no-repeat;
+        background-size: 100%;
+    }
+
+    nav div:after {
+        content: "";
+        display: block;
+        padding-bottom: 40%;
+
     }
 
     nav a {
@@ -31,15 +47,13 @@ ceshi2: 测试2
         float: right;
         font-size: 12px;
     }
-
-
 </style>
 
 
 <nav>
-    <div style="background-image: url('blog.jpg'); background-repeat:no-repeat;background-size:100%; width:100%;height: 100%;">
-    <a href="/">猫球博客</a>
-    <a href="/xiaogongju">　小工具</a> <a href="/">返回主页　</a></div>
+    <div>
+        <a href="/">猫球博客</a>
+        <a href="/xiaogongju">　小工具</a> <a href="/">返回主页　</a></div>
 </nav>
 
 
@@ -48,5 +62,5 @@ ceshi2: 测试2
 
 测试1
 
-<br/>
+<br />
 {% if page.ceshi %}{{ page.ceshi }}{% else %}{{ site.ceshi3 }}{% endif %}
