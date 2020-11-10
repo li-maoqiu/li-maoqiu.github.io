@@ -113,9 +113,9 @@ layout: default
     }
 
     footer {
-        position: absolute;
-        bottom: 300px;
-        height: 800px;
+        position: relative;
+        top: 300px;
+        width: 100%;
     }
 
     footer img {
@@ -225,8 +225,7 @@ layout: default
 <nav><div>
 <a href="/">{{ site.title }}</a>
 {{ page.nav_url }}<a href="/">返回主页</a></div></nav>
-<span>{% if page.title %}{{ page.title }}{% else %}　{% endif %}</span>
-
+<span>{% if page.nav_text %}{{ page.nav_text }}{% else %}{% endif %}</span>
 <div class="body">
 
 {{ content }}
