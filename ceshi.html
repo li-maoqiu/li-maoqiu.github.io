@@ -2,66 +2,10 @@
 layout: page
 description: "pvo占领世界"
 permalink: pvoink
-ceshi2: <a href="/xiaogongju">小工具</a>
-image: 404.jpg
+nav_back: <a href="/xiaogongju">小工具</a>
+nav_img: 404.jpg
+ceshi: 测试
 ---
-<style>
-    html,body{
-      margin:0;
-      padding:0;
-   }
+测试3
 
-    nav div {
-        width: 100%;
-        height: 100%;
-        background-image: url('{% if page.image %}{{ page.image }}{% else %}{{ site.image }}{% endif %}');
-        background-repeat: no-repeat;
-        background-size: 100%;
-    }
-
-    nav div:after {
-        content: "";
-        display: block;
-        padding-bottom: 40%;
-
-    }
-
-    nav a {
-        color: #404040;
-        font-weight: 800;
-        height: 50px;
-        padding: 15px 15px;
-        line-height: 20px;
-        text-decoration: none;
-    }
-
-    nav a:hover {
-        color: #0085A1;
-    }
-
-    nav :first-child {
-        float: left;
-        font-size: 18px;
-    }
-
-    nav :not(:first-child) {
-        float: right;
-        font-size: 12px;
-    }
-</style>
-
-
-<nav>
-    <div>
-        <a href="/">猫球博客</a>
-        {{ page.ceshi2 }}<a href="/">返回主页</a></div>
-</nav>
-
-
-
-
-
-测试2
-
-<br />
-{% if page.ceshi %}{{ page.ceshi }}{% else %}{{ site.ceshi3 }}{% endif %}
+{% if page.ceshi2 %}{{ page.ceshi }}{{ page.ceshi2 }}{% else %}"测试3"{{ page.ceshi }}{% endif %}
