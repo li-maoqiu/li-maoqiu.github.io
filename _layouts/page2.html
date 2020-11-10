@@ -41,7 +41,7 @@ nav :not(:first-child) {
 
     div.body {
         position: relative;
-        top: 20px;
+        top: 50px;
         width: 65%;
         margin: auto;
     }
@@ -60,7 +60,7 @@ nav :not(:first-child) {
 
     div.body {
         position: relative;
-        top: 20px;
+        top: 50px;
         width: 100%;
         margin: auto;
     }
@@ -166,9 +166,9 @@ nav :not(:first-child) {
 <nav><div>
 <a href="/">{{ site.title }}</a>
 {{ page.nav_url }}<a href="/">返回主页</a></div></nav>
+<div class="biaotib">{% if page.nav_text %}{{ page.nav_text }}{% else %}{% endif %}</div>
 <div class="body">
 
-<div class="biaotib">{% if page.nav_text %}{{ page.nav_text }}{% else %}{% endif %}</div>
 
 {{ content }}
 
