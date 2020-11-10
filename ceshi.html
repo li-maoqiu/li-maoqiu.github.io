@@ -3,6 +3,7 @@ layout: page
 description: "pvo占领世界"
 permalink: pvoink
 ceshi2: <a href="/xiaogongju">小工具</a>
+image: 404.jpg
 ---
 <style>
     html,body{
@@ -13,7 +14,7 @@ ceshi2: <a href="/xiaogongju">小工具</a>
     nav div {
         width: 100%;
         height: 100%;
-        background-image: url('blog.jpg');
+        background-image: url('{% if page.image %}{{ page.image }}{% else %}{{ site.image }}{% endif %}');
         background-repeat: no-repeat;
         background-size: 100%;
     }
