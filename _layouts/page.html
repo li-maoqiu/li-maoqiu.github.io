@@ -48,6 +48,7 @@ layout: default
         color: #fff;
         text-shadow: #000 5px 0 0, #000 0 5px 0, #000 -5px 0 0, #000 0 -5px 0;
         cursor: default;
+        font-weight: 800;
     }
 
     @media (min-width: 768px) {
@@ -55,8 +56,8 @@ layout: default
         nav+span {
             position: absolute;
             left: 35%;
-            top: 20%;
-            font-size: 45px;
+            top: 25%;
+            font-size: 70px;
         }
 
         div.body {
@@ -75,7 +76,7 @@ layout: default
         nav+span {
             position: absolute;
             left: 35%;
-            top: 5%;
+            top: 15%;
             font-size: 30px;
         }
 
@@ -141,7 +142,7 @@ layout: default
         <a href="/">{{ site.title }}</a>
         {{ page.nav_url }}<a href="/">返回主页</a></div>
 </nav>
-<span><h1>{% if page.title %}{{ page.title }}{% else %}　{% endif %}</h1></span>
+<span>{% if page.title %}{{ page.title }}{% else %}　{% endif %}</span>
 
 <div class="body">
 
