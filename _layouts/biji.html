@@ -15,7 +15,7 @@ h4 {
     cursor: pointer;
 }
 
-nav a {
+#nav a {
     color: #404040;
     font-weight: 800;
     height: 50px;
@@ -23,20 +23,24 @@ nav a {
     line-height: 20px;
     text-decoration: none;
 }
-nav a:hover {
+#nav a:hover {
     color: #0085A1;
 }
-nav :first-child {
+#nav :first-child {
     float: left;
     font-size: 18px;
 }
-nav :not(:first-child) {
+#nav :not(:first-child) {
     float: right;
     font-size: 12px;
 }
 
 a {
 cursor: pointer;
+}
+
+small {
+    color:#777777;
 }
 
 #输入框 input {
@@ -189,9 +193,9 @@ footer img {
     </div>
 </div> <!--加载动画结束-->
 
-<nav><div>
+<div id="nav">
 <a href="/">{{ site.title }}</a>
-{{ page.nav_url }}<a href="/">返回主页</a></div></nav>
+{{ page.nav_url }}<a href="/">返回主页</a></div>
 <div class="body">
 
 <div class="biaotib">{% if page.nav_text %}{{ page.nav_text }}{% else %}{% endif %}</div>
