@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html lang="zh">
 
+<head>
+<title>{% if page.title %}{{ page.title }} - {{ site.title }}{% else %}{{ site.title }}{% endif %}</title>
+
 {{ content }}
 
 </html>
