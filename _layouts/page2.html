@@ -1,88 +1,75 @@
 ---
 layout: default
 ---
+<script src="/js/jquery.min.js"></script>
 <style>
-    html,body{
-        margin:0;
-        padding:0;
-   }
+html,body{
+    margin:0;
+    padding:0;
+}
 
-    nav div {
+nav a {
+    color: #404040;
+    font-weight: 800;
+    height: 50px;
+    padding: 15px 15px;
+    line-height: 20px;
+    text-decoration: none;
+}
+nav a:hover {
+    color: #0085A1;
+}
+nav :first-child {
+    float: left;
+    font-size: 18px;
+}
+nav :not(:first-child) {
+    float: right;
+    font-size: 12px;
+}
+
+@media screen and (min-width: 768px){ /*电脑*/
+    .biaotib{
+    text-align:center;
+    margin-top: 1em;
+    font-size:3.5em;
+    color:#0bb1f5;
+    font-weight:bold;
+    cursor:default;
+    }
+
+    div.body {
+        position: relative;
+        top: 20px;
+        width: 65%;
+        margin: auto;
+    }
+} /*电脑*/
+
+@media screen and (max-width: 768px){ /*手机*/
+    .biaotib{
+    text-align:center;
+    margin-top: 1.2em;
+    font-size:2.3em;
+    color:#0bb1f5;
+    font-weight:bold;
+    cursor:default;
+    }
+
+    div.body {
+        position: relative;
+        top: 20px;
         width: 100%;
-        background-image: url('/img/nav/{% if page.nav_img %}{{ page.nav_img }}{% else %}{{ site.nav_img }}{% endif %}');
-        background-repeat: no-repeat;
-        background-size: 100%;
+        margin: auto;
     }
-    nav div:after {
-        content: "";
-        display: block;
-        padding-bottom: 40%;
-
-    }
-    nav a {
-        color: #{% if page.nav_color %}{{ page.nav_color }}{% else %}{{ site.nav_color }}{% endif %};
-        font-weight: 800;
-        height: 50px;
-        padding: 15px 15px;
-        line-height: 20px;
-        text-decoration: none;
-    }
-    nav a:hover {
-        color: #0085A1;
-    }
-    nav :first-child {
-        float: left;
-        font-size: 18px;
-    }
-    nav :not(:first-child) {
-        float: right;
-        font-size: 12px;
-    }
-
-    nav+span {
-        color: #fff;
-        text-shadow: #000 5px 0 0, #000 0 5px 0, #000 -5px 0 0, #000 0 -5px 0;
-        cursor: default;
-        font-weight: 800;
-    }
-
-    @media (min-width: 768px) { /*电脑*/
-        nav+span {
-            position: absolute;
-            left: 35%;
-            top: 25%;
-            font-size: 70px;
-        }
-
-        div.body {
-            position: relative;
-            top: 20px;
-            width: 65%;
-            margin: auto;
-        }
-    } /*电脑*/
-
-    @media (max-width: 767px) { /*手机*/
-        nav+span {
-            position: absolute;
-            left: 35%;
-            top: 15%;
-            font-size: 30px;
-        }
-
-        div.body {
-            position: relative;
-            top: 20px;
-            width: 100%;
-            margin: auto;
-        }
-    } /*手机*/
+} /*手机*/
 
     #back-top {
         position: fixed;
         left: 85%;
         bottom: 10%;
     }
+
     #back-top a {
         width: 70px;
         height: 70px;
@@ -93,11 +80,13 @@ layout: default
         -moz-transition: 2s;
         transition: 2s;
     }
+
     #back-top a:hover {
         transform: translate(0px, 20px);
         -ms-transform: translate(0px, 20px);
         -webkit-transform: translate(0px, 20px);
     }
+
     #back-top a:active {
         transform: translate(0px, -400px);
         -ms-transform: translate(0px, -400px);
@@ -108,6 +97,7 @@ layout: default
         position: relative;
         top: 300px;
     }
+
     footer img {
         position: relative;
         bottom: 50px;
@@ -128,6 +118,7 @@ layout: default
         height: 100%;
         width: 6px;
         display: inline-block;
+
         -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
         animation: stretchdelay 1.2s infinite ease-in-out;
     }
@@ -173,8 +164,9 @@ layout: default
 <nav><div>
 <a href="/">{{ site.title }}</a>
 {{ page.nav_url }}<a href="/">返回主页</a></div></nav>
-<span>{% if page.nav_text %}{{ page.nav_text }}{% else %}{% endif %}</span>
 <div class="body">
+
+<div class="biaotib">{% if page.nav_text %}{{ page.nav_text }}{% else %}{% endif %}</div>
 
 {{ content }}
 
