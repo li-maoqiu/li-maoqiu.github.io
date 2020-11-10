@@ -14,7 +14,7 @@ layout: default
     });
 </script>
 <p id="上级"></p>
-<script>if(top.location==self.location){var 返回="<div class=\"qbt\">{% if page.nav_text %}{{ page.nav_text }}{% else %}{% endif %}</div><a href=\"/\">limaoqiu.com</a> / {{ page.nav_url }}";
+<script>if(top.location==self.location){var 返回="<div class=\"qbt\">{% if page.nav_text %}{{ page.nav_text }}{% else %}{% endif %}</div><a href=\"/\">limaoqiu.com</a> / {{ page.zi_ly }}{% if page.zk_ly %}<br/>{{ page.zk_ly }}{% else %}{% endif %}";
 document.getElementById("上级").innerHTML=返回;}</script>
 
 <style>
