@@ -1,0 +1,12 @@
+.tubiao {
+	opacity:0.8;
+	filter:alpha(opacity=80); 
+	transition: all 0.3s;
+	position:relative;
+}
+.tubiao:hover {
+	opacity:1.0;
+	filter:alpha(opacity=100);
+	transform: scale(1.2);
+	z-index:10;
+}
