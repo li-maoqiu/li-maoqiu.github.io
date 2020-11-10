@@ -7,19 +7,19 @@ layout: default
         padding:0;
    }
 
-    nav div {
+    #nav {
         width: 100%;
         background-image: url('/img/nav/{% if page.nav_img %}{{ page.nav_img }}{% else %}{{ site.nav_img }}{% endif %}');
         background-repeat: no-repeat;
         background-size: 100%;
     }
-    nav div:after {
+    #nav:after {
         content: "";
         display: block;
         padding-bottom: 40%;
 
     }
-    nav a {
+    #nav a {
         color: #{% if page.nav_color %}{{ page.nav_color }}{% else %}{{ site.nav_color }}{% endif %};
         font-weight: 800;
         height: 50px;
@@ -27,19 +27,19 @@ layout: default
         line-height: 20px;
         text-decoration: none;
     }
-    nav a:hover {
+    #nav a:hover {
         color: #0085A1;
     }
-    nav :first-child {
+    #nav :first-child {
         float: left;
         font-size: 18px;
     }
-    nav :not(:first-child) {
+    #nav :not(:first-child) {
         float: right;
         font-size: 12px;
     }
 
-    nav+span {
+    #nav+span {
         color: #fff;
         text-shadow: #000 5px 0 0, #000 0 5px 0, #000 -5px 0 0, #000 0 -5px 0;
         cursor: default;
@@ -47,7 +47,7 @@ layout: default
     }
 
     @media (min-width: 768px) { /*电脑*/
-        nav+span {
+        #nav+span {
             position: absolute;
             left: 35%;
             top: 25%;
@@ -63,7 +63,7 @@ layout: default
     } /*电脑*/
 
     @media (max-width: 767px) { /*手机*/
-        nav+span {
+        #nav+span {
             position: absolute;
             left: 35%;
             top: 15%;
@@ -170,9 +170,9 @@ layout: default
     </div>
 </div> <!--加载动画结束-->
 
-<nav><div>
+<div id="nav">
 <a href="/">{{ site.title }}</a>
-{{ page.nav_url }}<a href="/">返回主页</a></div></nav>
+{{ page.nav_url }}<a href="/">返回主页</a></div>
 <span>{% if page.nav_text %}{{ page.nav_text }}{% else %}{% endif %}</span>
 <div class="body">
 
