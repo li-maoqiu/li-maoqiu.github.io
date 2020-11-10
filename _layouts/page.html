@@ -23,7 +23,7 @@ layout: default
     }
 
     nav a {
-        color: #404040;
+        color: '#{% if page.nav_color %}{{ page.nav_color }}{% else %}{{ site.nav_color }}{% endif %}';
         font-weight: 800;
         height: 50px;
         padding: 15px 15px;
@@ -51,7 +51,7 @@ layout: default
 <nav>
     <div>
         <a href="/">{{ site.title }}</a>
-        {{ page.back }}<a href="/">返回主页</a></div>
+        {{ page.url }}<a href="/">返回主页</a></div>
 </nav>
 
 {{ content }}
