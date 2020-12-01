@@ -1,15 +1,15 @@
 # Site settings
-title: 猫球博客 # 你的博客名字，可以定义修订
+title: 猫球社长 # 你的博客名字，可以定义修订
 header-img: "img/index.jpg"
 tagline: "cn"  
-description: "这里是猫球和二扯的个人博客，记录着猫球和二扯的日常、作品、笔记、小工具。"  # 一句话描述你的博客
+description: "你好，我是李猫球。"  # 一句话描述你的博客
 baseurl: ""
-url: "https://limaoqiu.com"  # 此处填写你的博客地址 
+url: "http://limaoqiu.github.io"  # 此处填写你的博客地址 
 
 # About/contact
 owner: 
   name: "李猫球" # 填写作者信息：名字
-  email: 123719932@qq.com # 填写作者信息：邮箱
+  email: haibin218@163.com # 填写作者信息：邮箱
   bio: "你好，我是李猫球。" # 填写作者信息：博客描述
 
 # Data
