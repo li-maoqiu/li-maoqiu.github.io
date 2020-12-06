@@ -13,6 +13,10 @@
     {{ content }}
 
     <script>
+    if (window != top) {
+        top.location.href = location.href;
+    }
+
     var _hmt = _hmt || [];
     (function() {
     var hm = document.createElement("script");
