@@ -1,18 +1,11 @@
 ---
 layout: page
 ---
-<script>
-    // let a=new Array(
-    //     "https://limaoqiu.com",
-    //     "/star_box"
-    // )
-    // let b = Math.floor(Math.random()*a.length);
-    // window.location.href=a[b];
+<script>/*{{ site.limaoqiu }}*/
+let a=new Array(
+"/i/star_box"
+)
+let b=new Date().getDate()+new Date().getHours();
+b=b%a.length;
+window.location.href=a[b];
 </script>
-
-
-<style>
-    body{margin:0;}
-</style>
-<iframe src="/star_box" frameborder="0" width="100%" height="100%"></iframe>
-
