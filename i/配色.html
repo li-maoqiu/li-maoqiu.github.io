@@ -1,0 +1,165 @@
+---
+layout: e0
+permalink: 配色方案
+BeiJing: 0
+BeiJing_SJ: 0
+BiaoTi: 选一个适合自己的配色方案／或者自定义一个
+h1: 配色方案
+PingLun: 1
+title: 配色
+---
+<style>
+    #预览{padding:30px;}
+    table{background-color:#00000001;}
+</style>
+
+<div id="dy_style"></div>
+
+<small>配色预览：</small>
+<div id="预览">
+    猫不喝咖啡，<br>
+    所以这里没有咖啡，<br>
+    也没有猫。<br>
+    　　　　——<a href="/" target="_blank">{{ site.title }}</a>
+</div>
+<br>
+<div id="选择"></div>
+<br>
+<small>自定义：</small><br>
+<input type='text' id="背景颜色" placeholder='背景颜色 #FFFFFF' autocomplete='off'>
+<input type='text' id="文字颜色" placeholder='文字颜色 #000000' autocomplete='off'>
+<input type='text' id="超链接颜色" placeholder='超链接颜色 #1C1B29' autocomplete='off'>
+<button onclick="预览配色()">预览</button>
+<button onclick="确定配色()">确定</button><br>
+<br>
+<div id="完整预览"></div>
+<br>
+<div id="调试"><a onclick="调试()">完全自定义</a></div>
+
+<script>
+    let 方案列表=[//br  A／1／2←按钮颜色的背景和文字分别是配色中的第a和第b个颜色
+        "hr：默认","淡绿色","淡蓝色","灰色","牛皮纸","夜间",
+
+        "hr：主题","可乐","月夜",
+        "br","红包","粽子","圣诞节／0／3",
+        "br","黑客帝国","间谍过家家／0／2",
+
+        "hr：网站","bilibili／0／1","知乎／3／1","网易云音乐／0／1",
+        "br","VSC深色","GitHub／0／1","个站商店／5／7",
+
+        "hr：猫球家族","猫球／0／1","二扯／0／1","猪又","胡糊／0／1",
+    ];
+    let 配色={
+        0:["body{background-color:",".内容,#设置{background-color:","body,td{color:","a{color:","a:hover,a:focus{color:","td{background-color:","td.tubiao:hover{background-color:","td{color:"],
+        //"配色方案":["外背景色","内背景色","正文字色","超链接","超链接点击","小菜单背景","小菜单背景点击","小菜单文字"],
+        "淡绿色":["#CDDFCD","#E5F1E5","#616361","#006699","#0085A1","#F5F5F5","#AAAAAA","#616361"],
+        "淡蓝色":["#CFDDE1","#E3F0F4","#262626","#006699","#0085A1","#F5F5F5","#AAAAAA","#262626"],
+        "淡粉色":["#EBCECE","#F5E4E4","#262626","#CF3336","#ED4259","#F5F5F5","#AAAAAA","#262626"],
+        "灰色":["#D3D3D3","#DCDCDC","#262626","#006699","#0085A1","#F5F5F5","#AAAAAA","#262626"],
+        "牛皮纸":["#DCCB9C","#F3E9C7","#262626","#CF3336","#ED4259","#F5F5F5","#AAAAAA","#262626"],
+        "夜间":["#0F1112","#17191A","#666666","#BFBFBF","#8C8C8C","#161819","#0F1112","#666666"],
+
+        "黑客帝国":["#061106","#000000","#42AA3D","#84C780","#39B207","#000000","#101010","#358831"],
+        "可乐":["#971018","#B2131D","#FDFFFA","#ffffff","#2A4E98","#971018","#850E15","#FDFFFA"],
+        "月夜":["#1B2134","#1B2134","#DFEAFF","#F9F9FE","#F9F9FE","#488DBB","#488DBB","#E3E3E3",],
+        "红包":["#EA3830","#FCB8A8","#5B0900","#EA3830","#EA3830","#FFD255","#FFD255","#E1342A",],
+        "粽子":["#B8D9B8","#EFF4ED","#3C4A40","#BA5849","#C9381C","#CA371B","#CA371B","#FFFFFF",],
+        "圣诞节":["#306547","#FFFFFF","#303030","#C81101","#EE3528","#D81601","#D81601","#FFFFFF",],
+
+        "VSC深色":["#252526","#1E1E1E","#D4D4D4","#569CD6","#9CDCFE","#333333","#333333","#CCCCCC",],
+        "个站商店":["#F3F3F3","#FFFFFF","#303133","#66B1FF","#409EFF","#E6A23C","#E6A23C","#FFFFFF",],
+        "bilibili":["#FB7299","#FFFFFF","#212121","#FB7299","#FC8BAB","#FF679A","#FF679A","#FFFDFF",],
+        "知乎":["#E7F0FF","#FFFFFF","#212121","#1974FF","#1974FF","#1974FF","#1974FF","#FFFDFF",],
+        "网易云音乐":["#EC4141","#FFFFFF","#000000","#EC4141","#EC4141","#E13E3E","#E13E3E","#FFFFFF",],
+        "GitHub":["#1E2530","#F6F8FA","#24292F","#0969DA","#0969DA","#FFFFFF","#FFFFFF","#24292F",],
+
+        "间谍过家家":["#97B1AD","#FFFFFF","#2C2827","#97B1AD","#728277","#516557","#516557","#FFFDFF",],
+
+        "猫球":["#B2E0E0","#FFFFFF","#393939","#42BEE4","#96D5E6","#DDEEF6","#DDEEF6","#3F3F3F",],
+        "二扯":["#FFCCC1","#FFFFFF","#303030","#FF736C","#D985B6","#F6E5DE","#F6E5DE","#3F3F3F",],
+        "猪又":["#FEBCC0","#FEDFDA","#662634","#E06B86","#A63C53","#FEBCC0","#DA5977","#662634"],
+        "胡糊":["#DF7460","#FFFFFF","#0D0D0D","#C66350","#8A1D09","#8D200B","#8D200B","#FFFFFF"],
+    };
+
+    if(localStorage.getItem("e1配色")){}else{localStorage.setItem("e1配色", "淡绿色");}
+    if(localStorage.getItem("e1配色")=="自定义"){配色["自定义"]=localStorage.getItem("e1自定义").split("／");}
+    let 选择配色=localStorage.getItem("e1配色");
+    let 设置dy="<table><tr>";
+        for(let i=0;方案列表.length>i;i++){
+            if (方案列表[i].indexOf("hr：") != -1){
+                let 临时=方案列表[i].split("：")[1];
+                设置dy+="</tr></table><small>"+临时+"：</small><table><tr>";
+            }else if(方案列表[i]=="br"){设置dy+="</tr></table><table><tr>";}else{
+                let 临时1=1;let 临时2=2;let 临时3=方案列表[i];
+                if (临时3.indexOf("／") != -1){
+                    临时3=临时3.split("／");
+                    临时1=临时3[1];临时2=临时3[2];临时3=临时3[0];
+                }
+            设置dy+="<td class='tubiao cursor_pointer' onclick=\"设置配色(选择配色='"+临时3+"')\" style='background-color:"+配色[临时3][临时1]+";color:"+配色[临时3][临时2]+"'>"+临时3+"</td>";
+        }
+        }
+        设置dy+="</tr></table>";
+        document.getElementById("选择").innerHTML = 设置dy;
+
+        let 取消提示=1;
+    function 设置配色(){
+        配色["自定义"]=配色[选择配色];
+        document.getElementById("dy_style").innerHTML ="<style>#预览{background-color:"+配色[选择配色][1]+";color:"+配色[选择配色][2]+";}#预览 a{color:"+配色[选择配色][3]+";}<style>";
+            localStorage.setItem("e1配色", "自定义");
+            let dyy="／";
+            for(let i=0;配色[选择配色].length>i;i++){
+                dyy+="／"+配色[选择配色][i];
+            }
+            dyy=dyy.replace(/／／/g, "");
+            localStorage.setItem("e1自定义", dyy);
+            if(取消提示==1){取消提示=0}else{notyf.confirm("已更改");}完整预览();
+        }
+        设置配色();
+
+    function 预览配色(){document.getElementById("dy_style").innerHTML ="<style>#预览{background-color:"+document.getElementById("背景颜色").value+";color:"+document.getElementById("文字颜色").value+";}#预览 a{color:"+document.getElementById("超链接颜色").value+";}<style>";}
+
+    function 确定配色(){
+        let A0=document.getElementById("背景颜色").value;
+        let A1=document.getElementById("文字颜色").value;
+        let A2=document.getElementById("超链接颜色").value;
+        A0=A0+"／"+A0+"／"+A1+"／"+A2+"／"+A2+"／"+A0+"／"+A0;
+        notyf.confirm("已保存");
+        localStorage.setItem("e1配色", "自定义");
+        localStorage.setItem("e1自定义", A0);
+        完整预览();
+    }
+
+    function 完整预览(){
+        document.getElementById("完整预览").innerHTML = "<small>完整预览：（自定义的配色方案需要确定才能使用完整预览）</small><iframe src='/配色/预览' height='600px' width='100%' scrolling='no'></iframe>";
+    }
+    
+    function 调试(){
+    let 临时1=["外背景色","内背景色","正文字色","超链接","超链接点击","小菜单背景","小菜单背景点击","小菜单文字"];
+    let 临时2="";
+    for(let i=0;临时1.length>i;i++){临时2+="<small>"+临时1[i]+"</small><input type='text' id='调试"+i+"' placeholder='"+临时1[i]+" "+配色["淡绿色"][i]+"' autocomplete='off'>　";if(i==2||i==4){临时2+="<br>";}}
+    document.getElementById("调试").innerHTML = 临时2+"<br><button onclick='调试确定()'>确定</button><br><br><div id='开启调试'><a onclick='开启调试()'>调试</a></div>";}
+    function 调试确定(){
+        let 临时="";
+        for(let i=0;8>i;i++){
+            临时+="\""+document.getElementById("调试"+i).value+"\",";
+        }
+        制=临时;
+        复();
+        临时=临时.replace(/"/g, "");
+        临时=临时.replace(/,/g, "／");
+        localStorage.setItem("e1配色", "自定义");
+        localStorage.setItem("e1自定义", 临时);
+        完整预览();预览配色();
+    }
+    function 调试all(){
+        let 临时=document.getElementById("调试all").value;
+        临时=临时.replace(/"/g, "");
+        临时=临时.replace(/,/g, "／");
+        localStorage.setItem("e1配色", "自定义");
+        localStorage.setItem("e1自定义", 临时);
+        完整预览();
+        临时=临时.split("／");
+        for(let i=0;8>i;i++){document.getElementById("调试"+i).value = 临时[i];}
+    }
+    function 开启调试(){document.getElementById("开启调试").innerHTML = "<input type='text' id='调试all' onkeyup='调试all()' placeholder='调试' autocomplete='off' style='width:100%'>";}
+</script>

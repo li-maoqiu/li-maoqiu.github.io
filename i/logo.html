@@ -1,0 +1,61 @@
+---
+layout: e0
+permalink: logo
+BeiJing: 0
+BeiJing_SJ: 0
+BiaoTi: logo／猫.cafe
+h1: logo说明
+PingLun: 1
+title: logo
+---
+<style>
+    #dy img{width:40%;}
+    .a{background-color:#ffffff;}
+    .b{filter:invert(100%);}
+</style>
+
+本站logo采用像素风格设计，既有8-bit游戏的怀旧，又符合当下的极简风潮，兼具复古与时尚，不追求繁复不会因流行趋势改变而过时。<br>
+logo所展示的是本站的域名和站名“<b>猫.cafe</b>”，其中“猫”以像素化的猫咪图形展现，用横平竖直的方块去塑造自由散漫的猫，体现出本站轻松、独特的气质。符号化的图案和简单的文字搭配，方便运用各种风格进行二次创作，例图：<a href="#不同风格展示">不同风格展示</a>。<br>
+使用纯色便于根据不同需求随意改变颜色，兼容于各种配色。<br>
+根据像素精细度的不同，有<span id="logo_a1">多</span>种方案，适用不同场合。<br>
+其中<a href="#5x3">5x3</a>是将猫咪图形简化到极致的设计，仅需10个像素块即可绘制，缩小到像素级别依然可以轻松辨别<img src="/img/logo/5x3.png" class="a" height="16px">，对印刷精度的要求更低，也可以节约生产成本。<br>
+
+<hr>
+
+<a name="展示"></a><h2>展示</h2>
+
+<div id="dy"></div>
+
+<a name="不同风格展示"></a><h2>不同风格展示</h2>
+<img src="/img/logo/vi/6.jpg" width="50%"><br>
+
+<hr>
+
+<a name="效果演示"></a><h2>效果演示</h2>
+<img src="/img/logo/vi/1.jpg" width="40%"> 
+<img src="/img/logo/vi/2.jpg" width="40%"><br>
+<img src="/img/logo/vi/3.jpg" width="80%"><br>
+<img src="/img/logo/vi/4.jpg" width="80%"><br>
+<img src="/img/logo/vi/5.jpg" width="80%"><br>
+
+<hr>
+
+<a name="其他相关信息"></a><h2>其他相关信息</h2>
+数字记录：10100/11101/11110<br>
+
+<script>
+    let dy="";
+    let data=[
+        "5x3",
+        "9x6",
+        "23x14",
+    ];
+    for(let i=0;data.length>i;i++){
+        dy+="<h4>"+data[i]+"</h4>";
+        dy+="<a name='"+data[i]+"'></a><img src='/img/logo/"+data[i]+".png' alt='"+data[i]+"' class='a'>　";
+        dy+="<img src='/img/logo/"+data[i]+".png' alt='"+data[i]+"' class='b'><br><hr>";
+    }
+    document.getElementById("dy").innerHTML = dy;
+    document.getElementById("logo_a1").innerHTML = data.length;
+</script>
+
