@@ -9,7 +9,7 @@ BiaoTi: 这里什么都没有。／／你来到了世界的尽头。／／你迷
 <span id="替换">八成是我把哪里的链接写错了……</span><br>
 
 <script>
-    let 当前url=window.location.href;
+    let 当前url=decodeURI(window.location.href);
     if(当前url.indexOf("（本地）")!=-1||当前url.indexOf("／本地")!=-1){
         document.getElementById("替换").innerHTML="本页仅限本地查看。";
     }
