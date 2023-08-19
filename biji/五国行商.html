@@ -1,0 +1,104 @@
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script>
+    let h1="五国行商";
+    let nav=[];
+    let index=["自动"];
+</script><link rel="stylesheet" href="0/1.css"><div id="dy"></div><script src="0/1.js"></script><div id="a">
+
+卡牌游戏。<br>
+<br>
+
+〈h3|剧情〉<br>
+约翰和乔治原本是一对好朋友，直到他们爱上了同一个人。<br>
+他们决定公平竞争，跟随商队到世界各地旅行，结束行程后返回家乡，对比各自行商的收获，输的一方将退出对爱人的竞争。<br>
+<br>
+
+〈h3|游戏流程〉<br>
+〈h4|游戏前准备〉<br>
+路线牌（编号1-5各2张）：前5张正面朝下铺于场上，后5张丢弃。<br>
+事件牌（编号1-6各2张）：正面朝下。<br>
+行商牌（编号1-75各1张）：正面朝下。<br>
+金钱牌：每人获得初始资金9，其余放置于场上。<br>
+<br>
+
+〈h4|第一回合〉<br>
+翻开前两张[路线牌]，第一张[路线牌]是本回合来到的国家，第二张是下一站会到达的国家。<br>
+  -  国家[盛产]的商品种类，在本国购买价格-1（不得低于1），出售价格-2（不得低于1）。<br>
+  -  国家[稀缺]的商品种类，在本国购买价格x2，出售价格x2。<br>
+（第二张用于让玩家提前做好准备）。<br>
+玩家轮流行动：抽取1张[行商牌]，购买或丢弃。<br>
+  - 获得的[行商牌]相当于有了购买本商品的资格，需要支付相应的金钱购买。<br>
+  - 抽取[行商牌]也可以选择从弃牌堆里拿，只能拿最顶端的牌。<br>
+购买后的商品需要放上[马车]才能带到下一个国家，没有放上马车的商品将被丢弃。<br>
+  -  每辆马车需要花费3金钱雇佣，到达下一个城市后马车需要重新雇佣。<br>
+  -  每辆马车只能放同一类商品。<br>
+[行商牌]的牌堆用尽，或者玩家放弃购买时，将第一张[路线牌]丢弃，进行下一回合。<br>
+<br>
+
+〈h4|下一回合〉<br>
+翻开第二张[路线牌]，第一张[路线牌]是本回合来到的国家。<br>
+轮流抽1张[事件牌]，效果在本回合有效。<br>
+玩家选择出售商品。<br>
+玩家轮流行动：抽取1张[行商牌]，购买或丢弃。<br>
+购买后的商品需要放上[马车]才能带到下一个国家，没有放上马车的商品将被丢弃。<br>
+[行商牌]的牌堆用尽，或者玩家放弃购买时，将第一张[路线牌]丢弃，进行下一回合。<br>
+如果没有剩余的[路线牌]，以普通卖价出售所有商品，结算双方金钱，多的一方胜利。<br>
+<br>
+
+〈h3|卡牌〉<br>
+<style>
+    .aa sub{color:#AAAAAA;}
+    .bb td{font-weight:bold;}
+</style>
+
+〈h4|路线牌〉<br>
+<table>
+    <tr class="bb"><td>国家名</td><td>位置</td><td>属性</td><td>编号</td><td>盛产</td><td>盛产</td><td>稀缺</td></tr>
+    <tr><td>圣水国</td><td>河边</td><td>金</td><td>1</td><td>农耕</td><td>水产</td><td>狩猎</td></tr>
+    <tr><td>巨木国</td><td>森林</td><td>木</td><td>2</td><td>狩猎</td><td>农耕</td><td>工艺</td></tr>
+    <tr><td>海鲸国</td><td>沿海</td><td>水</td><td>3</td><td>水产</td><td>工艺</td><td>金属</td></tr>
+    <tr><td>烈火国</td><td>沙漠</td><td>火</td><td>4</td><td>工艺</td><td>金属</td><td>农耕</td></tr>
+    <tr><td>黄山国</td><td>山地</td><td>土</td><td>5</td><td>金属</td><td>狩猎</td><td>水产</td></tr>
+</table><br>
+
+〈h4|行商牌〉<br>
+<table class="aa">
+    <tr><td></td><td><sub>购买：</sub>1<br><sub>出售：</sub>2</td><td><sub>购买：</sub>1<br><sub>出售：</sub>3</td><td><sub>购买：</sub>2<br><sub>出售：</sub>4</td><td><sub>购买：</sub>2<br><sub>出售：</sub>5</td><td><sub>购买：</sub>3<br><sub>出售：</sub>6</td></tr>
+    <tr><td rowspan="3">农耕<sub>（农）</sub></td>
+        <td><sub>01 </sub>小麦</td><td><sub>02 </sub>土豆</td><td><sub>03 </sub>南瓜</td><td><sub>04 </sub>胡萝卜</td><td><sub>05 </sub>辣椒</td></tr>
+        <tr><td><sub>06 </sub>苹果</td><td><sub>07 </sub>桔子</td><td><sub>08 </sub>草莓</td><td><sub>09 </sub>薰衣草</td><td><sub>10 </sub>香料</td></tr>
+        <tr><td><sub>11 </sub>蘑菇</td><td><sub>12 </sub>面粉</td><td><sub>13 </sub>葡萄</td><td><sub>14 </sub>菠萝</td><td><sub>15 </sub>茶叶</td></tr>
+        <tr><td rowspan="3">金属<sub>（铁）</sub></td>
+        <td><sub>16 </sub>叉子</td><td><sub>17 </sub>手套</td><td><sub>18 </sub>烛台</td><td><sub>19 </sub>盾</td><td><sub>20 </sub>吊灯</td></tr>
+        <tr><td><sub>21 </sub>银盘</td><td><sub>22 </sub>水壶</td><td><sub>23 </sub>护腿</td><td><sub>24 </sub>头盔</td><td><sub>25 </sub>胸甲</td></tr>
+        <tr><td><sub>26 </sub>餐刀</td><td><sub>27 </sub>斧子</td><td><sub>28 </sub>刀</td><td><sub>29 </sub>剑</td><td><sub>30 </sub>重剑</td></tr>
+        <tr><td rowspan="3">狩猎<sub>（猎）</sub></td>
+        <td><sub>31 </sub>鸡蛋</td><td><sub>32 </sub>羊毛</td><td><sub>33 </sub>黄油</td><td><sub>34 </sub>蜂蜜</td><td><sub>35 </sub>象牙</td></tr>
+        <tr><td><sub>36 </sub>兔肉</td><td><sub>37 </sub>牛皮</td><td><sub>38 </sub>腊肠</td><td><sub>39 </sub>牛角</td><td><sub>40 </sub>虎骨</td></tr>
+        <tr><td><sub>41 </sub>牛奶</td><td><sub>42 </sub>猪肉</td><td><sub>43 </sub>熏肉</td><td><sub>44 </sub>毛皮</td><td><sub>45 </sub>天鹅绒</td></tr>
+        <tr><td rowspan="3">工艺<sub>（艺）</sub></td>
+        <td><sub>46 </sub>木盒</td><td><sub>47 </sub>木雕</td><td><sub>48 </sub>戒指</td><td><sub>49 </sub>琥珀</td><td><sub>50 </sub>水晶球</td></tr>
+        <tr><td><sub>51 </sub>布料</td><td><sub>52 </sub>绘画</td><td><sub>53 </sub>小提琴</td><td><sub>54 </sub>蓝宝石</td><td><sub>55 </sub>古家具</td></tr>
+        <tr><td><sub>56 </sub>画框</td><td><sub>57 </sub>石像</td><td><sub>58 </sub>罗盘</td><td><sub>59 </sub>陶瓷</td><td><sub>60 </sub>佩玉</td></tr>
+        <tr><td rowspan="3">水产<sub>（海）</sub></td>
+        <td><sub>61 </sub>贝壳</td><td><sub>62 </sub>草鱼</td><td><sub>63 </sub>鱿鱼</td><td><sub>64 </sub>海参</td><td><sub>65 </sub>龙涎香</td></tr>
+        <tr><td><sub>66 </sub>海带</td><td><sub>67 </sub>海蜇</td><td><sub>68 </sub>螃蟹</td><td><sub>69 </sub>海龟</td><td><sub>70 </sub>龙虾</td></tr>
+        <tr><td><sub>71 </sub>海星</td><td><sub>72 </sub>带鱼</td><td><sub>73 </sub>鲤鱼</td><td><sub>74 </sub>金鱼</td><td><sub>75 </sub>珍珠</td></tr>
+</table><br>
+
+〈h4|事件牌〉<br>
+<ol>
+    <li><b>捡到财物</b>：当前玩家获得金钱5，当然，你也可以选择拾金不昧。</li>
+    <li><b>遗失钱包</b>：当前玩家损失金钱9。</li>
+    <li><b>遭遇劫匪</b>：遭遇劫匪抢劫，当前玩家需支付金钱5或成本为金钱5的货物，无法支付则游戏失败。</li>
+    <li><b>野兽袭击</b>：遭遇野兽袭击，需要丢弃货物减轻马车重量。当前玩家的每辆马车都需要丢弃1件货物。</li>
+    <li><b>市场饱和</b>：由于大量商人涌入，当前国家的稀缺品购买和出售价恢复正常。</li>
+    <li><b>产品滞销</b>：赶上大丰收。当前国家的所有商品购买和出售价-1，购买最低为1，出售最低为0。</li>
+</ol>
+
+
+
+
+
+
+</div>

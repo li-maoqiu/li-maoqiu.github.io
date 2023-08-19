@@ -6,4 +6,11 @@ BeiJing_SJ: 3-404
 BiaoTi: 这里什么都没有。／／你来到了世界的尽头。／／你迷路了吗？
 ---
 <b>为什么会来到这个页面？</b><br>
-八成是我把哪里的链接写错了……<br>
+<span id="替换">八成是我把哪里的链接写错了……</span><br>
+
+<script>
+    let 当前url=window.location.href;
+    if(当前url.indexOf("（本地）")!=-1||当前url.indexOf("／本地")!=-1){
+        document.getElementById("替换").innerHTML="本页仅限本地查看。";
+    }
+</script>

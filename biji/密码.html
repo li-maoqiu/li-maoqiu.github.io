@@ -1,0 +1,28 @@
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script>
+    let h1="密码";
+    let nav=[];
+    let index=[];
+</script><link rel="stylesheet" href="0/1.css"><div id="dy"></div><script src="0/1.js"></script><div id="a">
+
+<style>#页面 input,#页面 button{font-size:1.2em}</style>
+<div id="页面">
+    <input type="text" placeholder="问题" autocomplete="off" id="问题"><br>
+    <input type="text" placeholder="答案" autocomplete="off" id="答案"><br>
+    <button onclick="确定()">确定</button>
+</div>
+
+<script>
+    function 确定(){
+        let 问题=document.getElementById("问题").value;
+        let 答案=document.getElementById("答案").value;
+        if(问题!=""&&答案!=""){
+            localStorage.setItem("异梦_"+问题, 答案);
+            try{notyf.confirm("已保存")}catch(e){alert("已保存");}
+        }else{
+            try{notyf.alert("请完整输入");}catch(e){alert("请完整输入");}
+        }
+    }
+</script>
+
+</div>

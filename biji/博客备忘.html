@@ -1,0 +1,93 @@
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script>
+    let h1="博客备忘";
+    let nav=[];
+    let index=["自动"];
+</script><link rel="stylesheet" href="0/1.css"><div id="dy"></div><script src="0/1.js"></script><div id="a">
+
+〈h3|模板〉<br>
+<b>layout:</b> 模板<br>
+<b>permalink:</b> 地址<br>
+<br>
+
+<hr>
+
+〈h4|e0 <small>目录页</small>〉<br>                                     <!-- e0 -->
+<b>BeiJing:</b> 背景图片轮播 用“／”分隔 如果后缀是jpg可以省略<br>
+<b>BeiJing_SJ:</b> ↑手机版 用“／”分隔 省略/sj/ 如果后缀是jpg可以省略<br>
+<!-- 背景图片偏深色需要在文件名前加“深”字，会自动改成适合深色背景的配字。<br>
+第二个字是“底”则定位到底部。<br> -->
+
+根据情况将代号用于文件名第一位：<br>
+0 深色 顶部<br>
+1 浅色 顶部<br>
+2 深色 底部<br>
+3 浅色 底部<br>
+<br>
+
+如果创建变量（且不为空） 替换背景图片 和 替换背景图片_sj 则会替换成这些图片。<br>
+<br>
+
+table会默认白色背景，改成透明背景要加class="tm"<br>
+<br>
+
+<b>BiaoTi:</b> 标题文字 用“／”分隔<br>
+<b>h1:</b> 标题<br>
+<b>h2:</b> 标题右侧的内容，可以放返回按钮<br>
+<b>title:</b> 标题 - 猫.cafe<br>
+<b>div0:</b> 1 打开后自动跳转到内容位置<br>
+<br>
+
+<b>首页</b>：<br>
+&lt;span class="书名">旧梦&lt;/span> &lt;a href="/w/jiumeng">打开&lt;/a>&lt;br><br>
+&lt;blockquote>一场早已遗忘的旧梦。&lt;br>&lt;/blockquote><br>
+&lt;hr><br>
+<br>
+
+<b>目录</b>：<br>
+01.&lt;span class="章节">无题&lt;/span>&lt;a href="/">阅读&lt;/a>&lt;br><br>
+2022-04-11&lt;span class="章节">无题&lt;/span>&lt;a href="/">阅读&lt;/a>&lt;br><br>
+<br>
+
+<hr>
+
+〈h4|e1 <small>正文页（弃用）</small>〉 <br>                      <!-- e1 -->
+<b>ShuMing:</b> 书名<br>
+<b>MuLu:</b> 目录地址 省略最前的/<br>
+<b>ZuoZhe:</b> 作者<br>
+<b>Q:</b> 前一章编号<br>
+<b>E:</b> 后一章编号<br>
+<b>BiaoTi:</b> 本文标题<br>
+<b>ShiJian:</b> 发布时间 xxxx-xx-xx<br>
+<b>PingLun:</b> 1（是否评论）<br>
+<b>MiMa:</b> 1（是否有密码）<br>
+<b>TiHuan:</b> 替换表（需要加密，默认ix）<br>
+<br>
+<b>替换表</b>：
+<small>（其中的&lt;>是c1）</small><br>
+［记录文字&lt;前缀|显示文字|后缀>标题|内容］<br>
+［记录文字&lt;>同|目标记录文字］<br>
+［记录文字&lt;(留空自动显示为记录文字)>内容(标题留空自动显示为显示文字)］<br>
+<br>
+
+<hr>
+
+〈h4|e2 <small>正文页</small>〉<br>                             <!-- e2 -->
+（详见本地的“模板”文件，位于：/mq/文件/工作台/【待发表】/0-新模板.html）<br>
+
+<hr>
+
+〈h4|o <small>无内容</small>〉<br>
+<b>BiaoTi:</b> 改变Title<br>
+<br>
+
+<hr>
+
+〈h4|o1 <small>简陋页面</small>〉<br>
+<b>BiaoTi:</b> 改变Title<br>
+<b>h1:</b> 标题<br>
+<b>h2:</b> 标题右侧的内容，可以放放回按钮<br>
+id:index 是左侧栏<br>
+<br>
+
+</div>
