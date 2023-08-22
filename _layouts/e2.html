@@ -116,13 +116,10 @@ footer img{position: relative;bottom: 50px;display: block;margin: 0 auto;}
                 }
             }else if(临时[0]=="判断"){
                 //判断|值1|大于|值2|显示>
+                if(临时[1]=="变量"){临时[1]=临时变量["默认"];}
                 if(临时[3]=="变量"){临时[3]=临时变量["默认"];}
-                if(变量2[临时[1]]){临时[1]=变量2[临时[1]]}else{
-                    if(localStorage.getItem(书名+"_"+临时[1])){临时[1]=localStorage.getItem(书名+"_"+临时[1]);}else{临时[1]="x";}
-                }
-                if(变量2[临时[3]]){临时[3]=变量2[临时[3]]}else{
-                    if(localStorage.getItem(书名+"_"+临时[3])){临时[3]=localStorage.getItem(书名+"_"+临时[3]);}else{临时[3]="x";}
-                }
+                if(变量2[临时[1]]){临时[1]=变量2[临时[1]]}else if(localStorage.getItem(书名+"_"+临时[1])){临时[1]=localStorage.getItem(书名+"_"+临时[1]);}
+                if(变量2[临时[3]]){临时[3]=变量2[临时[3]]}else if(localStorage.getItem(书名+"_"+临时[3])){临时[3]=localStorage.getItem(书名+"_"+临时[3]);}
                 if(临时[2]=="大于"&&临时[1]>临时[3]||临时[2]=="等于"&&临时[1]==临时[3]||临时[2]=="小于"&&临时[1]<临时[3]){
                     dy+=临时[4];
                 }else if(临时[5]){
