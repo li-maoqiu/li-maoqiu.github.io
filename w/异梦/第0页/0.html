@@ -16,6 +16,8 @@ PingLun:
     .〇+small{opacity:0.75;}
 </style>
 
+<div class='内容背景'></div></div>
+
 <div id="hhvi"></div>
 
 <script>
@@ -24,14 +26,21 @@ PingLun:
 
         ["915104.1","无题",1],
 
-        ["h.0","测试"],
-        ["9151041","无题",2],
-        ["9151041","无题",1,"/","测试"],
+
 
         ["h.1","测试"],
         ["915104.1","无题",1],
         ["915104.1","无题",1],
         ["n.1"],
+
+        ["h.2","测试"],
+        ["915104.1","无题",1],
+        ["915104.1","无题",1],
+        ["n.2"],
+
+        ["h.0","测试"],
+        ["9151041","无题",2],
+        ["9151041","无题",1,"/","测试"],
 
     ];
 
@@ -41,15 +50,21 @@ PingLun:
         if(o[0].length==1){
             if(o[0]=="h"){
                 if(o[1]=="0"){
-                    dy+="</div><div class='内容背景'></div></div><br><div class='内容0'><a name='"+hhvi[i][1]+"'></a><h3>"+hhvi[i][1]+"</h3>";
+                    dy+="<div class='内容背景'></div></div><br><div class='内容0'><a name='"+hhvi[i][1]+"'></a><h3>"+hhvi[i][1]+"</h3>";
                 }
                 if(o[1]=="1"){
                     dy+="<blockquote><h3>"+hhvi[i][1]+"</h3>";
+                }
+                if(o[1]=="2"){
+                    dy+="<fieldset><legend>"+hhvi[i][1]+"</legend>"
                 }
             }
             if(o[0]=="n"){
                 if(o[1]=="1"){
                     dy+="</blockquote>";
+                }
+                if(o[1]=="2"){
+                    dy+="</fieldset>";
                 }
             }
         }else{
@@ -65,7 +80,7 @@ PingLun:
         }
 
     }
-    document.getElementById("hhvi").innerHTML=dy;
+    document.getElementById("hhvi").innerHTML="<br><div class='内容0'>"+dy;
 </script>
 
 
