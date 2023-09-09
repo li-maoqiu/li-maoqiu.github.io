@@ -12,23 +12,33 @@ PingLun:
 <style>
     .NaN{color:#D4D4D4;background-color:#D4D4D4;}
     .NaN.mohumu:hover{background-color:#ffffff00;}
+    .〇{opacity:0.1;}
+    .〇+small{opacity:0.75;}
 </style>
 
-<span class="章节">无题<sup>υ</sup></span><a href="/w/9151040">阅读</a><br>
+<div id="hhvi"></div>
 
-<br>
+<script>
+    let hhvi=[/*编号.x 标题 符号 外链 阅读按钮*/
+    [   "ι",/* 0.碎片 */    "υ",/* 1.片段 */    "σ",/* 2.单集 */    "φ",/* 3.篇章 */    ],
 
-<ol>
-    <li><span class="章节">无题<sup>υ</sup></span><a href="/w/9151040">阅读</a></li>
-</ol>
+        ["915104.1","无题",1],
+    ];
 
-<br>
+    let dy="";
+    for(let i=1;hhvi.length>i;i++){
+        let o=hhvi[i][0].split(".");
+        dy+="<small class='〇'>"+o[0]+"</small>";
+        if(o[1]){dy+="<small>"+o[1]+"</small>";}
+        if(hhvi[i][3]){
+            o=hhvi[i][3];
+        }else{
+            o="/w/"+o.join("");
+        }
+        if(!hhvi[i][4]){hhvi[i][4]="阅读"}
+        dy+="<span class='章节'>"+hhvi[i][1]+"<sup>"+hhvi[0][hhvi[i][2]]+"</sup></span><a href='"+o+"'>"+hhvi[i][4]+"</a>";
+    }
+    document.getElementById("hhvi").innerHTML=dy;
+</script>
 
-<small>9151040</small><span class="章节">无题<sup>υ</sup></span><a href="/w/9151040">阅读</a>
 
-<!--
-ι 碎片
-υ 片段
-σ 单集
-φ 篇章
--->
