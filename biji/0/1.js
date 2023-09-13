@@ -14,7 +14,10 @@ dy+="<h1>"+h1+"</h1>";
 
 if(h1!="异梦笔记"){dy+=" <nav><a href='0.html'>总目录</a>";
 for(let i=0;nav.length>i;i++){
-    if(nav[i]!="搜索"){
+    if(nav[i]=="搜索"){}
+    else if(nav[i][0]=="t"){dy+=nav[i][1]}
+    else if(nav[i]=="相关"){dy+="<br><small>相关</small>"}
+    else{
         dy+=" / <a href='";
         if(nav[i].indexOf("#")!=-1){临时=nav[i].split("#");dy+=临时[0]+".html#"+临时[1];}else{dy+=nav[i]+".html";}
         临时=nav[i].split("／");
@@ -173,8 +176,8 @@ for(let i=0;2>i;i++){
             else if(临时3[0]=="提示"){dy+="<span class=\"提示\" data-msg=\""+临时3[2]+"\">"+临时3[1]+"</span>";}
             else if(临时3[0]=="提示2"){dy+="<div class='提'>"+临时3[1]+"<span class='示'>"+临时3[2]+"</span></div>";}
             else if(临时3[0]=="复制"){dy+="<a onclick=\"复(制='"+临时3[2]+"')\">"+临时3[1]+"</a>";}
-            else if(临时3[0]=="图片"){dy+="<a onclick=\"复(制='"+临时3[1]+"')\" href='"+子页面[1]+"2/"+临时3[1]+".jpg' target='_blank'><img src='"+子页面[1]+"2/"+临时3[1]+".jpg' width="+临时3[2]+" "+临时3[3]+"></a>";}
-            else if(临时3[0]=="本地图片"){/*<small>参考图片</small><br>*/dy+="<a onclick=\"复(制='"+临时3[1]+"')\" href='"+子页面[1]+统一[0]+临时3[1]+".jpg' target='_blank'><img src='"+子页面[1]+统一[0]+临时3[1]+".jpg' onerror=\"this.src='"+子页面[1]+"2/0.jpg';this.onerror=null;\" width="+临时3[2]+" "+临时3[3]+" class='bdtp'></a>";}
+            else if(临时3[0]=="图片"){dy+="<a onclick=\"复(制='"+临时3[1]+"')\" href='"+子页面[1]+"2/"+临时3[1]+".jpg' target='_blank'><img src='"+子页面[1]+"2/"+临时3[1]+".jpg' width="+临时3[2]+" "+临时3[3]+" class='bdtp'></a>";}
+            else if(临时3[0]=="本地图片"){/*<small>参考图片</small><br>*/dy+="<a onclick=\"复(制='"+临时3[1]+"')\" href='"+子页面[1]+统一[0]+临时3[1]+".jpg' target='_blank'><img src='"+子页面[1]+统一[0]+临时3[1]+".jpg' onerror=\"this.src='"+子页面[1]+"2/0.jpg';this.onerror=null;\" width="+临时3[2]+" "+临时3[3]+" class='bdtq'></a>";}
             else if(临时3[0]=="展示"){dy+="<a onclick=\"展(示='"+i+"／"+临时3[2]+"')\" id='zs"+i+"'><sup>["+临时3[1]+"]</sup></a>";}
             else if(临时3[0]=="随机"){dy+="<div class='提'>"+临时3[1].split(",")[Math.floor(Math.random()*临时3[1].split(",").length)]+"<span class='示'>"+临时3[1]+"</span></div>";}
             else if(临时3[0]=="随机题库"){客="sjtk?t="+临时3[2];if(临时3[3]){客+="&c="+临时3[3];}if(临时3[4]){客+="&f="+临时3[4];}if(临时3[5]){客+="&m="+临时3[5];}else{客+="&m="+localStorage.getItem("sjtk_异梦笔记");}dy+="<a onclick=\"博(客='"+客+"')\">"+临时3[1]+"</a>";}
