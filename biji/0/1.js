@@ -139,7 +139,7 @@ function 解(){
 function 编辑(){
     if(window.location.href.indexOf("file:///")!=-1){
         制=window.location.href.replace(/file:\/\/\//g,"").split(":/");
-        制=制[0]+": & Code /"+decodeURI(制[1].split("#")[0])+" & exit";
+        制="C:/mq/app/code.lnk C:/"+decodeURI(制[1].split("#")[0])+" & exit";
         复();
         window.location.href="pvocmd://";
     }else{alert("编辑功能仅在本地有效。");制="C:/MQ/异梦笔记/biji/"+decodeURI(decodeURI(window.location.href.split(".cafe/biji/")[1]));复();}
@@ -194,7 +194,7 @@ for(let i=0;2>i;i++){
                     }}else{dy+=临时3[1]+"<small>(ts缺失)</small>";}}
             else if(临时3[0]=="跳转"){if(临时3[1]=="br"){index_dy+="<br>";}else if(临时3[2]){dy+="<a name='"+临时3[1]+"'>"+临时3[2]+"</a>";index_dy+="<a href='#"+临时3[1]+"'>"+临时3[2]+"</a><br>";}else{dy+="<a name='"+临时3[1]+"'></a>";index_dy+="<a href='#"+临时3[1]+"'>"+临时3[1]+"</a><br>";}}
             else if(临时3[0]=="h1"||临时3[0]=="h2"||临时3[0]=="h3"||临时3[0]=="h4"||临时3[0]=="h5"||临时3[0]=="h6"){if(临时3[2]){}else{临时3[2]=临时3[1];}dy+="<a name='"+临时3[2]+"'></a><"+临时3[0]+">"+临时3[1]+"</"+临时3[0]+">";index_dy+="<a href='#"+临时3[2]+"'>";if(临时3[0]=="h2"){index_dy+="<h3>"+临时3[1]+"</h3>";}else if(临时3[0]=="h3"){index_dy+="　<b>"+临时3[1]+"</b>";}else if(临时3[0]=="h4"){index_dy+="　"+临时3[1];}else if(临时3[0]=="h5"){index_dy+="　<small>"+临时3[1]+"</small>";}else{index_dy+=临时3[1];}index_dy+="</a><br>";}
-            else if(临时3[0]=="zk"){dy+="<a onclick=\"dw(dwb='"+临时3[2]+"',dwd='"+临时3[3]+"')\">"+临时3[1]+"</a>";}
+            else if(临时3[0]=="zk"){if(!临时3[2]){临时3[2]=临时3[1]}dy+="<a onclick=\"dw(dwb='"+临时3[2]+"',dwd='"+临时3[3]+"')\">"+临时3[1]+"</a>";}
             else if(临时3[0]=="http"||临时3[0]=="https"){dy+="<a href='"+临时3[0]+"://"+临时3[1]+"'>"+临时3[2]+"</a>";}
             else if(临时3[0]=="六维图"){
                 最后执行["六维图"]=1;
@@ -221,6 +221,9 @@ for(let i=0;2>i;i++){
             }
             else if(临时3[0]=="代码"){
                 if(代码[临时3[1]]){dy+=代码[临时3[1]]}
+            }
+            else if(临时3[0]=="s"){
+                dy+="<small>("+临时3[1]+")</small>"
             }
             else{
                 if(临时3[1].indexOf("#")!=-1){临时3[1]=临时3[1].split("#");dy+="<a href='";if(临时3[1][0]==""){dy+="#"+临时3[1][1];}else{dy+=临时3[1][0]+".html#"+临时3[1][1];}dy+="'>"+临时3[0]+"</a>";
