@@ -188,8 +188,8 @@ for(let i=0;2>i;i++){
                     }else{
                         if(!ts[临时3[1]]){ts[临时3[1]]="（条目不存在）"}
                         dy+="<div class='提'>";
-                        if(临时3[2]){dy+="<a href='"+临时3[2]+".html'>"+临时3[1]+"</a>";
-                        }else{dy+=临时3[1]}
+                        if(临时3[2]){dy+="<a href='"+临时3[2]+".html'>"+临时3[1].split("_")[0]+"</a>";
+                        }else{dy+=临时3[1].split("_")[0]}
                         dy+="<span class='示'>"+ts[临时3[1]]+"</span></div>"
                     }}else{dy+=临时3[1]+"<small>(ts缺失)</small>";}}
             else if(临时3[0]=="跳转"){if(临时3[1]=="br"){index_dy+="<br>";}else if(临时3[2]){dy+="<a name='"+临时3[1]+"'>"+临时3[2]+"</a>";index_dy+="<a href='#"+临时3[1]+"'>"+临时3[2]+"</a><br>";}else{dy+="<a name='"+临时3[1]+"'></a>";index_dy+="<a href='#"+临时3[1]+"'>"+临时3[1]+"</a><br>";}}
