@@ -9,13 +9,16 @@ PingLun: 1
 ---
 注1：以下评分和评价只是我个人的主观感受。<br>
 注2：其中“失望”的评分是指主办方的前期宣传和实际效果的落差程度。<br>
+<br>
+
+<a onclick="打印(0,'x')">时间排序</a>、<a onclick="打印(1,'x')">由好到坏</a>、<a onclick="打印(2,'x')">由坏到好</a>
 
 <div class="内容背景"></div></div><br><div class="内容0">
 
 <div id="dy"></div>
 
 <script>
-    let data=[
+    let d=[
         ["2022.7.16","西部动漫节二次元大赛吉林省赛区","乐园家","免费","2-1-1-0-2",
         "位于大型商场的大厅，留给漫展的空间足够coser游场。<br>舞台对面宽敞的阶梯可以当作观众席，可以随时坐下休息或动身游场。",
         "12:00到18:00<br>舞台以歌舞为主，偶尔有小游戏，比如coser上台走秀、随机宅舞。<br>主持人：嫣然公主、十四。嘉宾：莉莉丝、江鹤。评委：小狼、佳霖、大强、青林、华。"],
@@ -28,7 +31,7 @@ PingLun: 1
         "拥挤、无趣、非常敷衍。",
         "宣传“超大空调场地”，场地照配字“拍的有点显小现场看着更大”，实际场地并不大，拥挤，游场空间很小，走几步就到头了，空调不够，很热，而场地照因为用了广角镜头，并非“拍的显小”，反而是“拍的显大”了。<br>舞台上的节目很少，中午有很长的中场休息，下午人少了很多，没几个coser了，倒是也不拥挤了。<br>所谓的“桌游区”其实就是一个用来玩剧本杀的小桌子，所谓的“套圈”就是铺一块白布上面摆着矿泉水瓶（是的，全都是矿泉水瓶），每人可以免费玩一个圈（是的，只给一个免费的圈）。<br>说是五点结束，实际四点半就结束了。"],
         
-        ["其他","2022.7.25","夏日祭风波","大致经过：<br><ol><li>南京举办名为“夏日祭”的漫展，并宣传日式布景，被举报并引发热议。</li><li>全国名为“夏日祭”的漫展全部取消，无论是否有日式布景。</li><li>部分地区名字含有“动漫”的漫展也被取消，漫展改名为“国风展”、“国漫嘉年华”等，禁止出现日本元素。</li><li>部分漫展只允许汉服和常服，禁止lolita、JK、cos（包括国产角色）。</li></ol><br>具体见<a href='{{ site.mq }}/i/zk/5875160'>猫球日记：夏日祭风波</a>"],
+        ["x2022.7.25","夏日祭风波","大致经过：<br><ol><li>南京举办名为“夏日祭”的漫展，并宣传日式布景，被举报并引发热议。</li><li>全国名为“夏日祭”的漫展全部取消，无论是否有日式布景。</li><li>部分地区名字含有“动漫”的漫展也被取消，漫展改名为“国风展”、“国漫嘉年华”等，禁止出现日本元素。</li><li>部分漫展只允许汉服和常服，禁止lolita、JK、cos（包括国产角色）。</li></ol><br>具体见<a href='{{ site.mq }}/i/zk/5875160'>猫球日记：夏日祭风波</a>"],
         
         ["2022.8.7","七夕情牵古风歌舞会","乐园家","免费","1-0-0-x1-1",
         "位于商场内，空间较为拥挤。舞台以古风歌舞、配音秀为主，除了有游场coser外不太像漫展。<br>受夏日祭风波影响，禁止日本元素的衣服。",
@@ -39,52 +42,97 @@ PingLun: 1
         // "详情"],
 
         // ["其他","日期","标题","内容"],
-    ]
+    ];
 
     let 主办方备忘={
         "乐园家":"负责西漫（中国西部动漫节）吉林省赛区。<br>漫展的侧重点在舞台上的比赛，以歌舞比赛为主，演出完会有评委点评。<br>通常开在商场里，免费，但有很多路人。<br>舞台上的游戏环节：游场coser上台走秀、答题、随机宅舞。",
         "喜都ACG":"商场里的漫展，规模很小，几乎没有游场空间，舞台以歌舞、才艺展示、游戏环节为主，总体非常业余、尴尬，比起漫展更像群友聚会。<br>很擅长做海报，海报十分精美，宣传的内容很多，在现场都会严重缩水。<br>礼品方面挺大方，比赛能赢千元现金奖励和cos服，cosplay、JK、lolita、汉服只要参加就可以领小礼物，交流群里偶尔也有抽cos服活动。",
         // "":"",
     }
+
+    let 星={
+        "0":"０","1":"★","2":"★★","3":"★★★","4":"★★★★","5":"★★★★★！","6":"★★★★★★！！",
+        "？":"？",
+        "x1":"Ｘ","x2":"ＸＸ","x3":"ＸＸＸ","x4":"ＸＸＸＸ","x5":"<b>ＸＸＸＸＸ</b>","x6":"<b>ＸＸＸＸＸ！！</b>",
+    }
+
     let 主办方=[];
-    let dyy="<a onclick='打印(0)'>显示全部</a>　";
-    for(let i=0;data.length>i;i++){
-        if(data[i][0]!="其他"){
+    let dyy="<a onclick='打印(0,0)'>显示全部</a>　";
+    for(let i=0;d.length>i;i++){
+        if(d[i][0][0]!="x"){
             let 临时=0;
             for(let i2=0;主办方.length>i2;i2++){
-                if(主办方[i2]==data[i][2]){临时=1;break;}
+                if(主办方[i2]==d[i][2]){临时=1;break;}
             }
             if(临时==0){
-                主办方[主办方.length]=data[i][2];
-                dyy+="<a onclick='打印(\""+data[i][2]+"\")'>"+data[i][2]+"</a>　";
+                主办方[主办方.length]=d[i][2];
+                dyy+="<a onclick=\"打印('x','"+d[i][2]+"')\">"+d[i][2]+"</a>　";
             }
         }
     }
 
-    function 打印(o){
-        let dy="";
-        if(主办方备忘[o]){
-            dy+="<h2>"+o+"</h2>"+主办方备忘[o]+"<hr>";
-        }
-        let 星={
-                "0":"０","1":"★","2":"★★","3":"★★★","4":"★★★★","5":"★★★★★！","6":"★★★★★★！！",
-                "？":"？",
-                "x1":"Ｘ","x2":"ＸＸ","x3":"ＸＸＸ","x4":"ＸＸＸＸ","x5":"ＸＸＸＸＸ！","x6":"ＸＸＸＸＸＸ！！",
-            }
-        for(let i=0;data.length>i;i++){
-            if(data[i][0]=="其他"&&o=="0"){
-                dy+=data[i][1]+" <span class='书名'>"+data[i][2]+"</span><br><blockquote>"+data[i][3]+"</blockquote><hr>";
-            }else{
-                if(o=="0"||o==data[i][2]){
-                    let 临时=data[i][4].split("-");
-                    dy+=data[i][0]+" <span class='书名'>"+data[i][1]+"</span> <small>主办：</small><a onclick='打印(\""+data[i][2]+"\")'>"+data[i][2]+"</a> <small>| 价格：</small>"+data[i][3]+"<br><blockquote><ruby><rb>"+星[临时[0]]+"</rb><rt>场地</rt></ruby>　|　<ruby><rb>"+星[临时[1]]+"</rb><rt>舞台</rt></ruby>　|　<ruby><rb>"+星[临时[2]]+"</rb><rt>乐趣</rt></ruby>　|　<ruby><rb>"+星[临时[3]]+"</rb><rt>失望</rt></ruby>　|　　<b><ruby><rb>"+星[临时[4]]+"</rb><rt>总体</rt></ruby></b><br><small>简评：</small>"+data[i][5]+"<br>";
-                    if(data[i][6]&&data[i][6]!=""){dy+="<a id='a"+i+"' onclick=\"document.getElementById('a"+i+"').innerHTML='<small>更多：</small>';document.getElementById('b"+i+"').style='';\">更多</a><span id='b"+i+"' style='display:none;'>"+data[i][6]+"</span>"}
-                    dy+="</blockquote><hr>";
+    //整理
+    let 排序=[];
+    for(let i=0;d.length>i;i++){
+        if(d[i][0][0]=="x"){
+            d[i][1]=d[i][0].split("x")[1]+" <span class='书名'>"+d[i][1]+"</span>";
+            if(d[i][2]){d[i][1]+=" <a id='a"+i+"' onclick=\"document.getElementById('a"+i+"').innerHTML='<br>';document.getElementById('b"+i+"').style='';\">更多</a><span id='b"+i+"' style='display:none;'>"+d[i][2]+"</span>";}
+            //<br><blockquote>"+d[i][2]+"</blockquote><hr>
+            d[i][1]+="<hr>"
+            
+        }else{
+            let 临时=d[i][4].split("-");
+            d[i][1]=d[i][0]+" <span class='书名'>"+d[i][1]+"</span> <small>主办：</small><a onclick=\"打印('x','"+d[i][2]+"')\">"+d[i][2]+"</a> <small>| 价格：</small>"+d[i][3]+"<br><blockquote><ruby><rb>"+星[临时[0]]+"</rb><rt>场地</rt></ruby>　|　<ruby><rb>"+星[临时[1]]+"</rb><rt>舞台</rt></ruby>　|　<ruby><rb>"+星[临时[2]]+"</rb><rt>乐趣</rt></ruby>　|　<ruby><rb>"+星[临时[3]]+"</rb><rt>失望</rt></ruby>　|　　<b><ruby><rb>"+星[临时[4]]+"</rb><rt>总体</rt></ruby></b><br><small>简评：</small>"+d[i][5]+"<br>";
+            if(d[i][6]&&d[i][6]!=""){d[i][1]+="<a id='a"+i+"' onclick=\"document.getElementById('a"+i+"').innerHTML='<small>更多：</small>';document.getElementById('b"+i+"').style='';\">更多</a><span id='b"+i+"' style='display:none;'>"+d[i][6]+"</span>"}
+            d[i][1]+="</blockquote><hr>";
+            临时=d[i][4].replace(new RegExp('x',"g"),"").split("-");
+            d[i][4]=临时[4]*10-临时[3]+临时[0]*1+临时[1]*1+临时[2]*1;
+            临时=0;
+            for(let i2=0;排序.length>i2;i2++){
+                if(d[i][4]>d[排序[i2]][4]){
+                    排序.splice(i2,0,i);
+                    临时=1;
+                    break;
                 }
             }
+            if(临时==0){
+                排序[排序.length]=i;
+            }
         }
+    }
+
+    let oo;//排序方式 0时间 1好到坏 2坏到好
+    let kk;//具体内容
+
+    function 打印(o,k){
+        if(o=="x"){o=oo}else{oo=o}if(k=="x"){k=kk}else{kk=k}
+        console.log(o,k)
+        let dy="";
+
+        if(主办方备忘[k]){
+            dy+="<h2>"+k+"</h2>"+主办方备忘[k]+"<hr>";
+        }
+
+        if(o==0){
+            dy="<h2>时间排序</h2>"+dy;
+            for(let i=0;d.length>i;i++){
+                dy+=d[i][1];
+            }
+        }else if(o==1){
+            dy="<h2>由好到坏</h2>"+dy;
+            for(let i=0;排序.length>i;i++){
+                dy+=d[排序[i]][1];
+            }
+        }else if(o==2){
+            dy="<h2>由坏到好</h2>"+dy;
+            for(let i=排序.length-1;i>-1;i--){
+                dy+=d[排序[i]][1];
+            }
+        }
+
+        
         document.getElementById("dy").innerHTML=dyy+"<hr>"+dy;
     }
-    打印(0);
+    打印(0,0);
 </script>
 
