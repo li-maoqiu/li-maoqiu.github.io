@@ -12,11 +12,13 @@ PingLun:
 <style>
     .NaN{color:#D4D4D4;background-color:#D4D4D4;}
     .NaN.mohumu:hover{background-color:#ffffff00;}
-    .〇{opacity:0.05;transition:opacity 3s;}
-    .〇:hover,.〇+small,.章节 .不存在:hover{opacity:0.75;}
+    .〇{transition:opacity 3s;}
     .kong{opacity:0;}
-    .章节 .不存在{opacity:0.15;transition:opacity 1.5s;}
+    .〇{opacity:0.05;}
+    .章节 .提示{opacity:0.15;}
     .章节 sup{opacity:0.55;}
+    .〇:hover,.〇+small{opacity:0.75;}
+    .章节 .提示:hover{opacity:1;}
 </style><div id="hhvi"></div><script>let hhvi=[["ϵ","ι","υ","σ","θ","φ"],
 
 /*
@@ -133,7 +135,7 @@ PingLun:
             }
             if(!hhvi[i][4]){hhvi[i][4]="阅读"}
             dy+="<span class='章节'>";
-            if(hhvi[i][2]==0){dy+="<span class='不存在 提示' data-msg='本页无内容。'>"+hhvi[i][1]+"</span>";}
+            if(hhvi[i][2]==0){dy+="<span class='提示' data-msg='本页无内容。'>"+hhvi[i][1]+"</span>";}
             else{dy+=hhvi[i][1];}
             dy+="</span><sup>"+hhvi[0][hhvi[i][2]]+"</sup></span><a href='"+o+"'>"+hhvi[i][4]+"</a><br>";
         }
