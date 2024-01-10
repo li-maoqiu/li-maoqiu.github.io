@@ -13,9 +13,10 @@ PingLun:
     .NaN{color:#D4D4D4;background-color:#D4D4D4;}
     .NaN.mohumu:hover{background-color:#ffffff00;}
     .〇{opacity:0.05;transition:opacity 3s;}
-    .〇:hover,.〇+small{opacity:0.75;}
+    .〇:hover,.〇+small,.不存在:hover{opacity:0.75;}
     .kong{opacity:0;}
     .章节 sup{opacity:0.55;}
+    .不存在{opacity:0.15;}
 </style><div id="hhvi"></div><script>let hhvi=[["ψ","ι","υ","σ","θ","φ"],
 
 /*
@@ -131,7 +132,9 @@ PingLun:
                 o="/w/"+o.join("");
             }
             if(!hhvi[i][4]){hhvi[i][4]="阅读"}
-            dy+="<span class='章节'>"+hhvi[i][1]+"<sup>"+hhvi[0][hhvi[i][2]]+"</sup></span><a href='"+o+"'>"+hhvi[i][4]+"</a><br>";
+            dy+="<span class='章节";
+            if(hhvi[i][2]==0){dy+=" 不存在";}
+            dy+="'>"+hhvi[i][1]+"<sup>"+hhvi[0][hhvi[i][2]]+"</sup></span><a href='"+o+"'>"+hhvi[i][4]+"</a><br>";
         }
 
     }
