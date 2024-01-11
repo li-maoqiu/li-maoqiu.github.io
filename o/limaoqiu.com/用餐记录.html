@@ -9,17 +9,18 @@ PingLun:
 ---
 <style>
     .提示{text-decoration:underline;}
+    .ycjl td{border: 1px solid #cccccc50;}
 </style>
 <div id="dy"></div>
 <script>
     let data=[
         [
-            ["2024.01.11","寻食记","长春市桂林路",[2,2,2],"2人用餐，饱了，有剩。",
+            ["2024.01.11","寻食记","长春市桂林路",[2.5,2,2],"2人用餐，饱了，有剩。",
             "来的时候人不多，有几桌小情侣，说话很小声，BGM不吵，挺安静的。但服务员之间交流会喊，应该是习惯了平时人多热闹吧。<br>BGM不是普通背景音乐或者歌曲的歌单，更像搞笑视频的BGM的完整版。"],
-            ["冻梨汁",18,[3,3,3],"普通。"],
+            ["冻梨汁",18,[3,3,2.5],"普通。"],
             ["山楂猪手",68,[2,4,3],"山楂味不明显，可能起到一些解腻的作用。"],
-            ["自制豆腐",26,[4,3,2],""],
-            ["红酒荔枝牛肉粒",68,[2,4,4],"摆盘放了个巧克力罩，没啥用。<br>口感味道还不错，但调料有些重了。"],
+            ["自制豆腐",26,[3.5,2.5,2],""],
+            ["红酒荔枝牛肉粒",68,[2.5,4,4],"摆盘放了个巧克力罩，没啥用。<br>口感味道还不错，但调料有些重了。"],
             ["流沙舒芙蕾",28,[1,1,2],"面包，里面的口感像在吃泡沫，很怪，吃不惯。"],
             ["餐具",4,"---",""],
         ],
@@ -31,14 +32,14 @@ PingLun:
     }
 
     for(let i=0;data.length>i;i++){
-        let dyy="<table class='tm'><tr><td></td><td>外观</td><td>口感</td><td>味道</td><td></td></tr>";
+        let dyy="<table class='tm ycjl'><tr><td></td><td>外观</td><td>口感</td><td>味道</td><td></td></tr>";
         let 花销=0;
         for(let i2=1;data[i].length>i2;i2++){
             花销+=data[i][i2][1];
             dyy+="<tr><td><b>"+data[i][i2][0]+"</b> <small>"+data[i][i2][1]+"元</small></td><td>"+星[data[i][i2][2][0]]+"</td><td>"+星[data[i][i2][2][1]]+"</td><td>"+星[data[i][i2][2][2]]+"</td><td>"+data[i][i2][3]+"</td></tr>";
         }
         dyy+="</table>";
-        dy+="<small>"+data[i][0][0]+"</small> <span class='书名'>"+data[i][0][1]+"</span> <small>"+data[i][0][2]+"</small><br>"+data[i][0][5]+"<table class='tm'><tr><td>环境</td><td>服务</td><td>性价比</td><td>花销</td></tr><tr><td>"+星[data[i][0][3][0]]+"</td><td>"+星[data[i][0][3][1]]+"</td><td>"+星[data[i][0][3][2]]+"</td><td><span class='提示' data-msg='"+data[i][0][4]+"'>"+花销+"元</span></td></tr></table>"+dyy+"<hr>";
+        dy+="<small>"+data[i][0][0]+"</small> <span class='书名'>"+data[i][0][1]+"</span> <small>"+data[i][0][2]+"</small><br>"+data[i][0][5]+"<table class='tm ycjl'><tr><td>环境</td><td>服务</td><td>性价比</td><td>花销</td></tr><tr><td>"+星[data[i][0][3][0]]+"</td><td>"+星[data[i][0][3][1]]+"</td><td>"+星[data[i][0][3][2]]+"</td><td><span class='提示' data-msg='"+data[i][0][4]+"'>"+花销+"元</span></td></tr></table>"+dyy+"<hr>";
     }
     document.getElementById("dy").innerHTML=dy;
 </script>
