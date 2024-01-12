@@ -14,9 +14,9 @@ PingLun:
     .NaN.mohumu:hover{background-color:#ffffff00;}
     .〇{opacity:0.05;transition:opacity 3s;}
     .kong{opacity:0;}
-    .不存在{opacity:0.15;transition:opacity 1.5s;}
+    .不存在{opacity:0.15;}
     .章节 sup{opacity:0.55;}
-    .〇:hover,.〇+small,.不存在:hover{opacity:0.75;}
+    .〇:hover,.〇+small{opacity:0.75;}
 </style><div id="hhvi"></div><script>let hhvi=[["ϵ","ι","υ","σ","θ","φ"],
 
 /*
@@ -134,9 +134,14 @@ PingLun:
                 o="/w/"+o.join("");
             }
             if(!hhvi[i][4]){hhvi[i][4]="阅读"}
-            dy+="<span class='章节";
-            if(hhvi[i][2]==0){dy+=" 不存在";hhvi[i][4]="<span class='提示' data-msg='本页无内容。'>"+hhvi[i][4]+"</span>"}
-            dy+="'>"+hhvi[i][1]+"</span><sup>"+hhvi[0][hhvi[i][2]]+"</sup></span><a href='"+o+"'>"+hhvi[i][4]+"</a><br>";
+
+            if(hhvi[i][2]!=0){
+                dy+="<span class='章节'>"+hhvi[i][1]+"</span><sup>"+hhvi[0][hhvi[i][2]]+"</sup></span> <a href='"+o+"'>"+hhvi[i][4]+"</a><br>";
+            }else{
+                let 临时=encodeURI(hhvi[i][1]).replace(new RegExp('%',"g"),"");
+                if(临时.length>6){临时=临时.slice(0,6)+"...";}
+                dy+="<span class='章节 不存在 提示' data-msg='"+hhvi[i][1]+"'>"+临时+"</span><sup>"+hhvi[0][hhvi[i][2]]+"</sup></span> <a class='提示' href='"+o+"' data-msg='本页无内容。'>"+hhvi[i][4]+"</a><br>";
+            }
         }
 
     }
