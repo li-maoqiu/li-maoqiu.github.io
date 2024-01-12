@@ -109,7 +109,9 @@ PingLun:
 
 
     ];
-    let 空=["","0","00","000"]
+    let 空=["","0","00","000"];
+    let bcz=localStorage.getItem("第█页_密码");
+    if(bcz&&bcz[1]=="l"){if(bcz[0]<9){}else{bcz=1}}
 
     let dy="";
     for(let i=1;hhvi.length>i;i++){
@@ -138,14 +140,17 @@ PingLun:
             if(hhvi[i][2]!=0){
                 dy+="<span class='章节'>"+hhvi[i][1]+"</span><sup>"+hhvi[0][hhvi[i][2]]+"</sup></span> <a href='"+o+"'>"+hhvi[i][4]+"</a><br>";
             }else{
-                let 临时=encodeURI(hhvi[i][1]).replace(new RegExp('%',"g"),"");
-                if(临时.length>6){临时=临时.slice(0,6)+"...";}
-                dy+="<span class='章节 不存在 提示' data-msg='"+hhvi[i][1]+"'>"+临时+"</span><sup>"+hhvi[0][hhvi[i][2]]+"</sup></span> <a class='提示' href='"+o+"' data-msg='本页无内容。'>"+hhvi[i][4]+"</a><br>";
+                let 临时;
+                if(bcz==1){临时=hhvi[i][1]}else{
+                    临时=encodeURI(hhvi[i][1]).replace(new RegExp('%',"g"),"");
+                    if(临时.length>6){临时=临时.slice(0,6)+"...";}
+                }
+                dy+="<span class='章节 不存在 提示'>"+临时+"</span><sup>"+hhvi[0][hhvi[i][2]]+"</sup></span> <a class='提示' href='"+o+"' data-msg='本页无内容。'>"+hhvi[i][4]+"</a><br>";
             }
         }
 
     }
-    console.log(localStorage.getItem("__密码"))
+
     document.getElementById("hhvi").innerHTML=dy;
 </script>
 
