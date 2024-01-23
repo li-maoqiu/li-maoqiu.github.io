@@ -143,9 +143,9 @@ PingLun:
                 let 临时;
                 if(bcz==1){临时=hhvi[i][1]}else{
                     临时=encodeURI(hhvi[i][1]).replace(new RegExp('%',"g"),"");
-                    if(临时.length>6){临时=临时.slice(0,6)+"...";}
+                    if(临时.length>6){临时=临时.slice(0,6)+"..";}
                 }
-                dy+="<span class='章节 不存在 提示'>"+临时+"</span><sup>"+hhvi[0][hhvi[i][2]]+"</sup></span> <a class='提示' href='"+o+"' data-msg='本页无内容。'>"+hhvi[i][4]+"</a><br>";
+                dy+="<span class='章节 不存在'>"+临时+"</span><sup>"+hhvi[0][hhvi[i][2]]+"</sup></span> <a class='提示' href='"+o+"' data-msg='本页无内容。'>"+hhvi[i][4]+"</a><br>";
             }
         }
 
