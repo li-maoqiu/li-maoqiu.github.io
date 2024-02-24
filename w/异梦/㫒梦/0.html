@@ -14,7 +14,7 @@ PingLun:
     .nwn4ow{filter:blur(3.5px)}.nwn4ow:hover{animation:duid 3s linear 1}
     .〇{opacity:0.05;transition:opacity 3s}
     .kong{opacity:0}
-    .不存在{opacity:0.15}
+    .不存在{opacity:0.4;filter:url(#Eror)}
     .章节 sup{opacity:0.55}
     .〇:hover,.〇+small{opacity:0.75}
     .〇:hover{animation:duib 2s linear 1}
@@ -149,7 +149,7 @@ PingLun:
                     临时=encodeURI(hhvi[i][1]).replace(new RegExp('%',"g"),"");
                     if(临时.length>6){临时=临时.slice(0,6)+"..";}
                 }
-                dy+="<span class='章节 不存在'>"+临时+"</span><sup>"+hhvi[0][hhvi[i][2]]+"</sup></span> <a class='提示' href='"+o+"' data-msg='本页无内容。'>"+hhvi[i][4]+"</a><br>";
+                dy+="<span class='章节 不存在'>"+临时+"</span><sup>"+hhvi[0][hhvi[i][2]]+"</sup></span> <a class='提示' href='"+o+"' data-msg='本页暂无内容'>"+hhvi[i][4]+"</a><br>";
             }
         }
 
