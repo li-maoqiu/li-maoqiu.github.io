@@ -3,10 +3,10 @@ layout: e0
 permalink: _
 BeiJing: 0
 BeiJing_SJ: 0
-BiaoTi: �����／��������／����／／㫒夢／䏑酃靥／咘憶枾䛺／／_／　　　／锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘／／加载中..／%E6%B5%8B%E8%AF%95／加载失／ÊµãËØï／加██載███████／　　／ꃨ붽郥誟
+BiaoTi: �����／��������／����／／_／　　／锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘／／㫒夢／䏑酃靥／咘憶枾䛺／／加载中..／%E6%B5%8B%E8%AF%95／加载失／ÊµãËØï／加██載███████／　　／ꃨ붽郥誟／／这是一部锟斤拷，／并不服务于0xEFBF，／不
 h1: 第<span class='nwn4ow'>霝</span>頁
 title: 第█頁
-h2: <a href="/异梦">㫒梦</a><br>这是一部<span class="NaN">实验作品</span>，并不服务于<span class="NaN N">读者</span>，不建议阅读。<br>另外，也不接受批评。
+h2: <a href="/异梦">㫒梦</a><span class="〇">&lt;br/></span><br><span id="th2">这是一部<span class="NaN">实验作品</span>，并不服务于<span class="NaN N">读者</span>，不建<span class="建">议</span> 阅读。<br>另外 ,也不接受批 评。</span>
 PingLun: 
 ---
 <style>
@@ -15,14 +15,18 @@ PingLun:
     .nwn4ow{filter:blur(3.5px)}.nwn4ow:hover{animation:duid 3s linear 1}
     .〇{opacity:0.05;transition:opacity 3s}
     .kong{opacity:0}
-    .不存在{opacity:0.4;filter:url(#Eror)}
+    .存在,.不存在{opacity:0.4}
+    .不存在{filter:url(#Eror)}
     .章节 sup{opacity:0.55}
     .〇:hover,.〇+small{opacity:0.75}
     .Oo:hover{animation:duib 2s linear 1}
     .〇,.NaN,.不存在,.nwn4ow{cursor:none}
     @keyframes duib{0%,90%{filter:none}100%{filter:url(#Eror)}}
-    @keyframes duic{0%,90%{filter:none;color:#D4D4D4;background-color:#D4D4D4}100%{filter:url(#Eror);color:var(--body-color);background-color:#00000000}}
+    @keyframes duic{0%,90%{filter:none;color:#D4D4D4;background-color:#D4D4D4}100%{filter:url(#Eror);color:var(--body-color);background-color:#40440400}}
     @keyframes duid{0%,100%{filter:blur(3.5px)}30%,45%,60%,70%{filter:blur(0)}40%,65%{filter:url(#Eror)}}
+
+    .建{animation:议 3s linear 1}
+    @keyframes 议{0%,100%{position:relative}30%,45%,60%,70%{position:relative}40%,65%{position:absolute}}
 </style><div id="hhvi"></div><script>let hhvi=[["ϵ","ι","υ","σ","θ","φ"],
 
 /*
@@ -148,21 +152,33 @@ PingLun:
                 dy+="<span class='章节'>"+hhvi[i][1]+"</span><sup>"+hhvi[0][hhvi[i][2]]+"</sup></span> <a href='"+o+"'>"+hhvi[i][4]+"</a><br>";
             }else{
                 let 临时;
+                dy+="<span class='章节 ";
                 if(bcz==1){临时=hhvi[i][1]}else{
+                    dy+="不";
                     临时=encodeURI(hhvi[i][1]).replace(new RegExp('%',"g"),"");
                     if(临时.length>6){临时=临时.slice(0,6)+"..";}
                 }
-                dy+="<span class='章节 不存在'>"+临时+"</span><sup>"+hhvi[0][hhvi[i][2]]+"</sup></span> <a class='提示' href='"+o+"' data-msg='本页暂无内容'>"+hhvi[i][4]+"</a><br>";
+                dy+="存在'>"+临时+"</span><sup>"+hhvi[0][hhvi[i][2]]+"</sup></span> <a class='提示' href='"+o+"' data-msg='本页暂无内容'>"+hhvi[i][4]+"</a><br>";
             }
         }
 
     }
 
     document.getElementById("hhvi").innerHTML=dy;
-    //0.001 0.4
+
+    let th2={
+        1:"你好？",
+        2:"你好，我是<span class='NaN'>李夏</span>，我",
+        3:"这是<span class='NaN'>一部实验</span>作品，并不<span class='NaN N'>服务</span>于读者，不建议<span class='建'>阅</span> 读。<br>另外 ,也不接 受批评。",
+        33:"轻松设置此活动的位置。我们将无法通知事件或待办事项应再次发生@信息：是什么",
+        34:"Jake Erik, he's making you right now.",
+    }
+    th2=th2[Math.floor(Math.random()*404)]
+    // th2=th2[0]
+    if(th2){document.getElementById("th2").innerHTML=th2}
 </script>
 
-<br>
+<span class="〇"> ↩</span><br>
 
 <svg style="display:none;"><defs>
 <filter id="Eror" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="linearRGB">
