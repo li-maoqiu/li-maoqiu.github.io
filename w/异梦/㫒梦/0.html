@@ -6,7 +6,7 @@ BeiJing_SJ: 0
 BiaoTi: �����／��������／����／／_／　　／锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘锘／／㫒夢／䏑酃靥／咘憶枾䛺／／加载中..／%E6%B5%8B%E8%AF%95／加载失／ÊµãËØï／加██載███████／　　／ꃨ붽郥誟／／这是一部锟斤拷，／并不服务于0xEFBF，／不
 h1: 第<span class='nwn4ow'>霝</span>頁
 title: 第█頁
-h2: <a href="/异梦">㫒梦</a><span class="〇">&lt;br/></span><br><span id="th2">这是一部<span class="NaN">实验作品</span>，并不服务于<span class="NaN N">读者</span>，不建<span class="建">议</span> 阅读。<br>另外 ,也不接受批 评。</span>
+h2: <a href="/异梦">㫒梦</a> <span class="〇">&lt;br/></span><br><span id="th2">这是一部<span class="NaN">实验作品</span>，并不服务于<span class="NaN N">读者</span>，不建<span class="建">议</span> 阅读。<br>另外，也不接受批 评。</span>
 PingLun: 
 ---
 <style>
@@ -139,7 +139,7 @@ PingLun:
             }
         }else{
             dy+="<span class='Oo'><small class='〇'><span class='kong'>"+空[(8-o[0].length)]+"</span>"+o[0]+"</small>";
-            if(o[1]){dy+="<small>"+o[1]+".</small>";}
+            if(o[1]){dy+="<small>"+o[1]+".</small>"}
             dy+="</span>";
             if(hhvi[i][3]){
                 o=hhvi[i][3];
@@ -151,14 +151,15 @@ PingLun:
             if(hhvi[i][2]!=0){
                 dy+="<span class='章节'>"+hhvi[i][1]+"</span><sup>"+hhvi[0][hhvi[i][2]]+"</sup></span> <a href='"+o+"'>"+hhvi[i][4]+"</a><br>";
             }else{
-                let 临时;
-                dy+="<span class='章节 ";
-                if(bcz==1){临时=hhvi[i][1]}else{
-                    dy+="不";
-                    临时=encodeURI(hhvi[i][1]).replace(new RegExp('%',"g"),"");
-                    if(临时.length>6){临时=临时.slice(0,6)+"..";}
+                let 临时=[hhvi[i][1],"",""];
+                
+                if(bcz!=1){
+                    临时[0]=encodeURI(临时[0]).replace(new RegExp('%',"g"),"");
+                    if(临时[0].length>6){临时[0]=临时[0].slice(0,6)+".."}
+                    临时[1]="不";
+                    临时[2]=" class='提示' data-msg='本页暂无内容'";
                 }
-                dy+="存在'>"+临时+"</span><sup>"+hhvi[0][hhvi[i][2]]+"</sup></span> <a class='提示' href='"+o+"' data-msg='本页暂无内容'>"+hhvi[i][4]+"</a><br>";
+                dy+="<span class='章节 "+临时[1]+"存在'>"+临时[0]+"</span><sup>"+hhvi[0][hhvi[i][2]]+"</sup></span> <a href='"+o+"'"+临时[2]+">"+hhvi[i][4]+"</a><br>";
             }
         }
 
