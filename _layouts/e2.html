@@ -38,7 +38,7 @@ footer img{position: relative;bottom: 50px;display: block;margin: 0 auto;}
 <br><br><br>
 <div class="内容1">
     <div class="导航"><a href="/">{{ site.title }}</a> &nbsp;/ &nbsp;<a href="/{% if page.MuLu %}{{ page.MuLu }}{% else %}{% endif %}">{% if page.ShuMing %}{{ page.ShuMing }}{% else %}{% endif %}</a></div>
-    <h1 class="tubiao">{% if page.BiaoTi %}{{ page.BiaoTi }}{% else %}{% endif %}</h1>
+    <h1 class="tubiao" id="书名">{% if page.BiaoTi %}{{ page.BiaoTi }}{% else %}{% endif %}</h1>
     <small>{% if page.ZuoZhe %}作者: {{ page.ZuoZhe }}{% else %}{% endif %}{% if page.ShiJian %}　时间: {{ page.ShiJian }}{% else %}{% endif %}</small>
     <hr class="hr4">
     <div id="正文">加载中...</div>
@@ -71,7 +71,7 @@ footer img{position: relative;bottom: 50px;display: block;margin: 0 auto;}
     {% if page.MiMa %}if(localStorage.getItem(书名+"_密码")){wzjm_密码=localStorage.getItem(书名+"_密码");}{% else %}{% endif %}
     try{wzjm_解密();}catch(e){}
     let 正文="本页无内容。";if(wzjm_输入.indexOf("。")!=-1||wzjm_输入.indexOf("<")!=-1||wzjm_输入.indexOf(" ")!=-1){正文=wzjm_输入;}
-    else{书名=encodeURI(书名).replace(new RegExp('%',"g"),"")}
+    else{document.getElementById("书名").innerHTML=encodeURI(document.getElementById("书名").innerHTML).replace(new RegExp('%',"g"),"")}
 
     let 替换表={};
     正文=正文.replace(new RegExp('\n',"g"),"").split("〈");
