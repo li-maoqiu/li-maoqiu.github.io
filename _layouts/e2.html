@@ -70,7 +70,7 @@ footer img{position: relative;bottom: 50px;display: block;margin: 0 auto;}
     let wzjm_密码="ix";
     {% if page.MiMa %}if(localStorage.getItem(书名+"_密码")){wzjm_密码=localStorage.getItem(书名+"_密码");}{% else %}{% endif %}
     try{wzjm_解密();}catch(e){}
-    let 正文="本页无内容。";if(wzjm_输入.indexOf("。")!=-1||wzjm_输入.indexOf("<")!=-1||wzjm_输入.indexOf(" ")!=-1){正文=wzjm_输入;}
+    let 正文="本页无内容。";if(wzjm_输入.indexOf("。")!=-1||wzjm_输入.indexOf("<")!=-1||wzjm_输入.indexOf(" ")!=-1||wzjm_输入.indexOf("　")!=-1){正文=wzjm_输入;}
     else{document.getElementById("书名").innerHTML=encodeURI(document.getElementById("书名").innerHTML).replace(new RegExp('%',"g"),"")}
 
     let 替换表={};
