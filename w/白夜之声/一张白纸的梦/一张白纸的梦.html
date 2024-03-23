@@ -55,7 +55,7 @@ PingLun:
     if(号码){号码=号码.split("#")[0];}else{号码=0;}
 
     let style="position: relative;width: 60%;top: 1em;margin: auto;";
-    let 地址="/w/一张白纸的梦/m/";
+    let 地址="/w/白夜之声/一张白纸的梦/m/";
     let wzjm_密码="ix";
     let wzjm_输入="";
     function 加载(){
@@ -64,7 +64,7 @@ PingLun:
         try{
             if(号码==0){}else{
                 if(号码.length<15){
-                    let 地址="/w/一张白纸的梦/t/"+号码+".json";
+                    let 地址="/w/白夜之声/一张白纸的梦/t/"+号码+".json";
                     let GetJson = $.ajax({
                         url: 地址,
                         type: "GET",
@@ -103,7 +103,8 @@ PingLun:
             号码=0;
             notyf.alert("编号不正确。");
         }
-        if(号码==0){dy="<h1>一张白纸的梦</h1><small>本页为讽刺作品，其中标价也是作品的一部分，不是真的售卖</small><hr><input type='text' id='输入' placeholder='输入' autocomplete='off'/><button onclick='查询()'>查询</button>";document.getElementById("dy2").style = "";}
+        if(号码==0){dy="<h1>一张白纸的梦</h1><hr><input type='text' id='输入' placeholder='输入' autocomplete='off'/><button onclick='查询()'>查询</button>";document.getElementById("dy2").style = "";}
+        //<small>本页为讽刺作品，其中标价也是作品的一部分，不是真的售卖</small>
         else{document.getElementById("dy2").style = "display:none;";}
         document.getElementById("dy").innerHTML = dy;
     }
