@@ -71,7 +71,7 @@ footer img{position: relative;bottom: 50px;display: block;margin: 0 auto;}
     {% if page.MiMa %}if(localStorage.getItem(书名+"_密码")){wzjm_密码=localStorage.getItem(书名+"_密码");}{% else %}{% endif %}
     try{wzjm_解密();}catch(e){}
     let 正文="本页无内容。";if(wzjm_输入.indexOf("。")!=-1||wzjm_输入.indexOf("<")!=-1||wzjm_输入.indexOf(" ")!=-1||wzjm_输入.indexOf("　")!=-1){正文=wzjm_输入;}
-    else{document.getElementById("书名").innerHTML=encodeURI(document.getElementById("书名").innerHTML).replace(new RegExp('%',"g"),"")}
+    else{document.getElementById("书名").innerHTML=encodeURI(document.getElementById("书名").innerHTML).replace(new RegExp('%',"g"),"");document.title=document.getElementById("书名").innerHTML}
 
     let 替换表={};
     正文=正文.replace(new RegExp('\n',"g"),"").split("〈");
