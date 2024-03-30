@@ -37,9 +37,9 @@ footer img{position: relative;bottom: 50px;display: block;margin: 0 auto;}
 
 <br><br><br>
 <div class="内容1">
-    <div class="导航"><a href="/">{{ site.title }}</a> &nbsp;/ &nbsp;<a href="/{% if page.MuLu %}{{ page.MuLu }}{% else %}{% endif %}">{% if page.ShuMing %}{{ page.ShuMing }}{% else %}{% endif %}</a></div>
-    <h1 class="tubiao" id="书名">{% if page.BiaoTi %}{{ page.BiaoTi }}{% else %}{% endif %}</h1>
-    <small>{% if page.ZuoZhe %}作者: {{ page.ZuoZhe }}{% else %}{% endif %}{% if page.ShiJian %}　时间: {{ page.ShiJian }}{% else %}{% endif %}</small>
+    <div class="导航"><a href="/">{{ site.title }}</a> &nbsp;/ &nbsp;<a href="/{% if page.MuLu %}{{ page.MuLu }}{% else %}{% endif %}">{% if page.ShuMing %}{{ page.ShuMing }}{% endif %}</a></div>
+    <h1 class="tubiao" id="书名">{% if page.BiaoTi %}{{ page.BiaoTi }}{% endif %}</h1>
+    <small>{% if page.ZuoZhe %}作者: {{ page.ZuoZhe }}{% endif %}{% if page.ZuoZhe and page.ShiJian %}　{% endif %}{% if page.ShiJian %}时间: {{ page.ShiJian }}{% endif %}</small>
     <hr class="hr4">
     <div id="正文">加载中...</div>
     <a name="底部"></a>
