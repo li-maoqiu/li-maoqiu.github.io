@@ -150,7 +150,7 @@ document.getElementById('dw_x').style.display="";
 document.getElementById('dw_zz').style.display="";
 document.getElementById('dw_zz').scrollTop=0;
 if(dwd=="0"||dwd=="undefined"||dwd==""){
-let dwb2="";if (dwb.indexOf("#") != -1){dwb2="#"+dwb.split("#")[1];dwb=dwb.split("#")[0];}
+let dwb2="";if(dwb.indexOf("#")!=-1){dwb2="#"+dwb.split("#")[1];dwb=dwb.split("#")[0];}
 dwb="<iframe src=\""+dwb+".html"+dwb2+"\" frameborder=\"0\" width=\"100%\" height=\"85%\" id=\"／／"+dwb+"\"></iframe>";
 document.getElementById("dwd").innerHTML="";
 }else{document.getElementById("dwd").innerHTML="<h2>"+dwd+"</h2><hr class='hr0'>";dwd="0";}
@@ -246,7 +246,13 @@ for(let i=0;2>i;i++){
             else if(临时2[0]=="h0"){index_dy+="<br>";}
             else if(临时2[0]>0){dy+="<a href='1/"+临时2[0]+".html'>"+临时2[0]+"</a>";}
             else{
-                if(临时2[0].indexOf("#")!=-1){dy+="<a href='"+临时2[0].split("#")[0]+".html#"+临时2[0].split("#")[1]+"'>"+临时2[0].split("#")[0]+"-"+临时2[0].split("#")[1]+"</a>";}
+                if(临时2[0].indexOf("#")!=-1){
+                    if(临时2[0][0]=="#"){
+                        dy+="<a href='#"+临时2[0].split("#")[1]+"'>#"+临时2[0].split("#")[1]+"</a>"
+                    }else{
+                        dy+="<a href='"+临时2[0].split("#")[0]+".html#"+临时2[0].split("#")[1]+"'>"+临时2[0].split("#")[0]+"-"+临时2[0].split("#")[1]+"</a>";
+                    }
+                }
                 else if(临时2[0].indexOf("／")!=-1){let 临时3=临时2[0].split("／");dy+="<a href='"+临时2[0]+".html'>"+临时3[临时3.length-1].replace(new RegExp('（本地）',"g"),"")+"</a>";}
                 else{dy+="<a href='"+临时2[0]+".html'>"+临时2[0].replace(new RegExp('（本地）',"g"),"")+"</a>";}
             }
