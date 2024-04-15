@@ -1,0 +1,32 @@
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script>
+    let h1="测试";
+    let nav=[];
+    let index=["自动"];
+</script><link rel="stylesheet" href="0/1.css"><div id="dy"></div><script src="0/1.js"></script>
+
+<style>
+    td:nth-child(2):before{content:"〈";}
+    td:nth-child(2):after{content:"〉";}
+</style>
+<script src="/js/jquery.min.js"></script>
+
+<div id="a"></div>
+
+<script>
+    let d=[
+        "地址","换个名字|地址","解锁|BMM1BLdxBLd2BMM1BLd1BMiw","自动解锁|BMM5BLeoBMuaBMM3BMAyBLd1",
+        "提示|提示|这是个秘密","提示2|提示|这也是","更多|内容|更多","展示|按钮|内容","复制|复制|粘贴","随机|随,机","博客","","图片|4371409|30|alt='图片'","本地图片|11099861|30|alt='灰白'",
+        "跳转|跳转","跳转|跳转|显示","a|name|name","h3|标题|跳转","h0|1|目录","h0|0|h0","h0|2","zk|按钮|内容|标题",
+        "密码|测试|BMM1BMA4BMBiBMM1BMuiBLdv",
+        "https|limaoqiu.com|猫球博客","六维图|10|4_内容_6|6_内容_8|3_内容_10|2_内容_5|1_内容_7",
+        "代码|猫cafe","s|小字",
+
+    ];
+    let dy="<table>";
+    for(let i=0;d.length>i;i++){
+        dy+="<tr><td>〈"+d[i]+"〉</td><td>"+d[i]+"</td></tr>";
+    }
+    dy+="</table>";
+    document.getElementById("a").innerHTML=dy;
+</script>
