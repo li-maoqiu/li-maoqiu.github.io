@@ -1,47 +1,47 @@
 @import url("/i/5/all.css");
 
-body{position:relative;width:60%;top:1em;margin:auto;}
-.index{position:fixed;top:1em;left:2.5%;width:15%;height:100%;overflow:auto;}
-.index small{color:#999;}
-h1,h2,h3,h4,h5,h6,nav{display:inline;}
-h1 small{font-weight: normal;font-size:0.7em;}
-h2 small,h3 small,h4 small,h5 small,h6 small{color:var(--huise-color);}
-#index_dy h3{font-size:1.2em;}
+body{position:relative;width:60%;top:1em;margin:auto}
+.index{position:fixed;top:1em;left:2.5%;width:15%;height:100%;overflow:auto}
+.index small{color:#999}
+h1,h2,h3,h4,h5,h6,nav{display:inline}
+h1 small{font-weight:normal;font-size:0.7em}
+h2 small,h3 small,h4 small,h5 small,h6 small{color:var(--huise-color)}
+#index_dy h3{font-size:1.2em}
 #index_dy a,#index_dy a h1,#index_dy a h2,#index_dy a h3,#index_dy a h4,#index_dy a h5,#index_dy a h6{cursor:help}
-.提,.提示{position: relative;display: inline-block;border-bottom:1.5px dashed #aaa;}.提 .示{border: 2px solid #c0c0c0;visibility: hidden;width: 400px;background-color: #fff;text-align: center;border-radius: 6px;padding: 5px 0;position: absolute;z-index: 1;top: 80%;left: 50%;margin-left: -200px;}.提:hover .示{transform:translate(0,20px);transition:all 0.5s;visibility: visible;}
-.zhushi[onclick^="解(锁"]{cursor:pointer;}
-div.zhushi{display:inline;}
-.index_top a{cursor:pointer;color:var(--huise-color);}
-.qm p{display:inline;padding:10px;white-space: nowrap;}
-.hr_404{background-image:url('../2/404.jpg');background-size: auto 100%;height:30px;width:100%}
+.提,.提示{position:relative;display:inline-block;border-bottom:1.5px dashed #aaa}.提 .示{border:2px solid #c0c0c0;visibility:hidden;width:400px;background-color:#fff;text-align:center;border-radius:6px;padding:5px 0;position:absolute;z-index:1;top:80%;left:50%;margin-left:-200px}.提:hover .示{transform:translate(0,20px);transition:all 0.5s;visibility:visible}
+.zhushi[onclick^="解(锁"]{cursor:pointer}
+div.zhushi{display:inline}
+.index_top a{cursor:pointer;color:var(--huise-color)}
+.qm p{display:inline;padding:10px}/*white-space:nowrap*/
+.hr_404{background-image:url('../2/404.jpg');background-size:auto 100%;height:30px;width:100%}
 .bdtp{border:1px solid #c9ffc1}
 .bdtq{border:1px solid #ffc1c1}
-[onclick^="dw("]{border-bottom:1.5px dashed #aaa;}
+[onclick^="dw("]{border-bottom:1.5px dashed #aaa}
 
-.nav_drop{height:50px;padding:18px 1% 5px;line-height: 20px;text-decoration:none;position:relative;display:inline-block;z-index:1002}
+.nav_drop{height:50px;padding:18px 1% 5px;line-height:20px;text-decoration:none;position:relative;display:inline-block;z-index:1002}
 .nav_drop_down{display:none;position:absolute;left:-5%;background-color:#fff;min-width:160px;box-shadow:0px 8px 16px 0px #00000033}
-.nav_drop_down a{padding:8px;text-decoration:none;display:block;}
+.nav_drop_down a{padding:8px;text-decoration:none;display:block}
 .nav_drop_down a:hover{background-color:#ddd}
 .nav_drop:hover .nav_drop_down{display:block}
 
-#a br:before{content:" ↩";color:#bbb;}#a br{content: "&nbsp;" !important;}#a br::after {content: "\000A";white-space: pre;}
-#a br.a:before{content:"";}
-span.a{color:#aaa;}
+#a br:before{content:" ↩";color:#bbb}#a br{content:"&nbsp;" !important}#a br::after{content:"\000A";white-space:pre}
+#a br.br_a:before{content:""}
+span.br_a{color:#aaa}
 
-i[灰],i[白],i[绿],i[蓝],i[紫],i[黄],i[橙],i[红],i[黑],i[靛],i[青]{color:#ffffff;padding:4px;border: 1px solid #000000;}
-i[白]{background-color:#ffffff;color:#000000;}
-i[灰]{background-color:#9896A4;}
-i[绿]{background-color:#77C94B;}
-i[蓝]{background-color:#4D80BF;}
-i[紫]{background-color:#7B5BA1;}
-i[黄]{background-color:#FAE220;}
-i[橙]{background-color:#E66C00;}
-i[红]{background-color:#DF402A;}
-i[黑]{background-color:#000000;}
-i[靛]{background-color:#153FA0;}
-i[青]{background-color:#46ACC8;}
+i[灰],i[白],i[绿],i[蓝],i[紫],i[黄],i[橙],i[红],i[黑],i[靛],i[青]{color:#ffffff;padding:4px;border:1px solid #000000}
+i[白]{background-color:#ffffff;color:#000000}
+i[灰]{background-color:#9896A4}
+i[绿]{background-color:#77C94B}
+i[蓝]{background-color:#4D80BF}
+i[紫]{background-color:#7B5BA1}
+i[黄]{background-color:#FAE220}
+i[橙]{background-color:#E66C00}
+i[红]{background-color:#DF402A}
+i[黑]{background-color:#000000}
+i[靛]{background-color:#153FA0}
+i[青]{background-color:#46ACC8}
 
-@media screen and (max-width: 767px){
-    body{width: 90%;}
-    .index{display:none;}
+@media screen and (max-width:767px){
+    body{width:90%}
+    .index{display:none}
 }
