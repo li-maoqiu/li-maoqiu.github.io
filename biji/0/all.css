@@ -3,6 +3,7 @@
 --a-hover-color:#0085a1;
 --body-color:#404040;
 --huise-color:#8c8b8b;
+--qianhui-color:#c8c8c8;
 }
 
 /* 用于同步到手机时使用，版本可能很陈旧，勉强能用就行 */
@@ -17,8 +18,8 @@ h3{font-size:24px;}
 h4{font-size:20px;}
 h5{font-size:16px;}
 h6{font-size:13px;}
-h2:before,h3:before{content:"# ";color:var(--huise-color);}
-h4:before,h5:before{content:"“ ";color:var(--huise-color);}h4:after,h5:after{content:" ”\00A0";color:var(--huise-color);}
+h2:before,h3:before{content:"# ";color:var(--qianhui-color);}
+h4:before,h5:before{content:"“ ";color:var(--qianhui-color);}h4:after,h5:after{content:" ”\00A0";color:var(--qianhui-color);}
 .h0:before{content:"";}.h0:after{content:"";}
 .h5{display:inline;}
 hr{height:1px;border:none;border-top:1px solid #ddd;margin:25px 0 15px;}

@@ -247,7 +247,9 @@ for(let i=1;临时.length>i;i++){
 function 显示(o){document.getElementById("隐藏"+o).style="";document.getElementById("显示"+o).style="display:none"}
 function 不显示(o){document.getElementById("隐藏"+o).style="display:none";document.getElementById("显示"+o).style=""}
 
-window.onload=function (){
-    if(window.location.href.indexOf("#")!=-1){window.location.href=window.location.href}更新();if(window.location.href.indexOf("#")!=-1){window.location.href=window.location.href}
+window.onload=function(){
+    if(window.location.href.indexOf("#")!=-1){window.location.href=window.location.href}
+    更新();
+    if(window.location.href.indexOf("#")!=-1){window.location.href=window.location.href}
     if(最后执行["六维图"]){六维图()}
 }

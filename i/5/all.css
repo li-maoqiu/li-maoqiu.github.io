@@ -3,6 +3,7 @@
 --a-hover-color:#0085a1;
 --body-color:#404040;
 --huise-color:#8c8b8b;
+--qianhui-color:#c8c8c8;
 }/*和limaoqiu.com不完全一样*/
 
 body{background-color:#ffffff;font-family:Helvetica,Arial,"Microsoft YaHei",sans-serif,"Droid Sans Fallback";line-height:1.8;font-size:16px;color:var(--body-color);overflow-x:hidden;}
@@ -15,7 +16,7 @@ h3{font-size: 24px;}
 h4{font-size: 20px;}
 h5{font-size: 16px;}
 h6{font-size: 13px;}
-h2:before,h3:before,h4:before,h5:before,h4:after,h5:after{color:var(--huise-color);}
+h2:before,h3:before,h4:before,h5:before,h4:after,h5:after{color:var(--qianhui-color);}
 h2:before,h3:before{content:"# ";}
 h4:before{content:"“ ";}
 h4:after{content:" ”\00A0";}
