@@ -122,100 +122,91 @@ layout: default
 </head>
 
 <body>
-    <div id="打印背景图片"></div>
+<div id="打印背景图片"></div>
 
-    <div style="position: absolute;top:40%;width:100%;"><h1 class="大标题"><span class="标题">加载中..</span></h1></div>
-    <div class="左 导航"><a href="{{ site.mq }}{{ site.mq_i }}">猫球博客</a> &nbsp;<a>/</a> &nbsp;<a href="/">{{ site.title }}</a></div>
-    <div class="右 导航"><a></a></div>
-    <div style="position: absolute;top:85%;width:100%;text-align:center;" class="下箭头a"><span class="下箭头 cursor_pointer" onclick="div0()"></span></div>
-    <a style="position: absolute;top:100%;" name="内容"></a>
-    <div id="div0" style="position: absolute;top:100%;width:100%;"><div class="内容0">
+<div style="position: absolute;top:40%;width:100%;"><h1 class="大标题"><span class="标题">加载中..</span></h1></div>
+<div class="左 导航"><a href="{{ site.mq }}{{ site.mq_i }}">猫球博客</a> &nbsp;<a>/</a> &nbsp;<a href="/">{{ site.title }}</a></div>
+<div class="右 导航"><a></a></div>
+<div style="position: absolute;top:85%;width:100%;text-align:center;" class="下箭头a"><span class="下箭头 cursor_pointer" onclick="div0()"></span></div>
+<a style="position: absolute;top:100%;" name="内容"></a>
+<div id="div0" style="position: absolute;top:100%;width:100%;"><div class="内容0">
 
-    {% if page.h1 %}<h1 style="display:inline;">{{ page.h1 }}</h1> &nbsp;{{ page.h2 }}<hr>{% else %}{% endif %}
+{% if page.h1 %}<h1 style="display:inline;">{{ page.h1 }}</h1> &nbsp;{{ page.h2 }}<hr>{% else %}{% endif %}
 
-    {{ content }}
+{{ content }}
 
-    {% if page.PingLun %}{% include Valine.html %}{% endif %}
+{% if page.PingLun %}{% include Valine.html %}{% endif %}
 
-    <div class="内容背景"></div></div>
-    <footer><a href="{{ site.mq }}/maoqiu"><img class="tubiao" src="/img/footer.png" alt="关于我" title="关于我" width=120px id="footer" style=""/></a></footer>
-    <!-- <footer><a href="{{ site.mq }}/maoqiu"><img class="tubiao" src="/img/i/ufo.gif" alt="关于我" width=70px id="footer" style=""/></a></footer> -->
-    </div>
+<div class="内容背景"></div></div>
+<footer><a href="{{ site.mq }}/maoqiu"><img class="tubiao" src="/img/footer.png" alt="关于我" title="关于我" width=120px id="footer" style=""/></a></footer>
+<!-- <footer><a href="{{ site.mq }}/maoqiu"><img class="tubiao" src="/img/i/ufo.gif" alt="关于我" width=70px id="footer" style=""/></a></footer> -->
+</div>
 
-    <script>
-        let 背景图片地址="/img/nav/";
-        let 打印背景图片="";
-        if(document.body.clientWidth<768){
-            打印背景图片="{% if page.BeiJing_SJ %}{{ page.BeiJing_SJ }}{% else %}0{% endif %}";
-            if(typeof(替换背景图片_sj)!="undefined"){if(替换背景图片_sj!=""){打印背景图片=替换背景图片_sj;}}
-            背景图片地址+="sj/";
+<script>
+let 背景图片地址="/img/nav/";
+let 打印背景图片="";
+if(document.body.clientWidth<768){
+    打印背景图片="{% if page.BeiJing_SJ %}{{ page.BeiJing_SJ }}{% else %}0{% endif %}";
+    if(typeof(替换背景图片_sj)!="undefined"){if(替换背景图片_sj!=""){打印背景图片=替换背景图片_sj;}}
+    背景图片地址+="sj/";
+}else{
+    打印背景图片="{% if page.BeiJing %}{{ page.BeiJing }}{% else %}0{% endif %}";
+    if(typeof(替换背景图片)!="undefined"){if(替换背景图片!=""){打印背景图片=替换背景图片;}}
+}
+打印背景图片=打印背景图片.split("／");
+打印背景图片=打印背景图片[Math.floor(Math.random()*打印背景图片.length)];
+let 背景图片颜色="";
+if(打印背景图片[0]=="0"||打印背景图片[0]=="2"){
+    背景图片颜色=":root{--a-color:#50a3ec;--a-hover-color:#8cbee9;--body-color:#e0e0e0;--huise-color:#bbbbbb;}.内容0{background-color: #22222250;}body{background-color:#ffffff;}";
+    document.getElementById("footer").style = "filter: drop-shadow(0 0 3px #00000070) invert(100%);";
+}else{
+    document.getElementById("footer").style = "filter: drop-shadow(0 0 3px #ffffff70);";
+}
+if(打印背景图片[0]=="2"||打印背景图片[0]=="3"){
+    背景图片颜色+="body,.内容背景{background-position:bottom;}";
+}
+let jpg="";
+if (打印背景图片.indexOf(".") != -1){jpg="."+打印背景图片.split(".")[1];}else{jpg=".jpg";}
+document.getElementById("打印背景图片").innerHTML = "<style>"+背景图片颜色+"body{background-image: url('"+背景图片地址+打印背景图片+jpg+"');}.内容背景{background-image: url('"+背景图片地址+打印背景图片+jpg+"');}</style>";
+
+let 标题文字=("{% if page.BiaoTi %}{{ page.BiaoTi }}{% else %}欢迎光临。／虽然这里也没什么东西...{% endif %}／").split("／");
+let 标题=document.querySelector('.标题');
+let 标题字符=0;
+let 标题下标=0;
+let 标题换字=true;
+setInterval(function(){
+    if(标题换字){标题.innerHTML=标题文字[标题下标].slice(0,++标题字符)}
+    else{标题.innerHTML = 标题文字[标题下标].slice(0, 标题字符--)}
+    if(标题字符==标题文字[标题下标].length+3){标题换字=false}
+    else if(标题字符<0){
+        标题字符=0;
+        标题换字=true;
+        标题下标++;
+        if(标题下标>=标题文字.length){标题下标=0}
+    }
+},200)
+
+$(document).ready(function(){
+let scroll_n=0;
+$(function(){
+    $(window).scroll(function(){
+        let scroll_i=$(this).scrollTop();
+        if (scroll_i > scroll_n){
+        $('.导航').fadeOut();
+        $('.下箭头a').fadeOut();
         }else{
-            打印背景图片="{% if page.BeiJing %}{{ page.BeiJing }}{% else %}0{% endif %}";
-            if(typeof(替换背景图片)!="undefined"){if(替换背景图片!=""){打印背景图片=替换背景图片;}}
+            $('.导航').fadeIn();
+            $('.下箭头a').fadeIn();
         }
-        打印背景图片=打印背景图片.split("／");
-        打印背景图片=打印背景图片[Math.floor(Math.random()*打印背景图片.length)];
-        let 背景图片颜色="";
-        if(打印背景图片[0]=="0"||打印背景图片[0]=="2"){
-            背景图片颜色=":root{--a-color:#50a3ec;--a-hover-color:#8cbee9;--body-color:#e0e0e0;--huise-color:#bbbbbb;}.内容0{background-color: #22222250;}body{background-color:#ffffff;}";
-            document.getElementById("footer").style = "filter: drop-shadow(0 0 3px #00000070) invert(100%);";
-        }else{
-            document.getElementById("footer").style = "filter: drop-shadow(0 0 3px #ffffff70);";
-        }
-        if(打印背景图片[0]=="2"||打印背景图片[0]=="3"){
-            背景图片颜色+="body,.内容背景{background-position:bottom;}";
-        }
-        let jpg="";
-        if (打印背景图片.indexOf(".") != -1){jpg="."+打印背景图片.split(".")[1];}else{jpg=".jpg";}
-        document.getElementById("打印背景图片").innerHTML = "<style>"+背景图片颜色+"body{background-image: url('"+背景图片地址+打印背景图片+jpg+"');}.内容背景{background-image: url('"+背景图片地址+打印背景图片+jpg+"');}</style>";
+        scroll_n=scroll_i;
+    });
+});
+});
 
-        let 标题文字 = ("{% if page.BiaoTi %}{{ page.BiaoTi }}{% else %}欢迎光临。／虽然这里也没什么东西...{% endif %}／").split("／");
-        let 标题 = document.querySelector('.标题');
-        let 标题字符 = 0;
-        let 标题下标 = 0;
-        let 标题换字 = true;
-        setInterval(function () {
-            if (标题换字) {
-                标题.innerHTML = 标题文字[标题下标].slice(0, ++标题字符);
-            }
-            else {
-                标题.innerHTML = 标题文字[标题下标].slice(0, 标题字符--);
-            }
-
-            if (标题字符 == 标题文字[标题下标].length + 3) {
-                标题换字 = false;
-            }
-            else if (标题字符 < 0) {
-                标题字符 = 0;
-                标题换字 = true;
-                标题下标++;
-                if (标题下标 >= 标题文字.length) {
-                    标题下标 = 0;
-                }
-            }
-        }, 200)
-
-        $(document).ready(function() {
-        let scroll_n=0;
-        $(function() {
-            $(window).scroll(function() {
-                let scroll_i=$(this).scrollTop();
-                if (scroll_i > scroll_n){
-                $('.导航').fadeOut();
-                $('.下箭头a').fadeOut();
-                } else{
-                    $('.导航').fadeIn();
-                    $('.下箭头a').fadeIn();
-                }
-                scroll_n=scroll_i;
-            });
-        });
-        });
-
-        function div0(){
-            document.getElementById('div0').scrollIntoView();
-        }
-        {% if page.div0 %}div0(){% else %}{% endif %}
-    </script>
+function div0(){
+    document.getElementById('div0').scrollIntoView();
+}
+{% if page.div0 %}div0(){% else %}{% endif %}
+</script>
 
 </body>
