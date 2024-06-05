@@ -10,13 +10,15 @@ BiaoTi: 这里什么都没有。／／你来到了世界的尽头。／／你迷
 <br>
 
 <style>
+
 .ui-btn {
-    --btn-default-bg: #D0D0D0;
-    --btn-hover-bg: #D0D0D0;
-    --btn-transition: .3s;
+  --btn-padding: 8px 12px;
+    --btn-default-bg: #D0D0D000;
+    --btn-hover-bg: #000000;
+    --btn-transition: .2s;
     --btn-letter-spacing: .1rem;
-    --btn-animation-duration: 1.2s;
-    --btn-shadow-color: #D0D0D0;
+    --btn-animation-duration: 1.8s;
+    --btn-shadow-color: #000000;
     --hover-btn-color: var(--a-color);
     --default-btn-color: var(--a-color);
 }
@@ -52,13 +54,11 @@ BiaoTi: 这里什么都没有。／／你来到了世界的尽头。／／你迷
     background: inherit;
 }
 
-.ui-btn:hover, .ui-btn:focus {
-    background: var(--btn-hover-bg);
-}
 
-.ui-btn:hover span, .ui-btn:focus span {
-    color: var(--hover-btn-color);
-}
+/* 测试 */
+.ui-btn:focus,.ui-btn:hover{background: var(--btn-hover-bg);}
+
+.ui-btn:hover span, .ui-btn:focus span {color: var(--hover-btn-color);}
 
 .ui-btn:hover span::before, .ui-btn:focus span::before {
     animation: chitchat linear both var(--btn-animation-duration);
