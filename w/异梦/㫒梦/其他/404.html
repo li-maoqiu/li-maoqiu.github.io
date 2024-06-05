@@ -18,7 +18,7 @@ BiaoTi: 这里什么都没有。／／你来到了世界的尽头。／／你迷
     --btn-letter-spacing: .1rem;
     --btn-animation-duration: 1.8s;
     --btn-shadow-color: #000000;
-    --hover-btn-color: var(--a-color);
+    --hover-btn-color: #ff0000;
     --default-btn-color: var(--a-color);
 }
 
@@ -52,10 +52,10 @@ BiaoTi: 这里什么都没有。／／你来到了世界的尽头。／／你迷
     content:"";
     background: inherit;
 }
-.ui-btn:focus,.ui-btn:hover{background: var(--btn-hover-bg);animation:duib 2s linear 1}
-.ui-btn:hover span, .ui-btn:focus span{color: var(--hover-btn-color)}
-.ui-btn:hover span::before, .ui-btn:focus span::before{animation: chitchat linear both var(--btn-animation-duration)}
-@keyframes duib{0%,20%,60%,90%{filter:none}10%,50%,70%,100%{filter:url(#Eror)}}
+.ui-btn:focus,.ui-btn:hover{background: var(--btn-hover-bg);animation:duib 2s linear 2}
+.ui-btn:hover span,.ui-btn:focus span{color: var(--hover-btn-color)}
+.ui-btn:hover span::before,.ui-btn:focus span::before{animation: chitchat linear both var(--btn-animation-duration)}
+@keyframes duib{0%,25%,80%,100%{filter:none}20%,90%{filter:url(#Eror)}}
 @keyframes chitchat{
 0%{content:"#"}
 5%{content:"."}
