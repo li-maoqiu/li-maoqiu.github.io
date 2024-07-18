@@ -1,6 +1,6 @@
 ---
 layout: e0
-permalink: 一张白纸的梦2
+permalink: 一张白纸的梦
 BeiJing: 0
 BeiJing_SJ: 0
 BiaoTi: 一张白纸的梦
@@ -35,7 +35,6 @@ PingLun:
 15.<a name="15"></a><span class="章节">艺术的本质</span><a onclick="打开('15')">查看</a><br>
 16.<a name="16"></a><span class="章节">新生</span><a onclick="打开('16')">查看</a><br>
 17.<a name="17"></a><span class="章节">未来</span><a onclick="打开('17')">查看</a><br>
-25.<a name="25"></a><span class="章节">一幅无意义</span><a onclick="打开('25')">查看</a><br><!--可以购买，下一个人联系上一个人商议价格，使用“空气币”-->
 
 <hr>
 
@@ -51,12 +50,12 @@ PingLun:
 
 </div>
 <script>
-    let LocString=String(window.document.location.href);function GetQueryString(name){let rs=new RegExp("(^|)"+name+"=([^&]*)(&|$)","gi").exec(LocString),tmp;if(tmp=rs){return decodeURI(tmp[2])}return ""}
+    let LocString = String(window.document.location.href);function GetQueryString(name) {let rs = new RegExp("(^|)" + name + "=([^&]*)(&|$)", "gi").exec(LocString), tmp;if (tmp = rs) {return decodeURI(tmp[2]);}return "";}
     let 号码=GetQueryString("t");
-    if(号码){号码=号码.split("#")[0]}else{号码=0}
+    if(号码){号码=号码.split("#")[0];}else{号码=0;}
 
-    let style="position:relative;width:60%;top:1em;margin:auto;";
-    let 地址="/w/白夜之声/一张白纸的梦/m/";
+    let style="position: relative;width: 60%;top: 1em;margin: auto;";
+    let 地址="/w/一张白纸的梦/m/";
     let wzjm_密码="ix";
     let wzjm_输入="";
     function 加载(){
@@ -65,9 +64,9 @@ PingLun:
         try{
             if(号码==0){}else{
                 if(号码.length<15){
-                    // let 地址=;
+                    let 地址="/w/一张白纸的梦/t/"+号码+".json";
                     let GetJson = $.ajax({
-                        url: "/w/白夜之声/一张白纸的梦/t/"+号码+".json",
+                        url: 地址,
                         type: "GET",
                         dataType: "json",
                         async: false,
@@ -104,8 +103,7 @@ PingLun:
             号码=0;
             notyf.alert("编号不正确。");
         }
-        if(号码==0){dy="<h1>一张白纸的梦</h1><hr><input type='text' id='输入' placeholder='输入' autocomplete='off'/><button onclick='查询()'>查询</button>";document.getElementById("dy2").style = "";}
-        //<small>本页为讽刺作品，其中标价也是作品的一部分，不是真的售卖</small>
+        if(号码==0){dy="<h1>一张白纸的梦</h1><small>本页为讽刺作品，其中标价也是作品的一部分，不是真的售卖</small><hr><input type='text' id='输入' placeholder='输入' autocomplete='off'/><button onclick='查询()'>查询</button>";document.getElementById("dy2").style = "";}
         else{document.getElementById("dy2").style = "display:none;";}
         document.getElementById("dy").innerHTML = dy;
     }
