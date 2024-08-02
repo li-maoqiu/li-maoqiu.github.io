@@ -1,0 +1,114 @@
+---
+layout: e0
+permalink: limaoqiu.com/玩乐记录
+BeiJing: 0
+BeiJing_SJ: 0
+BiaoTi: 玩乐记录
+title: 玩乐记录
+PingLun: 
+---
+<style>
+#dy{line-height:40px;}.正{color:#1cd500}.负{color:#ff0303}.零{color:#9a9a9a}.人名{font-size:1.2em}.灰{color:#cacaca}
+.qb{display:none;}.人名 small{font-weight:200}
+</style>
+<style id="只看特定">.qb.qb{display:inline;}[onclick="只看(0,'qb')"],[onclick="只看(1,'qb')"]{font-weight:bold}</style>
+<div id="dy"></div></div>
+<script>
+let d=[//["店名","关键词 关键词","分数,事件,链接",],
+//+5非常高兴 +4很高兴 +3高兴 +2不错 +1还行
+//-5非常厌恶 -4很厌恶 -3厌恶 -2反感 -1不好 -10直接关门
+
+[/*地点*/["长春"],
+/*关键词*/["KTV"],],
+
+["Party K <small>(朝阳区红旗街)</small>","长春 KTV","-2,给好评可以免费加30分钟，让我不信任这家的评价","3,歌单还算挺全，但基本都是盗版","-1,音响略差","-1,可以手机点歌，但置顶需要VIP","1,空调可以","-1,隔音略差","-5,来的时候上一桌的东西还没收拾，叫服务员来收拾，一个果盘不肯撤走，只能放在屋里，有很多小飞虫"],
+
+
+
+
+
+
+
+
+
+];
+let 人={}
+let 人列表=[];
+for(let i=1;d.length>i;i++){
+    人列表[人列表.length]=d[i][0];
+    人[d[i][0]]=[0," <a onclick=\"this.style.display='none';document.getElementById('隐藏"+i+"').style='';\"><small>详情</small></a><div id='隐藏"+i+"' style='display:none;'><table>"];
+    for(let j=2;d[i].length>j;j++){
+        d[i][j]=d[i][j].split(",");
+        人[d[i][0]][0]+=d[i][j][0]*1;
+        人[d[i][0]][1]+="<tr><td>";
+            if(d[i][j][0]>0){
+                人[d[i][0]][1]+="<span class='正'>+"+d[i][j][0]+"</span>";
+            }else if(d[i][j][0]<0){
+                人[d[i][0]][1]+="<span class='负'>"+d[i][j][0]+"</span>";
+            }else{
+                人[d[i][0]][1]+="<span class='零'>0</span>";
+            }
+            人[d[i][0]][1]+="</td><td>";
+        if(d[i][j][2]){
+            人[d[i][0]][1]+="<a href='"+d[i][j][2]+".html'>"+d[i][j][1]+"</a>";
+        }else{
+            人[d[i][0]][1]+=d[i][j][1];
+        }
+        人[d[i][0]][1]+="</td></tr>";
+    }
+    人[d[i][0]][1]+="</table></div>";
+
+    if(人[d[i][0]][0]>0){
+        人[d[i][0]][1]="<span class='正'>+"+人[d[i][0]][0]+"</span>"+人[d[i][0]][1];
+    }else if(人[d[i][0]][0]<0){
+        人[d[i][0]][1]="<span class='负'>"+人[d[i][0]][0]+"</span>"+人[d[i][0]][1];
+    }else{
+        人[d[i][0]][1]="<span class='零'>0</span>"+人[d[i][0]][1];
+    }
+
+    人[d[i][0]][1]="<span class='qb "+d[i][1]+"'><small class='灰'>"+d[i][1]+"</small> <b class='人名'>"+d[i][0]+"</b> "+人[d[i][0]][1]+"<br><br></span>";
+}
+
+
+let dy="";
+
+    dy+="地点<sub>(<a onclick=\"只看(0,'a')\">全部</a>)</sub>："
+    for(let k=0;d[0][0].length>k;k++){
+        dy+="<a onclick=\"只看(0,'"+d[0][0][k]+"')\">"+d[0][0][k]+"</a>　";
+    }
+    dy+="<br>关键词<sub>(<a onclick=\"只看(1,'a')\">全部</a>)</sub>："
+    for(let k=0;d[0][1].length>k;k++){
+        dy+="<a onclick=\"只看(1,'"+d[0][1][k]+"')\">"+d[0][1][k]+"</a>　";
+    }
+
+    dy+="<hr>";
+
+    let y=[];
+for(let i=0;人列表.length>i;i++){
+    let 临时=0;
+    for(let ii=0;y.length>ii;ii++){
+        if(人[人列表[i]][0]>人[y[ii]][0]){ //>以大到小 <以小到大
+            y.splice(ii,0,人列表[i]);
+            临时=1;
+            break;
+        }
+    }
+    if(临时==0){
+        y[y.length]=人列表[i];
+    }
+}
+
+
+for(let i=0;y.length>i;i++){
+    dy+=人[y[i]][1];
+}
+document.getElementById("dy").innerHTML=dy;
+let 只看特定=["qb","qb"]
+
+function 只看(o,k){
+        if(k=="a"){只看特定[o]="qb";}
+        else{只看特定[o]=k;}
+        document.getElementById("只看特定").innerHTML="."+只看特定[0]+"."+只看特定[1]+"{display:inline;}[onclick=\"只看(0,'"+只看特定[0]+"')\"],[onclick=\"只看(1,'"+只看特定[1]+"')\"]{font-weight:bold}";
+    }
+
+</script>
