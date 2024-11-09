@@ -84,7 +84,7 @@ footer img{position:relative;bottom:50px;display:block;margin:0 auto}
     let 正文="本页无内容。";if(wzjm_输入.indexOf("。")!=-1||wzjm_输入.indexOf("<")!=-1||wzjm_输入.indexOf(" ")!=-1||wzjm_输入.indexOf("　")!=-1){正文=wzjm_输入;}
     else{document.getElementById("书名").innerHTML=encodeURI(document.getElementById("书名").innerHTML).replace(new RegExp('%',"g"),"");document.title=document.getElementById("书名").innerHTML}
 
-    let 替换表={};
+    let 替换表={},变量表={};
 
     正文=正文.replace(new RegExp('\n',"g"),"").split("〈");
     dy=正文[0];
@@ -135,6 +135,8 @@ footer img{position:relative;bottom:50px;display:block;margin:0 auto}
                 }
 
             // }else if(临时[0]==""){
+            }else if(临时[0]=="js"){
+                eval(临时[1]);
             }else{
                 dy+="<a class='js' onmouseout=\"dmx()\" onmousemove=\"dm(dmm='"+临时[1]+"',dmd='"+临时[0]+"')\">"+临时[0]+"</a>";
             }
