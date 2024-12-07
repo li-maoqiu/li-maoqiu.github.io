@@ -24,7 +24,7 @@ div.zhushi{display:inline}
 .nav_drop_down a:hover{background-color:#ddd}
 .nav_drop:hover .nav_drop_down{display:block}
 
-#a br:before{content:" ↩";color:#bbb}#a br{content:"&nbsp;" !important}#a br::after{content:"\000A";white-space:pre}
+#a br:before{content:" ↩";color:#d9d9d9;font-size:0.7em;}#a br{content:"&nbsp;" !important}#a br::after{content:"\000A";white-space:pre}
 #a br.br_a:before{content:""}
 span.br_a{color:#aaa}
 
