@@ -11,46 +11,48 @@ BiaoTi: 这里什么都没有。／／你来到了世界的尽头。／／你迷
 
 <style>
 .ui-btn{
-    --btn-padding: 8px 12px;
-    --btn-default-bg: #D0D0D000;
-    --btn-hover-bg: #000000;
-    --btn-transition: .2s;
-    --btn-letter-spacing: .1rem;
-    --btn-animation-duration: 1.8s;
-    --btn-shadow-color: #000000;
-    --hover-btn-color: #ff0000;
-    --default-btn-color: var(--a-color);
+    position:relative;
+    left:-12px;
+    --btn-padding:8px 12px;
+    --btn-default-bg:#D0D0D000;
+    --btn-hover-bg:#000000;
+    --btn-transition:.2s;
+    --btn-letter-spacing:.1rem;
+    --btn-animation-duration:1.8s;
+    --btn-shadow-color:#000000;
+    --hover-btn-color:#ff0000;
+    --default-btn-color:var(--a-color);
 }
 
 .ui-btn{
-    box-sizing: border-box;
-    padding: var(--btn-padding);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--default-btn-color);
-    font: var(--font-weight) var(--font-size) var(--font-family);
-    background: var(--btn-default-bg);
-    border: none;
-    cursor: pointer;
-    transition: var(--btn-transition);
-    overflow: hidden;
-    box-shadow: var(--btn-shadow);
+    box-sizing:border-box;
+    padding:var(--btn-padding);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--default-btn-color);
+    font:var(--font-weight) var(--font-size) var(--font-family);
+    background:var(--btn-default-bg);
+    border:none;
+    cursor:pointer;
+    transition:var(--btn-transition);
+    overflow:hidden;
+    box-shadow:var(--btn-shadow);
 }
 
 .ui-btn span{
-    letter-spacing: var(--btn-letter-spacing);
-    transition: var(--btn-transition);
-    box-sizing: border-box;
-    position: relative;
-    background: inherit;
+    letter-spacing:var(--btn-letter-spacing);
+    transition:var(--btn-transition);
+    box-sizing:border-box;
+    position:relative;
+    background:inherit;
 }
 
 .ui-btn span::before{
-    box-sizing: border-box;
-    position: absolute;
+    box-sizing:border-box;
+    position:absolute;
     content:"";
-    background: inherit;
+    background:inherit;
 }
 .ui-btn:focus,.ui-btn:hover{background: var(--btn-hover-bg);animation:duib 2s linear 2}
 .ui-btn:hover span,.ui-btn:focus span{color: var(--hover-btn-color)}

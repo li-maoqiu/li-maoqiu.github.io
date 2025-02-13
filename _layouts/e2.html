@@ -84,6 +84,28 @@ footer img{position:relative;bottom:50px;display:block;margin:0 auto}
     let 正文="本页无内容。";if(wzjm_输入.indexOf("。")!=-1||wzjm_输入.indexOf("<")!=-1||wzjm_输入.indexOf(" ")!=-1||wzjm_输入.indexOf("　")!=-1){正文=wzjm_输入;}
     else{document.getElementById("书名").innerHTML=encodeURI(document.getElementById("书名").innerHTML).replace(new RegExp('%',"g"),"");document.title=document.getElementById("书名").innerHTML}
 
+    function 保存代码(a,b){
+        let 临时=localStorage.getItem(书名+"_代码");
+        if(临时){localStorage.setItem(书名+"_代码",临时+"／"+a)}
+        else{localStorage.setItem(书名+"_代码",a)}
+        localStorage.setItem(书名+"_代码"+a,b)
+    }
+    function 删除代码(o){
+        let 临时=localStorage.getItem(书名+"_代码");
+        if(临时){
+            临时=临时.split("／");
+            if(临时.indexOf(o)!=-1){
+                临时=临时.filter(item=>item!==o);
+                localStorage.removeItem(书名+"_代码"+o);
+                if(临时.length>0){
+                    localStorage.setItem(书名+"_代码",临时.join("／"))
+                }else{
+                    localStorage.removeItem(书名+"_代码");
+                }
+            }
+        }
+    }
+
     let 替换表={},变量表={};
 
     正文=正文.replace(new RegExp('\n',"g"),"").split("〈");
@@ -133,7 +155,10 @@ footer img{position:relative;bottom:50px;display:block;margin:0 auto}
                         eval(临时[5]);
                     }
                 }
-
+            }else if(临时[0]=="保存代码"){
+                保存代码(临时[1],临时[2])
+            }else if(临时[0]=="删除代码"){
+                删除代码(临时[1])
             // }else if(临时[0]==""){
             }else if(临时[0]=="js"){
                 eval(临时[1]);
@@ -155,7 +180,18 @@ footer img{position:relative;bottom:50px;display:block;margin:0 auto}
         dy+=正文[i][1];
     }
 
-    document.getElementById("正文").innerHTML = dy;
+    document.getElementById("正文").innerHTML=dy;
+
+    let 执行代码=localStorage.getItem(书名+"_代码");
+    if(执行代码){
+        执行代码=执行代码.split("／");
+        for(let i=0;执行代码.length>i;i++){
+            if(执行代码[i]!=""){
+                eval(localStorage.getItem(书名+"_代码"+执行代码[i]))
+            }
+        }
+    }
+
 
     let 方案列表=["淡绿色","淡蓝色","灰色","牛皮纸","夜间",];
     let 配色={
