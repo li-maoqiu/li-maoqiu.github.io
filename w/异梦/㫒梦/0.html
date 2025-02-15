@@ -103,11 +103,11 @@ PingLun:
     空=["","0","00","000"]; //0+0=0×0 ∴+=×
 
     hhvi[0]
-    =["∅▫▪□■◉","ϵιυσθφ","⁰¹²³⁴⁵","ξεδζσΩ","∄X§NZ∑",
-    ["　","<small>H</small>","<small>H₂O</small>","<sup>C₆H₁₂O₆</sup>","<small>DNA</small>","<small>Uuo</small>"],
+    =["∅▫▪□■◉","ϵιυσθφ","012345","ξεδζσΩ","∄X§NZ∑",
+    ["　","H","H₂O","C₆H₁₂O₆","DNA","Uuo"],
     ["NE","Frag","Seg","Ep","Ch","Vol"],
     ["0%","0.1%","1%","10%","30%","100%"],
-    ["¬∃","<sup>z=z²+c</sup>","<small>1+1</small>","42","<small>E=mc²</small>","∞"]
+    ["¬∃","z=z²+c","1+1","42","E=mc²","∞"]
 ]
     hhvi[0]=hhvi[0]
     [Math.floor(Math.random()*
@@ -164,7 +164,7 @@ let
         //否则
 
             if(hhvi[i][2]!=0){
-                dy+="<span class='章节'>"+hhvi[i][1]+"</span><sup>"+hhvi[0][hhvi[i][2]]+"</sup></span> <a href='"+o+"'>"+hhvi[i][4]+"</a><br>";
+                dy+="<span class='章节'>"+hhvi[i][1]+"</span></span> <a href='"+o+"'>"+hhvi[i][4]+"</a> <sup>"+hhvi[0][hhvi[i][2]]+"</sup><br>";
             }else{
                 let 临时=[
                     hhvi[i][1]
@@ -233,7 +233,7 @@ th0=th1;
 /*存在吗?*/
 .章节 sup{              opacity:0.55
 }
-.〇:hover,.〇+small{    opacity:0.75
+.〇:hover,.〇+small,#hhvi sup{    opacity:0.75
 }
 .Oo:hover{ animation:duib 2s linear 1
 }
