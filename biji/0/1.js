@@ -36,6 +36,7 @@ const _执行a={
     "代码":()=>{if(代码[临时0[1]]){dy1js+=代码[临时0[1]]}else{alert(临时0[1]+"不存在")}},
     "a":()=>{临时0[2]=临时0[2]||临时0[1];if(临时0[2]=="0"){临时0[2]=""}dy1js+="<a name='"+临时0[1]+"'></a>"+临时0[2]},
     "s":()=>{dy1js+="<small>("+临时0[1]+")</small>"},
+    "正文":()=>{临时0[2]=临时0[2]||"打开";dy1js+="<a href='https://猫.cafe/w/"+临时0[1]+"'>"+临时0[2]+"</a>"},
     // "":()=>{},
 }
 const _执行b={
@@ -235,7 +236,7 @@ for(let i=1;临时.length>i;i++){
     dy1js+=临时2[1];
 }
     if(dy1js.indexOf("〈")!=-1){重复更新=1}
-    if(typeof(index)!="undefined"){if(index[0]=="自动"){document.getElementById("index_dy1js").innerHTML=index_dy1js}}
+    if(typeof(index)!="undefined"){if(index[0]=="自动"){index[0]="";document.getElementById("index_dy1js").innerHTML=index_dy1js}}
     if(乱=="a"){dy1js+="<br class='br_a'><br class='br_a'><br class='br_a'><br class='br_a'><br class='br_a'>"}
     dy1js=dy1js.replace(/\n/g,"").replace(/<br><br><br><br><br>/g,"<br><br class='br_a'><br class='br_a'><br class='br_a'><br class='br_a'>").replace(/<br><br><br><br>/g,"<br><br class='br_a'><br class='br_a'><br class='br_a'>").replace(/<br><br><br>/g,"<br><br class='br_a'><br class='br_a'>").replace(/<br><br>/g,"<br><br class='br_a'>").replace(/<\/div><br>/g,"</div><br class='br_a'>").replace(/ \| /g,"<span class=\"a\"> | </span>").replace(/ &gt; /g,"<span class=\"a\"> > </span>").replace(/<hr>/g,"<hr class='hr1'>").replace(/“/g,"<b>“</b>").replace(/”/g,"<b>”</b>");
     document.getElementById(乱).innerHTML=dy1js}乱="dy"}
