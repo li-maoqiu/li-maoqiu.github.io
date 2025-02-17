@@ -18,6 +18,8 @@ const _执行a={
     "复制":()=>{if(!临时0[2]){临时0[2]=临时0[1];临时0[1]="复制"}dy1js+="<a onclick=\"复(制='"+临时0[2]+"')\">"+临时0[1]+"</a>"},
     "图片":()=>{if(临时0[1].indexOf(".")==-1){临时0[1]+=".jpg"}dy1js+="<a onclick=\"复(制='"+临时0[1]+"')\" href='"+子页面[1]+"2/"+临时0[1]+"' target='_blank'><img src='"+子页面[1]+"2/"+临时0[1]+"' width="+临时0[2]+" "+临时0[3]+" class='bdtp'></a>"},
     "本地图片":()=>{if(临时0[1].indexOf(".")==-1){临时0[1]+=".jpg"}dy1js+="<a onclick=\"复(制='"+临时0[1]+"')\" href='"+子页面[1]+统一[0]+临时0[1]+"' target='_blank'><img src='"+子页面[1]+统一[0]+临时0[1]+"' onerror=\"this.src='"+子页面[1]+"2/0.jpg';this.onerror=null;\" width="+临时0[2]+" "+临时0[3]+" class='bdtq'></a>"},
+    "音频":()=>{if(临时0[1].indexOf(".")==-1){临时0[1]+=".mp3"}dy1js+="<audio class='bdtp' src='"+子页面[1]+"2/"+临时0[1]+"' controls></audio>"},
+    "本地音频":()=>{if(临时0[1].indexOf(".")==-1){临时0[1]+=".mp3"}dy1js+="<audio class='bdtq' src='"+子页面[1]+统一[0]+临时0[1]+"' controls></audio>"},
     "展示":(i)=>{dy1js+="<a onclick=\"展(示='"+i+"／"+临时0[2]+"')\" id='zs"+i+"'><sup>["+临时0[1]+"]</sup></a>"},
     "随机":()=>{dy1js+="<div class='提'>"+临时0[1].split(",")[Math.floor(Math.random()*临时0[1].split(",").length)]+"<span class='示'>"+临时0[1]+"</span></div>"},
     "t":()=>{if(typeof(ts)!="undefined"){if(临时0[1]=="0"){ts[临时0[2]]=临时0[3];if(临时0[4]){临时0=("t,"+临时0[4]).split(",")}}if(临时0[2]&&临时0[2]>-1){if(临时0[2]=="1"){dy1js+=ts[临时0[1]]}}else{ts[临时0[1]]=ts[临时0[1]]||"（条目不存在）";dy1js+="<div class='提'>";if(临时0[2]){if(临时0[2][0]!="#"){临时0[2]=临时0[2]+".html"}dy1js+="<a href='"+临时0[2]+"'>"+临时0[1].split("_")[0]+"</a>"}else{dy1js+=临时0[1].split("_")[0]}dy1js+="<span class='示'>"+ts[临时0[1]]+"</span></div>"}}else{dy1js+=临时0[1]+"<small>(ts缺失)</small>"}},
