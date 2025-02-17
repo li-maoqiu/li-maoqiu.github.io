@@ -52,6 +52,7 @@ footer img{position:relative;bottom:50px;display:block;margin:0 auto}
     <h1 class="tubiao" id="书名">{% if page.BiaoTi %}{{ page.BiaoTi }}{% endif %}</h1>
     <small>{% if page.ZuoZhe %}作者: {{ page.ZuoZhe }}{% endif %}{% if page.ZuoZhe and page.ShiJian %}　{% endif %}{% if page.ShiJian %}时间: {{ page.ShiJian }}{% endif %}{% if page.QiTa %}{{ page.QiTa }}{% endif %}</small>
     <hr class="hr4">
+    {% if page.JiaZai %}{{ page.JiaZai }}{% endif %}
     <div id="正文">加载中...</div>
     <a name="底部"></a>
 <br><br><br><br><br>
