@@ -1,3 +1,4 @@
+let 速度=60;
 let t={
 "开始":["夜路归途","夜深人静的街巷，路上没有其他行人，空气中弥漫着一股焦味，远处山峦的影子看上去像一头饥饿的巨兽，你感觉周遭有什么在躁动不安着。"],
 "结局":["结局","你成功回到了家，刚才经历的一切仿佛是一场梦。"],
@@ -15,6 +16,8 @@ let d=[
 // ["",""],
 // ["选项","","",[["","",""],["","",""]],"结局"],
 
+["特殊","涂壁"],
+["烟赌坊","途径一间赌坊，里面人声鼎沸，热闹非凡。人们叫嚷着下注，吞云吐雾，整间赌坊都笼在一片迷蒙之中。{<br>}恍惚间你竟生出玩一局试试的念头。{<br>}忽然一阵冷风吹过，你清醒过来。{<br>}哪有什么赌坊，面前只有一片焚烧过的废墟。"],
 ["破庙","一间破破烂烂的小庙，看不出有人居住的痕迹，你隐约感觉到里面有什么不好的东西。"],
 ["杀生石","你捡到一块不断散发毒气的石头，在中毒之前赶紧扔到了一边。"],
 ["神便鬼毒酒","你闻到一股好闻的酒味，一切魑魅魍魉都暂时远离了你。"],
@@ -41,13 +44,13 @@ let d=[
 ];
 let 特殊={};
 let 执行={
-"应声虫":()=>{当前=["应声虫"];特殊["应声虫"]=5;d.splice(随机数,1);输入("你终于遇到一个行人，他好心提醒你：「天黑了，天黑了，快些回家吧，快些回家吧。」");},
+"应声虫":()=>{当前=["应声虫"];特殊["应声虫"]=7;d.splice(随机数,1);输入("你终于遇到一个行人，他好心提醒你：「天黑了，天黑了，快些回家吧，快些回家吧。」");},
 "执行_应声虫":(a,b)=>{document.getElementById("按钮").innerHTML="<br><a onclick='"+a+"()'>"+b+"，"+b+"</a>";特殊["应声虫"]-=1;},
 "血月":()=>{
     if(!特殊["血月"]||特殊["血月"]&&特殊["血月"]==0){特殊["血月"]=1}else{特殊["血月"]+=1}
     当前=["特殊","血月"];
+    标题=t["血月"+特殊["血月"]][0];
     输入(t["血月"+特殊["血月"]][1]);
-    document.getElementById("标题").innerHTML=t["血月"+特殊["血月"]][0];
     if(特殊["血月"]==3){
     document.getElementById("按钮").innerHTML="<br><a onclick='下一页()'>继续赶路……？</a>";
     }else if(特殊["血月"]==4){
@@ -57,11 +60,35 @@ let 执行={
     document.getElementById("按钮").innerHTML="<br><a onclick='下一页()'>继续赶路</a>";
     }
 },
+"涂壁":()=>{标题="涂壁";输入("你被一面巨大的墙壁挡住去路，高耸入云，左右都望不到尽头。{<br>}正当你一筹莫展之时，墙壁发出一阵闷沉而巨大的声响，它向你提问：「何物越洗越脏？」{<br><br><input id='涂壁回答' type='text' placeholder='你的回答' autocomplete='off'>　<a onclick=\"执行['执行_涂壁']()\">你如此回答</a>。}")},
+"执行_涂壁":()=>{
+let 临时=document.getElementById("涂壁回答").value;
+if(临时=="水"){
+    d.splice(随机数,1);
+    输入("忽然墙壁消失不见，仿佛从未存在。");document.getElementById("按钮").innerHTML="<br><a onclick='下一页()'>继续赶路</a>";
+}else if(临时=="人心"){
+    d.splice(随机数,1);
+    输入("忽然墙壁碎裂崩塌，露出内部的累累尸骨。");
+    document.getElementById("按钮").innerHTML="<br><a onclick='下一页()'>继续赶路</a>";
+}else if(临时.indexOf("打")!=-1||临时.indexOf("敲")!=-1){
+    d.splice(随机数,1);
+    输入("你捡起路边的树枝敲打在墙壁上，看似坚不可摧的墙壁忽然破碎崩塌。");
+    document.getElementById("按钮").innerHTML="<br><a onclick='下一页()'>继续赶路</a>";
+}else{
+    输入("墙壁一动不动，再也没发出什么声音。{<br>}你只好走了很远的路，终于绕开了墙壁。");
+    document.getElementById("按钮").innerHTML="<br><a onclick='下一页()'>继续赶路</a>";
+}
+},
 // "测试":()=>{console.log("测试")},
+
 };
 
-let ing=0;
+let ing=0,标题="夜路归途";
 async function 输入(content){
+if(标题!=document.getElementById("标题").innerHTML){
+    document.getElementById("标题").innerHTML=标题;
+    document.getElementById("标题").style="opacity:0;";
+}
 document.getElementById("剩余").innerHTML="/"+d.length;
 ing=1;
 const output=document.getElementById('output');
@@ -81,16 +108,16 @@ const textNode=document.createTextNode('');
 element.appendChild(textNode);
 
 for(const char of text){
-await new Promise(resolve=>setTimeout(resolve,60));/* 打字机速度 60 */
+await new Promise(resolve=>setTimeout(resolve,速度));
 textNode.data+=char;
 }
 }
 
 function 结束(){
+document.getElementById("标题").style="animation:biaoti 9s forwards";
 if(特殊["血月"]&&特殊["血月"]!=0&&当前[1]!="血月"){特殊["血月"]=0;}
 if(当前[0]=="特殊"){
 }else if(当前[0]=="选项"){
-document.getElementById("标题").innerHTML=当前[1];
 if(当前[3].length<1){
 if(特殊["应声虫"]&&特殊["应声虫"]>0){执行["执行_应声虫"]("下一页","继续赶路");return;}
 document.getElementById("按钮").innerHTML="<br><a onclick='下一页()'>继续赶路</a>";
@@ -103,13 +130,10 @@ document.getElementById("按钮").innerHTML=临时;
 }
 
 }else if(当前[0]=="继续"){
-document.getElementById("标题").innerHTML=当前[1];
 if(特殊["应声虫"]&&特殊["应声虫"]>0){执行["执行_应声虫"]("下一页","继续赶路");return;}
 document.getElementById("按钮").innerHTML="<br><a onclick='下一页()'>继续赶路</a>";
 }else if(当前[0]=="结局"){
-document.getElementById("标题").innerHTML=当前[0];
 }else{
-document.getElementById("标题").innerHTML=当前[0];
 if(特殊["应声虫"]&&特殊["应声虫"]>0){执行["执行_应声虫"]("下一页","继续赶路");return;}
 document.getElementById("按钮").innerHTML="<br><a onclick='下一页()'>继续赶路</a>";
 }
@@ -120,10 +144,10 @@ let 当前=t["开始"];
 function 下一页(){
     if(ing==1)return;
     document.getElementById("按钮").innerHTML="";
-    document.getElementById("标题").innerHTML="　";
 
     if(d.length<1){
         当前=t["结局"];
+        标题=当前[0];
         输入(当前[1]);
         document.getElementById("按钮").innerHTML="";
         return;
@@ -134,21 +158,24 @@ function 下一页(){
     if(当前[0]=="特殊"){
         执行[当前[1]]();
     }else if(当前[0]=="选项"){
+        标题=当前[1];
     if(当前[3].length<1){
         d.splice(随机数,1);
         当前[0]="继续";
         输入(当前[4]);
-    }else{输入(当前[2])}
+    }else{
+        输入(当前[2])
+    }
     }else{
         d.splice(随机数,1);
+        标题=当前[0];
         输入(当前[1]);}
 }
 function 继续(o){
     if(ing==1)return;
     document.getElementById("按钮").innerHTML="";
-    if(当前[1]!=当前[3][o][1]){document.getElementById("标题").innerHTML="　";}
     当前[0]="继续";
-    当前[1]=当前[3][o][1];
+    标题=当前[3][o][1];
     输入(当前[3][o][2]);
     d[随机数][3].splice(o,1);
     if(d[随机数][3].length<1&&d[随机数][4]==""){d.splice(随机数,1);}
