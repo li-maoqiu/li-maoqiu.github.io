@@ -108,7 +108,7 @@ footer img{position:relative;bottom:50px;display:block;margin:0 auto}
         }
     }
 
-    let 替换表={},变量表={};
+    let 替换表={},变量表={},执行=[];
 
     正文=正文.replace(new RegExp('\n',"g"),"").split("〈");
     dy=正文[0];
@@ -159,7 +159,7 @@ footer img{position:relative;bottom:50px;display:block;margin:0 auto}
                     if(临时[4]=="显示"){
                         dy+=临时[5];
                     }else if(临时[4]=="执行"){
-                        eval(临时[5]);
+                        执行[执行.length]=临时[5];
                     }
                 }
             }else if(临时[0]=="保存代码"){
@@ -188,6 +188,12 @@ footer img{position:relative;bottom:50px;display:block;margin:0 auto}
     }
 
     document.getElementById("正文").innerHTML=dy;
+
+    if(执行.length>1){
+        for(let i=0;执行.length>i;i++){
+            eval(执行[i]);
+        }
+    }
 
     let 执行代码=localStorage.getItem(书名+"_代码");
     if(执行代码){
