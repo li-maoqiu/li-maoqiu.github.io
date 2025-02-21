@@ -189,15 +189,9 @@ footer img{position:relative;bottom:50px;display:block;margin:0 auto}
 
     document.getElementById("正文").innerHTML=dy;
 
-    console.log("c")
-    console.log(执行)
-
-    if(执行.length>1){
+    if(执行.length>0){
         for(let i=0;执行.length>i;i++){
             eval(执行[i]);
-            console.log("d")
-            console.log(document.getElementById("正文").innerHTML)
-            console.log(执行[i])
         }
     }
 
