@@ -155,8 +155,6 @@ footer img{position:relative;bottom:50px;display:block;margin:0 auto}
 
             }else if(临时[0]=="判断"){
                 let 临时2=localStorage.getItem(书名+"_"+临时[1]);
-                console.log("a："+临时)
-                console.log("b："+临时2)
                 if(临时[2]=="="&&临时2==临时[3]||临时[2]==">"&&临时2>临时[3]||临时[2]=="<"&&临时2<临时[3]||临时[2]=="!"&&!临时2||临时[2]=="+"&&临时2){
                     if(临时[4]=="显示"){
                         dy+=临时[5];
@@ -191,13 +189,15 @@ footer img{position:relative;bottom:50px;display:block;margin:0 auto}
 
     document.getElementById("正文").innerHTML=dy;
 
-    console.log("c"+执行)
+    console.log("c")
+    console.log(执行)
 
     if(执行.length>1){
         for(let i=0;执行.length>i;i++){
             eval(执行[i]);
-            console.log("d"+document.getElementById("正文").innerHTML)
-            console.log("e"+执行[i])
+            console.log("d")
+            console.log(document.getElementById("正文").innerHTML)
+            console.log(执行[i])
         }
     }
 
