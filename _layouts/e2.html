@@ -108,7 +108,7 @@ footer img{position:relative;bottom:50px;display:block;margin:0 auto}
         }
     }
 
-    let 替换表={},变量表={},执行=[];
+    let e2替换表={},变量表={},e2执行=[];
 
     正文=正文.replace(new RegExp('\n',"g"),"").split("〈");
     dy=正文[0];
@@ -121,9 +121,9 @@ footer img{position:relative;bottom:50px;display:block;margin:0 auto}
 
             if(临时[0]=="替换"){
                 for(let i2=1;临时.length>i2;i2++){
-                    替换表[临时[i2]]=临时[i2+1].split(",");
-                    if(!替换表[临时[i2]][2]){
-                        替换表[临时[i2]][1]="";替换表[临时[i2]][2]=临时[i2];替换表[临时[i2]][3]="";
+                    e2替换表[临时[i2]]=临时[i2+1].split(",");
+                    if(!e2替换表[临时[i2]][2]){
+                        e2替换表[临时[i2]][1]="";e2替换表[临时[i2]][2]=临时[i2];e2替换表[临时[i2]][3]="";
                     }
                     i2+=1;
                 }
@@ -159,7 +159,7 @@ footer img{position:relative;bottom:50px;display:block;margin:0 auto}
                     if(临时[4]=="显示"){
                         dy+=临时[5];
                     }else if(临时[4]=="执行"){
-                        执行[执行.length]=临时[5];
+                        e2执行[e2执行.length]=临时[5];
                     }
                 }
             }else if(临时[0]=="保存代码"){
@@ -174,11 +174,11 @@ footer img{position:relative;bottom:50px;display:block;margin:0 auto}
             }
 
         }else{
-            if(替换表[临时]){
-                if(替换表[临时][0][0]=="同"&&替换表[临时][0][1]=="："){
-                    替换表[临时][0]=替换表[替换表[临时][0].split("同：")[1]][0];
+            if(e2替换表[临时]){
+                if(e2替换表[临时][0][0]=="同"&&e2替换表[临时][0][1]=="："){
+                    e2替换表[临时][0]=e2替换表[e2替换表[临时][0].split("同：")[1]][0];
                 }
-                dy+=替换表[临时][1]+"<a class='js' onmouseout=\"dmx()\" onmousemove=\"dm(dmm='"+替换表[临时][0]+"',dmd='"+替换表[临时][2]+"')\">"+替换表[临时][2]+"</a>"+替换表[临时][3];
+                dy+=e2替换表[临时][1]+"<a class='js' onmouseout=\"dmx()\" onmousemove=\"dm(dmm='"+e2替换表[临时][0]+"',dmd='"+e2替换表[临时][2]+"')\">"+e2替换表[临时][2]+"</a>"+e2替换表[临时][3];
             }else{
                 dy+="<a class='js' onmouseout=\"dmx()\" onmousemove=\"dm(dmm='',dmd='"+临时+"')\">"+临时+"</a>";
                 console.log(临时);
@@ -189,9 +189,9 @@ footer img{position:relative;bottom:50px;display:block;margin:0 auto}
 
     document.getElementById("正文").innerHTML=dy;
 
-    if(执行.length>0){
-        for(let i=0;执行.length>i;i++){
-            eval(执行[i]);
+    if(e2执行.length>0){
+        for(let i=0;e2执行.length>i;i++){
+            eval(e2执行[i]);
         }
     }
 
