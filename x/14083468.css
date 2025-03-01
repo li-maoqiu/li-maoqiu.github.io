@@ -122,13 +122,13 @@ color:transparent;
 
 .黑天{background-color:#111111;color:#ffffff;}
 
-.入夜,.墙壁,.黑天,.天亮{
+.入夜,.黑天,.天亮{
 margin:auto -60px;
 padding:0 60px;
 }
 
 @media screen and (max-width:767px){
-.入夜,.墙壁,.黑天,.天亮{
+.入夜,.黑天,.天亮{
 margin:auto -12px;
 padding:0 12px;
 }
