@@ -7,11 +7,12 @@ let 代码={
     "博客":"https://limaoqiu.com/",
     "六维评分":[,6,"体质","力量","敏捷","智慧","运气","命数"],
     "猫cafe":"https://猫.cafe/",
+    "猫":"https://猫.cafe/w/",
 };
 
 const _执行a={
-    "解锁":(i)=>{dy1js+="<span id='"+i+"' onclick=\"解(锁='"+i+"／"+临时0[1]+"')\" class='zhushi'></span>"},
-    "自动解锁":()=>{锁="／"+临时0[1];解();dy1js+="<div class='zhushi'>"+锁+"</div>"},
+    "解锁":(i)=>{dy1js+="<span id='"+i+"' onclick=\"解(锁='"+i+"／"+临时0[1]+"')\" class='zhushi jiesuo'></span>"},
+    "自动解锁":()=>{锁="／"+临时0[1];解();dy1js+="<div class='zhushi jiesuo'>"+锁+"</div>"},
     "js":"自动解锁",
     "提示":()=>{dy1js+="<span class=\"提示\" data-msg=\""+临时0[2]+"\">"+临时0[1]+"</span>"},
     "提示2":()=>{dy1js+="<div class='提'>"+临时0[1]+"<span class='示'>"+临时0[2]+"</span></div>"},
@@ -38,7 +39,7 @@ const _执行a={
     "代码":()=>{if(代码[临时0[1]]){dy1js+=代码[临时0[1]]}else{alert(临时0[1]+"不存在")}},
     "a":()=>{临时0[2]=临时0[2]||临时0[1];if(临时0[2]=="0"){临时0[2]=""}dy1js+="<a name='"+临时0[1]+"'></a>"+临时0[2]},
     "s":()=>{dy1js+="<small>("+临时0[1]+")</small>"},
-    "正文":()=>{临时0[2]=临时0[2]||"打开";dy1js+="<a href='https://猫.cafe/w/"+临时0[1]+"'>"+临时0[2]+"</a>"},
+    "链接":()=>{临时0[3]=临时0[3]||临时0[2];dy1js+="<a href='"+代码[临时0[1]]+临时0[2]+"'>"+临时0[3]+"</a>"},
     // "":()=>{},
 }
 const _执行b={
@@ -166,7 +167,10 @@ try{
     }
     wzjm_c=new RegExp("／","g");锁=锁.replace(wzjm_c,"");
     锁=window.decodeURIComponent(atob(锁));
-    if(锁id!=""){document.getElementById(锁id).innerHTML=锁}
+    if(锁id!=""){
+        document.getElementById(锁id).innerHTML=锁;
+        document.getElementById(锁id).removeAttribute("onclick")
+    }
 }
 catch(e){
     try{notyf.alert("仅限本地查看")}catch(e){alert("仅限本地查看")}
