@@ -152,77 +152,112 @@ document.getElementById("打印背景图片").innerHTML = "<style>"+背景图片
 
 
 
-let 标题文字 = ("{% if page.BiaoTi %}{{ page.BiaoTi }}{% else %}欢迎光临。／虽然这里也没什么东西...{% endif %}／").split("／").map(解析字符串);
+
+
+let 标题文字 = "{% if page.BiaoTi %}{{ page.BiaoTi }}{% else %}欢迎光临。／虽然这里也没什么东西...{% endif %}／".split("／"); // 原始标题
 let 标题 = document.querySelector('.标题');
 let 当前标题索引 = 0;
 let 当前字符索引 = 0;
 let 正在显示 = true;
 let 等待中 = false;
 
-// 预处理所有标题
-const 预处理标题 = 标题文字.map(预处理字符串);
+// 预处理所有标题（新增的预处理函数）
+const 预处理标题 = 标题文字.map(标题 => {
+  let 块 = [];
+  let 缓冲 = "";
+  let 当前括号类型 = null;
 
-function 解析字符串(str) {
-    // 实现字符串解析逻辑
-    let 块 = [];
-    let 当前模式 = 'normal';
-    let 缓冲 = '';
-    
-    for (let i = 0; i < str.length; i++) {
-        const c = str[i];
-        if (c === '{' && 当前模式 === 'normal') {
-            if (缓冲) 块.push({ 类型: 'normal', 内容: 缓冲 });
-            缓冲 = '';
-            当前模式 = 'curly';
-        } 
-        // 类似处理其他括号类型
-        else {
-            缓冲 += c;
-        }
+  for (let 字符 of 标题) {
+    // 检测括号开始
+    if (["{", "[", "("].includes(字符)) {
+      if (缓冲) 块.push({ 类型: "普通", 内容: 缓冲 });
+      缓冲 = "";
+      当前括号类型 = 字符;
+    } 
+    // 检测括号结束
+    else if (["}", "]", ")"].includes(字符)) {
+      const 类型映射 = { "}":"花括号", "]":"方括号", ")":"圆括号" };
+      块.push({ 
+        类型: 类型映射[字符],
+        内容: 缓冲,
+        显示方式: 类型映射[字符] === "方括号" ? "逐字" : "整段",
+        删除方式: 类型映射[字符] === "圆括号" ? "逐字" : "整段"
+      });
+      缓冲 = "";
+      当前括号类型 = null;
+    } 
+    // 普通字符
+    else {
+      缓冲 += 字符;
     }
-    return 块;
-}
+  }
+
+  if (缓冲) 块.push({ 类型: "普通", 内容: 缓冲 });
+  return 块;
+});
 
 function 更新动画() {
-    if (等待中) return;
-    
-    const 当前标题 = 预处理标题[当前标题索引];
-    let 显示内容 = '';
-    
-    if (正在显示) {
-        // 智能推进字符索引
-        const 当前字符 = 当前标题[当前字符索引];
-        if (当前字符.显示模式 === 'instant') {
-            当前字符索引 = 当前字符.块结束 + 1;
-        } else {
-            当前字符索引++;
-        }
+  if (等待中) return;
+
+  const 当前标题 = 预处理标题[当前标题索引];
+  let 显示内容 = "";
+
+  // 生成当前显示内容
+  for (let 块 of 当前标题.slice(0, 当前字符索引 + 1)) {
+    if (块.显示方式 === "逐字") {
+      显示内容 += 块.内容.slice(0, 当前字符索引 - 块.start + 1);
     } else {
-        // 智能回退字符索引
-        const 上一个字符 = 当前标题[当前字符索引 - 1];
-        if (上一个字符.删除模式 === 'instant') {
-            当前字符索引 = 上一个字符.块开始;
-        } else {
-            当前字符索引--;
-        }
+      显示内容 += 块.内容;
+    }
+  }
+
+  标题.innerHTML = 显示内容;
+
+  // 处理索引变化
+  if (正在显示) {
+    const 当前块 = 当前标题.find(块 => 块.start <= 当前字符索引 && 块.end >= 当前字符索引);
+    
+    if (当前块.显示方式 === "整段") {
+      当前字符索引 = 当前块.end;
+    } else {
+      当前字符索引++;
     }
 
-    // 更新显示内容
-    标题.innerHTML = 当前标题.slice(0, 当前字符索引).map(c => c.字符).join('');
-
-    // 状态边界检测
-    if (正在显示 && 当前字符索引 > 当前标题.length) {
-        正在显示 = false;
-        等待中 = true;
-        setTimeout(() => 等待中 = false, 600);
-    } else if (!正在显示 && 当前字符索引 <= 0) {
-        当前标题索引 = (当前标题索引 + 1) % 标题文字.length;
-        当前字符索引 = 0;
-        正在显示 = true;
+    // 完成显示后切换状态
+    if (当前字符索引 >= 当前标题.reduce((a, b) => a + b.content.length, 0)) {
+      正在显示 = false;
+      等待中 = true;
+      setTimeout(() => 等待中 = false, 1000);
     }
+  } else {
+    const 当前块 = 当前标题.find(块 => 块.start <= 当前字符索引 && 块.end >= 当前字符索引);
+    
+    if (当前块.删除方式 === "整段") {
+      当前字符索引 = 当前块.start - 1;
+    } else {
+      当前字符索引--;
+    }
+
+    // 完成删除后切换标题
+    if (当前字符索引 < 0) {
+      当前标题索引 = (当前标题索引 + 1) % 标题文字.length;
+      当前字符索引 = 0;
+      正在显示 = true;
+    }
+  }
 }
 
-setInterval(更新动画, 100);
+// 初始化块位置索引
+预处理标题.forEach(标题 => {
+  let index = 0;
+  标题.forEach(块 => {
+    块.start = index;
+    块.end = index + 块.内容.length - 1;
+    index += 块.内容.length;
+  });
+});
+
+setInterval(更新动画, 120);
 
 
 // let 标题文字=("{% if page.BiaoTi %}{{ page.BiaoTi }}{% else %}欢迎光临。／虽然这里也没什么东西...{% endif %}／").split("／");
