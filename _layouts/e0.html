@@ -150,22 +150,97 @@ let jpg="";
 if (打印背景图片.indexOf(".") != -1){jpg="."+打印背景图片.split(".")[1];}else{jpg=".jpg";}
 document.getElementById("打印背景图片").innerHTML = "<style>"+背景图片颜色+"body{background-image: url('"+背景图片地址+打印背景图片+jpg+"');}.内容背景{background-image: url('"+背景图片地址+打印背景图片+jpg+"');}</style>";
 
-let 标题文字=("{% if page.BiaoTi %}{{ page.BiaoTi }}{% else %}欢迎光临。／虽然这里也没什么东西...{% endif %}／").split("／");
-let 标题=document.querySelector('.标题');
-let 标题字符=0;
-let 标题下标=0;
-let 标题换字=true;
-setInterval(function(){
-    if(标题换字){标题.innerHTML=标题文字[标题下标].slice(0,++标题字符)}
-    else{标题.innerHTML = 标题文字[标题下标].slice(0, 标题字符--)}
-    if(标题字符==标题文字[标题下标].length+3){标题换字=false}
-    else if(标题字符<0){
-        标题字符=0;
-        标题换字=true;
-        标题下标++;
-        if(标题下标>=标题文字.length){标题下标=0}
+
+
+let 标题文字 = ("{% if page.BiaoTi %}{{ page.BiaoTi }}{% else %}欢迎光临。／虽然这里也没什么东西...{% endif %}／").split("／").map(解析字符串);
+let 标题 = document.querySelector('.标题');
+let 当前标题索引 = 0;
+let 当前字符索引 = 0;
+let 正在显示 = true;
+let 等待中 = false;
+
+// 预处理所有标题
+const 预处理标题 = 标题文字.map(预处理字符串);
+
+function 解析字符串(str) {
+    // 实现字符串解析逻辑
+    let 块 = [];
+    let 当前模式 = 'normal';
+    let 缓冲 = '';
+    
+    for (let i = 0; i < str.length; i++) {
+        const c = str[i];
+        if (c === '{' && 当前模式 === 'normal') {
+            if (缓冲) 块.push({ 类型: 'normal', 内容: 缓冲 });
+            缓冲 = '';
+            当前模式 = 'curly';
+        } 
+        // 类似处理其他括号类型
+        else {
+            缓冲 += c;
+        }
     }
-},200)
+    return 块;
+}
+
+function 更新动画() {
+    if (等待中) return;
+    
+    const 当前标题 = 预处理标题[当前标题索引];
+    let 显示内容 = '';
+    
+    if (正在显示) {
+        // 智能推进字符索引
+        const 当前字符 = 当前标题[当前字符索引];
+        if (当前字符.显示模式 === 'instant') {
+            当前字符索引 = 当前字符.块结束 + 1;
+        } else {
+            当前字符索引++;
+        }
+    } else {
+        // 智能回退字符索引
+        const 上一个字符 = 当前标题[当前字符索引 - 1];
+        if (上一个字符.删除模式 === 'instant') {
+            当前字符索引 = 上一个字符.块开始;
+        } else {
+            当前字符索引--;
+        }
+    }
+
+    // 更新显示内容
+    标题.innerHTML = 当前标题.slice(0, 当前字符索引).map(c => c.字符).join('');
+
+    // 状态边界检测
+    if (正在显示 && 当前字符索引 > 当前标题.length) {
+        正在显示 = false;
+        等待中 = true;
+        setTimeout(() => 等待中 = false, 600);
+    } else if (!正在显示 && 当前字符索引 <= 0) {
+        当前标题索引 = (当前标题索引 + 1) % 标题文字.length;
+        当前字符索引 = 0;
+        正在显示 = true;
+    }
+}
+
+setInterval(更新动画, 100);
+
+
+// let 标题文字=("{% if page.BiaoTi %}{{ page.BiaoTi }}{% else %}欢迎光临。／虽然这里也没什么东西...{% endif %}／").split("／");
+// let 标题=document.querySelector('.标题');
+// let 标题字符=0;
+// let 标题下标=0;
+// let 标题换字=true;
+// setInterval(function(){
+//     if(标题换字){标题.innerHTML=标题文字[标题下标].slice(0,++标题字符)}
+//     else{标题.innerHTML = 标题文字[标题下标].slice(0, 标题字符--)}
+//     if(标题字符==标题文字[标题下标].length+3){标题换字=false}
+//     else if(标题字符<0){
+//         标题字符=0;
+//         标题换字=true;
+//         标题下标++;
+//         if(标题下标>=标题文字.length){标题下标=0}
+//     }
+// },200)
 
 $(document).ready(function(){
 let scroll_n=0;
