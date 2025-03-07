@@ -43,11 +43,11 @@ function 确定(){
     }
 }
 
-function 键入(){
-    let 键入临时=document.getElementById("输入").value;
-    if(键入临时!=""){localStorage.setItem("异梦笔记", 键入临时);}
-}
-function sjtk_键入(){
-    let 键入临时=document.getElementById("输入").value;
-    if(键入临时!=""){localStorage.setItem("sjtk_异梦笔记", 键入临时);}
-}
+// function 键入(){
+//     let 键入临时=document.getElementById("输入").value;
+//     if(键入临时!=""){localStorage.setItem("异梦笔记", 键入临时);}
+// }
+// function sjtk_键入(){
+//     let 键入临时=document.getElementById("输入").value;
+//     if(键入临时!=""){localStorage.setItem("sjtk_异梦笔记", 键入临时);}
+// }
