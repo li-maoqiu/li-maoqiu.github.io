@@ -151,131 +151,22 @@ if (打印背景图片.indexOf(".") != -1){jpg="."+打印背景图片.split(".")
 document.getElementById("打印背景图片").innerHTML = "<style>"+背景图片颜色+"body{background-image: url('"+背景图片地址+打印背景图片+jpg+"');}.内容背景{background-image: url('"+背景图片地址+打印背景图片+jpg+"');}</style>";
 
 
-
-
-
-let 标题文字 = "{% if page.BiaoTi %}{{ page.BiaoTi }}{% else %}欢迎光临。／虽然这里也没什么东西...{% endif %}／".split("／"); // 原始标题
-let 标题 = document.querySelector('.标题');
-let 当前标题索引 = 0;
-let 当前字符索引 = 0;
-let 正在显示 = true;
-let 等待中 = false;
-
-// 预处理所有标题（新增的预处理函数）
-const 预处理标题 = 标题文字.map(标题 => {
-  let 块 = [];
-  let 缓冲 = "";
-  let 当前括号类型 = null;
-
-  for (let 字符 of 标题) {
-    // 检测括号开始
-    if (["{", "[", "("].includes(字符)) {
-      if (缓冲) 块.push({ 类型: "普通", 内容: 缓冲 });
-      缓冲 = "";
-      当前括号类型 = 字符;
-    } 
-    // 检测括号结束
-    else if (["}", "]", ")"].includes(字符)) {
-      const 类型映射 = { "}":"花括号", "]":"方括号", ")":"圆括号" };
-      块.push({ 
-        类型: 类型映射[字符],
-        内容: 缓冲,
-        显示方式: 类型映射[字符] === "方括号" ? "逐字" : "整段",
-        删除方式: 类型映射[字符] === "圆括号" ? "逐字" : "整段"
-      });
-      缓冲 = "";
-      当前括号类型 = null;
-    } 
-    // 普通字符
-    else {
-      缓冲 += 字符;
+let 标题文字=("{% if page.BiaoTi %}{{ page.BiaoTi }}{% else %}欢迎光临。／虽然这里也没什么东西...{% endif %}／").split("／");
+let 标题=document.querySelector('.标题');
+let 标题字符=0;
+let 标题下标=0;
+let 标题换字=true;
+setInterval(function(){
+    if(标题换字){标题.innerHTML=标题文字[标题下标].slice(0,++标题字符)}
+    else{标题.innerHTML=标题文字[标题下标].slice(0,标题字符--)}
+    if(标题字符==标题文字[标题下标].length+3){标题换字=false}
+    else if(标题字符<0){
+        标题字符=0;
+        标题换字=true;
+        标题下标++;
+        if(标题下标>=标题文字.length){标题下标=0}
     }
-  }
-
-  if (缓冲) 块.push({ 类型: "普通", 内容: 缓冲 });
-  return 块;
-});
-
-function 更新动画() {
-  if (等待中) return;
-
-  const 当前标题 = 预处理标题[当前标题索引];
-  let 显示内容 = "";
-
-  // 生成当前显示内容
-  for (let 块 of 当前标题.slice(0, 当前字符索引 + 1)) {
-    if (块.显示方式 === "逐字") {
-      显示内容 += 块.内容.slice(0, 当前字符索引 - 块.start + 1);
-    } else {
-      显示内容 += 块.内容;
-    }
-  }
-
-  标题.innerHTML = 显示内容;
-
-  // 处理索引变化
-  if (正在显示) {
-    const 当前块 = 当前标题.find(块 => 块.start <= 当前字符索引 && 块.end >= 当前字符索引);
-    
-    if (当前块.显示方式 === "整段") {
-      当前字符索引 = 当前块.end;
-    } else {
-      当前字符索引++;
-    }
-
-    // 完成显示后切换状态
-    if (当前字符索引 >= 当前标题.reduce((a, b) => a + b.content.length, 0)) {
-      正在显示 = false;
-      等待中 = true;
-      setTimeout(() => 等待中 = false, 1000);
-    }
-  } else {
-    const 当前块 = 当前标题.find(块 => 块.start <= 当前字符索引 && 块.end >= 当前字符索引);
-    
-    if (当前块.删除方式 === "整段") {
-      当前字符索引 = 当前块.start - 1;
-    } else {
-      当前字符索引--;
-    }
-
-    // 完成删除后切换标题
-    if (当前字符索引 < 0) {
-      当前标题索引 = (当前标题索引 + 1) % 标题文字.length;
-      当前字符索引 = 0;
-      正在显示 = true;
-    }
-  }
-}
-
-// 初始化块位置索引
-预处理标题.forEach(标题 => {
-  let index = 0;
-  标题.forEach(块 => {
-    块.start = index;
-    块.end = index + 块.内容.length - 1;
-    index += 块.内容.length;
-  });
-});
-
-setInterval(更新动画, 120);
-
-
-// let 标题文字=("{% if page.BiaoTi %}{{ page.BiaoTi }}{% else %}欢迎光临。／虽然这里也没什么东西...{% endif %}／").split("／");
-// let 标题=document.querySelector('.标题');
-// let 标题字符=0;
-// let 标题下标=0;
-// let 标题换字=true;
-// setInterval(function(){
-//     if(标题换字){标题.innerHTML=标题文字[标题下标].slice(0,++标题字符)}
-//     else{标题.innerHTML = 标题文字[标题下标].slice(0, 标题字符--)}
-//     if(标题字符==标题文字[标题下标].length+3){标题换字=false}
-//     else if(标题字符<0){
-//         标题字符=0;
-//         标题换字=true;
-//         标题下标++;
-//         if(标题下标>=标题文字.length){标题下标=0}
-//     }
-// },200)
+},200)
 
 $(document).ready(function(){
 let scroll_n=0;
