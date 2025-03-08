@@ -111,6 +111,9 @@ footer{position: relative;top: 300px;z-index: -1001;}footer img {position: relat
 <div style="position: absolute;top:85%;width:100%;text-align:center;" class="下箭头a"><span class="下箭头 cursor_pointer" onclick="div0()"></span></div>
 <a style="position: absolute;top:100%;" name="内容"></a>
 <div id="div0" style="position: absolute;top:100%;width:100%;"><div class="内容0">
+<script>
+let 新文字="欢迎光临。／虽然这里也没什么东西...";
+</script>
 
 {% if page.h1 %}<h1 style="display:inline;">{{ page.h1 }}</h1> &nbsp;{{ page.h2 }}<hr>{% else %}{% endif %}
 
@@ -151,7 +154,7 @@ if (打印背景图片.indexOf(".") != -1){jpg="."+打印背景图片.split(".")
 document.getElementById("打印背景图片").innerHTML = "<style>"+背景图片颜色+"body{background-image: url('"+背景图片地址+打印背景图片+jpg+"');}.内容背景{background-image: url('"+背景图片地址+打印背景图片+jpg+"');}</style>";
 
 
-let 标题文字=('{% if page.BiaoTi %}{{ page.BiaoTi }}{% else %}欢迎光临。／虽然这里也没什么东西...{% endif %}／').split("／");
+let 标题文字=("{% if page.BiaoTi %}{{ page.BiaoTi }}{% else %}"+新文字+"{% endif %}／").split("／");
 let 标题=document.querySelector('.标题');
 let 标题字符=0;
 let 标题下标=0;
