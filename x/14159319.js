@@ -6,10 +6,10 @@ document.getElementById("style").innerHTML=`
 document.getElementById("然后1").style.display="none";
 const container=document.getElementById('然后2');
 container.style.display="";
-const text='从山顶一跃而下。';
+const text='​​​​​​从山顶一跃而下。';
 
-for(let i=-2;i<text.length;i++){
-if(i>=0){container.textContent+=text[i];}
+for(let i=0;i<text.length;i++){
+container.textContent+=text[i];
 await new Promise(resolve=>setTimeout(resolve,140));
 }
 
@@ -37,7 +37,7 @@ element.addEventListener('transitionend',function handler(e){
 if(e.propertyName !=='transform')return;
 let 渐隐='fadeOut 2s ease-out forwards';
 element.style.animation=渐隐;
-document.getElementById("书名").style=渐隐;
+document.getElementById("书名").style.animation=渐隐;
 completed++;
 if(completed===total){
 document.title="�� - 第〇页";
