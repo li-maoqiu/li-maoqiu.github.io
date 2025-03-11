@@ -1,7 +1,18 @@
 ---
 permalink: _∅
 ---
-<style>body{background-color:#090909}#∅{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);}</style><img id="∅"><script>
+<style>
+body{background-color:#090909}
+
+#∅{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+}
+</style>
+<img id="∅">
+<script>
 const d0=[
     "0","1","2","3","4","5","6","7","8","9",
     "10","11","12","13","14","15","16","17","18","19",
@@ -9,6 +20,40 @@ const d0=[
     "30","31","32","33","34","35","36","37","38","39",
     "40","41","42","43","44","45","46","47","48","49",
     "50","51","52","53","54","55","56","57","58","59",
-    "60","61","62","63","64","65","66"];
+    "60","61","62","63","64","65","66","67","68"];
 const x="/x/14168000/";
-const img=document.getElementById('∅');let i=-1;function swi(){let o;do{o=Math.floor(Math.random()*d0.length);}while(o===i&&d0.length>1);i=o;img.src=x+d0[o]+".png";}function pre(){d0.forEach(url=>{const img=new Image();img.src=x+url+".png";});}pre();swi();setInterval(swi,80);</script>
+const img=document.getElementById('∅');
+let intervalId,shuffledArray=[],currentIndex=0;
+
+function shuffleArray(arr){
+    for(let i=arr.length-1;i>0;i--){
+        const j=Math.floor(Math.random()*(i+1));
+        [arr[i],arr[j]]=[arr[j],arr[i]];
+    }
+    return arr;
+}
+
+function swi(){
+    if(currentIndex>=shuffledArray.length){
+        shuffledArray=shuffleArray([...d0]);
+        currentIndex=0;
+    }
+    img.src=x+shuffledArray[currentIndex++]+".png";
+}
+
+function pre(){
+    d0.forEach(url=>{
+        new Image().src=x+url+".png";
+    });
+}
+
+shuffledArray=shuffleArray([...d0]);
+
+img.addEventListener('mouseenter',()=>clearInterval(intervalId));
+img.addEventListener('mouseleave',()=>intervalId=setInterval(swi,80));
+img.addEventListener('click',swi);
+
+pre();
+swi();
+intervalId=setInterval(swi,80);
+</script>
