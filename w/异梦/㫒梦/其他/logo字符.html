@@ -5,13 +5,7 @@ permalink: _∅
 ---
 <style>
 body{background-color:#090909}
-
-#∅{
-    position:absolute;
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-}
+#∅{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);}
 </style>
 <img id="∅">
 <script>
@@ -26,12 +20,12 @@ const d0=[
     "70","71","72","73","74",//"75","76","77","78","79",
     // "0","1","2","3","4","5","6","7","8","9",
 ];
-// const x="../../../../x/14168000/";
-const x="/x/14168000/";
+let x="/x/14168000/";
+if(location.href.indexOf("?ceshi")!=-1){x="../../../../x/14168000/"}
 const img=document.getElementById('∅');
-let intervalId,shuffledArray=[],currentIndex=0;
+let isTe,shuf=[],cur=0,isIn=true,isMo=false;
 
-function shuffleArray(arr){
+function shuff(arr){
     for(let i=arr.length-1;i>0;i--){
         const j=Math.floor(Math.random()*(i+1));
         [arr[i],arr[j]]=[arr[j],arr[i]];
@@ -40,11 +34,11 @@ function shuffleArray(arr){
 }
 
 function swi(){
-    if(currentIndex>=shuffledArray.length){
-        shuffledArray=shuffleArray([...d0]);
-        currentIndex=0;
+    if(cur>=shuf.length){
+        shuf=shuff([...d0]);
+        cur=0;
     }
-    img.src=x+shuffledArray[currentIndex++]+".png";
+    img.src=x+shuf[cur++]+".png";
 }
 
 function pre(){
@@ -53,13 +47,27 @@ function pre(){
     });
 }
 
-shuffledArray=shuffleArray([...d0]);
-
-img.addEventListener('mouseenter',()=>clearInterval(intervalId));
-img.addEventListener('mouseleave',()=>intervalId=setInterval(swi,80));
-img.addEventListener('click',swi);
+img.addEventListener('mouseenter',()=>{
+    if(!isIn){clearInterval(isTe);if(!isMo){isMo=true;}}
+});
+img.addEventListener('mouseleave',()=>{
+    if(!isIn&&isMo){isTe=setInterval(swi,99);}
+});
+img.addEventListener('click',()=>{
+    if(!isIn){swi();}
+});
 
 pre();
-swi();
-intervalId=setInterval(swi,99);
+
+let djs=1200;
+img.src=x+"d3.png";
+setTimeout(()=>{img.src=x+"d2.png"},djs*1);
+setTimeout(()=>{img.src=x+"d1.png"},djs*2);
+setTimeout(()=>{
+    isIn=false;
+    shuf=shuff([...d0]);
+    cur=0;
+    swi();
+    isTe=setInterval(swi,99);
+},djs*3);
 </script>
