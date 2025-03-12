@@ -10,12 +10,24 @@ let 代码={
     "猫":"https://猫.cafe/w/",
 };
 
+let 异梦笔记x=localStorage.getItem("异梦笔记x");
+if(异梦笔记x){
+const script=document.createElement('script');
+script.textContent=异梦笔记x;
+document.body.appendChild(script);
+}
+
+
+
+
 const _执行a={
     "解锁":(i)=>{dy1js+="<span id='"+i+"' onclick=\"解(锁='"+i+"／"+临时0[1]+"')\" class='zhushi jiesuo'></span>"},
     "自动解锁":()=>{锁="／"+临时0[1];解();dy1js+="<div class='zhushi jiesuo'>"+锁+"</div>"},
     "js":"自动解锁",
-    "x":(i)=>{dy1js+="<span id='"+i+"' onclick=\"解(锁='"+i+"／"+临时0[1]+"／异梦笔记x')\" class='zhushi jiesuo'></span>"},
-    "xx":()=>{锁="／"+临时0[1]+"／异梦笔记x";解();dy1js+="<div class='zhushi jiesuo'>"+锁+"</div>"},
+    "x":(i)=>{dy1js+="<span id='"+i+"' onclick=\"解锁x('"+临时0[1]+"','"+i+"')\" class='zhushi jiesuo'></span>"},
+    // "x":(i)=>{dy1js+="<span id='"+i+"' onclick=\"解(锁='"+i+"／"+临时0[1]+"／异梦笔记x')\" class='zhushi jiesuo'></span>"},
+    "xx":()=>{dy1js+="<div class='zhushi jiesuo'>"+解锁x(临时0[1])+"</div>"},
+    // "xx":()=>{锁="／"+临时0[1]+"／异梦笔记x";解();dy1js+="<div class='zhushi jiesuo'>"+锁+"</div>"},
     "提示":()=>{dy1js+="<span class=\"提示\" data-msg=\""+临时0[2]+"\">"+临时0[1]+"</span>"},
     "提示2":()=>{dy1js+="<div class='提'>"+临时0[1]+"<span class='示'>"+临时0[2]+"</span></div>"},
     "复制":()=>{if(!临时0[2]){临时0[2]=临时0[1];临时0[1]="复制"}dy1js+="<a onclick=\"复(制='"+临时0[2]+"')\">"+临时0[1]+"</a>"},
