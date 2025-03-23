@@ -401,14 +401,20 @@ th0=th1;
 
 const nwn4ow=document.getElementById('nwn4ow');
 const yj=document.getElementById('yj');
-nwn4ow.addEventListener('contextmenu', function(e){
+// nwn4ow.addEventListener('contextmenu', function(e){
+// e.preventDefault();
+// yj.style.display='block';
+// yj.style.left=`${e.pageX}px`;
+// yj.style.top=`${e.pageY}px`;
+// });
+// document.addEventListener('click',function(){
+// yj.style.display='none';
+// });
+nwn4ow.addEventListener('contextmenu', function(e) {
 e.preventDefault();
-yj.style.display='block';
-yj.style.left=`${e.pageX}px`;
-yj.style.top=`${e.pageY}px`;
-});
-document.addEventListener('click',function(){
-yj.style.display='none';
+yj.style.display ='block';
+yj.style.left=`${e.clientX}px`;
+yj.style.top=`${e.clientY}px`;
 });
 </script>
 
@@ -462,7 +468,9 @@ yj.style.display='none';
 position:absolute;background:#fff;
 border:1px solid #ccc;
 box-shadow:2px 2px 5px #00000033;
-padding:5px 0;}
+padding:5px 0;
+position:fixed;
+}
 #yj a{
 padding:8px 15px;cursor:pointer;
 white-space:nowrap;display:block;}
