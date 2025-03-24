@@ -4,7 +4,7 @@ permalink: _
 BeiJing: 0-水底的鱼／0-鸭子气球／0-蘑菇乐园
 BeiJing_SJ: 0-施工重地／2-树与鸟／0-鸭子气球／0-蘑菇乐园
 BiaoTi: 
-h1: 第<span id='nwn4ow' onclick="window.location.href='/_∅'">Ø</span>頁
+h1: 第<span id='nwn4ow'>Ø</span>頁
 title: 第█頁
 h2: <a href="/异梦">㫒梦</a><br><span id="th2">这是一部<span class="NaN">实验作品</span>，并不服务于<span class="NaN N">读者</span>，不建<span class="建">议</span> 阅读。<br>另外，也不接受批 评。</span>
 favicon: x/14023133.ico
@@ -12,6 +12,7 @@ PingLun:
 ---
 <div id="yj">
     <a href="/_∅">Ø</a>
+    <a href="/x/14270980.png">封面</a>
 </div><div id="hhvi"></div><script>let hhvi=[,
     ["915104.0","无题",2],
     ["1011463.1","鳄鱼博士",3],
@@ -399,14 +400,18 @@ th0=th1;
 新文字.sort(()=>Math.random()-0.5);
 新文字="���(��)／(��)(��)(��)(��)／�(��)�)／／"+新文字.join("／／");
 
-const nwn4ow=document.getElementById('nwn4ow');
 const yj=document.getElementById('yj');
-nwn4ow.addEventListener('contextmenu', function(e) {
+function nwn4ow(e){
 e.preventDefault();
-yj.style.display ='block';
+e.stopPropagation();
+yj.style.display='block';
 yj.style.left=`${e.clientX}px`;
 yj.style.top=`${e.clientY}px`;
-});
+}
+document.addEventListener('click',function(){yj.style.display='none'});
+document.getElementById('nwn4ow').addEventListener('contextmenu', nwn4ow);
+document.getElementById('nwn4ow').addEventListener('click',nwn4ow);
+yj.addEventListener('click',(e) =>{e.stopPropagation()});
 </script>
 
 <span class="〇"> ↩</span><br>
