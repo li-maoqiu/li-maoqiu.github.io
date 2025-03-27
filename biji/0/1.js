@@ -10,24 +10,23 @@ let 代码={
     "猫":"https://猫.cafe/w/",
 };
 
-let 异梦笔记x=localStorage.getItem("异梦笔记x");
-if(异梦笔记x){
+let 异梦笔记z=localStorage.getItem("异梦笔记z");
+if(异梦笔记z){
 const script=document.createElement('script');
-script.textContent=异梦笔记x;
+script.textContent=异梦笔记z;
 document.body.appendChild(script);
+}else{
+    function 解锁z(){
+        return "仅限本地查看";
+    }
 }
-
-
-
 
 const _执行a={
     "解锁":(i)=>{dy1js+="<span id='"+i+"' onclick=\"解(锁='"+i+"／"+临时0[1]+"')\" class='zhushi jiesuo'></span>"},
     "自动解锁":()=>{锁="／"+临时0[1];解();dy1js+="<div class='zhushi jiesuo'>"+锁+"</div>"},
     "js":"自动解锁",
-    "x":(i)=>{dy1js+="<span id='"+i+"' onclick=\"解锁x('"+临时0[1]+"','"+i+"')\" class='zhushi jiesuo'></span>"},
-    // "x":(i)=>{dy1js+="<span id='"+i+"' onclick=\"解(锁='"+i+"／"+临时0[1]+"／异梦笔记x')\" class='zhushi jiesuo'></span>"},
-    "xx":()=>{dy1js+="<div class='zhushi jiesuo'>"+解锁x(临时0[1])+"</div>"},
-    // "xx":()=>{锁="／"+临时0[1]+"／异梦笔记x";解();dy1js+="<div class='zhushi jiesuo'>"+锁+"</div>"},
+    "z":(i)=>{dy1js+="<span id='"+i+"' onclick=\"解锁z('"+临时0[1]+"','"+i+"')\" class='zhushi jiesuo'>z</span>"},
+    "Z":()=>{dy1js+="<div class='zhushi jiesuo'>"+解锁z(临时0[1])+"</div>"},
     "提示":()=>{dy1js+="<span class=\"提示\" data-msg=\""+临时0[2]+"\">"+临时0[1]+"</span>"},
     "提示2":()=>{dy1js+="<div class='提'>"+临时0[1]+"<span class='示'>"+临时0[2]+"</span></div>"},
     "复制":()=>{if(!临时0[2]){临时0[2]=临时0[1];临时0[1]="复制"}dy1js+="<a onclick=\"复(制='"+临时0[2]+"')\">"+临时0[1]+"</a>"},
@@ -53,7 +52,7 @@ const _执行a={
     "代码":()=>{if(代码[临时0[1]]){dy1js+=代码[临时0[1]]}else{alert(临时0[1]+"不存在")}},
     "a":()=>{临时0[2]=临时0[2]||临时0[1];if(临时0[2]=="0"){临时0[2]=""}dy1js+="<a name='"+临时0[1]+"'></a>"+临时0[2]},
     "s":()=>{dy1js+="<small>("+临时0[1]+")</small>"},
-    "链接":()=>{临时0[3]=临时0[3]||临时0[2];dy1js+="<a href='"+代码[临时0[1]]+临时0[2]+"'>"+临时0[3]+"</a>"},
+    "w":()=>{临时0[3]=临时0[3]||临时0[2];dy1js+="<a href='"+代码[临时0[1]]+临时0[2]+"'>"+临时0[3]+"</a>"},
     // "":()=>{},
 }
 const _执行b={
