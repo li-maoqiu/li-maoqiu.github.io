@@ -13,32 +13,32 @@ PingLun:
 <div id="yj">
     <a href="/_∅">Ø</a>
     <a href="/x/14270980.png">封面</a>
-</div><div id="hhvi"></div><script>let hhvi=[,
+</div><span id="关键词"><a onclick="关键词()">显示关键词</a></span><div id="hhvi"></div><script>let hhvi=[,
     ["915104.0","无题",2],
-    ["1011463.1","鳄鱼博士",3],
+    ["1011463.1","鳄鱼博士",3,["灰科技"]],
     ["1029149.2","秘密",3],
     ["1046835.3","晓寒的梦",2],
     ["1047037.4","物品ID：54942885.12",1],
     ["1047239.5","错误算式",2],
-    ["1047743.6","韩新巧",3],
+    ["1047743.6","韩新巧",3,["异常社","灰科技"]],
     ["1047840.7","列车上的自杀",3],
-    ["1047937.8","司巧巧的新衣",0],
+    ["1047937.8","司巧巧的新衣",0,["异常社"]],
     ["1048856.9","皮沃的读心术",2],
     ["104981.10","汗蒸房",0],
     ["108858.11","宝箱",1],
-    ["115845.12","只属于他的歌剧",1],
+    ["115845.12","只属于他的歌剧",1,["沈溺"]],
     ["128436.13","少女与孤星",3],
     ["137982.14","夕阳如同熔金",2],
-    ["138462.15","无人的音乐教室",3],
-    ["138746.16","沈溺的一天",1],
+    ["138462.15","无人的音乐教室",3,["异常社"]],
+    ["138746.16","沈溺的一天",1,["沈溺"]],
     ["139788.17","夜路归途……？",3],
     ["140381.18","黄金镣铐",3],
     ["141593.19","顶峰",3],
-    ["142411.20","摩恩粒子篇・初识",2],
-    ["142481.21","受诅咒的公交车",2],
-    ["142905.22","摩恩粒子篇・初识 2",2],
-    ["142964.23","摩恩粒子篇・初识 3",2],
-    // ["143043.24","摩恩粒子篇・初识 4",2],
+    ["142411.20","摩恩粒子篇・初识",2,["灰科技","摩恩粒子"]],
+    ["142481.21","受诅咒的公交车",2,["异常社","萧漫姐妹"]],
+    ["142905.22","摩恩粒子篇・初识 2",2,["灰科技","摩恩粒子"]],
+    ["142964.23","摩恩粒子篇・初识 3",2,["灰科技","摩恩粒子"]],
+    ["143043.24","摩恩粒子篇・初识 4",2,["灰科技","摩恩粒子"]],
     // ["","",],
 
 
@@ -343,18 +343,18 @@ let
             
             {dy+="<small>"+o[1]+".</small>"}
             dy+="</span>";
-            if(hhvi[i][3]){
-                o=hhvi[i][3];
+            if(hhvi[i][4]){
+                o=hhvi[i][4];
             }else{
                 o="/w/"+o
                     .join("");
             }
-            if(!hhvi[i][4])//如果
-        {hhvi[i][4]="阅读"}
+            if(!hhvi[i][5])//如果
+        {hhvi[i][5]="阅读"}
         //否则
 
             if(hhvi[i][2]!=0){
-                dy+="<span class='章节'>"+hhvi[i][1]+"</span></span> <a href='"+o+"'>"+hhvi[i][4]+"</a> <sup>"+hhvi[〇][hhvi[i][2]]+"</sup><br>";
+                dy+="<span class='章节'>"+hhvi[i][1]+"</span></span> <a href='"+o+"'>"+hhvi[i][5]+"</a> <sup>"+hhvi[〇][hhvi[i][2]]+"</sup>";
             }else{
                 let 临时=[
                     hhvi[i][1]
@@ -375,10 +375,15 @@ let
                 临时[0]//不存在
                 +"</span></span> <a href='"+     o+"'"+
                 临时[2]//不存在
-                +">"+hhvi[i][4]+"</a> <sup>"+    hhvi[〇][hhvi[i][2]]     +"</sup>"+"<br>";
-            }//什么都不存在
+                +">"+hhvi[i][5]+"</a> <sup>"+    hhvi[〇][hhvi[i][2]]     +"</sup>"+"";
+            }//不存在
         }
 
+        if(hhvi[i][3]&&hhvi[i][2]!=0||hhvi[i][3]&&hhvi[i][2]==0&&bcz==1){
+            dy+="　."
+        }
+
+        dy+="<br>"
     }
     document.getElementById("hhvi").innerHTML=dy;
 
@@ -415,6 +420,10 @@ document.addEventListener('click',function(){yj.style.display='none'});
 document.getElementById('nwn4ow').addEventListener('contextmenu', nwn4ow);
 document.getElementById('nwn4ow').addEventListener('click',nwn4ow);
 yj.addEventListener('click',(e) =>{e.stopPropagation()});
+
+function 关键词(o){
+
+}
 </script>
 
 <span class="〇"> ↩</span><br>
@@ -473,5 +482,6 @@ position:fixed;
 #yj a{padding:8px 15px;
 cursor:pointer;white-space:nowrap;
 display:block;color:#262626}
-#yj a:hover{background:#f0f0f0;}
+#yj a:hover{background:#f0f0f0}
+#关键词{font-size:0.7em}
 </style><!--!--<--><svg style="display:none;"><defs><filter id="Eror" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="linearRGB"><feTurbulence type="turbulence" baseFrequency="0.001 0.3" numOctaves="2" seed="2" stitchTiles="stitch" x="0%" y="0%" width="100%" height="100%" result="turbulence"/><feDisplacementMap in="SourceGraphic" in2="turbulence" scale="20" xChannelSelector="R" yChannelSelector="B" x="0%" y="0%" width="100%" height="100%" result="displacementMap"/></filter><filter id="Eorr" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="linearRGB"><feTurbulence type="turbulence" baseFrequency="0.001 0.05" numOctaves="2" seed="2" stitchTiles="stitch" x="0%" y="0%" width="100%" height="100%" result="turbulence"/><feDisplacementMap in="SourceGraphic" in2="turbulence" scale="20" xChannelSelector="R" yChannelSelector="B" x="0%" y="0%" width="100%" height="100%" result="displacementMap"/></filter></defs></svg>
