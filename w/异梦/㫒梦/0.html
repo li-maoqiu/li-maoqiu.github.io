@@ -338,6 +338,7 @@ let
                 }
             }
         }else{
+            if(hhvi[i][3]){dy+="<div class='条 "+hhvi[i][3].join(" ")+"'>"}else{dy+="<div class='条'>"}
             dy+="<span class='Oo'><small class='〇'>"+
                 "<span class='kong'>"+空[(9-o[0].length-o[1].length)]+"</span>"+o[0]+"</small>";if(o[1])
             
@@ -380,10 +381,10 @@ let
         }
 
         if(hhvi[i][3]&&hhvi[i][2]!=0||hhvi[i][3]&&hhvi[i][2]==0&&bcz==1){
-            dy+="　."
+            dy+="　<sub class='关键词'>"+hhvi[i][3].map(x => `<a onclick="关键词('${x}')">${x}</a> `).join('')+"</sub>"
         }
 
-        dy+="<br>"
+        dy+="</div>"
     }
     document.getElementById("hhvi").innerHTML=dy;
 
@@ -422,7 +423,13 @@ document.getElementById('nwn4ow').addEventListener('click',nwn4ow);
 yj.addEventListener('click',(e) =>{e.stopPropagation()});
 
 function 关键词(o){
-
+    if(o){
+        document.getElementById("关键词").innerHTML="只显示<b>"+o+"</b> <a onclick='关键词()'>全部</a>";
+        document.getElementById("关关键词").innerHTML=`.条,[onclick^="关键词('${o}"]{display:none}.${o}{display:block;}`;
+    }else{
+        document.getElementById("关键词").innerHTML="";
+        document.getElementById("关关键词").innerHTML=".关键词{display:inline;}";
+    }
 }
 </script>
 
@@ -484,4 +491,6 @@ cursor:pointer;white-space:nowrap;
 display:block;color:#262626}
 #yj a:hover{background:#f0f0f0}
 #关键词{font-size:0.7em}
+.关键词,#关键词,[关键词]{color:#D4D4D4}
 </style><!--!--<--><svg style="display:none;"><defs><filter id="Eror" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="linearRGB"><feTurbulence type="turbulence" baseFrequency="0.001 0.3" numOctaves="2" seed="2" stitchTiles="stitch" x="0%" y="0%" width="100%" height="100%" result="turbulence"/><feDisplacementMap in="SourceGraphic" in2="turbulence" scale="20" xChannelSelector="R" yChannelSelector="B" x="0%" y="0%" width="100%" height="100%" result="displacementMap"/></filter><filter id="Eorr" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="linearRGB"><feTurbulence type="turbulence" baseFrequency="0.001 0.05" numOctaves="2" seed="2" stitchTiles="stitch" x="0%" y="0%" width="100%" height="100%" result="turbulence"/><feDisplacementMap in="SourceGraphic" in2="turbulence" scale="20" xChannelSelector="R" yChannelSelector="B" x="0%" y="0%" width="100%" height="100%" result="displacementMap"/></filter></defs></svg>
+<style id='关关键词'>.关键词{display:none}</style>
