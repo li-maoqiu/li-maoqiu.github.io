@@ -120,13 +120,7 @@ footer img{position:relative;bottom:50px;display:block;margin:0 auto}
             临时=临时.split("|");
 
             if(临时[0]=="替换"){
-                for(let i2=1;临时.length>i2;i2++){
-                    e2替换表[临时[i2]]=临时[i2+1].split(",");
-                    if(!e2替换表[临时[i2]][2]){
-                        e2替换表[临时[i2]][1]="";e2替换表[临时[i2]][2]=临时[i2];e2替换表[临时[i2]][3]="";
-                    }
-                    i2+=1;
-                }
+                for(let i2=1;临时.length>i2;i2+=2){e2替换表[临时[i2]]=临时[i2+1]}
             }else if(临时[0]=="zk"){
                 if(!临时[3]){临时[3]=临时[2];}
                 dy+="<a class='js chaolianjie' onclick=\"dw(dwb='"+临时[1]+"',dwd='"+临时[3]+"')\">"+临时[2]+"</a>";
@@ -172,13 +166,9 @@ footer img{position:relative;bottom:50px;display:block;margin:0 auto}
 
         }else{
             if(e2替换表[临时]){
-                if(e2替换表[临时][0][0]=="同"&&e2替换表[临时][0][1]=="："){
-                    e2替换表[临时][0]=e2替换表[e2替换表[临时][0].split("同：")[1]][0];
-                }
-                dy+=e2替换表[临时][1]+"<a class='js' onmouseout=\"dmx()\" onmousemove=\"dm(dmm='"+e2替换表[临时][0]+"',dmd='"+e2替换表[临时][2]+"')\">"+e2替换表[临时][2]+"</a>"+e2替换表[临时][3];
+                dy+="<a class='js' onmouseout=\"dmx()\" onmousemove=\"dm(dmm='"+e2替换表[临时]+"',dmd='"+临时.split("_")[0]+"')\">"+临时.split("_")[0]+"</a>";
             }else{
-                dy+="<a class='js' onmouseout=\"dmx()\" onmousemove=\"dm(dmm='',dmd='"+临时+"')\">"+临时+"</a>";
-                console.log(临时);
+                dy+="<a class='js' onmouseout=\"dmx()\" onmousemove=\"dm(dmm='',dmd='"+临时.split("_")[0]+"')\">"+临时.split("_")[0]+"</a>";
             }
         }
         dy+=正文[i][1];
