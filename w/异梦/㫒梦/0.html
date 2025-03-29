@@ -426,7 +426,7 @@ yj.addEventListener('click',(e) =>{e.stopPropagation()});
 function 关键词(o){
     if(o){
         document.getElementById("关键词").innerHTML="只显示<b>"+o+"</b> <a onclick='关键词()'>全部</a>";
-        document.getElementById("关关键词").innerHTML=`.条,[onclick^="关键词('${o}"]{display:none}.${o}{display:block;}`;
+        document.getElementById("关关键词").innerHTML=`.条,[onclick="关键词('${o}')"]{display:none}.${o}{display:block;}`;
     }else{
         document.getElementById("关键词").innerHTML="";
         document.getElementById("关关键词").innerHTML=".关键词{display:inline;}";
