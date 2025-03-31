@@ -28,10 +28,9 @@ let d2=[
     "0_黑洞","1","2","3_大卢恩","4_末影珍珠和烈焰粉","5_地球","6","7",//,"8","9",
 ];
 let x="/x/14168000/";
-if(location.href.indexOf("%E3%AB%92%E6%A2%A6")!=-1){x="../../../../x/14168000/"}
+if(location.href.indexOf("%E3%AB%92%E6%A2%A6")!=-1){x="../../../.."+x;}
 let img=document.getElementById('∅');
 let isTe,f0=[],f1=[],f2=[],c0=0,c1=0,c2=0,isIn=true,isMo=false,a=0;
-// let isTe,shuf=[],shug=[],shuh=[],cur=0,cus=0,cut=0,isIn=true,isMo=false;
 
 function shuff(arr){
     for(let i=arr.length-1;i>0;i--){
@@ -91,7 +90,7 @@ img.addEventListener('contextmenu',(e)=>{
     if(a==0){a=1;}
     else if(a==1){a=2;}
     else if(a==2){a=0;}
-    notyf.confirm("已切换，请点击左键。");
+    notyf.confirm("已切换至第"+(a+1)+"页，请点击左键。");
   }
 });
 

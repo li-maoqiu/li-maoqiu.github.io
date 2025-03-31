@@ -1,0 +1,145 @@
+---
+layout: o
+BiaoTi: ∅
+permalink: _logo
+---
+<style>
+:root{--bc:#0f0f0f;}
+body{background-color:var(--bc);}
+img{
+    border:1px solid #222222;
+    padding:20px;
+    margin:20px;
+    image-rendering:optimizeSpeed;image-rendering:-moz-crisp-edges;image-rendering:-o-crisp-edges;image-rendering:-webkit-optimize-contrast;image-rendering:pixelated;-ms-interpolation-mode:nearest-neighbor;
+}
+
+.container{
+    position:relative;
+    width:90%;
+    height:90%;
+    overflow:hidden;
+    margin:2%;
+}
+
+.∅{
+    transition:all 0.5s ease;
+    position:absolute;
+    top:0;
+    left:0;
+    display:none;
+    opacity:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#d7d7d7;
+}
+</style>
+<div class="container">
+
+<div class="∅" style="margin:20px;"><br>鼠标滚轮向下划动</div>
+<div class="∅"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFAQMAAAC6v8ThAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAABBJREFUCNdjUGBwYFgAxA0AB0oBwYR4sVYAAAAASUVORK5CYII=" style="width:calc(3*20px);">3x5</div>
+<div class="∅"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAEAQMAAACTPww9AAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAAA5JREFUCNdjEGBIAMIGAAP4AVEMu2aPAAAAAElFTkSuQmCC" style="width:calc(4*20px);">4x4</div>
+<div class="∅"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFAQMAAAC3obSmAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAABJJREFUCNdj4GBIYAhgMGBoAAAFkgFpnFvjHgAAAABJRU5ErkJggg==" style="width:calc(5*20px);">
+<div class="∅5">
+    <div class="∅5a"></div>
+    <div class="∅5b1"></div>
+    <div class="∅5b2"></div>
+    <div class="∅5c1"></div>
+    <div class="∅5c2"></div>
+</div>
+5x5
+</div>
+<div class="∅"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAGAQMAAADaAn0LAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAABNJREFUCNdjMGHwYJjCsARIbgAADZgCre/mXwMAAAAASUVORK5CYII=" style="width:calc(6*20px);">6x6</div>
+<div class="∅"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAcAAAAHAQMAAAD+nMWQAAAABlBMVEUAAAD///+l2Z/dAAAAAXRSTlMAQObYZgAAABVJREFUCNdjsGJwYehimMSwCEjvAAATcgM5q/rooQAAAABJRU5ErkJggg==" style="width:calc(7*20px);">7x7</div>
+
+</div>
+<style>
+    .∅5{width:140px;height:140px;position:relative;background-color:var(--bc);border:1px solid #222222;display:inline-block;margin:20px}
+    .∅5 div{position:absolute;animation-iteration-count:infinite;animation-duration:8s;}
+    .∅5a{
+        width:20px;height:20px;background-color:var(--bc);top:60px;left:60px;
+        animation-name:k5a;
+        box-shadow:-20px -20px #ffffff,-20px 0 #ffffff,-20px 20px #ffffff,0 -20px #ffffff,0 20px #ffffff,20px -20px #ffffff,20px 0 #ffffff,20px 20px #ffffff
+    }
+    .∅5b1,.∅5b2,.∅5c1,.∅5c2{width:20px;height:20px;}
+    .∅5b1,.∅5b2{background-color:var(--bc);animation-name:k5b;}
+    .∅5c1,.∅5c2{background-color:#ffffff;}
+    .∅5c1{animation-name:k5c1;}
+    .∅5c2{animation-name:k5c2;}
+    .∅5b1{top:40px;left:80px;}
+    .∅5b2{top:80px;left:40px;}
+
+    @keyframes k5a{
+        0%,30%{transform:rotate(0deg);}
+        70%,100%{transform:rotate(900deg);}
+    }
+    @keyframes k5b{
+        0%,30%,70%,100%{opacity:1;}
+        30.01%,69.99%{opacity:0;}
+    }
+    @keyframes k5c1{
+        30%,70%{top:40px;left:80px}
+        0%,15%,85%,100%{top:20px;left:100px}
+        0%,30%,70%,100%{opacity:1;}
+        30.01%,69.99%{opacity:0;}
+    }
+    @keyframes k5c2{
+        30%,70%{top:80px;left:40px}
+        0%,15%,85%,100%{top:100px;left:20px}
+        0%,30%,70%,100%{opacity:1;}
+        30.01%,69.99%{opacity:0;}
+    }
+</style>
+
+<script>
+let divs=document.querySelectorAll('.∅');
+let currentIndex=0;
+let isAnimating=false;
+let th=0;
+
+divs[currentIndex].style.display='flex';
+divs[currentIndex].style.opacity='1';
+
+function handleWheel(e){
+    if(isAnimating) return;
+    e.preventDefault();
+
+    const direction=Math.sign(e.deltaY);
+    const oldCurrentIndex=currentIndex;
+    const nextIndex=(currentIndex + direction + divs.length) % divs.length;
+
+    isAnimating=true;
+    const currentDiv=divs[oldCurrentIndex];
+    const nextDiv=divs[nextIndex];
+
+    nextDiv.style.display='flex';
+    nextDiv.style.opacity='0';
+    nextDiv.style.transform=direction===1?'translateX(100%)':'translateX(-100%)';
+
+    nextDiv.offsetHeight;
+
+    currentDiv.style.opacity='0';
+    currentDiv.style.transform=direction===1?'translateX(-100%)':'translateX(100%)';
+    nextDiv.style.opacity='1';
+    nextDiv.style.transform='translateX(0)';
+
+    currentDiv.addEventListener('transitionend',function handler(e){
+        if(e.propertyName!=='transform') return;
+        currentDiv.removeEventListener('transitionend',handler);
+        currentDiv.style.display='none';
+        currentDiv.style.transform='translateX(0)';
+        isAnimating=false;
+        currentIndex=nextIndex;
+
+        if(oldCurrentIndex===0&&th==0){
+            const firstDiv=divs[0];
+            firstDiv.remove();
+            divs=document.querySelectorAll('.∅');
+            currentIndex=nextIndex-1;
+            th=1;
+        }
+    });
+}
+
+window.addEventListener('wheel',handleWheel,{passive:false});
+</script>
