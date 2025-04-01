@@ -1,7 +1,7 @@
 ---
 layout: o
-BiaoTi: 相册
-permalink: _img
+BiaoTi: 海报
+permalink: _海报
 favicon: x/14342686.ico
 ---
 <style>
@@ -33,7 +33,7 @@ body{
 }
 .c{
     position:absolute;
-    bottom:0;
+    bottom:9px;
     left:0;
     right:0;
     background:#000000b3;
@@ -73,32 +73,34 @@ body{
 <div class="overlay"><span class="close-btn">&times;</span><a class="enlarged-a" href="" target="_blank"><img class="enlarged-img" src=""></a></div>
 
 <script>
-    let x="/x/14343354/";
-    if(location.href.indexOf("%E3%AB%92%E6%A2%A6")!=-1){x="../../../.."+x}
-    const data=[
-        ["14270980.png","封面"],
-    ];
-    document.getElementById("gallery").innerHTML=data.map(sub=>`<div class="t"><img src="${x}${sub[0]}"><div class="c">${sub[1]}</div></div>`).join(" ");
+let x="/x/14343354/";
+if(location.href.indexOf("%E3%AB%92%E6%A2%A6")!=-1){x="../../../.."+x}
+const data=[
+    ["14270980.png","20250323"],
+    ["14348192.png","20250401"],
 
-    const thumbnails=document.querySelectorAll('.t');
-    const overlay=document.querySelector('.overlay');
-    const enlargedImg=document.querySelector('.enlarged-img');
-    const enlargedA=document.querySelector('.enlarged-a');
-    const closeBtn=document.querySelector('.close-btn');
+];
+document.getElementById("gallery").innerHTML=data.map(sub=>`<div class="t"><img src="${x}${sub[0]}"><div class="c">${sub[1]}</div></div>`).join("");
 
-    thumbnails.forEach(thumbnail=>{
-        thumbnail.addEventListener('click',()=>{
-            const imgSrc=thumbnail.querySelector('img').src;
-            const caption=thumbnail.querySelector('.c').textContent;
-            
-            enlargedImg.src=imgSrc;
-            enlargedA.href=imgSrc;
-            overlay.style.display='flex';
-        });
+const thumbnails=document.querySelectorAll('.t');
+const overlay=document.querySelector('.overlay');
+const enlargedImg=document.querySelector('.enlarged-img');
+const enlargedA=document.querySelector('.enlarged-a');
+const closeBtn=document.querySelector('.close-btn');
+
+thumbnails.forEach(thumbnail=>{
+    thumbnail.addEventListener('click',()=>{
+        const imgSrc=thumbnail.querySelector('img').src;
+        const caption=thumbnail.querySelector('.c').textContent;
+        
+        enlargedImg.src=imgSrc;
+        enlargedA.href=imgSrc;
+        overlay.style.display='flex';
     });
+});
 
-    function closeOverlay(){overlay.style.display='none'}
+function closeOverlay(){overlay.style.display='none'}
 
-    closeBtn.addEventListener('click',closeOverlay);
-    overlay.addEventListener('click',(e)=>{if(e.target===overlay){closeOverlay()}});
+closeBtn.addEventListener('click',closeOverlay);
+overlay.addEventListener('click',(e)=>{if(e.target===overlay){closeOverlay()}});
 </script>
