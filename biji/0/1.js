@@ -5,6 +5,7 @@ let 统一=["../0/2/"];
 let 最后执行={};
 let 代码={
     "博客":"https://limaoqiu.com/",
+    "本地博客":"C:/mq/博客/yucimao.github.io/",
     "六维评分":[,6,"体质","力量","敏捷","智慧","运气","命数"],
     "猫cafe":"https://猫.cafe/",
     "猫":"https://猫.cafe/w/",
@@ -15,11 +16,7 @@ if(异梦笔记z){
 const script=document.createElement('script');
 script.textContent=异梦笔记z;
 document.body.appendChild(script);
-}else{
-    function 解锁z(){
-        return "仅限本地查看";
-    }
-}
+}else{function 解锁z(){return "仅限本地查看"}}
 
 const _执行a={
     "解锁":(i)=>{dy1js+="<span id='"+i+"' onclick=\"解(锁='"+i+"／"+临时0[1]+"')\" class='zhushi jiesuo'></span>"},

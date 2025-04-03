@@ -1,0 +1,92 @@
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script>
+    let h1="相似字符";
+    let nav=[];
+    let index=[];
+</script><link rel="stylesheet" href="0/1.css"><div id="dy"></div><script src="0/1.js"></script><div id="a">
+
+<style>td[onclick]{text-decoration:none;color:#006699;cursor:pointer;}td[onclick]:hover,td[onclick]:focus{color:#0085a1;}</style>
+<div id="dyy"></div>
+
+</div>
+
+<script>
+let table="<tr><td>英文</td><td>希腊</td></tr>";
+let data=[
+    ["A","Α"],
+    ["B","Β"],
+    ["C",""],
+    ["D",""],
+    ["E","Ε"],
+    ["F",""],
+    ["G",""],
+    ["H","Η"],
+    ["I","Ι"],
+    ["J",""],
+    ["K","Κ"],
+    ["L",""],
+    ["M","Μ"],
+    ["N","Ν"],
+    ["O","Ο"],
+    ["P","Ρ"],
+    ["Q",""],
+    ["R",""],
+    ["S",""],
+    ["T","Τ"],
+    ["U",""],
+    ["V",""],
+    ["W",""],
+    ["X",""],
+    ["Y",""],
+    ["Z","Ζ"],
+
+    ["hr","小写"],
+    ["a","α"],
+    ["b",""],
+    ["c",""],
+    ["d",""],
+    ["e",""],
+    ["f",""],
+    ["g",""],
+    ["h",""],
+    ["i",""],
+    ["j",""],
+    ["k",""],
+    ["l",""],
+    ["m",""],
+    ["n",""],
+    ["o","ο"],
+    ["p","ρ"],
+    ["q",""],
+    ["r",""],
+    ["s",""],
+    ["t",""],
+    ["u","υ"],
+    ["v","ν"],
+    ["w","ω"],
+    ["x",""],
+    ["y",""],
+    ["z",""],
+];
+
+let dyy="<table>"+table;
+for(let i=0;data.length>i;i++){
+    if(data[i][0]=="hr"){
+        dyy+="</table><br><b>"+data[i][1]+"</b><table>"+table;
+    }else{
+        dyy+="<tr>";
+        for(let i2=0;data[i].length>i2;i2++){
+            if(data[i][i2]==""){
+                dyy+="<td></td>";
+            }else{
+                dyy+="<td onclick=\"复(制='"+data[i][i2]+"')\">"+data[i][i2]+"</td>";
+            }
+        }
+        dyy+="</tr>";
+    }
+}
+dyy+="</table>";
+document.getElementById("dyy").innerHTML = dyy;
+</script>
+
+</div>

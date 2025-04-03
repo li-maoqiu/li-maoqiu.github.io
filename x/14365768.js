@@ -1,6 +1,5 @@
 document.getElementById("正文").innerHTML="<style>.char{display:inline-block;opacity:0;transition:all 0.6s cubic-bezier(0.68,-0.55,0.27,1.55);transform:translate(0,0) rotate(0);}.animated{opacity:1 !important;}</style>";
 
-
 function animateText(htmlString){
   const container=document.getElementById('正文');
   const parser=new DOMParser();

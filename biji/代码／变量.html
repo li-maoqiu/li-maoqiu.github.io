@@ -1,0 +1,135 @@
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script>
+    let h1="变量";
+    let nav=["代码"];
+    let index=["自动"];
+</script><link rel="stylesheet" href="0/1.css"><div id="dy"></div><script src="0/1.js"></script><div id="a">
+
+let 变量; <span class='zhushi'>值为空</span><br>
+<br>
+
+let 数值=5;<br>
+<br>
+let 字符串="文字";<br>
+&nbsp;&nbsp;&nbsp;&nbsp;字符串[0]; <span class='zhushi'>值是"文"</span><br>
+<br>
+
+let 数组=["1","2"];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;数组[0]; <span class='zhushi'>值是"1"</span><br>
+<br>
+
+let 哈希表={<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"key":"值",<br>
+&nbsp;&nbsp;&nbsp;&nbsp;"key2":"值2",<br>
+}<br>
+获取值可以写 哈希表["key"] 或 哈希表.key （用第二种方式不可以是数字）<br>
+let 遍历哈希表所有key=Object.keys(哈希表);<br>
+<br>
+
+如果直接用 变量a=变量b ，当改变其中一个变量时，另一个也会发生改变。<br>
+所以要改为使用 变量b=变量a.slice();<br>
+<br>
+
+let 字符串转数字=Number("12345"); <span class='zhushi'>不是数字会返回NaN</span><br>
+<br>
+
+<hr>
+
+let 用标签给变量赋值=document.getElementById("标签id").value;<br>
+<br>
+
+<hr>
+
+〈h4|截取、分割〉<br>
+<br>
+
+〈h5|截取特定位数〉<br>
+变量=变量.slice(开始位置,开始位置+保留位数); <span class='zhushi'>开始位置第一位是0，第二位是1，以此类推</span><br>
+比如 变量="123456789";<br>
+变量.slice(0,3); <span class='zhushi'>123</span><br>
+变量.slice(1,1+3); <span class='zhushi'>234</span><br>
+<br>
+
+〈h5|删除特定位数〉<br>
+适用于字符串和数组<br>
+变量="12345"; 或["1","2","3","4","5"]<br>
+变量=变量.slice(3); <span class='zhushi'>删除前3位 结果为："45"或["4","5"]</span><br>
+变量=变量.slice(-3); <span class='zhushi'>删除后3位 结果为："12"或["1","2"]</span><br>
+<br>
+
+从特定位置删除：变量.splice(开始位置,删除的位数);<br>
+<span class='zhushi'>直接修改变量 变量.splice(0,1)，而不是 变量=变量.xxx</span><br>
+<br>
+
+<hr>
+
+〈h4|数组〉<br>
+
+从数组中删除特定字符：<br>
+a=["1","2","3"];<br>
+a=a.filter(item=>item!=="2");<br>
+<br>
+
+去重：数组=[...new Set(数组)];<br>
+<br>
+
+let 分割成数组="1-2-3-4".split("-"); <span class='zhushi'>["1","2","3","4"]</span><br>
+<span class='zhushi'>.split("") 留空则是每个字都分割出来</span><br>
+let 数组合并成字符串=["1","2","3","4"].join("-"); <span class='zhushi'>变量变成字符串"1-2-3-4"</span><br>
+<br>
+
+插入：<br>
+变量名.splice(位置,0,"新内容","新内容2");<br>
+变量名.push("插入队尾");<br>
+<span class='zhushi'>都是直接用，不要变量名=变量名.xxxx</span><br>
+<br>
+
+按顺序排序：变量.sort(); <span class='zhushi'>符号→数字→大写字母→小写字母→中文</span><br>
+<br>
+
+数组包含多个变量时按大小排序：<br>
+let d=[[1,"测试"],[5,"测试2"],[2,"测试3"]];<br>
+d.sort((a,b)=>a[0]-b[0]); <span class='zhushi'>从小到大 a[0]-b[0] 从大到小 b[0]-a[0]</span><br>
+<br>
+
+两个数组拼接合并：数组1=数组1.concat(数组2);<br>
+<br>
+
+<hr>
+
+〈h4|随机〉<br>
+随机数：Math.floor(Math.random()*值); <span class='zhushi'>值是从几个数字里抽取，比如1就只会出现"0"</span>
+let 抽取其一=数组[Math.floor(Math.random()*数组.length)];<br>
+<br>
+
+function 随机打乱(arr){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;for(let i=arr.length-1;i>0;i--){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;const j=Math.floor(Math.random()*(i+1));<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[arr[i],arr[j]]=[arr[j],arr[i]];<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+&nbsp;&nbsp;&nbsp;&nbsp;return arr;<br>
+}<br>
+let 数组=["1","2","3","4"];<br>
+数组=随机打乱(数组);<br>
+<br>
+
+<hr>
+
+〈h4|其他〉<br>
+<br>
+
+〈h5|字数不够自动补位〉<br>
+a='1';<br>
+b=a.padStart(2,'0'); <span class='zhushi'>01</span>
+b=a.padStart(3,'0'); <span class='zhushi'>001</span>
+<br>
+
+〈h5|打印数组〉<br>
+a=["1","2","3"];<br>
+b=a.map(sub=>`【${sub}】`).join("");<br>
+<br>
+
+a=[["1","2"],["3","4"]];<br>
+b=a.map(sub=>`【${sub[0]}，${sub[1]}】`).join("");<br>
+
+</div>

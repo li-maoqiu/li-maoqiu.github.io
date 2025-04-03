@@ -1,0 +1,207 @@
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script>
+    let h1="有序、无序列表";
+    let nav=["代码"];
+    let index=["自动"];
+</script><link rel="stylesheet" href="0/1.css"><div id="dy"></div><script src="0/1.js"></script><div id="a">
+
+<ol>
+    <li>有序列表</li>
+    <li>&lt;ol>&lt;li>有序列表&lt;/li>&lt;/ol></li>
+</ol>
+
+<ul>
+    <li>无序列表</li>
+    <li>&lt;ol>&lt;li>无序列表&lt;/li>&lt;/ol></li>
+</ul>
+
+<hr>
+
+〈h3|list-style-type:〉<br>
+
+〈h5|none 无〉
+<ol>
+    <li>测试</li>
+    <li>测试</li>
+    <li>测试</li>
+</ol><br>
+
+〈h5|disc 实心圆〉
+<ol style="list-style-type:disc">
+    <li>测试</li>
+    <li>测试</li>
+    <li>测试</li>
+</ol><br>
+
+〈h5|circle 空心圆〉
+<ol style="list-style-type:circle">
+    <li>测试</li>
+    <li>测试</li>
+    <li>测试</li>
+</ol><br>
+
+〈h5|square 实心方块〉
+<ol style="list-style-type:square">
+    <li>测试</li>
+    <li>测试</li>
+    <li>测试</li>
+</ol><br>
+
+〈h5|decimal 数字〉
+<ol style="list-style-type:decimal">
+    <li>测试</li>
+    <li>测试</li>
+    <li>测试</li>
+</ol><br>
+
+〈h5|decimal-leading-zero 0开头的数字〉
+<ol style="list-style-type:decimal-leading-zero">
+    <li>测试</li>
+    <li>测试</li>
+    <li>测试</li>
+</ol><br>
+
+〈h5|lower-roman 小写罗马数字〉
+<ol style="list-style-type:lower-roman">
+    <li>测试</li>
+    <li>测试</li>
+    <li>测试</li>
+</ol><br>
+
+〈h5|upper-roman 大写罗马数字〉
+<ol style="list-style-type:upper-roman">
+    <li>测试</li>
+    <li>测试</li>
+    <li>测试</li>
+</ol><br>
+
+〈h5|lower-alpha 小写英文字母〉
+<ol style="list-style-type:lower-alpha">
+    <li>测试</li>
+    <li>测试</li>
+    <li>测试</li>
+</ol><br>
+
+〈h5|upper-alpha 大写英文字母〉
+<ol style="list-style-type:upper-alpha">
+    <li>测试</li>
+    <li>测试</li>
+    <li>测试</li>
+</ol><br>
+
+〈h5|lower-greek 小写希腊字母〉
+<ol style="list-style-type:lower-greek">
+    <li>测试</li>
+    <li>测试</li>
+    <li>测试</li>
+</ol><br>
+
+〈h5|lower-latin 小写拉丁字母〉
+<ol style="list-style-type:lower-latin">
+    <li>测试</li>
+    <li>测试</li>
+    <li>测试</li>
+</ol><br>
+
+〈h5|upper-latin 大写拉丁字母〉
+<ol style="list-style-type:upper-latin">
+    <li>测试</li>
+    <li>测试</li>
+    <li>测试</li>
+</ol><br>
+
+〈h5|hebrew 传统的希伯来编号〉
+<ol style="list-style-type:hebrew">
+    <li>测试</li>
+    <li>测试</li>
+    <li>测试</li>
+</ol><br>
+
+〈h5|armenian 传统的亚美尼亚〉
+<ol style="list-style-type:armenian">
+    <li>测试</li>
+    <li>测试</li>
+    <li>测试</li>
+</ol><br>
+
+〈h5|georgian 传统的乔治亚〉
+<ol style="list-style-type:georgian">
+    <li>测试</li>
+    <li>测试</li>
+    <li>测试</li>
+</ol><br>
+
+〈h5|cjk-ideographic 简单的表意数字〉（中文数字？）
+<ol style="list-style-type:cjk-ideographic">
+    <li>测试</li>
+    <li>测试</li>
+    <li>测试</li>
+</ol><br>
+
+〈h5|hiragana 小写日本片假名〉
+<ol style="list-style-type:hiragana">
+    <li>测试</li>
+    <li>测试</li>
+    <li>测试</li>
+</ol><br>
+
+〈h5|katakana 大写日本片假名〉
+<ol style="list-style-type:katakana">
+    <li>测试</li>
+    <li>测试</li>
+    <li>测试</li>
+</ol><br>
+
+〈h5|hiragana-iroha 小写日本片假名2〉
+<ol style="list-style-type:hiragana-iroha">
+    <li>测试</li>
+    <li>测试</li>
+    <li>测试</li>
+</ol><br>
+
+〈h5|katakana-iroha 大写日本片假名2〉
+<ol style="list-style-type:katakana-iroha">
+    <li>测试</li>
+    <li>测试</li>
+    <li>测试</li>
+</ol><br>
+
+
+<style>
+ol.改 li{
+counter-increment:customNumbers;
+list-style:none;
+}
+
+ol.改 li::before{
+content:counter(customNumbers)". ";
+color:#ff0000;
+}
+</style>
+
+〈h4|改有序列表前面的数字颜色、样式〉<br>
+<ol class="改">
+    <li>列表项</li>
+    <li>列表项</li>
+    <li>列表项</li>
+    </ol>
+<small>
+ol.改 li{<br>
+counter-increment:customNumbers;<br>
+list-style:none;<br>
+}<br>
+<br>
+ol.改 li::before{<br>
+content:counter(customNumbers)". ";<br>
+color:#ff0000;<br>
+}</small><br>
+<br>
+
+
+
+
+
+
+
+
+</div>
