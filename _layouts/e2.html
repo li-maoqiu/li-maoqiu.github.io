@@ -250,6 +250,8 @@ footer img{position:relative;bottom:50px;display:block;margin:0 auto}
     document.addEventListener('contextmenu',function(e){e.preventDefault();window.location.href='#底部';})
 </script>
 
+{% if page.JiaZai3 %}{{ page.JiaZai3 }}{% endif %}
+
 <br><br><br>
 {% if page.PingLun %}<div class="内容1"><a name="评论"></a>{% include Valine.html %}</div>{% endif %}
 
