@@ -12,7 +12,8 @@ body{background-color:#090909}
 <img id="∅">
 <div id="z"></div>
 <script>
-let d0=[
+let d=[
+[//字符空集
     "0","1","2","3","4","5","6","7","8","9",
     "10","11","12","13","14","15","16","17","18","19",
     "20","21","22","23","24","25","26","27","28","29",
@@ -23,15 +24,16 @@ let d0=[
     "70","71","72","73","74","75","76","77","78",//"79",
     //"80","81","82","83","84","85","86","87","88","89",
     // "0","1","2","3","4","5","6","7","8","9",
-];
-let d1=["0","1"];
-let d2=[
-    "0_黑洞","1","2","3_大卢恩","4_末影珍珠和烈焰粉","5_地球","6","7",//,"8","9",
+],[//绘制的复杂空集
+    "0","1"
+],[//别的作品里的假空集
+    "0_黑洞","1","2","3_大卢恩","4_末影珍珠和烈焰粉","5_地球","6","7","8_星穹铁道"
+],
 ];
 let x="/x/14168000/";
 if(location.href.indexOf("%E5%8D%9A%E5%AE%A2")!=-1){x=""}
 let img=document.getElementById('∅');
-let isTe,f0=[],f1=[],f2=[],c0=0,c1=0,c2=0,isIn=true,isMo=false,a=0;
+let isTe,f=[],c=[],isIn=true,isMo=false,a=0;
 
 function shuff(arr){
     for(let i=arr.length-1;i>0;i--){
@@ -41,63 +43,48 @@ function shuff(arr){
     return arr;
 }
 
-function s0(){
-    if(c0>=f0.length){
-        f0=shuff([...d0]);
-        c0=0;
+function s(o){
+    if(!o){o=0;}
+    if(!c[o]){c[o]=0;}
+    if(!f[o]){f[o]=shuff([...d[o]]);}
+    if(c[o]>=f[o].length){
+        f[o]=shuff([...d[o]]);
+        c[o]=0;
     }
-    img.src=x+f0[c0++]+".png";
-}
-
-function s1(){
-    if(c1>=f1.length){
-        f1=shuff([...d1]);
-        c1=0;
-    }
-    img.src=x+"a/"+f1[c1++]+".png";
-}
-function s2(){
-    if(c2>=f2.length){
-        f2=shuff([...d2]);
-        c2=0;
-    }
-    img.src=x+"b/"+f2[c2++]+".png";
+    img.src=x+o+"/"+f[o][c[o]++]+".png";
 }
 
 function pre(){
-    d0.forEach(url=>{
-        new Image().src=x+url+".png";
+    d[0].forEach(url=>{
+        new Image().src=x+"0/"+url+".png";
     });
 }
 
 img.addEventListener('mouseenter',()=>{
     if(!isIn){clearInterval(isTe);if(!isMo){isMo=true}
-    document.getElementById("z").innerHTML=f0[c0-1]}
+    document.getElementById("z").innerHTML=f[0][c[0]-1]}
 });
 img.addEventListener('mouseleave',()=>{
     a=0;
-    if(!isIn&&isMo){isTe=setInterval(s0,99);document.getElementById("z").innerHTML=""}
+    if(!isIn&&isMo){isTe=setInterval(s,99);document.getElementById("z").innerHTML=""}
 });
 img.addEventListener('click',()=>{
     if(!isIn){
-        if(a==0){s0();document.getElementById("z").innerHTML=f0[c0-1]}
-        if(a==1){s1();document.getElementById("z").innerHTML=f1[c1-1]}
-        if(a==2){s2();document.getElementById("z").innerHTML=f2[c2-1]}
+        s(a);document.getElementById("z").innerHTML=f[a][c[a]-1]
     }
 });
 img.addEventListener('contextmenu',(e)=>{
   e.preventDefault();
   if(!isIn){
-    if(a==0){a=1;}
-    else if(a==1){a=2;}
-    else if(a==2){a=0;}
-    notyf.confirm("已切换至第"+(a+1)+"页，请点击左键。");
+    a+=1;
+    if(a>=d.length){a=0;}
+    try{notyf.confirm("已切换至第"+(a+1)+"页，请点击左键。");}catch(e){console.log("已切换至第"+(a+1)+"页，请点击左键。")}
   }
 });
 
 pre();
 
-f0=shuff([...d0]);
+f[0]=shuff([...d[0]]);
 
 let djs=1200;
 img.src=x+"d/3.png";
@@ -106,8 +93,8 @@ setTimeout(()=>{img.src=x+"d/1.png"},djs*2);
 setTimeout(()=>{img.src=x+"d/0.png"},djs*3);
 setTimeout(()=>{
     isIn=false;
-    s0();
-    isTe=setInterval(s0,99);
+    s(0);
+    isTe=setInterval(s,99);
 },djs*4);
 console.log("鼠标移入暂停，左键点击切换下一张，右键更换分组。")
 </script>
