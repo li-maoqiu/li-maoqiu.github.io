@@ -10,6 +10,7 @@ let 代码={
     "猫cafe":"https://猫.cafe/",
     "猫":"https://猫.cafe/w/",
 };
+let 本地=(location.protocol=="file:")?1:null;
 
 let 异梦笔记z=localStorage.getItem("异梦笔记z");
 if(异梦笔记z){
@@ -78,7 +79,7 @@ for(let i=0;nav.length>i;i++){
 dy1js+="</nav>";
 if(nav[0]=="搜索"){dy1js+="　<input type='text' id='输入' placeholder='搜索' onkeyup='确定()' autocomplete='off'/><div id='结果'></div>"}
 dy1js+="<hr class='hr0'>";
-dy1js+="<div class='index'><div class='index_top'><a onclick='编辑()'>编辑</a>　<a onclick='javascript:location.reload();'>刷新</a>　<a href='#top'>top</a><br></div><br><div id='index_dy1js'>";
+dy1js+=`<style>${(!本地)?"[href$='（本地）.html']{text-decoration:line-through}":""}</style><div class='index'><div class='index_top'><a onclick='编辑()'>编辑</a>　<a onclick='javascript:location.reload();'>刷新</a>　<a href='#top'>top</a><br></div><br><div id='index_dy1js'>`;
 for(let i=0;index.length>i;i++){if(index[i]=="br"){dy1js+="<br>"}else{dy1js+="<a href='#"+index[i]+"'>"+index[i]+"</a><br>"}}
 dy1js+="</div><br></div>";
 
@@ -189,12 +190,12 @@ catch(e){
 }
 
 function 编辑(){
-    if(window.location.href.indexOf("file:///")!=-1){
-        制=window.location.href.replace(/file:\/\/\//g,"").split(":/");
+    if(本地){
+        制=location.href.replace(/file:\/\/\//g,"").split(":/");
         制="C:/mq/app/code.lnk C:/"+decodeURI(制[1].split("#")[0])+" & exit";
         复();
-        window.location.href="pvocmd://";
-    }else{try{notyf.alert("编辑功能仅在本地有效")}catch(e){alert("编辑功能仅在本地有效")};制="C:/MQ/异梦笔记/biji/"+decodeURI(decodeURI(window.location.href.split(".cafe/biji/")[1]));复()}
+        location.href="pvocmd://";
+    }else{try{notyf.alert("编辑功能仅在本地有效")}catch(e){alert("编辑功能仅在本地有效")};制="C:/MQ/异梦笔记/biji/"+decodeURI(decodeURI(location.href.split(".cafe/biji/")[1]));复()}
 }
 
 function dw(){

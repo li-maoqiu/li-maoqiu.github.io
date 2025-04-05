@@ -13,8 +13,15 @@
 <br>
 
 〈h5|打印〉<br>
-&lt;p id="标签">原文字&lt;/p><br>
-document.getElementById("标签").innerHTML="修改原文字";<br>
+&lt;p id="【id】">原文字&lt;/p><br>
+document.getElementById("【id】").innerHTML="修改原文字";<br>
+<br>
+在元素之前插入：document.getElementById('【id】').insertAdjacentHTML('beforebegin',"内容");<br>
+在元素之后插入：document.getElementById('【id】').insertAdjacentHTML('afterend',"内容");<br>
+在元素内的开头：document.getElementById('【id】').insertAdjacentHTML('afterbegin',"内容");<br>
+在元素内的结尾：document.getElementById('【id】').insertAdjacentHTML('beforeend',"内容");<br>
+<br>
+
 <br>
 
 〈h5|大小写〉<br>
@@ -41,6 +48,7 @@ if(a&lt;10){b="你好";}else{b="不好";}<br>
 b=(a&lt;10)?"你好":"不好";<br>
 如果a小于10 则b等于"你好"，否则"不好"<br>
 <br>
+
 if(条件1){则A}else if(条件2){则B}else{则C}<br>
 如果满足1则A，否则如何满足2则B，否则C<br>
 <br>
@@ -94,162 +102,32 @@ while(变量&lt;5){循环内容}<br>
 do{循环内容}while(判断); （;一定要有） 先执行一次，再判断是否满足<br>
 <br>
 <br>
-【正则表达式】<br>
-var 变量a = "目标";<br>
-var 变量b = 变量a.search(/文字/i);<br>
-返回“文字”在“目标”的第几个位置，比如文字是“目”，就返回0<br>
+
+〈h5|替换〉<br>
+方法1=a.replace(/【替换前】/g, "【替换后】");<br>
+方法2=.replace(new RegExp('前',"g"),"后");<br>
 <br>
-替换：（正则表达式，不区分大小写）<br>
-var 变量a = "原句";<br>
-var 变量b = 变量a.replace(/目标文字/i,"替换的内容");<br>
-<br>
-替换：（字符串方法，区分大小写）<br>
-var 变量a = "原句";<br>
-var 变量b = 变量a.replace("目标文字","替换的内容");<br>
-<br>
-是否含有内容：（用变量的方法）<br>
-var 变量=new RegExp("目标");<br>
-document.write(变量.test("原句"));<br>
-如果有返回true，没有返回false<br>
-<br>
-是否含有内容：（不用变量的方法）<br>
-document.write(/目标/.test("原句"));<br>
-<br>
-只保留目标：<br>
-document.write(/目标/.exec("原句"));<br>
-比如原句12345，目标12，返回12<br>
-<br>
-【分隔】<br>
-var 变量A="文字、文字2、文字3";<br>
-var 变量B=new Array(); 定义为数组<br>
-var 变量B=变量A.split("、");  用、分隔<br>
-<br>
-<br>
-【按钮】<br>
-&lt;button type="button" onclick="标签B()">按钮&lt;/button><br>
-&lt;p id="标签A"><br>
-按下之前显示的文字。&lt;/p><br>
-&lt;script><br>
-function 标签B()<br>
-{<br>
-	document.getElementById("标签A").innerHTML="按钮按下的文字";【按下按钮执行这里】<br>
-}<br>
-&lt;/script><br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-【替换】<br>
-方法1：<br>
-a=a.replace(/【替换前】/g, "【替换后】");<br>
-<br>
-方法2：<br>
-b = new RegExp('【替换前】', "g");<br>
-a = a.replace(b, '【替换后】');<br>
-<br>
-<br>
-<br>
-将url里的?A=B放进变量里<br>
-let LocString = String(window.document.location.href);<br>
-function GetQueryString(name) {<br>
-    let rs = new RegExp("(^|)" + name + "=([^&]*)(&|$)", "gi").exec(LocString), tmp;<br>
-    if (tmp = rs) {<br>
-        return decodeURI(tmp[2]);<br>
-    }<br>
-    return "";<br>
-}<br>
-<br>
-let id=GetQueryString("t");<br>
-<br>
-<br>
-<br>
-【打印】<br>
-document.getElementById("【id】").innerHTML=【内容】;<br>
-// 假设您有一个元素，例如：&lt;div id="myElement">&lt;/div><br>
- <br>
-// 在元素前面插入HTML<br>
-var myElement = document.getElementById('myElement');<br>
-myElement.insertAdjacentHTML('beforebegin', '&lt;div>这是新插入的元素&lt;/div>');<br>
- <br>
-// 在元素后面插入HTML<br>
-myElement.insertAdjacentHTML('afterend', '&lt;div>这也是新插入的元素&lt;/div>');<br>
- <br>
-// 在元素内的开头插入HTML<br>
-myElement.insertAdjacentHTML('afterbegin', '&lt;p>这是段落&lt;/p>');<br>
- <br>
-// 在元素内的末尾插入HTML<br>
-myElement.insertAdjacentHTML('beforeend', '&lt;span>这是一个span&lt;/span>');<br>
-<br>
-<br>
-<br>
-if(isNaN(变量)){不是数字}else{是数字}<br>
-<br>
-<br>
-<br>
-<br>
-代码出错也能继续执行<br>
+
+〈h5|错误〉<br>
 try{<br>
-代码<br>
+代码，正常执行<br>
 }catch(e){<br>
 如果出错则执行<br>
 }<br>
 <br>
+
+〈h5|动态执行〉<br>
+let a="console.log(1)"<br>
+eval(a); //将字符按照代码执行<br>
 <br>
-<br>
-【监听键盘】<br>
-document.addEventListener("keydown",keydown);<br>
-//键盘监听，注意：在非ie浏览器和非ie内核的浏览器<br>
-//参数1：表示事件，keydown:键盘向下按；参数2：表示要触发的事件<br>
-function keydown(event){<br>
-//表示键盘监听所触发的事件，同时传递传递参数event<br>
-    document.write(event.keyCode);//keyCode表示键盘编码<br>
-}<br>
-<br>
-<br>
-<br>
-【动态执行】<br>
-&lt;div id="测试">&lt;/div><br>
-<br>
-&lt;script><br>
-    let a="document.getElementById('测试').innerHTML='啊'"<br>
-    eval(a); //将字符按照代码执行<br>
-&lt;/script><br>
-<br>
-<br>
-<br>
-【】<br>
-let a = ["1", "2", "11", "92"];<br>
-let b = a.map(item => `【${item}】(${item})`).join('');<br>
-//【1】（1）  【2】（2）<br>
-<br>
-<br>
-<br>
-【有待测试】<br>
-<br>
+
+〈h4|循环〉<br>
 let 开始刷新=setInterval(刷新,10000); 循环执行<br>
 clearInterval(刷新); 取消循环<br>
 <br>
 let 执行=setTimeout(某,1000); 延迟执行<br>
 clearTimeout(执行); 取消延迟执行<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-document.getElementById("").innerHTML=""; //打印<br>
-document.getElementById("").append(""); //追加<br>
-<br>
-// 在元素前追加内容<br>
-document.getElementById('myElement').insertAdjacentHTML('beforebegin', '&lt;p>追加的内容&lt;/p>');<br>
-// 在元素内部的开头追加内容<br>
-document.getElementById('myElement').insertAdjacentHTML('afterbegin', '&lt;p>追加的内容&lt;/p>');<br>
-// 在元素内部的末尾追加内容<br>
-document.getElementById('myElement').insertAdjacentHTML('beforeend', '&lt;p>追加的内容&lt;/p>');<br>
-// 在元素后追加内容<br>
-document.getElementById('myElement').insertAdjacentHTML('afterend', '&lt;p>追加的内容&lt;/p>');<br>
+
 
 
 </div>
