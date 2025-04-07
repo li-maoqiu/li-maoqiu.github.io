@@ -1,0 +1,32 @@
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script>
+    let h1="文字转BASE64";
+    let nav=["x","代码"];
+    let index=[];
+</script><link rel="stylesheet" href="0/1.css"><div id="dy"></div><script src="0/1.js"></script><div id="a" style="display:none;">
+
+
+
+</div>
+
+<input id="base64_A" style="width:70%"/>
+<button onclick="base64_编码()">编码</button>
+<button onclick="base64_解码()">解码</button>
+<button onclick="base64_复制()">复制</button>
+
+
+<script>
+    function base64_编码(){
+        let jbase64_输入=document.getElementById("base64_A").value;
+        document.getElementById('base64_A').value = window.btoa(window.encodeURIComponent(jbase64_输入));
+    }
+    function base64_解码(){
+        let jbase64_输入=document.getElementById("base64_A").value;
+        document.getElementById('base64_A').value = window.decodeURIComponent(atob(jbase64_输入));
+    }
+
+    function base64_复制(){
+        let url = document.querySelector('#base64_A');
+        url.select(); // 选择对象
+        document.execCommand("Copy");
+    }

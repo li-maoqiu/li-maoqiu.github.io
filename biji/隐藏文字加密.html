@@ -1,0 +1,71 @@
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script>
+    let h1="隐藏文字加密";
+    let nav=[];
+    let index=[];
+</script><link rel="stylesheet" href="0/1.css"><div id="dy"></div><script src="0/1.js"></script><div id="a" style="display:none;">
+
+</div>
+
+
+<input type="text" style="display:none"/>
+<textarea type="text" id="输入" style="width:80%;font-size:1.4em;" placeholder="输入内容" autocomplete="off"></textarea><br>
+<button onclick="转换()">转换</button>
+<button onclick="复制()">复制</button>
+
+<textArea id="复制" style="position:absolute;top:-1000px"></textArea>
+
+<script>
+let 字符=["​","‌","‍"]
+let 内容="";
+
+function strToBinary(){
+    var result=[];
+    var list=内容.split("");
+    for(var i=0;i<list.length;i++){
+        if(i!=0){
+            result.push("2");
+        }
+        var item=list[i];
+        var binaryStr=item.charCodeAt().toString(2);
+        result.push(binaryStr);
+    }
+    内容=result.join("");
+}
+
+function binaryToStr(){
+    var result=[];
+    var list=内容.split("2");
+    for(var i=0;i<list.length;i++){
+        var item=list[i];
+        var asciiCode=parseInt(item,2);
+        var charValue=String.fromCharCode(asciiCode);
+        result.push(charValue);
+    }
+    内容=result.join("");
+}
+
+function 转换(){
+    内容=document.getElementById("输入").value;
+    if(内容.indexOf(字符[0])!=-1){
+        内容=内容.replace(new RegExp('[\u4e00-\u9fa5_a-zA-Z0-9]',"g"),"");
+        内容=内容.replace(new RegExp(字符[0],"g"),"0").replace(new RegExp(字符[1],"g"),"1").replace(new RegExp(字符[2],"g"),"2");
+        binaryToStr();
+        document.getElementById("输入").value=内容;
+    }else{
+        strToBinary();
+        内容=内容.replace(new RegExp('0',"g"),字符[0]).replace(new RegExp('1',"g"),字符[1]).replace(new RegExp('2',"g"),字符[2])
+        document.getElementById("输入").value="转换完成，请点击复制";
+    }
+}
+
+function 复制(){
+    if(内容==""){
+        document.getElementById("输入").value="无内容";
+    }else{
+        document.getElementById('复制').value=内容;document.querySelector('#复制').select();document.execCommand("Copy");
+        document.getElementById("输入").value="已复制";
+    }
+}
+
+</script>

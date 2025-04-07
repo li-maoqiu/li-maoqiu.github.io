@@ -1,25 +1,51 @@
 
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"><script>
     let h1="缓存";
-    let nav=["代码"];
-    let index=[];
+    let nav=["x","代码"];
+    let index=["自动"];
 </script><link rel="stylesheet" href="0/1.css"><div id="dy"></div><script src="0/1.js"></script><div id="a">
 
-储存：<br>
-localStorage.setItem("标签","内容")<br>
-<br>
+<b>储存</b>：localStorage.setItem("标签","内容") 〈复制|localStorage.setItem("标签","内容")〉<br>
+<b>获取</b>：localStorage.getItem("标签") 〈复制|localStorage.getItem("标签")〉<br>
+<b>删除</b>：localStorage.removeItem("标签") 〈复制|localStorage.removeItem("标签")〉<br>
 
-获取：<br>
-localStorage.getItem("标签")<br>
-<br>
+<hr>
 
-删除：<br>
-localStorage.removeItem("标签");<br>
-<br>
-
-
-判断浏览器是否支持<br>
-if (typeof(Storage)!=="undefined"){支持}<br>
+〈h5|判断浏览器是否支持〉<br>
+if(typeof(Storage)!=="undefined"){支持}<br>
 else{不支持}<br>
+
+<hr>
+
+〈h5|获取当前已缓存的大小〉<br>
+let size=0;<br>
+for(item in window.localStorage){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if(window.localStorage.hasOwnProperty(item)){<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;size+=window.localStorage.getItem(item).length;<br>
+&nbsp;&nbsp;&nbsp;&nbsp;}<br>
+}<br>
+console.log((size/1024).toFixed(2)+'KB')<br>
+〈复制|let size=0;for(item in window.localStorage){\n
+    if(window.localStorage.hasOwnProperty(item)){\n
+        size+=window.localStorage.getItem(item).length;\n
+    }\n
+}\n
+console.log((size/1024).toFixed(2)+'KB')〉<br>
+
+<hr>
+
+〈h5|获取所有缓存内容〉：〈复制|function getAllLocalStorage(){\n
+    const items={};\n
+    for (let i=0;i&lt;localStorage.length;i++){\n
+      const key=localStorage.key(i);\n
+      items[key]=localStorage.getItem(key);\n
+    }\n
+    return items;\n
+  }\n
+\n
+  console.log(getAllLocalStorage());
+〉
+
+
 
 </div>

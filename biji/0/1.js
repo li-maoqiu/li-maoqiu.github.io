@@ -27,7 +27,7 @@ const _执行a={
     "Z":()=>{dy1js+="<div class='zhushi jiesuo'>"+解锁z(临时0[1])+"</div>"},
     "提示":()=>{dy1js+="<span class=\"提示\" data-msg=\""+临时0[2]+"\">"+临时0[1]+"</span>"},
     "提示2":()=>{dy1js+="<div class='提'>"+临时0[1]+"<span class='示'>"+临时0[2]+"</span></div>"},
-    "复制":()=>{if(!临时0[2]){临时0[2]=临时0[1];临时0[1]="复制"}dy1js+="<a onclick=\"复(制='"+临时0[2]+"')\">"+临时0[1]+"</a>"},
+    "复制":()=>{if(!临时0[2]){临时0[2]=临时0[1];临时0[1]="复制"}dy1js+="<a onclick=\"复(制=`"+临时0[2]+"`)\">"+临时0[1]+"</a>"},
     "图片":()=>{if(临时0[1].indexOf(".")==-1){临时0[1]+=".jpg"}dy1js+="<a onclick=\"复(制='"+临时0[1]+"')\" href='"+子页面[1]+"2/"+临时0[1]+"' target='_blank'><img src='"+子页面[1]+"2/"+临时0[1]+"' width="+临时0[2]+" "+临时0[3]+" class='bdtp'></a>"},
     "本地图片":()=>{if(临时0[1].indexOf(".")==-1){临时0[1]+=".jpg"}dy1js+="<a onclick=\"复(制='"+临时0[1]+"')\" href='"+子页面[1]+统一[0]+临时0[1]+"' target='_blank'><img src='"+子页面[1]+统一[0]+临时0[1]+"' onerror=\"this.src='"+子页面[1]+"2/0.jpg';this.onerror=null;\" width="+临时0[2]+" "+临时0[3]+" class='bdtq'></a>"},
     "音频":()=>{if(临时0[1].indexOf(".")==-1){临时0[1]+=".mp3"}dy1js+="<audio class='bdtp' src='"+子页面[1]+"2/"+临时0[1]+"' controls></audio>"},
@@ -62,10 +62,11 @@ const _执行b={
 if(typeof(h1)!="undefined"&&子页面[0]=="0"){
 dy1js+="<h1>"+h1+"</h1>";
 
-if(h1!="异梦笔记"){dy1js+=" <nav><a href='0.html'>总目录</a>";
+if(h1!="异梦笔记"){dy1js+=" <nav>";
+    if(nav[0]!="x"){dy1js+=" / <a href='0.html'>总目录</a>"}
 for(let i=0;nav.length>i;i++){
-    if(nav[i]=="搜索"){}
-    else if(nav[i][0]=="t"){dy1js+=nav[i][1]}
+    if(nav[i]=="搜索"||nav[i]=="x"){}
+    else if(Array.isArray(nav[i])&&nav[i][0]=="t"){dy1js+=nav[i][1]}
     else if(nav[i]=="相关"){dy1js+="<br><small>相关</small>"}
     else{
         dy1js+=" / <a href='";
@@ -75,8 +76,10 @@ for(let i=0;nav.length>i;i++){
         临时=临时.replace(new RegExp('（本地）',"g"),"")
         dy1js+="'>"+临时+"</a>";
     }
-}}
+}
 dy1js+="</nav>";
+}
+
 if(nav[0]=="搜索"){dy1js+="　<input type='text' id='输入' placeholder='搜索' onkeyup='确定()' autocomplete='off'/><div id='结果'></div>"}
 dy1js+="<hr class='hr0'>";
 dy1js+=`<style>${(!本地)?"[href$='（本地）.html']{text-decoration:line-through}":""}</style><div class='index'><div class='index_top'><a onclick='编辑()'>编辑</a>　<a onclick='javascript:location.reload();'>刷新</a>　<a href='#top'>top</a><br></div><br><div id='index_dy1js'>`;
@@ -100,7 +103,7 @@ if(window.location.href.indexOf("file:///storage/emulated")!=-1){
 }
 document.getElementById("dy").innerHTML=dy1js;
 
-function 复(){document.getElementById('复制').value=制;let 复制=document.querySelector('#复制');复制.select();document.execCommand("Copy");notyf.confirm("已复制：<br>"+制)}
+function 复(o){document.getElementById('复制').value=o||制;let 复制=document.querySelector('#复制');复制.select();document.execCommand("Copy");notyf.confirm("已复制：<br>"+制)}
 function 打(){let _乱=乱.slice();for(let i=0;i<_乱.length;i++){let j=getRandomInt(0,i);let t=_乱[i];_乱[i]=_乱[j];_乱[j]=t}function getRandomInt(min,max){return Math.floor(Math.random()*(max-min+1)+min)}乱=_乱}
 function 展(){示=示.split("／");document.getElementById("zs"+示[0]).innerHTML="//"+示[1];document.getElementById("zs"+示[0]).style.color="#6A9955"}
 !function(){function n(n,t){for(property in t)t.hasOwnProperty(property)&&(n[property]=t[property]);return n}function t(n,t){var i=document.createElement("div");i.className="notyf";var e=document.createElement("div");e.className="notyf-wrapper";var o=document.createElement("div");o.className="notyf-icon";var a=document.createElement("i");a.className=t;var r=document.createElement("div");r.className="notyf-message",r.innerHTML=n,o.appendChild(a),e.appendChild(o),e.appendChild(r),i.appendChild(e);var c=this;return setTimeout(function(){i.className+=" disappear",i.addEventListener(c.animationEnd,function(n){n.target==i&&c.container.removeChild(i)});var n=c.notifications.indexOf(i);c.notifications.splice(n,1)},c.options.delay),i}function i(){var n,t=document.createElement("fake"),i={transition:"animationend",OTransition:"oAnimationEnd",MozTransition:"animationend",WebkitTransition:"webkitAnimationEnd"};for(n in i)if(void 0!==t.style[n])return i[n]}this.Notyf=function(){this.notifications=[];var t={delay:2e3,alertIcon:"notyf-alert-icon",confirmIcon:"notyf-confirm-icon"};arguments[0]&&"object"==typeof arguments[0]?this.options=n(t,arguments[0]):this.options=t;var e=document.createDocumentFragment(),o=document.createElement("div");o.className="notyf-container",e.appendChild(o),document.body.appendChild(e),this.container=o,this.animationEnd=i()},this.Notyf.prototype.alert=function(n){var i=t.call(this,n,this.options.alertIcon);i.className+=" alert",this.container.appendChild(i),this.notifications.push(i)},this.Notyf.prototype.confirm=function(n){var i=t.call(this,n,this.options.confirmIcon);i.className+=" confirm",this.container.appendChild(i),this.notifications.push(i)}}();let notyf=new Notyf({delay:3000});
