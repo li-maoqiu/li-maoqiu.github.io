@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<title>仿代码风格 - 猫球博客</title>
+<link rel="stylesheet" href="https://limaoqiu.com/css/all.css">
+<link href="https://limaoqiu.com/5/new/highlight/vsc.css" rel="stylesheet"/>
+<script src="https://limaoqiu.com/5/new/highlight/highlight.js"></script>
+<script src="/js/jquery.min.js"></script>
+<style>td{min-width:2em;}a{cursor:pointer;}div.body {position: relative;width: 60%;top:1em;margin: auto;}.tsx {position: relative;display: inline-block;}.tsx .tsxt {border: 1px solid #c0c0c0;visibility: hidden;width: 600px;background-color: #fff;border-radius: 6px;padding: 5px 0;position: absolute;z-index: 1;top: 80%;left: 50%;margin-left: -200px;}.tsx:hover .tsxt {transform:translate(0,20px);transition:all 0.5s;visibility: visible;}#back-top {position: fixed;left: 85%;bottom: 10%;}#back-top a {width: 70px;height: 70px;display: block;background: url(/img/back-top.png) no-repeat center center;border-radius: 20px;-webkit-transition: 2s;-moz-transition: 2s;transition: 2s;}.index{position: fixed;top:1em;left:2.5%;width:15%;height: 100%;overflow:auto;}</style>
+
+
+<div class="body">
+
+（仿代码废弃了，用代码着色吧）
+
+<hr>
+
+<h2>代码着色</h2>
+<small>（和配色不同，这是自动上色）</small><br/>
+
+<pre><code>
+
+&lt;link href="/5/new/highlight/vsc.css" rel="stylesheet"/>
+&lt;script src="/5/new/highlight/highlight.js">&lt;/script>
+
+&lt;pre>&lt;code>
+代码内容
+&lt;/code>&lt;/pre>
+
+&lt;script>
+    hljs.initHighlightingOnLoad();
+    var allpre = document.getElementsByTagName("pre");
+    for(i = 0; i &lt; allpre.length; i++) {
+       var onepre = document.getElementsByTagName("pre")[i];
+       var mycode = document.getElementsByTagName("pre")[i].innerHTML;
+       onepre.innerHTML = '&lt;code id="mycode">'+mycode+'&lt;/code>';
+    }
+&lt;/script>
+
+
+
+</code></pre>
+
+记得把&amp;和&lt;用转义符，否则代码会显示出错（注意顺序，先&amp;后&lt;）。<br/>
+&amp; → <a onclick="复(制='&amp;amp;')">&amp;amp;</a><br/>
+&lt; → <a onclick="复(制='&amp;lt;')">&amp;lt;</a><br/>
+
+<script>
+    hljs.initHighlightingOnLoad();
+    var allpre = document.getElementsByTagName("pre");
+    for(i = 0; i < allpre.length; i++) {
+       var onepre = document.getElementsByTagName("pre")[i];
+       var mycode = document.getElementsByTagName("pre")[i].innerHTML;
+       onepre.innerHTML = '<code id="mycode">'+mycode+'</code>';
+    }
+</script>
+
+
+<br/><br/><br/><br/><br/><br/><br/><br/>
+
+</div>
+</html>

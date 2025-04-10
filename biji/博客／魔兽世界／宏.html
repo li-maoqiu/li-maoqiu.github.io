@@ -1,0 +1,165 @@
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script>
+    let h1="魔兽世界的宏";
+    let nav=["x","猫球搜索#游戏笔记","博客／魔兽世界"];
+    let index=["自动"];
+</script><link rel="stylesheet" href="0/1.css"><div id="dy"></div><script src="0/1.js"></script><div id="a">
+
+〈h3|写宏〉<br>
+
+〈复制|#showtooltips 技能|#showtooltips〉 　显示技能图标 留空为自动<br>
+〈复制|/stopmacro [条件]|/stopmacro []〉 　如果符合条件就停止宏<br>
+〈复制|;|;〉 　如果前面指令的判断不生效则执行下一个<br>
+<br>
+
+〈复制|/cast 技能|/cast〉 　释放技能<br>
+〈复制|/use 物品|/use〉 　使用物品<br>
+〈复制|/castrandom|/castrandom〉、〈复制|/userandom|/userandom〉 　随机使用<br>
+<small>〈复制|/use 13|/use 13〉 　使用饰品1<br>
+〈复制|/use 14|/use 14〉 　使用饰品2</small><br>
+<br>
+
+〈复制|/startattack|/startattack〉 　开始攻击<br>
+〈复制|/stopattack|/stopattack〉 　停止攻击<br>
+〈复制|/stopcasting|/stopcasting〉 　终止施法<br>
+<br>
+
+〈复制|/castsequence 技能1,技能2|/castsequence〉 　轮流使用技能<br>
+/castsequence 条件1/条件2 技能1,技能2 　符合条件时重置顺序<br>
+<small>〈复制|reset=|reset=〉 　重置条件<br>
+<small>数字 　几秒后重置<br>
+〈复制|combat|combat〉 　脱战后重置<br>
+〈复制|target|target〉 　切换目标<br>
+〈复制|shift|shift〉、〈复制|alt|alt〉、〈复制|ctrl|ctrl〉 　按键</small><br>
+<br>
+
+〈h5|释放目标〉<br>
+〈复制|/targetenemy|/targetenemy〉 　切换目标（效果等同tab）<br>
+〈复制|/targetenemy 1|/targetenemy 1〉 　切换目标（反方向）<br>
+〈复制|/targetfriend|/targetfriend〉 　切换友方目标<br>
+〈复制|/targetfriend 1|/targetfriend 1〉 　切换友方目标（反方向）<br>
+〈复制|/target 名字|/target〉 　切换到特定目标<br>
+〈复制|/cleartarget|/cleartarget〉 　清除目标<br>
+<br>
+
+〈复制|/targetlasttarget|/targetlasttarget〉 　上一次选择的目标<br>
+〈复制|/targetlastfriend|/targetlastfriend〉 　上一个友方目标<br>
+〈复制|/targetlastenemy|/targetlastenemy〉 　上一个敌方目标<br>
+<br>
+
+〈复制|[@cursor]|[@cursor]〉 　鼠标位置施放（地板）<br>
+〈复制|/cast [@cursor] 技能|/cast [@cursor]〉<br>
+〈复制|[@mouseover]|[@mouseover]〉 　鼠标指向施放<br>
+<br>
+
+〈复制|[@player]|[@player]〉 　自己<br>
+〈复制|[@pet]|[@pet]〉 　宠物<br>
+〈复制|[@focus]|[@focus]〉 　焦点<br>
+（〈复制|/focus|/focus〉 　把目标设为焦点）<br>
+〈复制|[@target]|[@target]〉 　目标<br>
+〈复制|[@targettarget]|[@targettarget]〉 　目标的目标<br>
+<br>
+
+〈复制|/targetparty|/targetparty〉 　切换小队目标<br>
+〈复制|/targetparty 1|/targetparty 1〉 　切换小队目标（反方向）<br>
+〈复制|/targetraid|/targetraid〉 　切换团队目标<br>
+〈复制|/targetraid 1|/targetraid 1〉 　切换团队目标（反方向）<br>
+〈复制|[@名字]|[@]〉 　特定队伍里的队友<br>
+〈复制|[@party数字]|[@party]〉 　队友<br>
+〈复制|[@partypet数字]|[@partypet]〉 　队友的宠物<br>
+〈复制|[@]|[@]〉 　<br>
+<br>
+
+〈h5|判定〉<br>
+<small>[条件1,条件2] 　需要同时满足</small><br>
+<small>[条件1][条件2] 　满足其一即可</small><br>
+<small>前面加“no”代表相反情况，如〈复制|[nocombat]|[nocombat]〉代表不在战斗中</small><br>
+〈复制|[combat]|[combat]〉 　战斗中<br>
+<small>例：〈复制|/cast [combat] 消失;潜行|/cast [combat] 消失;潜行〉 　战斗中消失，否则潜行</small><br>
+〈复制|[stealth]|[stealth]〉 　潜行中<br>
+〈复制|[stance:数字]|[stance:]〉 　德鲁伊的形态：0人 1熊 2猎豹 3旅行 4枭兽<br>
+（〈复制|退出形态|/cancelform〉）<br>
+<br>
+〈复制|[indoors]|[indoors]〉 　室内<br>
+〈复制|[outdoors]|[outdoors]〉 　室外<br>
+〈复制|[swimming]|[swimming]〉 　水里<br>
+〈复制|[flyable]|[flyable]〉 　可飞行<br>
+〈复制|[mounted]|[mounted]〉 　正在骑乘<br>
+<br>
+
+〈复制|[harm]|[harm]〉 　敌方<br>
+〈复制|[help]|[help]〉 　友方<br>
+〈复制|[exists]|[exists]〉 　存在目标<br>
+〈复制|[dead]|[dead]〉 　死亡的目标<br>
+〈复制|[harm,exists]|[harm,exists]〉 　敌方，且目标存在<br>
+<br>
+
+〈h5|宠物〉<br>
+〈复制|/petpassive|/petpassive〉 　召回<br>
+〈复制|/petattack|/petattack〉 　攻击<br>
+〈复制|/petattack 名字|/petattack〉 　攻击特定目标<br>
+〈复制|/petassist|/petassist〉 　协助<br>
+<br>
+
+〈h5|其他〉<br>
+技能前面加“!”用于防止重复使用技能导致状态被取消，如潜行<br>
+〈复制|/changeactionbar 数字|/changeactionbar〉 　切换技能条<br>
+〈复制|/cancelaura 名字|/cancelaura〉 　移除buff<br>
+〈复制|开启技能介绍|/console UberTooltips 1〉 　〈复制|关闭|/console UberTooltips 0〉<br>
+〈复制|/eq 名字|/eq〉 　装备物品<br>
+〈复制|/dismount|/dismount〉 　解散坐骑<br>
+<br>
+
+<hr>
+
+〈h4|宏记录〉<br>
+
+<pre><fieldset onclick="复(this.innerHTML.replace(new RegExp('<br>','g'),'\n'))" bt="坐骑（联盟）">
+/dismount [mounted]<br>
+/cancelaura 爆燃冲刺<br>
+/userandom [mod:alt] 旅行者的苔原猛犸象;[mod:shift] X-53型观光火箭;[swimming] 海龟,赤红浪骁,野棕战龟;[flyable] X-53型观光火箭;机械师的摩托车
+</fieldset></pre>
+
+<pre><fieldset onclick="复(this.innerHTML.replace(new RegExp('<br>','g'),'\n'))" bt="坐骑（部落）">
+/dismount [mounted]<br>
+/cancelaura 爆燃冲刺<br>
+/userandom [mod:alt] 旅行者的苔原猛犸象;[mod:shift] X-53型观光火箭;[swimming] 海龟,赤红浪骁,野棕战龟;[flyable] X-53型观光火箭;机械路霸
+</fieldset></pre>
+
+<!-- <pre><fieldset onclick="复(this.innerHTML.replace(new RegExp('<br>','g'),'\n'))" bt="随机坐骑（联盟）">/dismount [mounted]
+/userandom [mod:shift] 黄金狮王,机械师的摩托车,黑铁熔火犬,X-995型机械猫,暗月跳舞熊,霸业枭雄的黄金鳄鱼,迅捷美酒节赛羊,果敢帝国山猫,熔火恶犬,冷焰地狱火,奔波尔鲛;炉石天马,暖日绒猫,烬鬃战马,贝雷达尔之裔,奥的灰烬,暗色凤凰,神圣金色云端翔龙,罗盘玫瑰,艾什阿达，晨曦使者,邃渊追猎者,暗月飞船,废铁机甲蛛,黑曜石灭世者,冷焰风暴,幽灵军马,神圣玛瑙云端翔龙,碧蓝凝世者,翠绿熊猫人风筝,暮光巡天狐,破镣者海波鳐,魅力信使,星触绒猫</fieldset></pre>
+
+<pre><fieldset onclick="复(this.innerHTML.replace(new RegExp('<br>','g'),'\n'))" bt="随机坐骑（部落）">/dismount [mounted]
+/userandom [mod:shift] 库卡隆横扫者,机械路霸,紫色骷髅战马,夜之子魔刃豹,X-995型机械猫,暗月跳舞熊,霸业枭雄的黄金鳄鱼,迅捷美酒节赛羊,果敢帝国山猫,熔火恶犬,冷焰地狱火,奔波尔鲛;烬鬃战马,暖日绒猫,贝雷达尔之裔,奥的灰烬,暗色凤凰,炉石天马,神圣金色云端翔龙,罗盘玫瑰,艾什阿达，晨曦使者,邃渊追猎者,暗月飞船,废铁机甲蛛,黑曜石灭世者,冷焰风暴,幽灵军马,神圣玛瑙云端翔龙,碧蓝凝世者,翠绿熊猫人风筝,暮光巡天狐,破镣者海波鳐,魅力信使,星触绒猫</fieldset></pre> -->
+
+<pre><fieldset onclick="复(this.innerHTML.replace(new RegExp('<br>','g'),'\n'))" bt="起手" by="宠物攻击">
+/petattack [harm,exists]<br>
+/cast [harm,exists] 虚弱诅咒<br>
+/stopmacro [harm,exists]<br>
+/targetenemy<br>
+/petattack<br>
+/cast 虚弱诅咒
+</fieldset></pre>
+
+<pre><fieldset onclick="复(this.innerHTML.replace(new RegExp('<br>','g'),'\n'))" bt="鼠标下划（钓鱼、攻击）">
+/cast [combat] 恶魔力量;[harm,exists] 恶魔力量;钓鱼
+</fieldset></pre>
+
+<pre><fieldset onclick="复(this.innerHTML.replace(new RegExp('<br>','g'),'\n'))" bt="钓鱼">
+/castsequence reset=3 钓鱼,垂钓翁钓鱼筏,无尽呼吸,可重复使用的巨型鱼漂,无尽呼吸,浮标：拖船,无尽呼吸,古代熊猫人诱鱼器
+</fieldset></pre>
+
+<pre><fieldset onclick="复(this.innerHTML.replace(new RegExp('<br>','g'),'\n'))" bt="炉石">
+#showtooltips<br>
+/use [mod:shift]达拉然炉石;[mod:alt] 要塞炉石;美酒节狂欢者的炉石
+</fieldset></pre>
+
+<!-- <pre><fieldset onclick="复(this.innerHTML.replace(new RegExp('<br>','g'),'\n'))" bt="">
+</fieldset></pre> -->
+
+
+<!--
+动作条5和6是隐藏的
+-->
+
+</div>

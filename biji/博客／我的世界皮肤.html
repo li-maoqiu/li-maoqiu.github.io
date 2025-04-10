@@ -1,0 +1,222 @@
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script>
+    let h1="我的世界皮肤";
+    let nav=["x","博客／我的世界"];
+    let index=["自动"];
+</script><link rel="stylesheet" href="0/1.css"><div id="dy"></div><script src="0/1.js"></script><div id="a">
+
+皮肤站：<a href="https://littleskin.cn/">littleskin.cn</a><br>
+<br>
+
+
+<hr>
+<style id="皮肤sty"></style>
+〈h3|保存的皮肤〉<br>
+<div id="皮肤"></div>
+
+</div></div>
+
+<div id="modalMask" class="modal-mask">
+<span class="close-btn" onclick="closeModal()">×</span>
+<div class="modal-container" id="打印弹窗"></div>
+
+<script>
+let 皮肤=[//"／直接显示","／<div>换行</div>"
+    "／<div><br>〈h5|猫球〉</div>","蒸汽朋克",
+    "／<div><br>〈h5|二扯〉</div>","大白熊",
+    "／<div><br><hr>〈h4|未使用〉</div>",
+    "／<div><br>〈h5|萌娘〉</div>",
+    "兔娘（蓝）","兔娘（灰）","小熊娘","鲨鱼女孩（GawrGura）","美西螈娘",
+];
+
+let 皮肤图={
+    // "":"",
+    "美西螈娘":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAU+SURBVHhe7ZpLqx1VEIXvz3LsOCP/QkYOIv6AOPdmoIIi+ABBEQcKOgsRZ4mKEBRRQQ1EJJAQEAeZiDg43q+p1Vm3Tu3u0+f06XMfWbDYtatq712rTr/yOBrDix/cX9358VFJYldvfNHzpbdudXRfbLM1rn/2oLmHYleP18+pfFuhEu50sRVjm/MLRFZXgXyVaGdssxOqq2DoypgVY7dAvuSdxGKbrbHJLbBXbNqAv+7ePcUL04BKuFPin9y7d4pqQmxzflGJdvK0bTZgrifxIVGJdp6FBlTnbHy23+PYQ/f8GPP6sf2I+X2Mvct9ndeP7dfFVEguXDZ87vkXuvHGpw87uk/M6/MeLaqQKYVn7LS+KmpJRhkdpohuYfIeVVFL8ta3fx6UR7yrjz+83b2zX3nnq97WCK9ce7fj33e+6ai54r6GPdw3Gn+z/a3g65mrPux+/QmZV2Bv+GqsceDrzuZdraL6BpwErp/YV6691/Hl177sxqcNeOqD5LKGtb4Xe/v+ZXzgaa39Y9pBDQBV3MHekPrC1QNfdzZFUJDGrrCTAIJ0wPe/Plwdf3S7f8Vh41OcXNZInO/pdhmniAaI7TveNUCkKC9MHHrP98zrC1bxqGUQ7B9mj8rXwqT1r3/y0+r9m49WGv/9b3WKkdZE14wBfvz1b909ySXI6Dax2KaJtz+/v4LU98YJsRkjvDv23YCbP/yx+u73B/3oNmNs04Q3gJGrkTHCu2POBuh2cd+lbwCXuUYEQ/fFNk14A2a5BRDpzA2o6DkuLrNqwFRKcCZnV1Q85I3jn8ePu4VPfv5lha25BFZUjFyKlF9F67WoYtwHW/mMbjNqj0ztkal4yBuHBEu8k6aI5Mj2HC8SG+ojQ1eM+2DOH2qA9sjUHpmKh7xxcF8jLt/rma0cCtXhEoBYRhXjPtjKZ3SbUXtkao9MxUPeODgEcYzbUodrzjvdi4X4WvkHbQC/Ig3Y5CqoSJE6HBtKrIpxH8z5Z6IBWdimpMhcRKsBOQ8/PHgDdiGF6n2eBakY90Hl44M0R6PbjNojsxIPFQ9546hETSFF6otOAquntz/llc9aF3tuG6BfFJGiFws9dmGvgJZ4UfEpV4A+dyG2f/4OxULeOCpRU5i/6SW0Es+Y82GrAcSGRA7FQt508EYI8xme4TJiiVuA50GYPSrfInDB2FMacGGfFzytNcoGPnd/Bf9FN/119aEU0/MLXmO5AfhiugaJ9gYs1gje5WH23wSyO2eBVo4EVGLxucAzAz44wuxszd2f0cqRwGotvlYD1DBGtxkXwdwPs1YDwlzDwRswN/Rrx7S7MoYacOHAr5cbsO0vqjdPZoTXMBZfBNVrb+hVqKuD0W3GReBPf5DnmwKRYrh6DMWGGuC/upNYhbF4ibkbENM1jMUruGhnhNcwFl8Elcipws8Etnk90n3WadTVtOlVxRr/S46d/4JjaczZADj7P3/vGxeqARQT5saYswEHvwUoxpuQ5wChmeT4OBRjzFQDWiQnjt8dFBFmL0Z25yzgObl4KL//M7vPPadiJdpJTlfIWUD+vwP5/w+46OwjtxJIc4ZIThy/H+hezfetz31EnGIttnKyeFiJdpLD2XtD9WkKfK6RP+hsQhpQ+bN4WIl2ksPZiwIBYZ5C9atmsvZcXQFTUImqeOkb0GIWDyvRTnLi+BLVGmekzYNK1BRm8bAq2klOHL8fqLiYrs0dim3LLB5Wop3kxPElqjXOSGtDxcV0rw3Q5y7E9s/foVgcX6IS7Yy0eVCJmsIhkUOxOH5HHB39DwewKZDPfZ6gAAAAAElFTkSuQmCCAAAAEnRFWHRNb2RlbABQbGF5ZXJzL0FsZXiswbfV",
+    "鲨鱼女孩（GawrGura）":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAilBMVEUAAABPh7FMfapfkbVJc6P+8+797+kjN0386OD9/P/Hxsrm5Onw7/LK3O783d3r6u3z8vXW5PLo5+tRWGF+mbpXaX/W3+hxl7jx7/z4+P6XvNpKT1RITFGEsNOQt9deXl785du5sa6wqqhPkLFfm7qHh4eqpaMrQn2cQVKkSFmqTF6MtdZtpcL///8f3FRuAAAAAXRSTlMAQObYZgAAAAFiS0dELc3aQT0AAAAHdElNRQfkCgsGHwr1svemAAADwUlEQVRYw72XaWPiIBCGAZNUEtxo7ZGktUZja1v3//++nQOQXCbth32rOYR5GGAYqBBWEqSUwi9JdCWlEPCzHCkWiwnAggHjDUAFFUUKL3EMD/1yvCKA7kMeom0E3ySOkygSI1KtWwtwp6I7ACwRsBwA3NFH84vuFacpOpCmYwCt+ToKyHQKyrRhgOl7oL31oLIs0/CXrf4g4M9KzJVcLGQKhllmshw+eZal0gUFSCwWXX+1iwm6Y6U0A7Pc5MbkANApQmFOFN2hkgWY9doCuFzgXbA9tm428AFAnqUOIAN7qLBeG0eAcp47D7jfmBV84MlwHyis0EcHyFdQnPemYIEAY8z9dpsk2y30wgPAHgbA1s9pWKGBLoA8AKvtw2McPz5sN9iFcBC5vrHzutk4AJcjQCnow2r79BzHz08AyFIqUpYAD9oaWoAOy2l5pqlZuflfGYhJt+qwAtwogIhA7WtajFzO2KKsqpeXl1fXrchq90baXburhqORAPv9LEA9E1DXPwa0unCo68PMLhQoALDKgnwvirouiiiUnVkVjl0A0CVJW4A6HI5HxZZsE0l5RbQACarU9XK5bE6nJmGj9+PHuwNwWN4GJHrJgNPJAqScC4BWY0xBCGiaFuB8PncAnhkC0J4BS8hmjQecz/pTA2LKgzhu0L62gNg2AeZfnyBATAJaHljAWX9/EwARtwF2av2UwRX6DvYO8AVOnG8A6HdaYLz6rAeAgCH41LYPKqqkhEDjalUVADDb648jxVMBj27qzk52EHVVQSnHdiucNcsDdqg3bOdtFz5ztdJWF1OKwBUhLrg8LtVlsnpP6BE0c+EV9gtAUdD31wBdEEXPAvh8IATlgxBgxyMaP26IIB8IgRmh8C4U00N9VcmVT3+DYexUsfukfe73mgEBAYK85fs44NSEL/YOy3nv1seE9y173/getlXFA6gGHG6rS4j8vk5vbouljdR24Savl7NoMY2PQZgP4PioBvodJJSxWQgmzS3nawsyyAf8Uz8f2HgK80GQgoN80GuvrwuKMk91CZ/FT4Rr4hV226AXc5JIB7DftwD1/wfM7YLLA91zgnv3RwKOp74oD2hnUPpzgssTgfkwgKRL93RqYIerdcm7ftKcBgGw1BbXwBStsysCljpxaoYBMozsttwm6zbdazTyCX9SXcC8MegAak8YAcggPQQnMfqHtPMejQ3i6Bi0DK4HgolBDMKMDLRuAyC0+HjgQ/WaHihg/C5vt/njh3+3BwJ7PPANhumhLZdYHCA8FQxZ/AP3q1kXQZuf2gAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMC0xMC0xMVQwNjozMToxMCswMDowMFpa1RoAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjAtMTAtMTFUMDY6MzE6MTArMDA6MDArB22mAAAAAElFTkSuQmCC",
+    "小熊娘":"data:image/png;base64,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",
+    "兔娘（灰）":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAdVBMVEUAAABAO0VKRVBXUF1hWWlvb29xaHpyanuCgoKFhYWQkJCV5Kabm5uhbm7V1dXZ2dnd3d3f39/kpnTm5ubr6+vuz8/v7+/w7u7z8/P09PT3l5f3qan49vb49vr6t3/6+Pj6+vr7+fn7+/v8/Pz9+v/9/f3+/v6XgB8vAAAAAXRSTlMAQObYZgAAAkJJREFUWMPVlolSgzAQhpNWTim1TaxYS6Movv8jupsDwhFCix3rD5ML8s1uziVEqzpWjMlEifQEn3TiEHzjHAGccXivAFRoQeUGVJVOHIJuKOYCeGUBGLsK0EqIkUGcAVAGYH8kLLDAA8ibRKkoCjYQNBZHaIdkdOCh8VNN6ycp0HbVzc4RwDkC7GFmjy3CrItCTxvr5kPAE7Sf948DwPs44L1+qzmHpLYA5/2TqdXwCVJIGoAQavTGAXnOCOeE5XkfwKYArDazgQAyAJBaTp8avM3m+XmzaQezxnzXArq57Nudf2OB0U4lzvm3Fa2jNQWZeqIVpTE+kdUeZMEIYEVXtAtIQUlCFYB+t4BMZCMAqgkNIJVqLPACwIOoBxACAMaCSRdoSMMHICAE3gfpfJqeTgCIE5csgBx7CmO4pmt4hQaUJQ6CrmBRe6Vb+gAhXqSgoP6A7mXa9oeeHsBHD9D5ew5A/CEg7elyQCy1AOC34LD1AijtApK2lCSHw2E7sQ7kLgpDaiQXr/ovVmUJiIMsCwJ8ZdYH2ILlaPYAFqEMLsTUCbBBZIn+MQDPg7CthuRaipWhynKRP+RLvvcltZRN+b5sU+fBbV14XQx4XQbA/tN7ALeBOQ5+ZTMNLltXXOACDK5717XuAgwDjgsBIyGP1wU4l+HR/mOcgHWMG5xxQac3DZtzwcQJJm6wLhq4FmbMhrlkzaV7JeBjKcBjganf0IUFgInrfsIF61CRH6yg4+IxGI0XLgH044V51zp1ywf4AfVhY7VK5vqnAAAAAElFTkSuQmCC",
+    "兔娘（蓝）":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAMAAACdt4HsAAAAaVBMVEUAAAAJCgwNDhJFQ0JOYnRugIpugYl+sHSLoq2LwoCPp7OXsL2dt8SjvszMjHjPknzS2eHWlW/X4+jc6O3emnPm3d7q9/zr4+L19vb39e/5trb5vbv529v5+fn68O380tL+9fT/wsD////sAPSsAAAAAXRSTlMAQObYZgAAAvZJREFUWMPNlmljojAQhmNPyGGxsbG2sgX+/4/snFwrGuXD7tvKIeZhZpLMjDGi+BOdowPLzJR+khwWFGP0Hg6LgJTksCAvWgJclfcBtAYQSL5qSNXtgMf49RUfLwDS93e6AGgDRDCGdgnQYgjptCDnOIQIOJ61AD2EEz2pxtOHA1unANfiGYyRdcET1w6AViZV10Wk0MHAioQc/AYBwAGAGmjwsdHpEYBhQOllOMr7UgBwZEBpYBg/BRTcIuCEgBMBtq8lAA7VAf7BhvJ1i4ATAk6xxveVCAAE+u5wvKlrA0/qUw2A3X6LBmw2h8Nmg15s97sJYG/IQALgc/gCACcEGAS87dCDzcfD4fDwAQTnd2+wJNE3tcCR8RR+BJDwAVI4+AD4fGqap08CQBh5UnykX1MAe4AZLfMawyszIAuIZmKk/rfz+R+rLooCZjbqfTHTsNis83Yl4JgDIIfgcA7w5xaARKO66EKNkjfBj+GyqnpANbjBLEuapJsmQezrjjhwagomxKjjecwy4JiaiWAAjAxFEeAEAwtLAwtOWAygXdkDurMA6wRg5dWLgNR1KXXpnQQXAni2uYBIehfFqBaEXEDHYg5ccBBhO3gOYg/AHSJJ3/8NSAwAf9QFLxY4qTcx4fZkwGULGODDDJBCugkQ5gCOQTbAP1s/BcAqtlYXkp1WXZTEICUKouwBDOJVAFlhVuo/BlzKg5NZWGVMRx+eTB1fYeWp7rZfikBfC27WUEQyDRhM5wt89Uu2BRFTgol6E7Ojf9mJ9YCXOQCakaC7cLIbzwZx9SycAXA+yLXAoAvmbsBdQZysR8gjdRy19pCZrfcrAcd/DrjqguYFaQe43GtB147LLiaUTraV6bRPaLBxgIurgLkXVOOPoIYbB6mmUlsz5nPoFLobAJjSJC9on6B9Qx4gYk7gvKB9gvYNN7ugNVJrpjQE0h7kApKOT1HKcaD+wA07i/JDtgU4APsDd68LGgM32dt5Fkg9l79cQOp1HjDSL20pfRjRxuACAAAAAElFTkSuQmCC",
+    "大白熊":"data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABABAMAAABYR2ztAAAAKlBMVEUAAAAAAAARERHAwMDX19fg4ODi4uLk5OTm5ubp6enx8fH09PT5+fn///+6MhCvAAAAAXRSTlMAQObYZgAAAUlJREFUSMftVDtOxDAQdU1NRc0doAWl4gDcAHEAJOSewsoJsFKBROMELmCFCxDlAhDfhYxHs/5Ew+xS78xau3p5mzfzbI9Sa+jOGViKi3bwFhZL6MbJwWIJw7x4WP8niBJ1kX38ZFG3WRDgAfw7I/U9rvR60M9kTt6UunnJC4QO2EKpRbZVAF+/3s9YQnz11akrJK7PKw+axhZeNM3Wgz+2XBttasMJQxHb2nrLCNuPIEjAT8y4I+ZWmztCdgKYXQiutfetfSQEjXKUHyF8dw5aJQSt9pSfIfwMHoQIiYRxopxDWMYJyiQkEuZllythXqBRQvYjiBJikWKbolHaXF5srUZMHeMYfNARYY8KHbLi6h9EECTSnMhmQy2w5nNx5IuB6srcjmRf5oaQLnF2cfPIxkC6+gcRRAmxSLHNNCcYo7R5eEKT8ZvwXxyLHsr+ph3HAAAAAElFTkSuQmCC",
+    "蒸汽朋克":"data:image/png;base64,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"
+}
+
+document.getElementById("皮肤").innerHTML=皮肤.map(sub=>((sub[0]=="／")?sub.slice(1):`<a onclick="按钮('${sub}')" class='提示' data-msg='${sub}'>
+    <div class='a'>
+        <div class="${sub} b1"></div><div class="${sub} b2"></div><div class="${sub} c1"></div><div class="${sub} c2"></div><div class="${sub} d1"></div><div class="${sub} d2"></div>
+    </div>
+</a>`)).join("");
+document.getElementById("皮肤sty").innerHTML=皮肤.map(sub=>((sub[0]=="／")?"":`.${sub}{background-image:url('${皮肤图[sub]}');}`)).join("");
+
+function 按钮(o){
+    const modal=document.getElementById('modalMask')
+    modal.style.display='block';
+    document.getElementById("打印弹窗").innerHTML=`<div class="b">
+<div class="e1 ${o}"></div>
+<div class="e2 ${o}"></div>
+<div class="e3 ${o}"></div>
+<div class="e3b ${o}"></div>
+<div class="e4 ${o}"></div>
+<div class="e5 ${o}"></div>
+<div class="e6 ${o}"></div>
+<div class="e7 ${o}"></div>
+<div class="e8 ${o}"></div>
+<div class="e9 ${o}"></div>
+<div class="e10 ${o}"></div>
+<div class="e11 ${o}"></div>
+<div class="f1 ${o}"></div>
+<div class="f2 ${o}"></div>
+<div class="f3 ${o}"></div>
+<div class="f4 ${o}"></div>
+<div class="f5 ${o}"></div>
+<div class="f6 ${o}"></div>
+<div class="g1 ${o}"></div>
+<div class="g2 ${o}"></div>
+<div class="g3 ${o}"></div>
+<div class="g3b ${o}"></div>
+<div class="g4 ${o}"></div>
+<div class="g5 ${o}"></div>
+<div class="g6 ${o}"></div>
+<div class="g7 ${o}"></div>
+<div class="g8 ${o}"></div>
+<div class="g9 ${o}"></div>
+<div class="g10 ${o}"></div>
+<div class="g11 ${o}"></div>
+</div>
+<div style="position:absolute;left:40px;bottom:30px;"><b>${o}</b>　<a href="${皮肤图[o]}" download="${o}.png">下载</a></div>`;
+}
+
+function closeModal(){
+    const modal=document.getElementById('modalMask')
+    modal.style.display='none'
+}
+
+document.getElementById('modalMask').addEventListener('click',function(e){
+    if (e.target===this){
+        closeModal()
+    }
+})
+
+</script>
+
+<style>
+    .modal-mask{
+    display:none;
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:#00000080;
+    z-index:999;
+}
+
+.modal-container{
+    position:fixed;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    background:white;
+    padding:20px;
+    border-radius:8px;
+    min-width:600px;
+    min-height:400px;
+    box-shadow:0 2px 8px #0000004d;
+    z-index:1000;
+    animation:slideIn 0.2s ease-out;
+}
+
+@keyframes slideIn{
+from{transform:translate(-50%,-60%);opacity:0;}
+to{transform:translate(-50%,-50%);opacity:1;}
+}
+
+.close-btn{
+    position:absolute;
+    right:10px;
+    top:10px;
+    cursor:pointer;
+    font-weight:bold;
+    color:#666;
+}
+
+    #皮肤 .提示{border-bottom:none;}
+    #皮肤 .提示:hover::before{top:10px;left:60%;}
+    #皮肤 .提示:hover::after{top:30px;left:60%;}
+    .a{position:relative;display:inline-block;margin:80px;}
+    #皮肤,.b{image-rendering:optimizeSpeed;image-rendering:-moz-crisp-edges;image-rendering:-o-crisp-edges;image-rendering:-webkit-optimize-contrast;image-rendering:pixelated;-ms-interpolation-mode:nearest-neighbor}
+    .a div{
+        position:absolute;top:0;left:0;
+        line-height:0;
+        width:80px;height:80px;
+        background-size:640px 640px;
+    }
+    .b1{background-position:-80px -80px;}
+    .b2{background-position:-400px -80px;}
+    .c1{background-position:-80px 0px;}
+    .c2{background-position:-400px 0px;}
+    .d1{background-position:-160px -80px;}
+    .d2{background-position:-480px -80px;}
+
+    .a{transform:rotateX(70deg) rotateZ(20deg);transform-style:preserve-3d;}
+    .b1,.b2{transform:rotateX(-90deg) translateZ(50px);}
+    .c1,.c2{transform:translateZ(50px) translateX(10px) translateY(36px);}
+    .d1,.d2{transform:rotateY(90deg) translateX(-11px) translateY(38px) translateZ(50px);}
+
+.b{position:relative;display:inline-block;padding:80px;}
+
+.b div{
+    position:absolute;
+    line-height:0;
+    background-size:640px 640px
+}
+.e1,.e2,.f1,.f2,.g1,.g2{width:80px;height:80px;top:0;}
+.e3,.e3b,.g3,.g3b{width:80px;height:120px;}
+.e4,.e5,.e6,.e7,.e8,.e9,.e10,.e11,.f3,.f4,.f5,.f6,.g4,.g5,.g6,.g7,.g8,.g9,.g10,.g11{width:40px;height:120px;}
+
+.e3,.e3b,.e4,.e5,.e6,.e7,.f3,.f4{top:80px;}
+.e8,.e9,.e10,.e11,.f5,.f6,.g8,.g9,.g10,.g11{top:200px;}
+
+.e1,.e2,.e3,.e3b,.e8,.e9{left:80px;}
+.e1{background-position:-80px -80px;}
+.e2{background-position:-400px -80px;}
+.e3{background-position:-200px -200px;}
+.e3b{background-position:-200px -360px;}
+.e4,.e5{left:40px;}
+.e6,.e7{left:160px;}
+.e10,.e11{left:120px;}
+.e4{background-position:-440px -200px;}
+.e5{background-position:-440px -360px;}
+.e6{background-position:-360px -520px;}
+.e7{background-position:-520px -520px;}
+.e8{background-position:-40px -200px;}
+.e9{background-position:-400px -320px;}
+.e10{background-position:-200px -520px;}
+.e11{background-position:-40px -520px;}
+
+.f1,.f2{left:240px;}
+.f3,.f4,.f5,.f6{left:264px;}
+.f1{background-position:-160px -80px;}
+.f2{background-position:-480px -80px;}
+.f3{background-position:-400px -520px;}
+.f4{background-position:-560px -520px;}
+.f5{background-position:-240px -520px;}
+.f6{background-position:-80px -520px;}
+
+.g1,.g2,.g3,.g3b,.g8,.g8{left:400px;}
+.g4,.g5{left:360px}
+.g6,.g7{left:480px}
+.g10,.g11{left:440px}
+.g1{background-position:-240px -80px;}
+.g2{background-position:-560px -80px;}
+.g3{background-position:-320px -200px;}
+.g3b{background-position:-320px -320px;}
+.g4{background-position:-440px -520px;}
+.g5{background-position:-600px -520px;}
+.g6{background-position:-520px -200px;}
+.g7{background-position:-520px -360px;}
+.g8{background-position:-280px -520px;}
+.g9{background-position:-120px -520px;}
+.g10{background-position:-120px -200px;}
+.g11{background-position:-120px -360px;}
+
+</style>

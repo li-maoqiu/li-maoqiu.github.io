@@ -49,6 +49,27 @@ let x=document.querySelectorAll('a[b]'); <span class='zhushi'>所有&lt;a b href
 x.href <span class='zhushi'>获取到"地址"</span><br>
 <br>
 
+〈h5|获取json到变量〉<br>
+<pre><code>
+try{<br>
+    let 地址="地址.json";<br>
+    let GetJson=$.ajax({<br>
+        url:地址,<br>
+        type:"GET",<br>
+        dataType:"json",<br>
+        async:false,<br>
+        success:function(data){<br>
+        }<br>
+    });<br>
+    //GetJson.responseText 全文<br>
+    if(GetJson.responseText.indexOf("&lt;title>尝试跳转中 - 猫球博客&lt;/title>（如果出现说明获取失败的字）")!=-1){console.log()=1;}<br>
+    <br>
+    }catch(e){<br>
+        notyf.alert("获取失败");<br>
+}
+</code></pre>
+
+
 <hr>
 
 〈h4|截取、分割〉<br>

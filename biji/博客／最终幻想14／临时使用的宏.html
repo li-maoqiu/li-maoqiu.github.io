@@ -1,0 +1,59 @@
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script>
+    let h1="临时使用的宏";
+    let nav=["x","猫球搜索#游戏笔记","博客／最终幻想14"];
+    let index=["自动"];
+</script><link rel="stylesheet" href="0/1.css"><div id="dy"></div><script src="0/1.js"></script><div id="a">
+
+<span class="zhushi">点击名字复制宏，在游戏里粘贴即用。</span><br>
+<span class="zhushi">这个页面是为了方便我自己做的，有些动作的文字部分可能不符合你的喜好，或者需要购买付费动作，建议用之前找个没人的地方试试。</span><br>
+
+<div id="dy_ff14"></div>
+
+</div>
+
+<script>
+    let data=[ // ["名字","说明","效果预览","宏"], <u>目标</u>
+        ["h3","娱乐"],//娱乐
+        ["胜利干杯","","李猫球高举酒杯一饮而尽，庆祝这场胜利。","/干杯 motion\n/em 高举酒杯一饮而尽，庆祝这场胜利。\n/micon 称赞 emote\n/e 获得了最帅队员推荐！"],
+        ["喝闷酒","","李猫球举起杯子，独自喝着闷酒。","/干杯 motion\n/em 举起杯子，独自喝着闷酒。\n/micon 不满 emote"],
+        ["叫外卖","","李猫球拿出手机叫了份外卖。","/神典石 motion\n/em 拿出手机叫了份外卖。"],
+        ["瞬间倒地","需要没有buff<u>钓组</u>","","/套装 更换 29\n/wait 1\n/装死 motion\n/ac 钓组\n/micon 装死 emote"],
+        ["耐久归零倒地","","李猫球的耐久度已降到0%。","/装死 motion\n/micon 装死 emote\n/em 的耐久度已降到0%。"],
+        ["发光小黄莺","持续发光的小黄莺之舞，点一次大约持续2分钟。","","/小黄莺之舞 motion &lt;wait.8>\n/小黄莺之舞 motion &lt;wait.8>\n/小黄莺之舞 motion &lt;wait.8>\n/小黄莺之舞 motion &lt;wait.8>\n/小黄莺之舞 motion &lt;wait.8>\n/小黄莺之舞 motion &lt;wait.8>\n/小黄莺之舞 motion &lt;wait.8>\n/小黄莺之舞 motion &lt;wait.8>\n/小黄莺之舞 motion &lt;wait.8>\n/小黄莺之舞 motion &lt;wait.8>\n/小黄莺之舞 motion &lt;wait.8>\n/小黄莺之舞 motion &lt;wait.8>\n/小黄莺之舞 motion &lt;wait.8>\n/小黄莺之舞 motion &lt;wait.8>\n/micon 小黄莺之舞 emote"],
+    
+        ["h3","开玩笑"],//开玩笑
+        ["直呼老婆","","李猫球超级自信的直接对<u>目标</u>打招呼：嗨老婆！","/micon 打招呼 emote\n/打招呼 motion\n/em 超级自信的直接对&lt;t>打招呼：嗨老婆！"],
+        ["美食图册","","李猫球在《艾欧泽亚风味食材图册》上找到了<u>目标</u>的名字。","/看书 motion\n/em 在《艾欧泽亚风味食材图册》上找到了<t>的名字。\n/micon 看书 emote"],
+        ["合伙偷吃面包","需要点过另一个目标","李猫球和<u>目标</u>从<u>上次目标</u>包里拿出面包吃了起来。","/吃面包 motion\n/em 和<目标>从<上次目标>包里拿出面包吃了起来。\n/micon 吃面包 emote"],
+        ["钓到了xx","","李猫球成功钓上了<u>目标</u>（73.5星寸）。","/em 成功钓上了&lt;t>（73.5星寸）。\n/灵光一现 motion\n/micon 以小钓大"],
+        ["制作xx成功","","李猫球制作“<u>目标</u>”×1成功！","/em 制作“&lt;t>”×1成功！\n/下跪 motion\n/micon 安抚 emote"],
+        ["捏屁股","","李猫球捏了<u>目标</u>的屁股一下，手感不错。","/em 捏了<t>的屁股一下，手感不错。"],
+
+        ["h3","工具"],//工具
+        ["倒地求救","","李猫球(喊话)：我在<u>当前位置坐标</u>不小心摔倒了，有没有好心人来扶我一把——","/sh 我在<pos>不小心摔倒了，有没有好心人来扶我一把——"],
+        ["坐骑BGM","开\关坐骑BGM","","/mountbgm"],
+        ["武器发光","武器在背上时也会发光","","/bm\n/sit\n/wait 1\n/sit\n/micon 武具投影"],
+
+        ["h3","符号"],//符号
+        ["星","框里的星星","",""],
+        ["A","框里的A","",""],
+        ["I","框里的I","",""],
+        ["三角","物品名前的三角","",""],
+        ["HQ","高品质物品","",""],
+        // ["","","",""],
+    ];
+    document.getElementById("dy_ff14").innerHTML="<table>"+data.map(sub=>(/^h\d$/.test(sub[0]))?
+    `</table>〈${sub[0]}|${sub[1]}〉<table>`:
+    `<tr><td rowspan="2"><a onclick="复('${sub[3]}')">${sub[0]}</a></td><td>${sub[1]}</td></tr><tr>`+
+        ((sub[2]!="")?"<td class='em'>":"<td>")
+        +`${sub[2]}</td></tr>`
+    ).join("")+"</table>";
+
+</script>
+
+<style>
+u{font-size:0.75em;}i{font-size:0.85em;}
+.o{color:#CCCC93;}.em{color:#b2f1e4;}.sh{color:#ED9F65;}
+.o,.em,.sh{background-color:#564329;}
+</style>
