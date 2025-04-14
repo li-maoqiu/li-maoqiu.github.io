@@ -1,9 +1,10 @@
+
 if(data[0]!=""){
     let 搜索dy="";
     for(let i=data.length-1;i>0;i--){
         let 关键词;
         if(data[i][1]){关键词=data[i][1];}else{关键词=data[i][0];}
-        if(关键词>0){关键词="1/"+关键词;}
+        if(关键词>0){关键词=子页+"1/"+关键词;}
         搜索dy+="<a href='"+关键词+".html'>"+data[i][0]+"</a>";
         if(data[i][3]){搜索dy+="："+data[i][3];}
         搜索dy+="<br>";
@@ -33,11 +34,11 @@ function 确定(){
         }
     }
     if(输入>0){
-        结果+="<p><a href='1/"+输入+".html'>/1/"+输入+".html</a>";
+        结果+="<p><a href='"+子页+"1/"+输入+".html'>/1/"+子页+输入+".html</a>";
     }
     if(结果==""){结果="<hr><p><b>无结果</b><br>可能的页面：</p><p><a href='"+输入+".html'>"+输入+"</a></p>";}else{结果="<hr>"+结果+"<p><a href='"+输入+".html'>-</a></p>"}
     if(输入==""){结果="";}
-    document.getElementById("结果").innerHTML = 结果;
+    document.getElementById("结果").innerHTML=结果;
     if (event.keyCode == 13){
         window.location.href=结果.split("href='")[1].split("'>")[0];
     }

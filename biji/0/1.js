@@ -4,6 +4,7 @@ let 子页面=["0",""];if(top.location!=self.location){子页面=["1","../"]}
 let 统一=["../0/2/"];
 let 最后执行={};
 let 本地=(location.protocol=="file:")?1:null;
+let 子页=(location.href.split("/biji/")[1].indexOf("/")!=-1)?"../":"";
 let 代码={
     "博客":"https://limaoqiu.com/",
     "目录":"C:/mq/目录/",
@@ -65,7 +66,7 @@ if(typeof(h1)!="undefined"&&子页面[0]=="0"){
 dy1js+="<h1>"+h1+"</h1>";
 
 if(h1!="异梦笔记"){dy1js+=" <nav>";
-    if(nav[0]!="x"){dy1js+=" / <a href='0.html'>总目录</a>"}
+    if(nav[0]!="x"){dy1js+=" / <a href='"+子页+"0.html'>总目录</a>"}
 for(let i=0;nav.length>i;i++){
     if(nav[i]=="搜索"||nav[i]=="x"){}
     else if(Array.isArray(nav[i])&&nav[i][0]=="t"){dy1js+=nav[i][1]}
@@ -116,17 +117,17 @@ let 结果="",输入=document.getElementById("输入").value.toLowerCase().split
 for(let i=0;sjtk_s.length>i;i++){
     let 过程="0",关键词=sjtk_s[i].split(",");
     for(let i2=0;输入.length>i2;i2++){if(关键词[1].toLowerCase().indexOf(输入[i2])!=-1&&输入[i2]!=""){}else{过程="1"}}
-    if(过程=="0"&&sjtk.indexOf(关键词[0])!=-1){结果+="<br><b><a onclick=\"复(制='"+关键词[0]+"')\">"+关键词[0]+"（删除码）</a></b>"+"<iframe src='1/"+关键词[0]+".html' height=100% width=100%></iframe><br>"}
+    if(过程=="0"&&sjtk.indexOf(关键词[0])!=-1){结果+="<br><b><a onclick=\"复(制='"+关键词[0]+"')\">"+关键词[0]+"（删除码）</a></b>"+"<iframe src='"+子页+"1/"+关键词[0]+".html' height=100% width=100%></iframe><br>"}
 }document.getElementById("sjtk").innerHTML=结果}
 
 function sjtk_随机(){
     if(次数==0){乱=sjtk;打()}
     if(乱.length==次数){document.getElementById("sjtk").innerHTML="题库已空";次数=0;
-    }else{document.getElementById("sjtk").innerHTML="<a onclick='删除码(制="+乱[次数]+")'>删除码</a><br><iframe src='1/"+乱[次数]+".html' height=100% width=100%></iframe>";次数+=1}
+    }else{document.getElementById("sjtk").innerHTML="<a onclick='删除码(制="+乱[次数]+")'>删除码</a><br><iframe src='"+子页+"1/"+乱[次数]+".html' height=100% width=100%></iframe>";次数+=1}
 }
 function sjtk_全部显示(){
     次数="";
-    for(let i=0;sjtk.length>i;i++){次数+="<br><b><a onclick=\"复(制='"+sjtk[i]+"')\">"+sjtk[i]+"（删除码）</a></b>"+"<iframe src='1/"+sjtk[i]+".html' height=100% width=100%></iframe><br>"}
+    for(let i=0;sjtk.length>i;i++){次数+="<br><b><a onclick=\"复(制='"+sjtk[i]+"')\">"+sjtk[i]+"（删除码）</a></b>"+"<iframe src='"+子页+"1/"+sjtk[i]+".html' height=100% width=100%></iframe><br>"}
     document.getElementById("sjtk").innerHTML=次数;
     次数=0;
 }
@@ -244,15 +245,37 @@ for(let i=1;临时.length>i;i++){
     if(_执行b[临时0]){if(typeof _执行b[临时0]=="string"){_执行b[_执行b[临时0]](i)}else{_执行b[临时0](i)}}
     else if(临时0>0){dy1js+="<a href='1/"+临时0+".html'>"+临时0+"</a>"}
     else{
-        if(临时0.indexOf("#")!=-1){
-            if(临时0[0]=="#"){
-                dy1js+="<a href='#"+临时0.split("#")[1]+"'>#"+临时0.split("#")[1]+"</a>"
+        let 临u=临时0,临名=临时0.replace(new RegExp('（本地）',"g"),"");
+        if(临u.indexOf("#")!=-1){
+            临u=临u.split("#");
+            if(临u[0]==""){
+                临u=临u[1];
             }else{
-                dy1js+="<a href='"+临时0.split("#")[0]+".html#"+临时0.split("#")[1]+"'>"+临时0.split("#")[0]+"-"+临时0.split("#")[1]+"</a>";
+                临u=临u[0]+".html#"+临u[1];
+                临名=临u[0]+"-"+临u[1];
             }
+        }else{
+            临u+=".html";
         }
-        else if(临时0.indexOf("／")!=-1){let 临时3=临时0.split("／");dy1js+="<a href='"+临时0+".html'>"+临时3[临时3.length-1].replace(new RegExp('（本地）',"g"),"")+"</a>"}
-        else{dy1js+="<a href='"+临时0+".html'>"+临时0.replace(new RegExp('（本地）',"g"),"")+"</a>"}
+        if(临u.indexOf("／")!=-1){
+            临名=临名.split("／");
+            临名=临名[临名.length-1];
+        }
+        if(临u.indexOf("/")!=-1){
+            临名=临名.split("/");
+            临名=临名[临名.length-1];
+        }
+        dy1js+="<a href='"+临u+"'>"+临名+"</a>"
+
+        // if(临时0.indexOf("#")!=-1){
+        //     if(临时0[0]=="#"){
+        //         dy1js+="<a href='#"+临时0.split("#")[1]+"'>#"+临时0.split("#")[1]+"</a>"
+        //     }else{
+        //         dy1js+="<a href='"+临时0.split("#")[0]+".html#"+临时0.split("#")[1]+"'>"+临时0.split("#")[0]+"-"+临时0.split("#")[1]+"</a>";
+        //     }
+        // }
+        // else if(临时0.indexOf("／")!=-1){let 临时3=临时0.split("／");dy1js+="<a href='"+临时0+".html'>"+临时3[临时3.length-1].replace(new RegExp('（本地）',"g"),"")+"</a>"}
+        // else{dy1js+="<a href='"+临时0+".html'>"+临时0.replace(new RegExp('（本地）',"g"),"")+"</a>"}
 
         }
     }
