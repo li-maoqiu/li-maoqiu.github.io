@@ -3,7 +3,7 @@
     let h1="我的世界皮肤";
     let nav=["x","博客／我的世界"];
     let index=["自动"];
-</script><link rel="stylesheet" href="0/1.css"><div id="dy"></div><script src="0/1.js"></script><div id="a">
+</script><link rel="stylesheet" href="0/1.css"><div id="dy"></div><script src="0/1.js"></script><div id="popup"></div><div id="a">
 
 皮肤站：<a href="https://littleskin.cn/">littleskin.cn</a><br>
 <br>
@@ -11,14 +11,12 @@
 
 <hr>
 <style id="皮肤sty"></style>
-〈h3|保存的皮肤〉<br>
+〈h3|保存的皮肤〉 <small>点击下载</small><br>
 <div id="皮肤"></div>
 
 </div></div>
 
-<div id="modalMask" class="modal-mask">
-<span class="close-btn" onclick="closeModal()">×</span>
-<div class="modal-container" id="打印弹窗"></div>
+
 
 <script>
 let 皮肤=[//"／直接显示","／<div>换行</div>"
@@ -40,17 +38,16 @@ let 皮肤图={
     "蒸汽朋克":"data:image/png;base64,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"
 }
 
-document.getElementById("皮肤").innerHTML=皮肤.map(sub=>((sub[0]=="／")?sub.slice(1):`<a onclick="按钮('${sub}')" class='提示' data-msg='${sub}'>
+document.getElementById("皮肤").innerHTML=皮肤.map(sub=>((sub[0]=="／")?sub.slice(1):`<a href="${皮肤图[sub]}" download="${sub}.png" onmouseenter="showPopup('${sub}')" onmouseleave="hidePopup()">
     <div class='a'>
         <div class="${sub} b1"></div><div class="${sub} b2"></div><div class="${sub} c1"></div><div class="${sub} c2"></div><div class="${sub} d1"></div><div class="${sub} d2"></div>
     </div>
 </a>`)).join("");
 document.getElementById("皮肤sty").innerHTML=皮肤.map(sub=>((sub[0]=="／")?"":`.${sub}{background-image:url('${皮肤图[sub]}');}`)).join("");
 
-function 按钮(o){
-    const modal=document.getElementById('modalMask')
-    modal.style.display='block';
-    document.getElementById("打印弹窗").innerHTML=`<div class="b">
+function showPopup(o){
+
+document.getElementById("popup").innerHTML=`<b style='position:absolute;top:6px;left:10px;'>${o}</b><div class="b">
 <div class="e1 ${o}"></div>
 <div class="e2 ${o}"></div>
 <div class="e3 ${o}"></div>
@@ -81,86 +78,36 @@ function 按钮(o){
 <div class="g9 ${o}"></div>
 <div class="g10 ${o}"></div>
 <div class="g11 ${o}"></div>
-</div>
-<div style="position:absolute;left:40px;bottom:30px;"><b>${o}</b>　<a href="${皮肤图[o]}" download="${o}.png">下载</a></div>`;
+</div>`;
+document.getElementById('popup').style.display='block';
 }
 
-function closeModal(){
-    const modal=document.getElementById('modalMask')
-    modal.style.display='none'
-}
-
-document.getElementById('modalMask').addEventListener('click',function(e){
-    if (e.target===this){
-        closeModal()
+function hidePopup() {
+        document.getElementById('popup').style.display='none';
     }
-})
 
 </script>
 
 <style>
-    .modal-mask{
-    display:none;
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:#00000080;
-    z-index:999;
+.a{position:relative;display:inline-block;margin:80px;}
+#皮肤,.b{image-rendering:optimizeSpeed;image-rendering:-moz-crisp-edges;image-rendering:-o-crisp-edges;image-rendering:-webkit-optimize-contrast;image-rendering:pixelated;-ms-interpolation-mode:nearest-neighbor}
+.a div{
+    position:absolute;top:0;left:0;
+    line-height:0;
+    width:80px;height:80px;
+    background-size:640px 640px;
 }
+.b1{background-position:-80px -80px;}
+.b2{background-position:-400px -80px;}
+.c1{background-position:-80px 0px;}
+.c2{background-position:-400px 0px;}
+.d1{background-position:-160px -80px;}
+.d2{background-position:-480px -80px;}
 
-.modal-container{
-    position:fixed;
-    top:50%;
-    left:50%;
-    transform:translate(-50%,-50%);
-    background:white;
-    padding:20px;
-    border-radius:8px;
-    min-width:600px;
-    min-height:400px;
-    box-shadow:0 2px 8px #0000004d;
-    z-index:1000;
-    animation:slideIn 0.2s ease-out;
-}
-
-@keyframes slideIn{
-from{transform:translate(-50%,-60%);opacity:0;}
-to{transform:translate(-50%,-50%);opacity:1;}
-}
-
-.close-btn{
-    position:absolute;
-    right:10px;
-    top:10px;
-    cursor:pointer;
-    font-weight:bold;
-    color:#666;
-}
-
-    #皮肤 .提示{border-bottom:none;}
-    #皮肤 .提示:hover::before{top:10px;left:60%;}
-    #皮肤 .提示:hover::after{top:30px;left:60%;}
-    .a{position:relative;display:inline-block;margin:80px;}
-    #皮肤,.b{image-rendering:optimizeSpeed;image-rendering:-moz-crisp-edges;image-rendering:-o-crisp-edges;image-rendering:-webkit-optimize-contrast;image-rendering:pixelated;-ms-interpolation-mode:nearest-neighbor}
-    .a div{
-        position:absolute;top:0;left:0;
-        line-height:0;
-        width:80px;height:80px;
-        background-size:640px 640px;
-    }
-    .b1{background-position:-80px -80px;}
-    .b2{background-position:-400px -80px;}
-    .c1{background-position:-80px 0px;}
-    .c2{background-position:-400px 0px;}
-    .d1{background-position:-160px -80px;}
-    .d2{background-position:-480px -80px;}
-
-    .a{transform:rotateX(70deg) rotateZ(20deg);transform-style:preserve-3d;}
-    .b1,.b2{transform:rotateX(-90deg) translateZ(50px);}
-    .c1,.c2{transform:translateZ(50px) translateX(10px) translateY(36px);}
-    .d1,.d2{transform:rotateY(90deg) translateX(-11px) translateY(38px) translateZ(50px);}
+.a{transform:rotateX(70deg) rotateZ(20deg);transform-style:preserve-3d;}
+.b1,.b2{transform:rotateX(-90deg) translateZ(50px);}
+.c1,.c2{transform:translateZ(50px) translateX(10px) translateY(36px);}
+.d1,.d2{transform:rotateY(90deg) translateX(-11px) translateY(38px) translateZ(50px);}
 
 .b{position:relative;display:inline-block;padding:80px;}
 
@@ -218,5 +165,19 @@ to{transform:translate(-50%,-50%);opacity:1;}
 .g9{background-position:-120px -520px;}
 .g10{background-position:-120px -200px;}
 .g11{background-position:-120px -360px;}
+
+#popup{
+    display:none;
+    position:fixed;
+    justify-content: center;
+    align-items: center;
+    width:560px;height:320px;
+    z-index:1000;
+    pointer-events:none;
+    border:6px solid #dbdbdb;
+    padding:40px 0;
+    background-color:#f8f8f8;
+}
+
 
 </style>
