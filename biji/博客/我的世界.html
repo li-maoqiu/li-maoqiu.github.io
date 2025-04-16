@@ -3,16 +3,18 @@
     let h1="我的世界";
     let nav=["x","猫球搜索#游戏笔记"];
     let index=["自动"];
-</script><link rel="stylesheet" href="../0/1.css"><div id="dy"></div><script src="../0/1.js"></script><div id="a">
+</script><link rel="stylesheet" href="../0/1.css"><div id="dy"></div><script src="../0/1.js"></script>
+<style>.颜色 span{padding:3px;}.rep{color:#009600;}</style>
+<div id="a">
 
-〈皮肤|我的世界皮肤〉<br>
+〈皮肤|我的世界皮肤〉 | 〈文件夹|猫球搜索#我的世界文件夹〉<br>
 <br>
     
-<a href="https://www.minecraft.net/zh-hans">官网</a> . <a href="https://mc.163.com/">网易版</a><br>
+<a href="https://www.minecraft.net/zh-hans">官网</a> . <a href="https://mc.163.com/">网易版</a> <span class='zhushi'>垃圾微软，垃圾网易，呸</span><br>
+<a href="https://minecraft.fandom.com/zh/wiki/Minecraft_Wiki">中文百科</a><br>
 <a href="https://www.mcmod.cn/">MC百科</a>：MOD百科<br>
 <a href="https://www.mcbbs.net/">MCBBS</a>：论坛<br>
 <a href="https://namemc.com/minecraft-skins">NameMC</a>：用户名和皮肤查询<br>
-<a href="https://www.needcoolshoes.com/banner">旗帜制作测试</a>：游戏里的旗帜染色测试<br>
 <a href="https://www.mcmod.cn/tools/achievements/">成就生成器</a><br>
 〈荒川镇的存档〉<br>
 
@@ -63,7 +65,226 @@
 
 <hr>
 
-〈h4|旗帜〉<br>
+〈h4|附魔〉<br>
+〈更多|
+满级附魔台：附魔台周围放15个书架，间隔1格，可以是同层或高1层，可以斜角。<br>
+满级附魔：需要玩家等级超过30才可以。<br>
+铁砧：用装备+附魔书给装备附魔，用两个相同装备合成为一个装备并升级附魔。<br>
+砂轮：消除附魔。<br>
+|基础准备〉<br>
+
+附魔台 → 装备 / 书籍<br>
+铁砧 → 装备+附魔书 / 装备+装备<br>
+<br>
+
+<b>通用：</b><br>
+耐久3<br>
+经验修补1<br>
+<br>
+<b>工具：</b><br>
+效率5<br>
+精准采集1<br>
+时运3<br>
+<br>
+<b>护甲通用：</b><br>
+保护4<br>
+爆炸保护4<br>
+火焰保护4<br>
+弹射物保护4<br>
+荆棘3：附魔台最多得到2级，需要铁砧合成，多件装备有荆棘不叠加。<br>
+<br>
+<b>头部：</b><br>
+水下速倔1<br>
+水下呼吸3<br>
+<br>
+<b>脚部：</b><br>
+摔落保护4<br>
+深海探索者3<br>
+冰霜行者2：水面行走<br>
+<br>
+<b>剑：</b><br>
+锋利5<br>
+亡灵杀手5<br>
+节肢杀手5<br>
+（以上三个互斥）<br>
+火焰附加2<br>
+击退2<br>
+抢夺3<br>
+横扫之刃3<br>
+<br>
+<b>弓箭：</b><br>
+力量5<br>
+冲击2<br>
+火矢<br>
+无限：和经验修补冲突<br>
+<br>
+<b>弩箭：</b><br>
+快速装填3<br>
+穿透4：和多重射击冲突<br>
+多重射击：和穿透冲突<br>
+<br>
+<b>三叉戟：</b><br>
+穿刺5<br>
+忠诚3<br>
+引雷：需要雷暴天气和空旷场地<br>
+激流3：使用者一起被抛出<br>
+<br>
+<b>鱼竿：</b><br>
+海之眷顾3：提高钓到宝藏的概率<br>
+饵钓3：钓更快<br>
+
+<hr>
+
+〈h3|指令〉<br>
+更详细、完整的说明参考我的世界百科 <a href="https://minecraft-zh.gamepedia.com/%E5%91%BD%E4%BB%A4">链接</a><br>
+<table>
+    <tr><td>/gamemode creative</td><td>游戏模式变更为创造模式</td><td><a onclick="复(制='/gamemode creative')">复制</a></td></tr>
+    <tr><td>/gamemode survival</td><td>游戏模式变更为生存模式</td><td><a onclick="复(制='/gamemode survival')">复制</a></td></tr>
+    <tr><td>/give <span class="rep">目标 物品 数量</span></td><td>给予玩家物品</td><td><a onclick="复(制='/give')">复制</a></td></tr>
+    <tr><td>/give @s minecraft:player_head{SkullOwner:"<span class="rep">玩家ID</span>"}</td><td>获得一个玩家的头</td><td><a onclick="复(制='/give @s minecraft:player_head{SkullOwner:&quot;玩家ID&quot;}')">复制</a></td></tr>
+</table><br>
+<b>时间</b>：〈复制|白天|/time set 1000〉、〈复制|中午|/time set 6000〉、〈复制|晚上|/time set 13000〉、〈复制|半夜|/time set 18000〉<br>
+<b>天气</b>：〈复制|晴天|/weather clear〉 〈复制|雨天|/weather rain〉 〈复制|雷暴雨|/weather thunder〉<br>
+<br>
+
+<b>坐标：</b>x轴 y轴 z轴 水平旋转 垂直旋转<br>
+其中x轴为东西方向，y轴为上下高度，z轴为南北方向。<br>
+输入数字是绝对坐标，比如/tp 1 2 3，是坐标为1 2 3的特定位置。<br>
+~ 波浪号为相对坐标，比如/tp ~ ~ ~3，是以玩家为中心向南移动3点（单独的波浪号~视为~0，即不改变）。<br>
+^ 为局部坐标，比如/tp ^ ^ ^3，是向玩家前方移动3点。<br>
+x=?,y=?,z=?,dx=?,dy=?,dz=? 以绝对坐标和相对坐标画一个长方体<br>
+distance=1..2 1和2之间<br>
+distance=..2 小于2<br>
+distance=1.. 大于1<br>
+<br>
+
+<b>目标选择器：</b><br>
+@p：距离最近的玩家。<br>
+@r：随机玩家。<br>
+@a：所有玩家。<br>
+@e：所有实体，包括玩家，但不包括死亡的实体。<br>
+@s：命令的执行者。<br>
+<br>
+
+〈h5|命令方块〉<br>
+获得一个命令方块 〈复制|复制|/give @p command_block〉<br>
+/gamerule commandBlockOutput false 关闭命令方块提示<br>
+/gamerule commandBlockOutput true 开启<br>
+/kill @e[type=类型,x=坐标,y=坐标,z=坐标,dx=相对坐标,dy=相对坐标,dz=相对坐标] 杀死指定范围内的指定实体，如1,1,1到10,10,10，则dx,dy,dz写9<br>
+计算范围：<input type="text" placeholder="计算范围" id="计算范围" autocomplete="off"> <a onclick="确定计算范围()">确定</a><br>
+<span id="计算范围结果">（x y z/x y z）</span><br>
+
+〈更多|3个命令方块，1指向2指向3<br>
+/clear @p 货币 数量-1 （脉冲 不受约束 红石控制）<br>
+/clear @p 货币 1（连锁 条件制约 保持开启）<br>
+/give @p 商品 数量 （连锁 条件制约 保持开启）<br>
+<br>
+/clear @p minecraft:coin 9<br>
+/clear @p minecraft:coin 1<br>
+/give @p minecraft:diamond 9
+|自建商店〉<br>
+
+〈更多|<div class="颜色">
+    <span style="background-color:#BF0000;color:#ffffff">dark_red</span><br>
+    <span style="background-color:#FF3E3F;color:#ffffff">red</span><br>
+    <span style="background-color:#D9A333;color:#ffffff">gold</span><br>
+    <span style="background-color:#FCFB3F;color:#000000">yellow</span><br>
+    <span style="background-color:#02BD00;color:#ffffff">dark_green</span><br>
+    <span style="background-color:#3FFD42;color:#000000">green</span><br>
+    <span style="background-color:#40FDFC;color:#000000">#40FDFC</span><br>
+    <span style="background-color:#00BDBD;color:#ffffff">dark_aqua</span><br>
+    <span style="background-color:#0100BF;color:#ffffff">dark_blue</span><br>
+    <span style="background-color:#3D40FF;color:#ffffff">blue</span><br>
+    <span style="background-color:#FE3FFD;color:#ffffff">light_purple</span><br>
+    <span style="background-color:#BE00BD;color:#ffffff">dark_purple</span><br>
+    <span style="background-color:#FFFFFF;color:#000000">white</span><br>
+    <span style="background-color:#BEBEBE;color:#000000">gray</span><br>
+    <span style="background-color:#3F3F3F;color:#ffffff">dark_gray</span><br>
+    <span style="background-color:#000000;color:#ffffff">black</span><br>
+</div>|颜色〉<br>
+
+特殊物品：〈更多|
+糖果需要用命令方块<br>
+<a onclick="复('/give @p minecraft:player_head{display:{Name:［引号］{\\［引号］text\\［引号］:\\［引号］蓝色糖果\\［引号］}［引号］},SkullOwner:{Id:[I;1796075081,-1766571859,-1496806541,48607045],Properties:{textures:[{Value:［引号］eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMjU0MjU3NTQyMzI0NmZhYTczYTM3NjNlMWI0NmRjZmEzZjQ2ZWRiOWIxNWFjYjBiYzExOTAxNDZlZTE5ZCJ9fX0=［引号］}]}}} 1')">蓝色糖果</a><br>
+<a onclick="复('/give @p minecraft:player_head{display:{Name:［引号］{\\［引号］text\\［引号］:\\［引号］橙色糖果\\［引号］}［引号］},SkullOwner:{Id:[I;167750895,721240225,-1521181093,341590445],Properties:{textures:[{Value:［引号］eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODUzMzFjZmM2Y2JjOWQ0Njk3ZmQzNWJiODRkNThkYTQwOTliYWQ5MjdlOWZhNjZlODk2ZGM1Mjc1Y2QzNzkifX19［引号］}]}}} 1')">橙色糖果</a><br>
+<a onclick="复('/give @p minecraft:player_head{display:{Name:［引号］{\\［引号］text\\［引号］:\\［引号］绿色糖果\\［引号］}［引号］},SkullOwner:{Id:[I;-1177275003,-1571860757,-1322848681,381138986],Properties:{textures:[{Value:［引号］eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2VjZDVlODQ4MDIxNGJkNjMzNzU2ZTYxOTJlMTQ3M2NlMjZhYWJhN2E2ZmI4MmY1OTE4ODBhYjQ4Nzc1NjMifX19［引号］}]}}} 1')">绿色糖果</a><br>
+<a onclick="复('/give @p minecraft:player_head{display:{Name:［引号］{\\［引号］text\\［引号］:\\［引号］红色糖果\\［引号］}［引号］},SkullOwner:{Id:[I;852245215,778843998,988781922,-745425529],Properties:{textures:[{Value:［引号］eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMmIyMTYxN2QyNzU1YmMyMGY4ZjdlMzg4ZjQ5ZTQ4NTgyNzQ1ZmVjMTZiYjE0Yzc3NmY3MTE4Zjk4YzU1ZTgifX19［引号］}]}}} 1')">红色糖果</a><br>
+<a onclick="复('/give @p minecraft:player_head{display:{Name:［引号］{\\［引号］text\\［引号］:\\［引号］粉色糖果\\［引号］}［引号］},SkullOwner:{Id:[I;-671798371,-400537424,-1427929897,-45953886],Properties:{textures:[{Value:［引号］eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMTc3NTJiZGNjYWQ2YTQ2NzhiNmVhYTU5MjM3MzhhYTYzZDBiNzUxNzE4MDMyOTIxNmYwYWEzNGZlYjU1ZWIifX19［引号］}]}}} 1')">粉色糖果</a><br>
+<a onclick="复('/give @p minecraft:player_head{display:{Name:［引号］{\\［引号］text\\［引号］:\\［引号］黄色糖果\\［引号］}［引号］},SkullOwner:{Id:[I;-583328722,1805534089,-1978679487,-130672231],Properties:{textures:[{Value:［引号］eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvOTM2MWE3ODQ3YjhjMWQwOGRlMDQzOGQ1OGE1YTMyNDc1ZDYxNzI4YTNkNjUxNDk4ZmU4NjdiZDVkNTk4In19fQ==［引号］}]}}} 1')">黄色糖果</a><br>
+<a onclick="复('/give @s minecraft:player_head{SkullOwner:MHF_Present1}')">礼物盒</a><br>
+<a onclick="复('/give @s minecraft:player_head{SkullOwner:MHF_Present2}')">礼物盒2</a>
+|圣诞主题〉<br>
+
+<br>
+
+〈h5|服务器-玩家〉<br>
+<table>
+    <tr><td>/list</td><td>列出服务器中的玩家</td><td><a onclick="复(制='/list')">复制</a></td></tr>
+    <tr><td>/tpa <span class="rep">玩家ID</span></td><td>请求传送到玩家位置</td><td><a onclick="复(制='/tpa')">复制</a></td></tr>
+    <tr><td>/tpahere <span class="rep">玩家ID</span></td><td>邀请玩家传送过来</td><td><a onclick="复(制='/tpahere')">复制</a></td></tr>
+    <tr><td>/setwarp <span class="rep">地标ID</span></td><td>创建地标</td><td><a onclick="复(制='/setwarp')">复制</a></td></tr>
+    <tr><td>/res tp <span class="rep">领地ID</span></td><td>传送到领地</td><td><a onclick="复(制='/res tp')">复制</a></td></tr>
+    <tr><td>/warp <span class="rep">地标ID</span></td><td>传送到地标</td><td><a onclick="复(制='/warp')">复制</a></td></tr>
+    <tr><td>/delwarp <span class="rep">地标ID</span></td><td>删除地标</td><td><a onclick="复(制='/delwarp')">复制</a></td></tr>
+    <tr><td>/sethome <span class="rep">家ID（可留空）</span></td><td>创建家</td><td><a onclick="复(制='/sethome')">复制</a></td></tr>
+    <tr><td>/home <span class="rep">家ID</span></td><td>传送到家</td><td><a onclick="复(制='/home')">复制</a></td></tr>
+    <tr><td>/delhome <span class="rep">家ID</span></td><td>删除家</td><td><a onclick="复(制='/delhome')">复制</a></td></tr>
+    <tr><td>/back</td><td>返回上次传送或死亡的地点</td><td><a onclick="复(制='/back')">复制</a></td></tr>
+
+    <tr><td>/money</td><td>查询金钱</td><td><a onclick="复(制='/money')">复制</a></td></tr>
+    <tr><td>/baltop</td><td>金钱排行</td><td><a onclick="复(制='/baltop')">复制</a></td></tr>
+    <tr><td>/pay <span class="rep">玩家ID 金额</span></td><td>把钱交给比人</td><td><a onclick="复(制='/pay')">复制</a></td></tr>
+    <tr><td>/tell <span class="rep">玩家ID</span></td><td>私聊</td><td><a onclick="复(制='/tell')">复制</a></td></tr>
+    <tr><td>/suicide</td><td>自杀</td><td><a onclick="复(制='/suicide')">复制</a></td></tr>
+</table>
+
+<br>
+
+〈h5|领地〉<br>
+<table>
+    <tr><td>/res tp <span class="rep">领地ID</span></td><td>传送到领地</td><td><a onclick="复(制='/res tp')">复制</a></td></tr>
+    <tr><td>/res create <span class="rep">领地ID</span></td><td>创建领地（用木锄左键和右键点击方块，分别确定A点和B点。）</td><td><a onclick="复(制='/res create')">复制</a></td></tr>
+    <tr><td>/res message <span class="rep">领地ID</span> enter <span class="rep">文字</span></td><td>设置欢迎语</td><td><a onclick="复(制='/res message 领地名 enter 欢迎语')">复制</a></td></tr>
+    <tr><td>/res message <span class="rep">领地ID</span> leave <span class="rep">文字</span></td><td>设置离开提示</td><td><a onclick="复(制='/res message 领地名 leave 离开提示')">复制</a></td></tr>
+    <tr><td>/res tpset</td><td>设置领地传送点</td><td><a onclick="复(制='/res tpset')">复制</a></td></tr>
+    <tr><td>/res remove</td><td>删除领地</td><td><a onclick="复(制='/res remove')">复制</a></td></tr>
+    <tr><td>/res pset <span class="rep">领地ID 玩家ID 权限 t(允许)/f(禁止)</span></td><td>给玩家领地权限</td><td><a onclick="复(制='/res pset 领地ID 玩家ID 权限 t(允许)/f(禁止)')">复制</a></td></tr>
+    <tr><td>/res pset <span class="rep">领地ID 玩家ID</span> trusted t</td><td>给玩家领地所有权限</td><td><a onclick="复(制='/res pset 领地名 玩家ID trusted t')">复制</a></td></tr>
+    <tr><td>/res set <span class="rep">领地ID 权限 t(允许)/f(禁止)</span></td><td>给领地设置默认权限</td><td><a onclick="复(制='/res set 领地ID 权限 t(允许)/f(禁止)')">复制</a></td></tr>
+    <tr><td>权限：</td><td></td><td></td></tr>
+    <tr><td>trusted</td><td>所有</td><td><a onclick="复(制='trusted')">复制</a></td></tr>
+    <tr><td>container</td><td>使用箱子</td><td><a onclick="复(制='container')">复制</a></td></tr>
+    <tr><td>build</td><td>建造，包括放置和破坏</td><td><a onclick="复(制='build')">复制</a></td></tr>
+    <tr><td>destroy</td><td>毁坏</td><td><a onclick="复(制='destroy')">复制</a></td></tr>
+    <tr><td>place</td><td>放置</td><td><a onclick="复(制='place')">复制</a></td></tr>
+    <tr><td>move</td><td>进入</td><td><a onclick="复(制='move')">复制</a></td></tr>
+    <tr><td>tp</td><td>传送</td><td><a onclick="复(制='tp')">复制</a></td></tr>
+    <tr><td>use</td><td>使用，工作台，炉子等</td><td><a onclick="复(制='use')">复制</a></td></tr>
+    
+    <tr><td>/res listall</td><td>显示服务器所有领地</td><td><a onclick="复(制='/res listall')">复制</a></td></tr>
+    <tr><td>/res unstuck</td><td>离开当前领地</td><td><a onclick="复(制='/res unstuck')">复制</a></td></tr>
+    <tr><td>/res info <span class="rep">领地ID</span></td><td>查询领地信息</td><td><a onclick="复(制='/res info')">复制</a></td></tr>
+    <tr><td>/res current</td><td>显示当前位置的领地</td><td><a onclick="复(制='/res current')">复制</a></td></tr>
+</table>
+
+<br>
+
+〈h5|不常用〉<br>
+<table>
+    <tr><td>显示标题</td><td>/title @p title {"text":"文字","color":"颜色"}</td><td></td></tr>
+    <tr><td>需要多少人入睡跳过夜晚</td><td>/gamerule playersSleepingPercentage</td><td>1.17版本可用 0为1人即可 超过100时无法跳过夜晚</td></tr>
+    <tr><td>关闭怪物破坏</td><td>/gamerule mobGriefing false</td><td></td></tr>
+    <tr><td>创建队伍<br>关闭队伍伤害<br>所有人加入队伍</td><td>〈复制|复制|/team add a〉 /team add a<br>〈复制|复制|/team modify a friendlyFire false〉 /team modify a friendlyFire false<br>〈复制|复制|/team join a @a〉 /team join a @a</td><td></td></tr>
+    <tr><td>获得一个玩家的头</td><td>/give @s minecraft:player_head{SkullOwner:"<span class="rep">玩家ID</span>"}</td><td></td></tr>
+    <tr><td>透明物品展示框</td><td>/give @p minecraft:item_frame{EntityTag:{Invisible:1b}}</td><td></td></tr>
+    <tr><td>透明方块</td><td>/give @p barrier</td><td></td></tr>
+    <tr><td>克隆</td><td>/clone 起点x y z 终点x y z 目标x y z 额外1 额外2</td><td>会以西南角为点<br>
+    额外1：replace(不包括空气)、masked(包括空气)<br>额外2：force(即使重叠也能执行)、move(原区域替换为空气)、normal(默认)</td></tr>
+</table>
+
+<hr>
+
+〈h4|旗帜〉 <a href="https://www.needcoolshoes.com/banner">旗帜制作测试</a><br>
 〈h5|图案〉<br>
 <b>难过的小黄鸭</b> 黄x4 橙x2<br>
 黑色旗帜：黄(竖线丨) + 橙(下1/2) + 黄(下1/3) + 黄(边框) + 橙(横线—) + 黄(上波纹)<br>
@@ -129,75 +350,81 @@
 
 <hr>
 
-〈h3|指令〉<br>
-更详细、完整的说明参考我的世界百科 <a href="https://minecraft-zh.gamepedia.com/%E5%91%BD%E4%BB%A4">链接</a><br>
-<b>坐标：</b>x轴 y轴 z轴<br>
-其中x轴为东西方向，y轴为上下高度，z轴为南北方向。<br>
-输入数字是绝对坐标，比如/tp 1 2 3，是坐标为1 2 3的特定位置。<br>
-~ 波浪号为相对坐标，比如/tp ~ ~ ~3，是以玩家为中心向南移动3点（单独的波浪号~视为~0，即不改变）。<br>
-^ 为局部坐标，比如/tp ^ ^ ^3，是向玩家前方移动3点。<br>
-<b>目标：</b><br>
-@p：选择最近的玩家。<br>
-@r：选择随机玩家。<br>
-@a：选择所有玩家。<br>
-@e：选择所有实体，包括玩家，但不包括死亡的实体。<br>
+〈h3|其他〉<br>
+
+<br>
+
+〈h5|告示板〉<br>
+<b>文字颜色</b><br>
 <table>
-    <tr><td>/gamemode creative</td><td>游戏模式变更为创造模式</td><td><a onclick="复(制='/gamemode creative')">复制</a></td></tr>
-    <tr><td>/gamemode survival</td><td>游戏模式变更为生存模式</td><td><a onclick="复(制='/gamemode survival')">复制</a></td></tr>
-    <tr><td>/give <span class="rep">目标 物品 数量</span></td><td>给予玩家物品</td><td><a onclick="复(制='/give')">复制</a></td></tr>
-    <tr><td>/give @s minecraft:player_head{SkullOwner:"<span class="rep">玩家ID</span>"}</td><td>获得一个玩家的头</td><td><a onclick="复(制='/give @s minecraft:player_head{SkullOwner:&quot;玩家ID&quot;}')">复制</a></td></tr>
+    <tr><td onclick="复('§0')">§0</td><td>黑色</td></tr>
+    <tr><td onclick="复('§1')">§1</td><td>深蓝</td></tr>
+    <tr><td onclick="复('§2')">§2</td><td>深绿</td></tr>
+    <tr><td onclick="复('§3')">§3</td><td>天蓝</td></tr>
+    <tr><td onclick="复('§4')">§4</td><td>红色</td></tr>
+    <tr><td onclick="复('§5')">§5</td><td>深紫色</td></tr>
+    <tr><td onclick="复('§6')">§6</td><td>金色</td></tr>
+    <tr><td onclick="复('§7')">§7</td><td>浅灰色</td></tr>
+    <tr><td onclick="复('§8')">§8</td><td>淡紫色</td></tr>
+    <tr><td onclick="复('§a')">§a</td><td>浅绿色</td></tr>
+    <tr><td onclick="复('§b')">§b</td><td>淡蓝色</td></tr>
+    <tr><td onclick="复('§c')">§c</td><td>淡红色</td></tr>
+    <tr><td onclick="复('§d')">§d</td><td>淡紫色</td></tr>
+    <tr><td onclick="复('§e')">§e</td><td>淡黄色</td></tr>
+    <tr><td onclick="复('§f')">§f</td><td>白色</td></tr>
+    <tr><td onclick="复('§l')">§l</td><td>加粗</td></tr>
+    <tr><td onclick="复('§m')">§m</td><td>斜体</td></tr>
+    <tr><td onclick="复('§n')">§n</td><td>下划线</td></tr>
+    <tr><td onclick="复('§o')">§o</td><td>中划线</td></tr>
+    <tr><td onclick="复('§r')">§r</td><td>默认</td></tr>
 </table>
 
 <br>
 
-〈h5|服务器-玩家〉<br>
-<table>
-    <tr><td>/list</td><td>列出服务器中的玩家</td><td><a onclick="复(制='/list')">复制</a></td></tr>
-    <tr><td>/tpa <span class="rep">玩家ID</span></td><td>请求传送到玩家位置</td><td><a onclick="复(制='/tpa')">复制</a></td></tr>
-    <tr><td>/tpahere <span class="rep">玩家ID</span></td><td>邀请玩家传送过来</td><td><a onclick="复(制='/tpahere')">复制</a></td></tr>
-    <tr><td>/setwarp <span class="rep">地标ID</span></td><td>创建地标</td><td><a onclick="复(制='/setwarp')">复制</a></td></tr>
-    <tr><td>/res tp <span class="rep">领地ID</span></td><td>传送到领地</td><td><a onclick="复(制='/res tp')">复制</a></td></tr>
-    <tr><td>/warp <span class="rep">地标ID</span></td><td>传送到地标</td><td><a onclick="复(制='/warp')">复制</a></td></tr>
-    <tr><td>/delwarp <span class="rep">地标ID</span></td><td>删除地标</td><td><a onclick="复(制='/delwarp')">复制</a></td></tr>
-    <tr><td>/sethome <span class="rep">家ID（可留空）</span></td><td>创建家</td><td><a onclick="复(制='/sethome')">复制</a></td></tr>
-    <tr><td>/home <span class="rep">家ID</span></td><td>传送到家</td><td><a onclick="复(制='/home')">复制</a></td></tr>
-    <tr><td>/delhome <span class="rep">家ID</span></td><td>删除家</td><td><a onclick="复(制='/delhome')">复制</a></td></tr>
-    <tr><td>/back</td><td>返回上次传送或死亡的地点</td><td><a onclick="复(制='/back')">复制</a></td></tr>
+〈h5|旧存档记录〉<br>
 
-    <tr><td>/money</td><td>查询金钱</td><td><a onclick="复(制='/money')">复制</a></td></tr>
-    <tr><td>/baltop</td><td>金钱排行</td><td><a onclick="复(制='/baltop')">复制</a></td></tr>
-    <tr><td>/pay <span class="rep">玩家ID 金额</span></td><td>把钱交给比人</td><td><a onclick="复(制='/pay')">复制</a></td></tr>
-    <tr><td>/tell <span class="rep">玩家ID</span></td><td>私聊</td><td><a onclick="复(制='/tell')">复制</a></td></tr>
-    <tr><td>/suicide</td><td>自杀</td><td><a onclick="复(制='/suicide')">复制</a></td></tr>
+<table>
+    <tr><td>枢纽</td><td>〈复制|复制|/tp @p -134 56 462 -50 0〉</td></tr>
+    <tr><td>家</td><td>〈复制|复制|/tp @p -106 69 166 0 0〉</td></tr>
+    <tr><td>农场</td><td>〈复制|复制|/tp @p -126 69 165 70 0〉</td></tr>
+    <tr><td>厨房</td><td>〈复制|复制|/tp @p -161 64 182 90 0〉</td></tr>
+    <tr><td>矿坑</td><td>〈复制|复制|/tp @p -99 68 198 0 0〉</td></tr>
+    <tr><td>二扯商业街</td><td>〈复制|复制|/tp @p 800 64 462 180 0〉</td></tr>
+    <tr><td>骷髅刷怪塔</td><td>〈复制|复制|/tp @p 948 62 219 120 0〉</td></tr>
+    <tr><td>地下控制台</td><td>〈复制|复制|/tp -95 9 133〉</td></tr>
+    <tr><td>蘑菇岛</td><td>〈复制|复制|/tp 3263 64 -1853〉</td></tr>
 </table>
 
-<br>
-
-〈h5|领地〉<br>
-<table>
-    <tr><td>/res tp <span class="rep">领地ID</span></td><td>传送到领地</td><td><a onclick="复(制='/res tp')">复制</a></td></tr>
-    <tr><td>/res create <span class="rep">领地ID</span></td><td>创建领地（用木锄左键和右键点击方块，分别确定A点和B点。）</td><td><a onclick="复(制='/res create')">复制</a></td></tr>
-    <tr><td>/res message <span class="rep">领地ID</span> enter <span class="rep">文字</span></td><td>设置欢迎语</td><td><a onclick="复(制='/res message 领地名 enter 欢迎语')">复制</a></td></tr>
-    <tr><td>/res message <span class="rep">领地ID</span> leave <span class="rep">文字</span></td><td>设置离开提示</td><td><a onclick="复(制='/res message 领地名 leave 离开提示')">复制</a></td></tr>
-    <tr><td>/res tpset</td><td>设置领地传送点</td><td><a onclick="复(制='/res tpset')">复制</a></td></tr>
-    <tr><td>/res remove</td><td>删除领地</td><td><a onclick="复(制='/res remove')">复制</a></td></tr>
-    <tr><td>/res pset <span class="rep">领地ID 玩家ID 权限 t(允许)/f(禁止)</span></td><td>给玩家领地权限</td><td><a onclick="复(制='/res pset 领地ID 玩家ID 权限 t(允许)/f(禁止)')">复制</a></td></tr>
-    <tr><td>/res pset <span class="rep">领地ID 玩家ID</span> trusted t</td><td>给玩家领地所有权限</td><td><a onclick="复(制='/res pset 领地名 玩家ID trusted t')">复制</a></td></tr>
-    <tr><td>/res set <span class="rep">领地ID 权限 t(允许)/f(禁止)</span></td><td>给领地设置默认权限</td><td><a onclick="复(制='/res set 领地ID 权限 t(允许)/f(禁止)')">复制</a></td></tr>
-    <tr><td>权限：</td><td></td><td></td></tr>
-    <tr><td>trusted</td><td>所有</td><td><a onclick="复(制='trusted')">复制</a></td></tr>
-    <tr><td>container</td><td>使用箱子</td><td><a onclick="复(制='container')">复制</a></td></tr>
-    <tr><td>build</td><td>建造，包括放置和破坏</td><td><a onclick="复(制='build')">复制</a></td></tr>
-    <tr><td>destroy</td><td>毁坏</td><td><a onclick="复(制='destroy')">复制</a></td></tr>
-    <tr><td>place</td><td>放置</td><td><a onclick="复(制='place')">复制</a></td></tr>
-    <tr><td>move</td><td>进入</td><td><a onclick="复(制='move')">复制</a></td></tr>
-    <tr><td>tp</td><td>传送</td><td><a onclick="复(制='tp')">复制</a></td></tr>
-    <tr><td>use</td><td>使用，工作台，炉子等</td><td><a onclick="复(制='use')">复制</a></td></tr>
-    
-    <tr><td>/res listall</td><td>显示服务器所有领地</td><td><a onclick="复(制='/res listall')">复制</a></td></tr>
-    <tr><td>/res unstuck</td><td>离开当前领地</td><td><a onclick="复(制='/res unstuck')">复制</a></td></tr>
-    <tr><td>/res info <span class="rep">领地ID</span></td><td>查询领地信息</td><td><a onclick="复(制='/res info')">复制</a></td></tr>
-    <tr><td>/res current</td><td>显示当前位置的领地</td><td><a onclick="复(制='/res current')">复制</a></td></tr>
-</table>
 
 </div>
+<script>
+function 确定计算范围(){
+    let 计算范围 = document.getElementById("计算范围").value.split("/");
+    let 范围=[];
+    for(let i=0;计算范围.length>i;i++){
+        let 范围临时=计算范围[i].split(" ");
+        if(范围[0]){
+            if(范围临时[0]<范围[0]){范围[0]=范围临时[0]*1}
+        }else{范围[0]=范围临时[0]*1}
+        if(范围[1]){
+            if(范围临时[1]<范围[1]){范围[1]=范围临时[1]*1}
+        }else{范围[1]=范围临时[1]*1}
+        if(范围[2]){
+            if(范围临时[2]<范围[2]){范围[2]=范围临时[2]*1}
+        }else{范围[2]=范围临时[2]*1}
+        if(范围[3]){
+            if(范围临时[0]>范围[3]){范围[3]=范围临时[0]*1}
+        }else{范围[3]=范围临时[0]*1}
+        if(范围[4]){
+            if(范围临时[1]>范围[4]){范围[4]=范围临时[1]*1}
+        }else{范围[4]=范围临时[1]*1}
+        if(范围[5]){
+            if(范围临时[2]>范围[5]){范围[5]=范围临时[2]*1}
+        }else{范围[5]=范围临时[2]*1}
+    }
+    计算范围="x="+范围[0]+",y="+范围[1]+",z="+范围[2]+",dx="+(范围[3]-范围[0])+",dy="+(范围[4]-范围[1])+",dz="+(范围[5]-范围[2]);
+    计算范围+="<br>/kill @e[type=skeleton,"+计算范围+"]<br>/kill @e[type=spider,"+计算范围+"]<br>/kill @e[type=creeper,"+计算范围+"]<br>/kill @e[type=zombie,"+计算范围+"]<br>";
+    计算范围+="（"+范围[0]+" "+范围[1]+" "+范围[2]+"/"+范围[3]+" "+范围[4]+" "+范围[5]+"）";
+    document.getElementById("计算范围结果").innerHTML=计算范围;
+}
+</script>

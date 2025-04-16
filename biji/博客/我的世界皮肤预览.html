@@ -1,0 +1,26 @@
+<style>
+    a{text-decoration:none;color:#006699;;cursor:pointer}a:hover,a:focus{color:#0085a1;}
+</style>
+<script>
+    function getCookie(name){
+    let cookies = Object.fromEntries(document.cookie.split(';').map(e => e.split('=').map(e => decodeURIComponent(e.trim()))));
+    return cookies[name];
+    }
+</script>
+
+<script defer="" src="我的世界皮肤预览1.js"></script>
+<script defer="" src="我的世界皮肤预览2.js"></script>
+
+<canvas class="skin-3d" width="375" height="500" style="cursor:move;width:300px" data-id="0" data-model="classic" data-theta="-30" data-phi="11"></canvas>
+<br>
+<a id="下载" download="" href="">点击下载</a>
+
+<script>
+let url=decodeURI(location.href).split("?")[1].split("／");
+document.getElementById("下载").href="data:image/png;base64,"+url[1];
+document.getElementById("下载").download=url[0]+".png";
+window.addEventListener('DOMContentLoaded', () => {
+nmci({"0":url[1]});
+})
+
+</script>

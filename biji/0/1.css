@@ -24,6 +24,7 @@ div.zhushi{display:inline}
 .nav_drop_down a{padding:8px;text-decoration:none;display:block}
 .nav_drop_down a:hover{background-color:#ddd}
 .nav_drop:hover .nav_drop_down{display:block}
+nav a small{color:#adadad}
 
 br{all:unset}
 
