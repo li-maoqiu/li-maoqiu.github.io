@@ -4,19 +4,37 @@
     let nav=["x","猫球搜索#游戏笔记"];
     let index=["自动"];
 </script><link rel="stylesheet" href="../0/1.css"><div id="dy"></div><script src="../0/1.js"></script>
-<style>.颜色 span{padding:3px;}.rep{color:#009600;}</style>
+<script src="复制指令.js"></script>
+<style>
+    .颜色 span{padding:3px;}
+    td input{width:6em}
+</style>
 <div id="a">
-
 〈皮肤|我的世界皮肤〉 | 〈文件夹|猫球搜索#我的世界文件夹〉<br>
 <br>
-    
-<a href="https://www.minecraft.net/zh-hans">官网</a> . <a href="https://mc.163.com/">网易版</a> <span class='zhushi'>垃圾微软，垃圾网易，呸</span><br>
+
+〈h5|网站〉<br>
+<a href="https://www.minecraft.net/zh-hans">官网</a> . <a href="https://mc.163.com/">网易版</a> <span class='zhushi'>垃圾微软<small>〈https|www.bilibili.com/video/BV1Rw4m1r78C|(为什么?)〉</small>，垃圾网易，呸</span><br>
 <a href="https://minecraft.fandom.com/zh/wiki/Minecraft_Wiki">中文百科</a><br>
 <a href="https://www.mcmod.cn/">MC百科</a>：MOD百科<br>
+<a href="https://mineplugin.org/">插件百科</a>：服务器插件<br>
 <a href="https://www.mcbbs.net/">MCBBS</a>：论坛<br>
 <a href="https://namemc.com/minecraft-skins">NameMC</a>：用户名和皮肤查询<br>
+<a href="https://www.chunker.app/">Chunker</a>：地图转换器，比如java版和基岩版互转、高版本地图转低版本<br>
+〈更多|
 <a href="https://www.mcmod.cn/tools/achievements/">成就生成器</a><br>
+<a href="https://textcraft.net/">标题风格文字生成器</a><br>
+|没啥用的〉<br>
+
 〈荒川镇的存档〉<br>
+
+<br>
+
+〈更多|
+关闭怪物破坏 <a onclick="复('/gamerule mobGriefing false')">复制</a><br>
+禁止火焰蔓延 <a onclick="复('/gamerule doFireTick false')">复制</a><br>
+离线版联机要用mod“[更高级联机设置] mcwifipnp”，开启局域网时关掉验证。
+|准备〉
 
 <hr>
 
@@ -138,10 +156,10 @@
 〈h3|指令〉<br>
 更详细、完整的说明参考我的世界百科 <a href="https://minecraft-zh.gamepedia.com/%E5%91%BD%E4%BB%A4">链接</a><br>
 <table>
-    <tr><td>/gamemode creative</td><td>游戏模式变更为创造模式</td><td><a onclick="复(制='/gamemode creative')">复制</a></td></tr>
-    <tr><td>/gamemode survival</td><td>游戏模式变更为生存模式</td><td><a onclick="复(制='/gamemode survival')">复制</a></td></tr>
-    <tr><td>/give <span class="rep">目标 物品 数量</span></td><td>给予玩家物品</td><td><a onclick="复(制='/give')">复制</a></td></tr>
-    <tr><td>/give @s minecraft:player_head{SkullOwner:"<span class="rep">玩家ID</span>"}</td><td>获得一个玩家的头</td><td><a onclick="复(制='/give @s minecraft:player_head{SkullOwner:&quot;玩家ID&quot;}')">复制</a></td></tr>
+    <tr><td>/gamemode creative <a onclick="复制指令(event)">复制</a></td><td>游戏模式变更为创造模式</td></td></tr>
+    <tr><td>/gamemode survival <a onclick="复制指令(event)">复制</a></td><td>游戏模式变更为生存模式</td></td></tr>
+    <tr><td>/give <input type="text" placeholder="目标"> <input type="text" placeholder="物品"> <input type="text" placeholder="数量"> <a onclick="复制指令(event)">复制</a></td><td>给予玩家物品</td></tr>
+    <tr><td>/give @s minecraft:player_head{SkullOwner:"<input type="text" placeholder="玩家ID">"} <a onclick="复制指令(event)">复制</a></td><td>获得一个玩家的头</td></tr>
 </table><br>
 <b>时间</b>：〈复制|白天|/time set 1000〉、〈复制|中午|/time set 6000〉、〈复制|晚上|/time set 13000〉、〈复制|半夜|/time set 18000〉<br>
 <b>天气</b>：〈复制|晴天|/weather clear〉 〈复制|雨天|/weather rain〉 〈复制|雷暴雨|/weather thunder〉<br>
@@ -167,6 +185,7 @@ distance=1.. 大于1<br>
 <br>
 
 〈h5|命令方块〉<br>
+<a href="https://www.mcmod.cn/tools/cbcreator/">命令方块指令生成器</a><br>
 获得一个命令方块 〈复制|复制|/give @p command_block〉<br>
 /gamerule commandBlockOutput false 关闭命令方块提示<br>
 /gamerule commandBlockOutput true 开启<br>
@@ -219,65 +238,65 @@ distance=1.. 大于1<br>
 
 〈h5|服务器-玩家〉<br>
 <table>
-    <tr><td>/list</td><td>列出服务器中的玩家</td><td><a onclick="复(制='/list')">复制</a></td></tr>
-    <tr><td>/tpa <span class="rep">玩家ID</span></td><td>请求传送到玩家位置</td><td><a onclick="复(制='/tpa')">复制</a></td></tr>
-    <tr><td>/tpahere <span class="rep">玩家ID</span></td><td>邀请玩家传送过来</td><td><a onclick="复(制='/tpahere')">复制</a></td></tr>
-    <tr><td>/setwarp <span class="rep">地标ID</span></td><td>创建地标</td><td><a onclick="复(制='/setwarp')">复制</a></td></tr>
-    <tr><td>/res tp <span class="rep">领地ID</span></td><td>传送到领地</td><td><a onclick="复(制='/res tp')">复制</a></td></tr>
-    <tr><td>/warp <span class="rep">地标ID</span></td><td>传送到地标</td><td><a onclick="复(制='/warp')">复制</a></td></tr>
-    <tr><td>/delwarp <span class="rep">地标ID</span></td><td>删除地标</td><td><a onclick="复(制='/delwarp')">复制</a></td></tr>
-    <tr><td>/sethome <span class="rep">家ID（可留空）</span></td><td>创建家</td><td><a onclick="复(制='/sethome')">复制</a></td></tr>
-    <tr><td>/home <span class="rep">家ID</span></td><td>传送到家</td><td><a onclick="复(制='/home')">复制</a></td></tr>
-    <tr><td>/delhome <span class="rep">家ID</span></td><td>删除家</td><td><a onclick="复(制='/delhome')">复制</a></td></tr>
-    <tr><td>/back</td><td>返回上次传送或死亡的地点</td><td><a onclick="复(制='/back')">复制</a></td></tr>
+    <tr><td>/list <a onclick="复制指令(event)">复制</a></td><td>列出服务器中的玩家</td></tr>
+    <tr><td>/tpa <input type="text" placeholder="玩家ID"> <a onclick="复制指令(event)">复制</a></td><td>请求传送到玩家位置</td></tr>
+    <tr><td>/tpa <input type="text" placeholder="玩家ID"> <a onclick="复制指令(event)">复制</a></td><td>请求传送到玩家位置</td></tr>
+    <tr><td>/tpahere <input type="text" placeholder="玩家ID"> <a onclick="复制指令(event)">复制</a></td><td>邀请玩家传送过来</td></tr>
+    <tr><td>/setwarp <input type="text" placeholder="地标ID"> <a onclick="复制指令(event)">复制</a></td><td>创建地标</td></tr>
+    <tr><td>/res tp <input type="text" placeholder="领地ID"> <a onclick="复制指令(event)">复制</a></td><td>传送到领地</td></tr>
+    <tr><td>/warp <input type="text" placeholder="地标ID"> <a onclick="复制指令(event)">复制</a></td><td>传送到地标</td></tr>
+    <tr><td>/delwarp <input type="text" placeholder="地标ID"> <a onclick="复制指令(event)">复制</a></td><td>删除地标</td></tr>
+    <tr><td>/sethome <input type="text" placeholder="家ID（可留空）" style="width:8em"> <a onclick="复制指令(event)">复制</a></td><td>创建家</td></tr>
+    <tr><td>/home <input type="text" placeholder="家ID"> <a onclick="复制指令(event)">复制</a></td><td>传送到家</td></tr>
+    <tr><td>/delhome <input type="text" placeholder="家ID"> <a onclick="复制指令(event)">复制</a></td><td>删除家</td></tr>
+    <tr><td>/back</td><td>返回上次传送或死亡的地点 <a onclick="复制指令(event)">复制</a></td></tr>
 
-    <tr><td>/money</td><td>查询金钱</td><td><a onclick="复(制='/money')">复制</a></td></tr>
-    <tr><td>/baltop</td><td>金钱排行</td><td><a onclick="复(制='/baltop')">复制</a></td></tr>
-    <tr><td>/pay <span class="rep">玩家ID 金额</span></td><td>把钱交给比人</td><td><a onclick="复(制='/pay')">复制</a></td></tr>
-    <tr><td>/tell <span class="rep">玩家ID</span></td><td>私聊</td><td><a onclick="复(制='/tell')">复制</a></td></tr>
-    <tr><td>/suicide</td><td>自杀</td><td><a onclick="复(制='/suicide')">复制</a></td></tr>
+    <tr><td>/money <a onclick="复制指令(event)">复制</a></td><td>查询金钱</td></tr>
+    <tr><td>/baltop <a onclick="复制指令(event)">复制</a></td><td>金钱排行</td></tr>
+    <tr><td>/pay <input type="text" placeholder="玩家ID"> <input type="text" placeholder="金额"> <a onclick="复制指令(event)">复制</a></td><td>把钱交给比人</td></tr>
+    <tr><td>/tell <input type="text" placeholder="玩家ID"> <a onclick="复制指令(event)">复制</a></td><td>私聊</td></tr>
+    <tr><td>/suicide <a onclick="复制指令(event)">复制</a></td><td>自杀</td></tr>
 </table>
 
 <br>
 
 〈h5|领地〉<br>
 <table>
-    <tr><td>/res tp <span class="rep">领地ID</span></td><td>传送到领地</td><td><a onclick="复(制='/res tp')">复制</a></td></tr>
-    <tr><td>/res create <span class="rep">领地ID</span></td><td>创建领地（用木锄左键和右键点击方块，分别确定A点和B点。）</td><td><a onclick="复(制='/res create')">复制</a></td></tr>
-    <tr><td>/res message <span class="rep">领地ID</span> enter <span class="rep">文字</span></td><td>设置欢迎语</td><td><a onclick="复(制='/res message 领地名 enter 欢迎语')">复制</a></td></tr>
-    <tr><td>/res message <span class="rep">领地ID</span> leave <span class="rep">文字</span></td><td>设置离开提示</td><td><a onclick="复(制='/res message 领地名 leave 离开提示')">复制</a></td></tr>
-    <tr><td>/res tpset</td><td>设置领地传送点</td><td><a onclick="复(制='/res tpset')">复制</a></td></tr>
-    <tr><td>/res remove</td><td>删除领地</td><td><a onclick="复(制='/res remove')">复制</a></td></tr>
-    <tr><td>/res pset <span class="rep">领地ID 玩家ID 权限 t(允许)/f(禁止)</span></td><td>给玩家领地权限</td><td><a onclick="复(制='/res pset 领地ID 玩家ID 权限 t(允许)/f(禁止)')">复制</a></td></tr>
-    <tr><td>/res pset <span class="rep">领地ID 玩家ID</span> trusted t</td><td>给玩家领地所有权限</td><td><a onclick="复(制='/res pset 领地名 玩家ID trusted t')">复制</a></td></tr>
-    <tr><td>/res set <span class="rep">领地ID 权限 t(允许)/f(禁止)</span></td><td>给领地设置默认权限</td><td><a onclick="复(制='/res set 领地ID 权限 t(允许)/f(禁止)')">复制</a></td></tr>
+    <tr><td>/res tp <input type="text" placeholder="领地ID"> <a onclick="复制指令(event)">复制</a></td><td>传送到领地</td></tr>
+    <tr><td>/res create <input type="text" placeholder="领地ID"> <a onclick="复制指令(event)">复制</a></td><td>创建领地（用木锄左键和右键点击方块，分别确定A点和B点。）</td></tr>
+    <tr><td>/res message <input type="text" placeholder="领地ID"> enter <input type="text" placeholder="文字"> <a onclick="复制指令(event)">复制</a></td><td>设置欢迎语</td></tr>
+    <tr><td>/res message <input type="text" placeholder="领地ID"> leave <input type="text" placeholder="文字"> <a onclick="复制指令(event)">复制</a></td><td>设置离开提示</td></tr>
+    <tr><td>/res tpset <a onclick="复制指令(event)">复制</a></td><td>设置领地传送点</td></tr>
+    <tr><td>/res remove <a onclick="复制指令(event)">复制</a></td><td>删除领地</td></tr>
+    <tr><td>/res pset <input type="text" placeholder="领地ID"> <input type="text" placeholder="玩家ID"> <input type="text" placeholder="权限"> <input type="text" placeholder="t(允许)/f(禁止)" style="width:8em"> <a onclick="复制指令(event)">复制</a></td><td>给玩家领地权限</td></tr>
+    <tr><td>/res pset <input type="text" placeholder="领地ID"> <input type="text" placeholder="玩家ID"> trusted t <a onclick="复制指令(event)">复制</a></td><td>给玩家领地所有权限</td></tr>
+    <tr><td>/res set <input type="text" placeholder="领地ID"> <input type="text" placeholder="权限"> <input type="text" placeholder="t(允许)/f(禁止)" style="width:8em"> <a onclick="复制指令(event)">复制</a></td><td>给领地设置默认权限</td></tr>
     <tr><td>权限：</td><td></td><td></td></tr>
-    <tr><td>trusted</td><td>所有</td><td><a onclick="复(制='trusted')">复制</a></td></tr>
-    <tr><td>container</td><td>使用箱子</td><td><a onclick="复(制='container')">复制</a></td></tr>
-    <tr><td>build</td><td>建造，包括放置和破坏</td><td><a onclick="复(制='build')">复制</a></td></tr>
-    <tr><td>destroy</td><td>毁坏</td><td><a onclick="复(制='destroy')">复制</a></td></tr>
-    <tr><td>place</td><td>放置</td><td><a onclick="复(制='place')">复制</a></td></tr>
-    <tr><td>move</td><td>进入</td><td><a onclick="复(制='move')">复制</a></td></tr>
-    <tr><td>tp</td><td>传送</td><td><a onclick="复(制='tp')">复制</a></td></tr>
-    <tr><td>use</td><td>使用，工作台，炉子等</td><td><a onclick="复(制='use')">复制</a></td></tr>
+    <tr><td>trusted <a onclick="复制指令(event)">复制</a></td><td>所有</td></tr>
+    <tr><td>container <a onclick="复制指令(event)">复制</a></td><td>使用箱子</td></tr>
+    <tr><td>build <a onclick="复制指令(event)">复制</a></td><td>建造，包括放置和破坏</td></tr>
+    <tr><td>destroy <a onclick="复制指令(event)">复制</a></td><td>毁坏</td></tr>
+    <tr><td>place <a onclick="复制指令(event)">复制</a></td><td>放置</td></tr>
+    <tr><td>move <a onclick="复制指令(event)">复制</a></td><td>进入</td></tr>
+    <tr><td>tp <a onclick="复制指令(event)">复制</a></td><td>传送</td></tr>
+    <tr><td>use <a onclick="复制指令(event)">复制</a></td><td>使用，工作台，炉子等</td></tr>
     
-    <tr><td>/res listall</td><td>显示服务器所有领地</td><td><a onclick="复(制='/res listall')">复制</a></td></tr>
-    <tr><td>/res unstuck</td><td>离开当前领地</td><td><a onclick="复(制='/res unstuck')">复制</a></td></tr>
-    <tr><td>/res info <span class="rep">领地ID</span></td><td>查询领地信息</td><td><a onclick="复(制='/res info')">复制</a></td></tr>
-    <tr><td>/res current</td><td>显示当前位置的领地</td><td><a onclick="复(制='/res current')">复制</a></td></tr>
+    <tr><td>/res listall <a onclick="复制指令(event)">复制</a></td><td>显示服务器所有领地</td></tr>
+    <tr><td>/res unstuck <a onclick="复制指令(event)">复制</a></td><td>离开当前领地</td></tr>
+    <tr><td>/res info <input type="text" placeholder="领地ID"> <a onclick="复制指令(event)">复制</a></td><td>查询领地信息</td></tr>
+    <tr><td>/res current <a onclick="复制指令(event)">复制</a></td><td>显示当前位置的领地</td></tr>
 </table>
 
 <br>
 
 〈h5|不常用〉<br>
 <table>
-    <tr><td>显示标题</td><td>/title @p title {"text":"文字","color":"颜色"}</td><td></td></tr>
-    <tr><td>需要多少人入睡跳过夜晚</td><td>/gamerule playersSleepingPercentage</td><td>1.17版本可用 0为1人即可 超过100时无法跳过夜晚</td></tr>
-    <tr><td>关闭怪物破坏</td><td>/gamerule mobGriefing false</td><td></td></tr>
-    <tr><td>创建队伍<br>关闭队伍伤害<br>所有人加入队伍</td><td>〈复制|复制|/team add a〉 /team add a<br>〈复制|复制|/team modify a friendlyFire false〉 /team modify a friendlyFire false<br>〈复制|复制|/team join a @a〉 /team join a @a</td><td></td></tr>
-    <tr><td>获得一个玩家的头</td><td>/give @s minecraft:player_head{SkullOwner:"<span class="rep">玩家ID</span>"}</td><td></td></tr>
-    <tr><td>透明物品展示框</td><td>/give @p minecraft:item_frame{EntityTag:{Invisible:1b}}</td><td></td></tr>
-    <tr><td>透明方块</td><td>/give @p barrier</td><td></td></tr>
+    <tr><td>显示标题</td><td>/title @p title {"text":"<input type="text" placeholder="文字">","color":"<input type="text" placeholder="颜色">"} <a onclick="复制指令(event)">复制</a></td><td></td></tr>
+    <tr><td>需要多少人入睡跳过夜晚</td><td>/gamerule playersSleepingPercentage <input type="text" placeholder="数量"> <a onclick="复制指令(event)">复制</a></td><td>1.17版本可用 0为1人即可 超过100时无法跳过夜晚</td></tr>
+    <tr><td>创建队伍<br>关闭队伍伤害<br>所有人加入队伍</td><td>/team add a 〈复制|复制|/team add a〉<br>/team modify a friendlyFire false 〈复制|复制|/team modify a friendlyFire false〉<br>/team join a @a 〈复制|复制|/team join a @a〉</td><td></td></tr>
+    <tr><td>获得一个玩家的头</td><td>/give @s minecraft:player_head{SkullOwner:"<input type="text" placeholder="玩家ID">"}</td><td></td></tr>
+    <tr><td>透明物品展示框</td><td>/give @p minecraft:item_frame{EntityTag:{Invisible:1b}} <a onclick="复制指令(event)">复制</a></td><td></td></tr>
+    <tr><td>透明方块</td><td>/give @p barrier <a onclick="复制指令(event)">复制</a></td><td></td></tr>
     <tr><td>克隆</td><td>/clone 起点x y z 终点x y z 目标x y z 额外1 额外2</td><td>会以西南角为点<br>
     额外1：replace(不包括空气)、masked(包括空气)<br>额外2：force(即使重叠也能执行)、move(原区域替换为空气)、normal(默认)</td></tr>
 </table>
@@ -355,29 +374,54 @@ distance=1.. 大于1<br>
 <br>
 
 〈h5|告示板〉<br>
-<b>文字颜色</b><br>
-<table>
-    <tr><td onclick="复('§0')">§0</td><td>黑色</td></tr>
-    <tr><td onclick="复('§1')">§1</td><td>深蓝</td></tr>
-    <tr><td onclick="复('§2')">§2</td><td>深绿</td></tr>
-    <tr><td onclick="复('§3')">§3</td><td>天蓝</td></tr>
-    <tr><td onclick="复('§4')">§4</td><td>红色</td></tr>
-    <tr><td onclick="复('§5')">§5</td><td>深紫色</td></tr>
-    <tr><td onclick="复('§6')">§6</td><td>金色</td></tr>
-    <tr><td onclick="复('§7')">§7</td><td>浅灰色</td></tr>
-    <tr><td onclick="复('§8')">§8</td><td>淡紫色</td></tr>
-    <tr><td onclick="复('§a')">§a</td><td>浅绿色</td></tr>
-    <tr><td onclick="复('§b')">§b</td><td>淡蓝色</td></tr>
-    <tr><td onclick="复('§c')">§c</td><td>淡红色</td></tr>
-    <tr><td onclick="复('§d')">§d</td><td>淡紫色</td></tr>
-    <tr><td onclick="复('§e')">§e</td><td>淡黄色</td></tr>
-    <tr><td onclick="复('§f')">§f</td><td>白色</td></tr>
-    <tr><td onclick="复('§l')">§l</td><td>加粗</td></tr>
-    <tr><td onclick="复('§m')">§m</td><td>斜体</td></tr>
-    <tr><td onclick="复('§n')">§n</td><td>下划线</td></tr>
-    <tr><td onclick="复('§o')">§o</td><td>中划线</td></tr>
-    <tr><td onclick="复('§r')">§r</td><td>默认</td></tr>
-</table>
+<b>文字代码</b> 〈更多|
+使用文字代码会改变后面文字的颜色或格式，比如【§1蓝色的字§0和§4红色的字】。<br>
+注意：颜色代码会清除格式代码，比如【§l加粗的字§4红色的字】，在“§4”后面就没有加粗效果了，所以如果想同时改变格式和颜色，要把颜色放在前面，比如【§4§l红色并加粗的字】。
+|说明〉<br>
+
+<textarea id="告示板文字颜色" style="width:80%;height:100px"></textarea><a onclick="gsb()"><br>
+复制</a>
+<div class='告示板文字颜色'>
+    <span onclick="gsb('r')">默认</span>
+    <span onclick="gsb('l')" style="font-weight:bold">加粗</span>
+    <span onclick="gsb('m')" style="font-style: italic;">斜体</span>
+    <span onclick="gsb('n')" style="text-decoration: underline;">下划线</span>
+    <span onclick="gsb('o')" style="text-decoration:line-through">中划线</span>
+    <span onclick="gsb('k')">随机</span>
+    <br>
+    <span onclick="gsb('0')" style="color:#000000">黑色</span>
+    <span onclick="gsb('1')" style="color:#0000AA">深蓝</span>
+    <span onclick="gsb('2')" style="color:#00AA00">深绿</span>
+    <span onclick="gsb('3')" style="color:#00AAAA">天蓝</span>
+    <span onclick="gsb('4')" style="color:#AA0000">红色</span>
+    <span onclick="gsb('5')" style="color:#AA00AA">深紫色</span>
+    <span onclick="gsb('6')" style="color:#FFAA00">金色</span>
+    <span onclick="gsb('7')" style="color:#AAAAAA">浅灰色</span>
+    <span onclick="gsb('8')" style="color:#555555">淡紫色</span>
+    <span onclick="gsb('9')" style="color:#5555FF">蓝色</span>
+    <span onclick="gsb('a')" style="color:#55FF55;background-color:#989898">浅绿色</span>
+    <span onclick="gsb('b')" style="color:#55FFFF;background-color:#989898">淡蓝色</span>
+    <span onclick="gsb('c')" style="color:#FF5555">淡红色</span>
+    <span onclick="gsb('d')" style="color:#FF55FF">淡紫色</span>
+    <span onclick="gsb('e')" style="color:#FFFF55;background-color:#989898">淡黄色</span>
+    <span onclick="gsb('f')" style="color:#FFFFFF;background-color:#989898">白色</span>
+</div>
+
+<style>
+    .告示板文字颜色 span{display:inline-block;padding:2px 6px;margin:3px 2px;cursor:pointer;border-radius:30px;border:1px solid #cdcdcd}
+    .告示板文字颜色 span:hover{border-radius:5px;border:1px solid #87b9ff}
+</style>
+<script>
+    function gsb(o){
+        let i=document.getElementById("告示板文字颜色");
+        if(o){
+            i.value=i.value+"§"+o;
+            i.focus()
+        }else{
+            复(i.value)
+        }
+    }
+</script>
 
 <br>
 
