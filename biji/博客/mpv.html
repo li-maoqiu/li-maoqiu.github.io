@@ -1,0 +1,100 @@
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script>
+    let h1="mpv";
+    let nav=["x"];
+    let index=["自动"];
+</script><link rel="stylesheet" href="../0/1.css"><div id="dy"></div><script src="../0/1.js"></script><script src="复制指令.js"></script><div id="a">
+<style>
+    pre{all:unset;white-space:pre-wrap;word-wrap:break-word;overflow-wrap:break-word;}
+</style>
+
+<span>C:\Users\<input type="text" placeholder="用户名" style="width:8em">\AppData\Roaming\mpv <a onclick="复制指令(event)">复制</a></span><br>
+（〈打开|猫球搜索#打开 C:/Users/16143/AppData/Roaming/mpv〉）<br>
+input.conf和mpv.conf<br>
+<br>
+
+〈h3|input.conf〉<br>
+<blockquote><pre>
+MBTN_LEFT 		cycle pause				#鼠标左键 暂停<br>
+MBTN_LEFT_DBL 	cycle fullscreen		#左键双击 全屏<br>
+MBTN_RIGHT 		ignore				    #右键<br>
+MBTN_MID		ignore 					#鼠标中键<br>
+WHEEL_UP 		add volume 5			#滚轮向上 音量+5<br>
+WHEEL_DOWN 		add volume -5			#滚轮向下 音量-5<br>
+Ctrl+WHEEL_UP 	add volume 1			#Ctrl+滚轮向上 音量+1<br>
+Ctrl+WHEEL_DOWN add volume -1			#Ctrl+滚轮向下 音量-1<br>
+<br>
+ESC 	set fullscreen no 				#ESC 退出全屏<br>
+SPACE 	cycle pause 					#空格 切换暂停<br>
+<br>
+LEFT  		seek -2 exact 			    #左 后退2秒<br>
+RIGHT 		seek 2 exact 				#右 前进2秒<br>
+Ctrl+LEFT  	frame-back-step 			#Ctrl+左 前一帧<br>
+Ctrl+RIGHT 	frame-step 				    #Ctrl+右 后一帧<br>
+Shift+LEFT  seek -60 					#Shift+左 后退60秒<br>
+Shift+RIGHT seek 60 					#Shift+右 前进60秒<br>
+<br>
+Ctrl+UP     add audio-delay -0.1        #Ctrl+上 音频延迟-0.1<br>
+Ctrl+DOWN   add audio-delay +0.1        #Ctrl+下 音频延迟+0.1<br>
+Shift+UP    add sub-delay -0.1          #Shift+上 字幕延迟-0.1<br>
+Shift+DOWN  add sub-delay 0.1           #Shift+下 字幕延迟+0.1<br>
+<br>
+, 	    playlist-prev					#, 播放列表上一个<br>
+.    	playlist-next					#. 播放列表下一个<br>
+/ 		show-text ${playlist}			#/ 显示播放列表<br>
+<br>
+0 set speed 1.0						#0 播放速度设为1<br>
+= add speed 0.1						#+ 播放速度+0.1<br>
+- add speed -0.1					#- 播放速度-0.1<br>
+Ctrl+= add speed 1.0				#Ctrl + 播放速度+1.0<br>
+Ctrl+- add speed -1.0				#Ctrl - 播放速度-1.0<br>
+Alt+= add speed 0.01				#Alt + 播放速度+0.01<br>
+Alt+- add speed -0.01				#Alt - 播放速度-0.01<br>
+<br>
+Ctrl+k add sub-pos -1					#Ctrl+K 字幕上移1<br>
+Ctrl+m add sub-pos +1					#Ctrl+M 字幕下移1<br>
+Ctrl+, add sub-scale -0.05				#Ctrl+, 字幕缩小5%<br>
+Ctrl+. add sub-scale +0.05				#Ctrl+. 字幕放大5%<br>
+<br>
+k cycle-values video-aspect-override "16:9" "4:3" "2.35:1" "-1" #K 改视频比例<br>
+l ab-loop 							#L 设置循环点<br>
+<br>
+q 	add brightness -1				#Q 亮度-1<br>
+a 	add brightness 1				#A 亮度+1<br>
+w 	add contrast -1					#W 对比度-1<br>
+s 	add contrast 1					#S 对比度+1<br>
+e 	add gamma -1					#E 伽马-1<br>
+d 	add gamma 1						#D 伽马+1<br>
+r 	add saturation -1				#R 饱和度-1<br>
+f	add saturation 1				#F 饱和度+1<br>
+t 	add hue -1						#T 色调-1<br>
+g 	add hue 1						#G 色调+1<br>
+p 	set contrast 0; set brightness 0; set gamma 0; set saturation 0; set hue 0 #P 归零<br>
+<br>
+1 set window-scale 1.0 				#设置窗口为视频分辨率<br>
+2 set window-scale 0.4 				#设置窗口为视频分辨率0.4倍<br>
+3 set window-scale 0.667 			#设置窗口为视频分辨率0.667倍<br>
+4 set window-scale 0.8 				#设置窗口为视频分辨率0.8倍<br>
+5 cycle ontop 						#切换置顶<br>
+[ add current-window-scale -0.1 	#缩小窗口<br>
+] add current-window-scale  0.1 	#放大窗口<br>
+Ctrl+] add video-rotate 1				#(需软解或-copy硬解)视频顺时针旋转1度，范围0~359<br>
+Ctrl+[ add video-rotate -1				#(需软解或-copy硬解)视频顺时针旋转1度，范围0~359<br>
+\ cycle-values video-rotate "no" "90" "180" "270" #视频旋转 不旋转/90/180/270<br>
+<br>
+z screenshot video 						#Z 视频截图（视频分辨率，无OSC、OSD、字幕）<br>
+x screenshot window						#X 窗口截图（窗口分辨率，带OSC、OSD、字幕）<br>
+<br>
+` script-binding console/enable		#打开控制台，ESC退出<br>
+TAB script-binding stats/display-stats-toggle #切换统计信息开/关，1234可翻页
+</pre></blockquote>
+
+〈h3|mpv.conf〉<br>
+<blockquote><pre>
+no-border #无边框<br>
+screenshot-format=jpg #截图文件格式<br>
+screenshot-template=_%F_%wH%wM%wS_%wT<br>
+screenshot-directory=C:\Users\16143\Pictures\Screenshots #截图位置
+</pre></blockquote>
+
+</div>

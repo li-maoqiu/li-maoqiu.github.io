@@ -1,0 +1,87 @@
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script>
+    let h1="table";
+    let nav=["x","代码"];
+    let index=[];
+</script><link rel="stylesheet" href="../0/1.css"><div id="dy"></div><script src="../0/1.js"></script><div id="a">
+
+横<input type="text" id="横" autocomplete='off'> 竖<input type="text" id="竖" autocomplete='off'> <input type="button" value="新建" onclick="新建()"><br>
+<textarea id="输入" style="width:100%;height:100px"></textarea>
+<a onclick="下(0)">▼</a> &nbsp; / &nbsp; <a onclick="上(0)">▲</a><br>
+
+
+<br>
+<div id="dy2"></div>
+<div id="加减" style="text-align:center;"><a onclick="加()">加+</a> &nbsp; / &nbsp; <a onclick="减()">减-</a></div></div>
+
+
+
+<script>
+    let 横,竖,百分比,dy,输入,i,i2;
+
+    function 新建(){
+        竖=document.getElementById("竖").value*1;
+        横=document.getElementById("横").value*1;
+        if(横>0){}else{横=1}
+        if(竖>0){}else{竖=1}
+        百分比=100/横;
+        dy="<table width='100%'>";
+        for(i=0;竖>i;i++){
+            dy+="<tr>";
+            for(i2=0;横>i2;i2++){
+                dy+="<td width='"+百分比+"%'><input type='text' id='a_"+i+"_"+i2+"' autocomplete='off' style='width:"+百分比*横+"%'></td>";
+            }
+            dy+="</tr>";
+        }
+        dy+="</table>";
+        document.getElementById("dy2").innerHTML = dy;
+    }
+
+    function 上(d){
+        dy="<table>";
+            for(i=0;竖-i>0;i++){
+                if(d==2&&i+1==竖){}else{
+                    dy+="<tr>";
+                    for(i2=0;横-i2>0;i2++){
+                        dy+="<td>"+document.getElementById("a_"+i+"_"+i2).value+"</td>";
+                    }
+                dy+="</tr>\n";
+                }
+            }
+            if(d==1){i+=1;dy+="<tr>";for(i2=0;横-i2>0;i2++){dy+="<td></td>";}dy+="</tr>";}
+        dy+="</table>";
+        if(d==0){document.getElementById("输入").value = dy;}
+    }
+
+    function 下(d){
+        if(d==0){输入=document.getElementById("输入").value;}
+        输入=输入.replace(/\n/g, "").replace(/<table><tr><td>/g, "").replace(/<\/td><\/tr><\/table>/g, "").split("</td></tr><tr><td>");
+        横=输入[0].split("</td><td>").length;
+        竖=输入.length;
+        百分比=100/横;
+        dy="<table width='100%'>";
+            for(i=0;输入.length>i;i++){
+                dy+="<tr>";
+                    let 临时=输入[i].split("</td><td>");
+                    for(i2=0;临时.length>i2;i2++){
+                        dy+="<td width='"+百分比+"%'><input type='text' id='a_"+i+"_"+i2+"' autocomplete='off' style='width:"+百分比*横+"%' value='"+临时[i2]+"'></td>";
+                    }
+                dy+="</tr>";
+            }
+        dy+="</table>";
+        document.getElementById("dy2").innerHTML = dy;
+    }
+
+    function 加(){
+        上(1);
+        输入=dy;
+        下(1);
+    }
+
+    function 减(){
+        上(2);
+        输入=dy;
+        下(2);
+    }
+
+</script>

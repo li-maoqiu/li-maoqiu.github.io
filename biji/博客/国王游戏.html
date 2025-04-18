@@ -1,0 +1,253 @@
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script>
+    let h1="国王游戏";
+    let nav=["x"];
+    let index=[];
+</script><link rel="stylesheet" href="../0/1.css"><div id="dy"></div><script src="../0/1.js"></script><div id="a" style="display:none;"></div>
+<style>button,input,#dy0,#dy1,#dy2,#dy-1{font-size:1.2em;}</style>
+
+<input type="text" placeholder="玩家人数" autocomplete="off" id="玩家人数">
+<button onclick="三选一=-1;确定(document.getElementById('玩家人数').value.replace(/[^0-9]/ig,''))">随机</button>
+<button onclick="三选一=2;确定(document.getElementById('玩家人数').value.replace(/[^0-9]/ig,''))">三选一</button>
+<span style="color:#eaeaea;">
+<input type="checkbox" oninput="未成年()" id="未成年"><label for="未成年">未成年</label>
+<input type="checkbox" oninput="禁忌()" id="禁忌"><label for="禁忌">成人模式</label>
+</span>
+<br>
+
+<span id="dy-1"></span><br>
+
+<div id="dy0">
+    玩法：
+<ol>
+    <li>准备一副扑克牌<small>（<a onclick="没有扑克牌()">无扑克牌模式</a>）</small>，取出一张“大王”。</li>
+    <li>按照牌面从小到大<small>（A=1，J=11，Q=12，K=13）</small>，取出与玩家人数相同数量的牌<small>（比如玩家3人，则取出A、2、3）</small>。</li>
+    <li>将这几张牌背面朝上，打乱，每人抽一张。<br>如果没人抽到大王则重新打乱。</li>
+    <li>抽到“大王”的玩家取走剩下的一张牌。</li>
+    <li>随机抽取题目，由对应的玩家执行。<br>
+        （也可以将题目当作参考，由国王决定哪个数字的玩家执行，可以不明牌，国王并不知道谁是哪个数字，说不定还会命令到自己）</li>
+</ol>
+</div><br>
+<div id="dy1"></div><br>
+<div id="dy2"></div>
+
+<script>// 至少几人，比如要命令2人就需要玩家至少有3人 / 1号玩家为()，2号为(1)，以此类推，(-)为最后一个玩家或国王，(+)为国王
+
+/*
+公主抱
+在脸上画东西
+在身上签名
+
+*/
+
+let t={//未成年版
+    2:[
+        "()展示身份证或者学生证上的照片／()尝试用舌头舔手肘／()做广播体操／()走猫步",
+        "()模仿MJ跳舞／()现场表演一个中毒身亡的人／()现场表演一个中弹身亡的人／()模仿大猩猩／()学猫叫",
+        "()仰卧起坐5次／()俯卧撑5次",
+        "()笑10秒钟／()憋气30秒／()含着一大口碳酸饮料不可以咽，坚持10秒",
+        "()唱一首儿歌／()独自一人唱一首对唱的歌",
+        "()接下来只能发出“汪”的声音，直到下次当国王或者被命令／()接下来每句话都要说两遍，直到下次当国王或者被命令",
+        "()亲一下自己的手背",
+
+        "()回答：你曾经用过的当时感觉十分酷炫高贵、现在想想却提起来都害羞的网名，叫什么？／()回答：你的小名叫什么？／()回答：在以前的学校都有什么外号，来历？",
+        "()回答：如果你被僵尸病毒感染了，无法抑制想吃脑子的冲动，你会先袭击谁？",
+    ],
+    3:[
+        "()与所有人拥抱一下",
+        "(-)高兴地说“我要抱孙子啦”然后抱(1)一下",
+        "(+)弹(1)的脑袋一下",
+
+        //亲密
+        "()摸摸(1)的头",
+        "()摸摸(1)的脸",
+
+        "()亲吻(1)的手背",
+    
+        "()帮(-)做肩部按摩",
+        "()和(1)对视20秒",
+        
+        //A回答
+        "()说说你对(-)的第一印象／()回答：如果把(1)比作动物，会是什么动物？",
+    ],
+    4:[
+        "所有人一边拍手一边对着()唱生日快乐歌，结束后大家一起鼓掌",
+    ],
+}
+
+let tt={//成年版
+    2:[
+        "()脱一件衣服",
+        "()回答：你的身高和体重／A回答：觉得自己身上哪个部位最敏感？／()回答：你最喜欢被抚摸的部位是？／()回答：你最喜欢异性身体的哪个部分？为什么？",
+        "()回答：今天的内裤是什么颜色？／()回答：你觉得穿什么最性感？／()回答：你喜欢裸睡吗？／()讲讲第一次看小黄片的感受／()回答：小时候对异性的身体有过什么误解？",
+        "()明天一天不许穿内裤",
+        "()喝一杯酒","()喝一杯酒","()喝一杯酒",
+    ],
+    3:[
+        //亲密
+        "()摸摸(1)的肚子",
+        "()摸一下(1)的嘴唇",
+        "()摸一下(1)的耳朵",
+        "()和(1)面对面，()轻轻抚摸(1)的脸",
+        "()和(1)十指相扣10秒",
+        "()和(1)牵手到下一回合",
+        "()拍一下(1)的屁股",
+
+        "()抱(1)一下",
+        "()与每个人拥抱一下",
+        "()把(1)抱起来，离地至少3秒",
+        "()和(1)拥抱持续10秒",
+        "()在(1)的背后用双手搂住ta的腰，并将下巴放在ta肩上／()正面坐在(1)的腿上，并用脚环住ta的腰",
+        "()对(1)使用壁咚／()对(1)使用双手壁咚／()对(1)使用股咚（用腿抵在对方的胯下）",
+
+        "()亲吻(1)的脸",
+        "()亲吻(1)的额头",
+        "()亲吻(1)的嘴角",
+        "()亲吻(1)的耳朵",
+        "()亲吻(1)的手背／()单膝下跪，亲吻(1)的手背",
+        "()亲吻(1)的脖子／()亲吻(1)的锁骨／()分别亲吻(1)的额头、鼻尖、嘴角",
+        "()亲一下(1)的脸，要发出“啵”的声音",
+        "()咬一下(1)的嘴唇／()在(1)锁骨下面找一个地方种草莓／()和(1)表演一下借位接吻",
+        "给()一个特权，可以任选一人亲ta的脸",
+        "()和(1)用纸巾隔着接吻／()用嘴叼住一张纸巾，(1)用嘴撕开，两人传递5次",
+        "()轻咬一下(1)的指尖",
+
+        "()在(1)的耳边吹风",
+        "()和(1)鼻尖碰鼻尖",
+        "()和(1)喝交杯酒／()对着(1)唱情歌／()和(1)同吃一根饼干棒",
+        "()喂(1)吃东西",
+        "把()和(1)一起关在衣柜里3分钟",
+
+        //A回答
+        "()回答：如果(1)向你表白，你觉得对方会是因为什么？／()回答：如果(1)突然抓着你的手说喜欢你，你怎么办？／()回答：如果要你在据说闹鬼的房子里住一晚，你可以选一人陪你，你会选谁？／()回答：如果现场选一人做情侣，你会选谁？",
+        "()回答：你觉得(1)可能会喜欢你的什么地方？／()回答：你最喜欢穿什么颜色的内裤？",
+    ],
+}
+
+let ttt={//成人
+    2:[
+        "()回答：你第一次自慰是几岁？／()回答：你自慰的时候喜欢用左手还是右手？／()回答：有因为接吻而硬/湿过吗？／()回答：有自拍过裸照吗？",
+        "()在大腿上写一个“正”字",
+    ],
+    3:[
+        "()抚摸(1)的大腿",
+        "()和(1)接吻",
+        "()舔一下(1)的嘴唇",
+        "()和(1)舌吻",
+        "()含住(1)的手指",
+        "()帮(1)脱一件衣服",
+        "()躺下，(1)在()的身上做3个俯卧撑／()坐好，(1)正面坐在()的腿上，上下摆动10下／()用胯部撞(1)的屁股，边撞边说“大不大，爽不爽？”／(-)站立，()跪在(-)面前，(-)抚摸()的头",
+        "()用膝盖蹭(1)的股间",
+
+        "()回答：你有没有对在座的哪位产生过性幻想？",
+    ],
+    4:[
+        "()和(1)接吻，直到有人喊“停”",
+        "(+)拍所有人的屁股，评选出谁的手感最好／(+)摸所有人的胸，评选出谁的最大／(-)和所有人接吻，讲一下和谁接吻时最心动",
+        "()回答：如果要玩3P，在座的人里你会选择哪两个？",
+    ],
+}
+
+let 牌=["Ａ","２","３","４","５","６","７","８","９","１０","Ｊ","Ｑ","Ｋ"];
+let 当前=0,三选一=0,ar="",oo=0,成年=1,玩家;
+let arr;function 随机(){let _arr=arr.slice();for(let i=0;i<_arr.length;i++){let j=getRandomInt(0,i);let t=_arr[i];_arr[i]=_arr[j];_arr[j]=t;}function getRandomInt(min,max){return Math.floor(Math.random()*(max-min+1)+min);}arr=_arr;}
+
+function 确定(o){
+    if(o!=oo){当前=0;ar="";oo=o;}
+    if(o==""||o<1){o=3;}
+    arr=[];
+    for(let i=0;o>i&&牌.length>i;i++){
+        arr[arr.length]=牌[i];
+    }
+    随机();玩家=arr;
+    if(o==1){document.getElementById("dy0").innerHTML="你确定一个人玩国王游戏？";
+    }else{
+        if(当前==0){
+            if(ar==""){
+                ar=[];
+                for(let i=0;o>i;i++){
+                    if(成年<2&&t[i+1]){ar=ar.concat(t[i+1]);}
+                    if(成年>0&&tt[i+1]){ar=ar.concat(tt[i+1]);}
+                    if(成年>1&&ttt[i+1]){ar=ar.concat(ttt[i+1]);}
+                }
+            }
+            当前=ar.length;
+            arr=ar;
+            随机();
+            ar=arr;
+        }
+        当前-=1;
+        if(三选一==-1){
+            三选一=0;
+            document.getElementById("dy1").innerHTML="";
+            document.getElementById("dy2").innerHTML="";
+        }
+        if(ar[当前].indexOf("／")!=-1){
+            arr=ar[当前].split("／");
+            随机();
+            ar[当前]=arr;
+        }
+        let 临时;
+        if(typeof ar[当前]=="object"){
+            临时=ar[当前][0];
+            ar[当前].splice(0,1);
+            ar[当前][ar[当前].length]=临时;
+        }else{
+            临时=ar[当前];
+        }
+        临时=临时.replace(new RegExp('\\\(\\\)',"g"),"\(0\)");
+        if(临时.indexOf("(-)")!=-1&&Math.floor(Math.random()*3)==0){
+            临时=临时.replace(new RegExp('\\\(-\\\)',"g"),"\(+\)");
+        }else{
+            临时=临时.replace(new RegExp('\\\(-\\\)',"g"),"\("+(玩家.length-1)+"\)");
+        }
+        临时=临时.replace(new RegExp('\\\(\\\+\\\)',"g"),"<b>国王</b>");
+        for(let i=0;玩家.length>i;i++){
+            临时=临时.replace(new RegExp('\\\('+i+'\\\)',"g"),"<b>"+玩家[i]+"</b>");
+        }
+
+        document.getElementById("dy"+三选一).innerHTML="<a onclick=\"选择("+三选一+")\">"+临时+"</a>";
+        if(三选一>0){
+            三选一-=1;
+            确定(o);
+        }
+    }
+    if(牌[0]!="Ａ"){
+        if(document.getElementById("dy0").innerHTML.indexOf("<b>国王</b>")!=-1||
+        document.getElementById("dy1").innerHTML.indexOf("<b>国王</b>")!=-1||
+        document.getElementById("dy2").innerHTML.indexOf("<b>国王</b>")!=-1){
+            document.getElementById("dy-1").innerHTML="<small>国王：</small>"+玩家[Math.floor(Math.random()*玩家.length)]+"<br>";
+        }else{
+            document.getElementById("dy-1").innerHTML="";
+        }
+    }
+}
+
+function 未成年(){
+    if(成年==1){成年=0;}else{成年=1;document.getElementById("禁忌").checked="";}
+}
+
+function 禁忌(){
+    if(成年==2){成年=1;}else{成年=2;document.getElementById("未成年").checked="";}
+}
+
+function 选择(o){
+    if(o!="0"){document.getElementById("dy0").innerHTML="";}
+    if(o!="1"){document.getElementById("dy1").innerHTML="";}
+    if(o!="2"){document.getElementById("dy2").innerHTML="";}
+}
+
+function 没有扑克牌(){
+    document.getElementById("dy0").innerHTML="<input type='text' placeholder='玩家名，用空格分隔' autocomplete='off' id='玩家名' style='width:80%'><br><a onclick='确定玩家()'>确定</a>";
+}
+
+function 确定玩家(){
+    let 临时=document.getElementById("玩家名").value.split(" ");
+    for(let i=0;临时.length>i;i++){
+        牌[i]=临时[i];
+    }
+    document.getElementById("玩家人数").value=临时.length;
+    document.getElementById("玩家人数").style="display:none;";
+    document.getElementById("dy0").innerHTML="<small>玩家：</small>"+临时.join("、");
+}
+</script>
