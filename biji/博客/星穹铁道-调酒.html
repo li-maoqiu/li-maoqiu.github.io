@@ -1,0 +1,127 @@
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script>
+    let h1="调酒辅助工具";
+    let nav=["x","星穹铁道"];
+    let index=[];
+</script><link rel="stylesheet" href="../0/1.css"><div id="dy"></div><script src="../0/1.js"></script><div id="a" style="display:none;"></div>
+
+
+<input type="checkbox" class="选项" onclick="handleClick(this)" id="S"><label for="S">小杯</label> 
+<input type="checkbox" class="选项" onclick="handleClick(this)" id="L" checked><label for="L">大杯</label> 
+<input type="checkbox" class="选项" onclick="handleClick(this)" id="XL"><label for="XL">超大杯</label><br>
+
+甜度：<input type="number" id="甜度"><br>
+烈度：<input type="number" id="烈度"><br>
+浓稠：<input type="number" id="浓稠"><br>
+<button onclick="生成配方()">生成配方</button>
+
+<br><br>
+
+<div id="结果">
+    代码原作者：ShikiSuen<br>
+    <a href="https://www.miyoushe.com/sr/article/50911923">https://www.miyoushe.com/sr/article/50911923</a><br>
+    由原本的Swift改成了js
+</div>
+
+
+
+<script>
+    let 杯='L';
+    function handleClick(o){
+          const a=document.querySelectorAll('.选项');
+    
+          a.forEach(b=>{
+            b.checked=(b===o);
+          });
+        }
+    
+    class 特调{
+        constructor(名称,参数){
+            this.名称=名称??'';
+            this.甜度=参数[0];
+            this.柔和度=参数[1];
+            this.清爽度=参数[2];
+        }
+    
+        是否与之参数相等(参照对象){
+            return this.甜度===参照对象.甜度 &&
+                   this.柔和度===参照对象.柔和度 &&
+                   this.清爽度===参照对象.清爽度;
+        }
+    
+        是否与之参数相等数组(参照对象){
+            const summed=参数总结(参照对象);
+            return this.甜度===summed[0] &&
+                   this.柔和度===summed[1] &&
+                   this.清爽度===summed[2];
+        }
+    }
+    
+    function 参数总结(array){
+        let x=0,y=0,z=0;
+        array.forEach(饮品副本=>{
+            x += 饮品副本.甜度;
+            y += 饮品副本.柔和度;
+            z += 饮品副本.清爽度;
+        });
+        return [x,y,z];
+    }
+    
+    function 求穷举组合(成员,单笔结果容量){
+        if(单笔结果容量===0||成员.length===0){
+            return [[]];
+        }
+        const [第一笔结果,...剩余成员]=成员;
+        const 子穷举组合=求穷举组合(成员,单笔结果容量 - 1);
+        const 当前组合=子穷举组合.map(组合=>[第一笔结果,...组合]);
+        const 剩余组合=求穷举组合(剩余成员,单笔结果容量);
+        return [...当前组合,...剩余组合];
+    }
+    
+    const 容器尺寸 ={
+        S:3,
+        L:4,
+        XL:5
+    };
+    
+    function 调酒(期望形态,杯子大小){
+        const 所需原料份量=杯子大小;
+        const 所有可重复穷举组合=求穷举组合(所有原材料,所需原料份量);
+        const 结果贮存用阵列=[];
+        for(const 组合 of 所有可重复穷举组合){
+            if(期望形态.是否与之参数相等数组(组合)){
+                结果贮存用阵列.push(组合);
+            }
+        }
+        const 符合长度的结果=结果贮存用阵列.filter(组合=>组合.length===所需原料份量);
+        if(符合长度的结果.length===0) return null;
+        const 随机索引=Math.floor(Math.random()*符合长度的结果.length);
+        return 符合长度的结果[随机索引];
+    }
+    
+    const 所有原材料=[
+        new 特调("提纯浮羊奶",[2,0,2]),
+        new 特调("椒椒博士",[1,0,-1]),
+        new 特调("冰点苏乐达",[1,0,-2]),
+        new 特调("安神气泡饮",[-1,0,-1]),
+        new 特调("怪味浓汁",[-2,0,1]),
+        new 特调("激梦果酱",[0,2,1]),
+        new 特调("极致糖浆",[0,1,2]),
+        new 特调("苏花清露",[0,1,-1]),
+        new 特调("夕红果沙司",[0,-1,1]),
+        new 特调("魔血能量",[0,-1,0]),
+        new 特调("传统老豆汁儿",[0,-2,2]),
+    ];
+    
+    function 生成配方(){
+        let 希望调制成的样子=new 特调(null,[document.getElementById("甜度").value*1,document.getElementById("烈度").value*1,document.getElementById("浓稠").value*1]);
+        let 结果=调酒(希望调制成的样子,容器尺寸[杯]);
+    
+        if(结果){
+            document.getElementById("结果").innerHTML=结果.map(sub=>`【${sub.名称}】`).join(" + ");
+        }else{
+            document.getElementById("结果").innerHTML="无符合条件的组合";
+        }
+    }
+    
+    </script>

@@ -1,0 +1,13 @@
+#dy_dt{border-spacing:0;border-collapse:collapse;flex-shrink:0;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;user-select:none;width:calc(43*23px);height:calc(43*20px);overflow:auto;}
+.dttc,.dttd{border-width:1;border-style:solid;cursor:default;background-color:#fff;font-size:0.6em;border-color:#000000;border-width:0;}
+.dttc[onclick]{cursor:pointer}
+#tooltip{position:absolute;display:none;background-color:#fff;border:1px solid #ccc;padding:10px;border-radius:4px;box-shadow:0 2px 4px #0000001a;pointer-events:none;z-index:1000;position: fixed;}
+.oooo{border-width:0 0 0 0;}.aooo{border-width:5px 0 0 0;}.oaoo{border-width:0 5px 0 0;}.ooao{border-width:0 0 5px 0;}
+.oooa{border-width:0 0 0 5px;}.aaoo{border-width:5px 5px 0 0;}.aoao{border-width:5px 0 5px 0;}.aooa{border-width:5px 0 0 5px;}
+.oaao{border-width:0 5px 5px 0;}.oaoa{border-width:0 5px 0 5px;}.ooaa{border-width:0 0 5px 5px;}.aaao{border-width:5px 5px 5px 0;}
+.aaoa{border-width:5px 5px 0 5px;}.aoaa{border-width:5px 0 5px 5px;}.oaaa{border-width:0 5px 5px 5px;}.aaaa{border-width:5px 5px 5px 5px;}
+.北京,.内蒙古,.云南,.山东,.湖北,.广东,.上海{background-color:#FFFDD0;}
+.黑龙江,.山西,.贵州,.甘肃,.台湾,.天津,.澳门,.安徽{background-color:#C5E4D0;}
+.吉林,.广西,.浙江,.陕西,.西藏,.河北,.浙江,.香港{background-color:#F8C7D0;}
+.辽宁,.江西,.重庆,.江苏,.青海{background-color:#C7CDE0;}
+.河南,.福建,.四川,.湖南,.新疆,.宁夏,.海南{background-color:#fad4b0;}
