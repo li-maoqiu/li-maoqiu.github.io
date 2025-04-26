@@ -30,7 +30,7 @@ const _执行a={
     "Z":()=>{dy1js+="<div class='zhushi jiesuo'>"+解锁z(临时0[1])+"</div>"},
     "提示":()=>{dy1js+="<span class=\"提示\" data-msg=\""+临时0[2]+"\">"+临时0[1]+"</span>"},
     "提示2":()=>{dy1js+="<div class='提'>"+临时0[1]+"<span class='示'>"+临时0[2]+"</span></div>"},
-    "复制":()=>{if(!临时0[2]){临时0[2]=临时0[1];临时0[1]="复制"}dy1js+="<a onclick=\"复(`"+临时0[2]+"`)\">"+临时0[1]+"</a>"},
+    "复制":()=>{if(!临时0[2]){临时0[2]=临时0[1];临时0[1]="复制"}dy1js+="<a onclick=\"复(`"+临时0[2].replace(new RegExp('"',"g"),"［引号］")+"`)\">"+临时0[1]+"</a>"},
     "图片":()=>{if(临时0[1].indexOf(".")==-1){临时0[1]+=".jpg"}dy1js+="<a onclick=\"复(制='"+临时0[1]+"')\" href='"+子页面[1]+"2/"+临时0[1]+"' target='_blank'><img src='"+子页面[1]+"2/"+临时0[1]+"' width="+临时0[2]+" "+临时0[3]+" class='bdtp'></a>"},
     "本地图片":()=>{if(临时0[1].indexOf(".")==-1){临时0[1]+=".jpg"}dy1js+="<a onclick=\"复(制='"+临时0[1]+"')\" href='"+子页面[1]+统一[0]+临时0[1]+"' target='_blank'><img src='"+子页面[1]+统一[0]+临时0[1]+"' onerror=\"this.src='"+子页面[1]+"2/0.jpg';this.onerror=null;\" width="+临时0[2]+" "+临时0[3]+" class='bdtq'></a>"},
     "音频":()=>{if(临时0[1].indexOf(".")==-1){临时0[1]+=".mp3"}dy1js+="<audio class='bdtp' src='"+子页面[1]+"2/"+临时0[1]+"' controls></audio>"},
@@ -63,6 +63,8 @@ const _执行b={
 }
 
 if(typeof(h1)!="undefined"&&子页面[0]=="0"){
+if(h1==""){h1=location.href.split("/");
+    h1=decodeURI(h1[h1.length-1].split(".html")[0]).replace(new RegExp('／',"g")," ")}
 dy1js+="<h1>"+h1+"</h1>";
 
 if(h1!="异梦笔记"){dy1js+=" <nav>";
@@ -80,6 +82,9 @@ for(let i=0;nav.length>i;i++){
         if(临u.indexOf("#")!=-1){
             临u=临u.split("#");
             临u=临u[0]+".html#"+临u[1];
+        }else if(临u.indexOf("?")!=-1){
+            临u=临u.split("?");
+            临u=临u[0]+".html?"+临u[1];
         }else{
             临u+=".html";
         }
@@ -248,14 +253,14 @@ for(let i=1;临时.length>i;i++){
 
     else{
         if(临时0[1].indexOf("#")!=-1){临时0[1]=临时0[1].split("#");dy1js+="<a href='";if(临时0[1][0]==""){dy1js+="#"+临时0[1][1]}else{dy1js+=临时0[1][0]+".html#"+临时0[1][1]}dy1js+="'>"+临时0[0]+"</a>";
-        }else if(临时0[1]>0){dy1js+="<a href='1/"+临时0[1]+".html'>"+临时0[0]+"</a>";
+        // }else if(临时0[1]>0){dy1js+="<a href='1/"+临时0[1]+".html'>"+临时0[0]+"</a>";
         }else{dy1js+="<a href='"+临时0[1]+".html'>"+临时0[0]+"</a>"}
     }
 
     }else{//不包含|
     临时0=临时2[0];
     if(_执行b[临时0]){if(typeof _执行b[临时0]=="string"){_执行b[_执行b[临时0]](i)}else{_执行b[临时0](i)}}
-    else if(临时0>0){dy1js+="<a href='1/"+临时0+".html'>"+临时0+"</a>"}
+    // else if(临时0>0){dy1js+="<a href='1/"+临时0+".html'>"+临时0+"</a>"}
     else{
         let 临u=临时0,临名=临时0.replace(new RegExp('（本地）',"g"),"");
         if(临u.indexOf("#")!=-1){
@@ -265,6 +270,14 @@ for(let i=1;临时.length>i;i++){
             }else{
                 临名=临u[0]+"-"+临u[1];
                 临u=临u[0]+".html#"+临u[1];
+            }
+        }else if(临u.indexOf("?")!=-1){
+            临u=临u.split("?");
+            if(临u[0]==""){
+                临u=临u[1];
+            }else{
+                临名=临u[0]+"-"+临u[1];
+                临u=临u[0]+".html?"+临u[1];
             }
         }else{
             临u+=".html";
