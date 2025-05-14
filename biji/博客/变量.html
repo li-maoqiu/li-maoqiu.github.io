@@ -116,12 +116,18 @@ let 数组合并成字符串=["1","2","3","4"].join("-"); <span class='zhushi'>�
 <span class='zhushi'>都是直接用，不要变量名=变量名.xxxx</span><br>
 <br>
 
+〈h5|排序〉<br>
+
 按顺序排序：变量.sort(); <span class='zhushi'>符号→数字→大写字母→小写字母→中文</span><br>
 <br>
 
 数组包含多个变量时按大小排序：<br>
 let d=[[1,"测试"],[5,"测试2"],[2,"测试3"]];<br>
 d.sort((a,b)=>a[0]-b[0]); <span class='zhushi'>从小到大 a[0]-b[0] 从大到小 b[0]-a[0]</span><br>
+<br>
+
+按字母排序 data.sort((a,b)=>a[3][0].localeCompare(b[3][0]));<br>
+
 <br>
 
 两个数组拼接合并：数组1=数组1.concat(数组2);<br>
