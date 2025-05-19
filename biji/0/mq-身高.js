@@ -98,10 +98,11 @@ function 打印(o){
         }
         //打印
         dy+="<table><tr class='首行'><td>名字</td><td>性别</td><td><a onclick=\"执行b('"+默认+"2')\">年龄</a></td><td><a onclick=\"执行b('"+默认+"3')\">身高</a>cm</td><td><a onclick=\"执行b('"+默认+"4')\">体重</a>kg</td><td>BMI</td><td></td></tr>";
+        // if(datb.length==1&&!datb[0]){}
         for(let i=0;datb.length>i;i++){
             dy+="<tr><td>"+datb[i][0];
                 if(执行[0]==1){
-                    dy+=" <small class='提示' data-msg='"+datb[i][7]+"'><a onclick=\"执行[0]='"+datb[i][7]+"';打印()\">"+datb[i][7][0]+"</a></small>"
+                    dy+=" <small class='提示' data-msg='"+datb[i][7]+"'><a onclick=\"执行[0]=0;打印();location.href='#"+datb[i][7]+"'\">"+datb[i][7][0]+"</a></small>"
                 }
             dy+="</td><td class='"+datb[i][1]+"'>"+datb[i][1]+"</td><td>"+datb[i][2]+"</td><td>"+datb[i][3]+"</td><td>"+datb[i][4]+"</td>";
 
