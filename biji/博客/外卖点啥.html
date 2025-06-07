@@ -1,0 +1,69 @@
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script>
+    let h1="";
+    let nav=["x"];
+    let index=["自动"];
+</script><link rel="stylesheet" href="../0/1.css"><div id="dy"></div><script src="../0/1.js"></script><div id="a"></div>
+
+<script>
+let 外卖=[
+
+//简单一顿
+"筋头巴脑",
+"黄焖鸡米饭",
+"烤冷面卷火鸡面",
+
+//快餐
+"汉堡","披萨",
+"中国汉堡",
+"炸鸡",
+
+
+"馄饨面",
+"麻辣香锅",
+"麻辣拌",
+"串串香",
+"饺子",
+"馄饨",
+"寿司",
+"卷饼",
+
+"饭菜",
+"拌饭",
+"饭包",
+"鸡公煲",
+"菜包饭",
+
+"拉面",
+"牛肉面",
+"麻辣烫",
+"米线",
+"方便面",
+
+"烧烤",
+"烤肉",
+"烤鸭",
+
+
+"烤冷面",
+
+"蛋糕",
+"面包",
+"甜甜圈",
+];
+let arr;function 随机(){let _arr=arr.slice();for(let i=0;i<_arr.length;i++){let j=getRandomInt(0,i);let t=_arr[i];_arr[i]=_arr[j];_arr[j]=t;}function getRandomInt(min,max){return Math.floor(Math.random()*(max-min+1)+min);}arr=_arr;}
+
+function 外卖点啥(o){
+    dy="";
+    if(o=="1"){
+        arr=外卖;
+        随机();
+        外卖=arr;
+    }else{
+        dy+=`〈h0|0|<a onclick="外卖点啥('1')">随机排序</a>〉`;
+    }
+    document.getElementById("a").innerHTML=dy+"<ol>"+外卖.map(a=>`<li>${a}</li>`).join("")+"</ol>";
+}
+外卖点啥();
+
+</script>

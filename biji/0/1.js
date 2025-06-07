@@ -216,7 +216,7 @@ catch(e){
 function 编辑(){
     if(本地){
         制=location.href.replace(/file:\/\/\//g,"").split(":/");
-        制="C:/mq/app/code.lnk C:/"+decodeURI(制[1].split("#")[0])+" & exit";
+        制="C:/mq/app/code.lnk C:/"+decodeURI(制[1].split("#")[0].split("?")[0])+" & exit";
         复();
         location.href="pvocmd://";
     }else{try{notyf.alert("编辑功能仅在本地有效")}catch(e){alert("编辑功能仅在本地有效")};制="C:/MQ/异梦笔记/biji/"+decodeURI(decodeURI(location.href.split(".cafe/biji/")[1]));复()}
