@@ -41,8 +41,8 @@ const _执行a={
     "ts":"t",
     "跳转":()=>{if(临时0[1]=="br"){index_dy1js+="<br>"}else if(临时0[2]){dy1js+="<a name='"+临时0[1]+"'>"+临时0[2]+"</a>";index_dy1js+="<a href='#"+临时0[1]+"'>"+临时0[2]+"</a><br>"}else{dy1js+="<a name='"+临时0[1]+"'></a>";index_dy1js+="<a href='#"+临时0[1]+"'>"+临时0[1]+"</a><br>"}},
     "h0":()=>{if(临时0[1]==0){index_dy1js+=临时0[2]+"<br>"}else if(临时0[1]==1){index_dy1js+="<div class='nav_drop'><a class='nav_drop_btn'";if(临时0[3]){index_dy1js+=" href='"+临时0[3]+"'"}index_dy1js+=">"+临时0[2]+"<small>▼</small></a><div class='nav_drop_down'>"}else if(临时0[1]==2){index_dy1js+="</div></div><br>"}},
-    "h1":()=>{if(临时0[2]){}else{临时0[2]=临时0[1]}dy1js+="<a name='"+临时0[2]+"'></a><"+临时0[0]+">"+临时0[1]+"</"+临时0[0]+">";index_dy1js+="<a href='#"+临时0[2]+"'>";if(临时0[0]=="h1"){index_dy1js+="<h3>"+临时0[1]+"</h3>"}else if(临时0[0]=="h2"){index_dy1js+="<h4>"+临时0[1]+"</h4>"}else if(临时0[0]=="h3"){index_dy1js+="　<b>"+临时0[1]+"</b>"}else if(临时0[0]=="h4"){index_dy1js+="　"+临时0[1]}else if(临时0[0]=="h5"){index_dy1js+="　<small>"+临时0[1]+"</small>"}else{index_dy1js+=临时0[1]}index_dy1js+="</a><br>"},
-    "h2":"h1","h3":"h1","h4":"h1","h5":"h1","h6":"h1",
+    "h1":()=>{if(临时0[2]){}else{临时0[2]=临时0[1]}dy1js+="<a name='"+临时0[2]+"'></a><"+临时0[0]+">"+临时0[1]+"</"+临时0[0]+">";index_dy1js+="<a href='#"+临时0[2]+"'>";if(临时0[0]=="h1"){index_dy1js+="<h3>"+临时0[1]+"</h3>"}else if(临时0[0]=="h2"){index_dy1js+="<h4>"+临时0[1]+"</h4>"}else if(临时0[0]=="h3"){index_dy1js+="　<b>"+临时0[1]+"</b>"}else if(临时0[0]=="h4"){index_dy1js+="　"+临时0[1]}else if(临时0[0]=="h5"||临时0[0]=="b"){index_dy1js+="　<small>"+临时0[1]+"</small>"}else{index_dy1js+=临时0[1]}index_dy1js+="</a><br>"},
+    "h2":"h1","h3":"h1","h4":"h1","h5":"h1","h6":"h1","b":"h1",
     "zk":()=>{临时0[3]=临时0[3]||临时0[1];dy1js+="<a onclick=\"dw(dwb='"+临时0[2]+"',dwd='"+临时0[3]+"')\">"+临时0[1]+"</a>"},
     "http":()=>{dy1js+="<a href='"+临时0[0]+"://"+临时0[1]+"'>"+临时0[2]+"</a>"},
     "https":"http",
@@ -54,6 +54,7 @@ const _执行a={
     "a":()=>{临时0[2]=临时0[2]||临时0[1];if(临时0[2]=="0"){临时0[2]=""}dy1js+="<a name='"+临时0[1]+"'></a>"+临时0[2]},
     "s":()=>{dy1js+="<small>("+临时0[1]+")</small>"},
     "w":()=>{临时0[3]=临时0[3]||临时0[2];dy1js+="<a href='"+代码[临时0[1]]+临时0[2]+"'>"+临时0[3]+"</a>"},
+    "打开":()=>{dy1js+="";dy1js+=`<a onclick="编辑('${临时0[2]}','${临时0[3]}')">${临时0[1]}</a>`},
     // "":()=>{},
 }
 const _执行b={
@@ -213,10 +214,18 @@ catch(e){
 }
 }
 
-function 编辑(){
+function 编辑(a,b){
     if(本地){
-        制=location.href.replace(/file:\/\/\//g,"").split(":/");
-        制="C:/mq/app/code.lnk C:/"+decodeURI(制[1].split("#")[0].split("?")[0])+" & exit";
+        if(a=="文件夹"){
+            制=b.split(":")[0]+": & explorer \""+b.replace(/\//g, "\\")+"\" & exit";
+        }else if(a=="程序"){
+            制=b.split(":")[0]+": & \""+b+"\" & exit";
+        }else if(a=="html"){
+            制="C:/mq/app/code.lnk \""+b+"\" & exit";
+        }else{
+            制=location.href.replace(/file:\/\/\//g,"").split(":/");
+            制="C:/mq/app/code.lnk C:/"+decodeURI(制[1].split("#")[0].split("?")[0])+" & exit";
+        }
         复();
         location.href="pvocmd://";
     }else{try{notyf.alert("编辑功能仅在本地有效")}catch(e){alert("编辑功能仅在本地有效")};制="C:/MQ/异梦笔记/biji/"+decodeURI(decodeURI(location.href.split(".cafe/biji/")[1]));复()}
