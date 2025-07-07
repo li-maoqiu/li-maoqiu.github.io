@@ -135,15 +135,8 @@ footer img{position:relative;bottom:50px;display:block;margin:0 auto}
                 }else if(临时[2]=="显示"){
                     dy+=临时3;
                 }else{
-                    if(临时[2]=="="){
-                        临时3=临时[3];
-                    }else{
-                        if(临时[2]=="+"){
-                            临时3+=临时[3];
-                        }else{
-                            临时3-=临时[3];
-                        }
-                    }
+                    if(临时[2]=="="){临时3=临时[3];
+                    }else{if(临时[2]=="+"){临时3+=临时[3]}else{临时3-=临时[3]}}
                     localStorage.setItem(临时2,临时3);
                 }
 
