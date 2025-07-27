@@ -5,6 +5,9 @@
     let index=["自动"];
 </script><link rel="stylesheet" href="../0/1.css"><div id="dy"></div><script src="../0/1.js"></script><div id="a">
 
+<style>pre fieldset:before{cursor:pointer;color:#006699;content:attr(bt);display:block;font-weight:bold;font-family:Helvetica,Arial,"Microsoft YaHei",sans-serif,"Droid Sans Fallback";}
+pre fieldset:after{content:attr(by);color:#9b9b9b;font-size:0.8em;display:block;font-family:Helvetica,Arial,"Microsoft YaHei",sans-serif,"Droid Sans Fallback";}</style>
+
 〈h3|写宏〉<br>
 
 〈复制|#showtooltips 技能|#showtooltips〉 　显示技能图标 留空为自动<br>
@@ -149,9 +152,22 @@
 /castsequence reset=3 钓鱼,垂钓翁钓鱼筏,无尽呼吸,可重复使用的巨型鱼漂,无尽呼吸,浮标：拖船,无尽呼吸,古代熊猫人诱鱼器
 </fieldset></pre>
 
+<pre><fieldset onclick="复(this.innerHTML.replace(new RegExp('<br>','g'),'\n'))" bt="钓鱼">
+#showtooltip<br>
+/cast [mod:ctrl] 可重复使用的巨型鱼漂;[mod:shift] 浮标：拖船;[mod:alt] 古代熊猫人诱鱼器;垂钓翁钓鱼筏
+</fieldset></pre>
+
 <pre><fieldset onclick="复(this.innerHTML.replace(new RegExp('<br>','g'),'\n'))" bt="炉石">
 #showtooltips<br>
 /use [mod:shift]达拉然炉石;[mod:alt] 要塞炉石;美酒节狂欢者的炉石
+</fieldset></pre>
+
+<pre><fieldset onclick="复(this.innerHTML.replace(new RegExp('<br>','g'),'\n'))" bt="翻页1">
+/changeactionbar 5
+</fieldset></pre>
+
+<pre><fieldset onclick="复(this.innerHTML.replace(new RegExp('<br>','g'),'\n'))" bt="翻页2">
+/changeactionbar 6
 </fieldset></pre>
 
 <!-- <pre><fieldset onclick="复(this.innerHTML.replace(new RegExp('<br>','g'),'\n'))" bt="">
