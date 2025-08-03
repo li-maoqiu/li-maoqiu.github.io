@@ -135,13 +135,15 @@ pre fieldset:after{content:attr(by);color:#9b9b9b;font-size:0.8em;display:block;
 <pre><fieldset onclick="复(this.innerHTML.replace(new RegExp('<br>','g'),'\n'))" bt="随机坐骑（部落）">/dismount [mounted]
 /userandom [mod:shift] 库卡隆横扫者,机械路霸,紫色骷髅战马,夜之子魔刃豹,X-995型机械猫,暗月跳舞熊,霸业枭雄的黄金鳄鱼,迅捷美酒节赛羊,果敢帝国山猫,熔火恶犬,冷焰地狱火,奔波尔鲛;烬鬃战马,暖日绒猫,贝雷达尔之裔,奥的灰烬,暗色凤凰,炉石天马,神圣金色云端翔龙,罗盘玫瑰,艾什阿达，晨曦使者,邃渊追猎者,暗月飞船,废铁机甲蛛,黑曜石灭世者,冷焰风暴,幽灵军马,神圣玛瑙云端翔龙,碧蓝凝世者,翠绿熊猫人风筝,暮光巡天狐,破镣者海波鳐,魅力信使,星触绒猫</fieldset></pre> -->
 
-<pre><fieldset onclick="复(this.innerHTML.replace(new RegExp('<br>','g'),'\n'))" bt="起手" by="宠物攻击">
-/petattack [harm,exists]<br>
-/cast [harm,exists] 虚弱诅咒<br>
-/stopmacro [harm,exists]<br>
-/targetenemy<br>
-/petattack<br>
-/cast 虚弱诅咒
+<pre><fieldset onclick="复(this.innerHTML.replace(new RegExp('<br>','g'),'\n'))" bt="一键辅助" by="下马、宠物攻击">
+#showtooltips
+/dismount [mounted]
+/petattack [harm,exists]
+/cast [harm,exists,nochanneling] 一键辅助
+/stopmacro [harm,exists]
+/targetenemy
+/petattack
+/cast [nochanneling] 一键辅助
 </fieldset></pre>
 
 <pre><fieldset onclick="复(this.innerHTML.replace(new RegExp('<br>','g'),'\n'))" bt="鼠标下划（钓鱼、攻击）">
