@@ -10,7 +10,10 @@
     td input{width:6em}
 </style>
 <div id="a">
-〈皮肤|我的世界皮肤〉 | 〈文件夹|猫球搜索#我的世界文件夹〉<br>
+<fieldset><legend>个人内容</legend>
+    〈皮肤|我的世界皮肤〉<br>
+    〈打开|官方启动器|程序|C:/XboxGames/Minecraft Launcher/Content/Minecraft.exe〉 | 〈打开|文件夹|文件夹|C:/mq/app/game/youxi/mc〉
+</fieldset><br>
 <br>
 
 〈h5|网站〉<br>
@@ -161,8 +164,8 @@
     <tr><td>/give <input type="text" placeholder="目标"> <input type="text" placeholder="物品"> <input type="text" placeholder="数量"> <a onclick="复制指令(event)">复制</a></td><td>给予玩家物品</td></tr>
     <tr><td>/give @s minecraft:player_head{SkullOwner:"<input type="text" placeholder="玩家ID">"} <a onclick="复制指令(event)">复制</a></td><td>获得一个玩家的头</td></tr>
 </table><br>
-<b>时间</b>：〈复制|白天|/time set 1000〉、〈复制|中午|/time set 6000〉、〈复制|晚上|/time set 13000〉、〈复制|半夜|/time set 18000〉<br>
-<b>天气</b>：〈复制|晴天|/weather clear〉 〈复制|雨天|/weather rain〉 〈复制|雷暴雨|/weather thunder〉<br>
+<b>时间</b>：〈复制|白天|/time set 1000〉、〈复制|中午|/time set 6000〉、〈复制|晚上|/time set 13000〉、〈复制|半夜|/time set 18000〉 | 〈复制|时间固定|/gamerule doDaylightCycle false〉、〈复制|时间流逝|/gamerule doDaylightCycle true〉<br>
+<b>天气</b>：〈复制|晴天|/weather clear〉、〈复制|雨天|/weather rain〉、〈复制|雷暴雨|/weather thunder〉<br>
 <br>
 
 <b>坐标：</b>x轴 y轴 z轴 水平旋转 垂直旋转<br>
@@ -425,8 +428,14 @@ distance=1.. 大于1<br>
 
 <br>
 
-〈h5|旧存档记录〉<br>
+〈h5|存档记录〉<br>
+版本1.20.1 种子“pvo”
+<table>
+    <tr><td>起点</td><td>〈复制|复制|/tp -679 79 -264〉</td></tr>
+</table>
 
+
+<b>以前的存档</b>
 <table>
     <tr><td>枢纽</td><td>〈复制|复制|/tp @p -134 56 462 -50 0〉</td></tr>
     <tr><td>家</td><td>〈复制|复制|/tp @p -106 69 166 0 0〉</td></tr>

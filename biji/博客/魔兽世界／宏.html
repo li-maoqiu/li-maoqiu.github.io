@@ -117,37 +117,32 @@ pre fieldset:after{content:attr(by);color:#9b9b9b;font-size:0.8em;display:block;
 
 〈h4|宏记录〉<br>
 
-<pre><fieldset onclick="复(this.innerHTML.replace(new RegExp('<br>','g'),'\n'))" bt="坐骑（联盟）">
+<pre><fieldset onclick="复(this.innerHTML.replace(new RegExp('<br>','g'),'\n'))" bt="坐骑（联盟）狮鹫">
 /dismount [mounted]<br>
 /cancelaura 爆燃冲刺<br>
-/userandom [mod:alt] 旅行者的苔原猛犸象;[mod:shift] X-53型观光火箭;[swimming] 海龟,赤红浪骁,野棕战龟;[flyable] X-53型观光火箭;机械师的摩托车
+/userandom [mod:alt] 旅行者的苔原猛犸象;[mod:shift] X-53型观光火箭;[mod:ctrl] 机械师的摩托车;[swimming] 海龟,赤红浪骁,野棕战龟;[flyable] X-53型观光火箭;机械师的摩托车
 </fieldset></pre>
 
-<pre><fieldset onclick="复(this.innerHTML.replace(new RegExp('<br>','g'),'\n'))" bt="坐骑（部落）">
+<pre><fieldset onclick="复(this.innerHTML.replace(new RegExp('<br>','g'),'\n'))" bt="坐骑（部落）战蝎">
 /dismount [mounted]<br>
 /cancelaura 爆燃冲刺<br>
-/userandom [mod:alt] 旅行者的苔原猛犸象;[mod:shift] X-53型观光火箭;[swimming] 海龟,赤红浪骁,野棕战龟;[flyable] X-53型观光火箭;机械路霸
+/userandom [mod:alt] 旅行者的苔原猛犸象;[mod:shift] X-53型观光火箭;[mod:ctrl] 机械路霸;[swimming] 海龟,赤红浪骁,野棕战龟;[flyable] X-53型观光火箭;机械路霸
 </fieldset></pre>
 
-<!-- <pre><fieldset onclick="复(this.innerHTML.replace(new RegExp('<br>','g'),'\n'))" bt="随机坐骑（联盟）">/dismount [mounted]
-/userandom [mod:shift] 黄金狮王,机械师的摩托车,黑铁熔火犬,X-995型机械猫,暗月跳舞熊,霸业枭雄的黄金鳄鱼,迅捷美酒节赛羊,果敢帝国山猫,熔火恶犬,冷焰地狱火,奔波尔鲛;炉石天马,暖日绒猫,烬鬃战马,贝雷达尔之裔,奥的灰烬,暗色凤凰,神圣金色云端翔龙,罗盘玫瑰,艾什阿达，晨曦使者,邃渊追猎者,暗月飞船,废铁机甲蛛,黑曜石灭世者,冷焰风暴,幽灵军马,神圣玛瑙云端翔龙,碧蓝凝世者,翠绿熊猫人风筝,暮光巡天狐,破镣者海波鳐,魅力信使,星触绒猫</fieldset></pre>
-
-<pre><fieldset onclick="复(this.innerHTML.replace(new RegExp('<br>','g'),'\n'))" bt="随机坐骑（部落）">/dismount [mounted]
-/userandom [mod:shift] 库卡隆横扫者,机械路霸,紫色骷髅战马,夜之子魔刃豹,X-995型机械猫,暗月跳舞熊,霸业枭雄的黄金鳄鱼,迅捷美酒节赛羊,果敢帝国山猫,熔火恶犬,冷焰地狱火,奔波尔鲛;烬鬃战马,暖日绒猫,贝雷达尔之裔,奥的灰烬,暗色凤凰,炉石天马,神圣金色云端翔龙,罗盘玫瑰,艾什阿达，晨曦使者,邃渊追猎者,暗月飞船,废铁机甲蛛,黑曜石灭世者,冷焰风暴,幽灵军马,神圣玛瑙云端翔龙,碧蓝凝世者,翠绿熊猫人风筝,暮光巡天狐,破镣者海波鳐,魅力信使,星触绒猫</fieldset></pre> -->
-
-<pre><fieldset onclick="复(this.innerHTML.replace(new RegExp('<br>','g'),'\n'))" bt="一键辅助" by="下马、宠物攻击">
-#showtooltips
-/dismount [mounted]
-/petattack [harm,exists]
-/cast [harm,exists,nochanneling] 一键辅助
-/stopmacro [harm,exists]
-/targetenemy
-/petattack
+<pre><fieldset onclick="复(this.innerHTML.replace(new RegExp('<br>','g'),'\n'))" bt="一键攻击" by="下马、宠物攻击">
+#showtooltips<br>
+/dismount [mounted]<br>
+/petattack [harm,exists]<br>
+/cast [harm,exists,nochanneling] 一键辅助<br>
+/stopmacro [harm,exists]<br>
+/petattack<br>
 /cast [nochanneling] 一键辅助
 </fieldset></pre>
 
 <pre><fieldset onclick="复(this.innerHTML.replace(new RegExp('<br>','g'),'\n'))" bt="鼠标下划（钓鱼、攻击）">
-/cast [combat] 恶魔力量;[harm,exists] 恶魔力量;钓鱼
+/dismount [mounted]<br>
+/petattack [harm,exists]<br>
+/cast [combat] 一键辅助;[harm,exists] 一键辅助;钓鱼
 </fieldset></pre>
 
 <pre><fieldset onclick="复(this.innerHTML.replace(new RegExp('<br>','g'),'\n'))" bt="钓鱼">
@@ -170,6 +165,11 @@ pre fieldset:after{content:attr(by);color:#9b9b9b;font-size:0.8em;display:block;
 
 <pre><fieldset onclick="复(this.innerHTML.replace(new RegExp('<br>','g'),'\n'))" bt="翻页2">
 /changeactionbar 6
+</fieldset></pre>
+
+<pre><fieldset onclick="复(this.innerHTML.replace(new RegExp('<br>','g'),'\n'))" bt="坐骑（怀旧服）">
+#showtooltips<br>
+/castrandom [flyable]波利·罗杰;[swimming]驯服的海马;条纹霜刃豹
 </fieldset></pre>
 
 <!-- <pre><fieldset onclick="复(this.innerHTML.replace(new RegExp('<br>','g'),'\n'))" bt="">
