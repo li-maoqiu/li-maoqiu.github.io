@@ -1,0 +1,446 @@
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body {
+        background: linear-gradient(135deg, #1e2a78, #1e3c72);
+        color: #fff;
+        min-height: 100vh;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .container {
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto;
+    }
+    
+    header {
+        text-align: center;
+        margin-bottom: 30px;
+        padding: 20px;
+    }
+    
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        background: linear-gradient(45deg, #ff9a9e, #fad0c4);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+    
+    .subtitle {
+        font-size: 1.2rem;
+        opacity: 0.9;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    
+    .main-content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+    
+    @media (max-width: 900px) {
+        .main-content {
+            grid-template-columns: 1fr;
+        }
+    }
+    
+    .upload-section {
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 15px;
+        padding: 25px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(10px);
+        transition: transform 0.3s ease;
+    }
+    
+
+    
+    .preview-section {
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 15px;
+        padding: 25px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        backdrop-filter: blur(10px);
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .section-title {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+        border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+        color: #64b3f4;
+    }
+    
+    .drop-area {
+        border: 2px dashed rgba(255, 255, 255, 0.3);
+        border-radius: 10px;
+        padding: 40px 20px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+    }
+    
+    .drop-area:hover {
+        border-color: #64b3f4;
+        background: rgba(100, 179, 244, 0.1);
+    }
+    
+    .file-input {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        opacity: 0;
+        cursor: pointer;
+    }
+    
+    .icon {
+        font-size: 3.5rem;
+        margin-bottom: 15px;
+        color: #64b3f4;
+    }
+    
+    .controls {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 20px;
+    }
+    
+    button {
+        background: linear-gradient(45deg, #1a73e8, #0d47a1);
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+    }
+    
+    button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+    
+    button:disabled {
+        background: #555;
+        cursor: not-allowed;
+        transform: none;
+        box-shadow: none;
+    }
+    
+    .image-preview-container {
+        width: 100%;
+        height: 250px;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        overflow: hidden;
+        position: relative;
+    }
+    
+    .image-preview {
+        max-width: 100%;
+        max-height: 100%;
+        display: none;
+    }
+    
+    .result-container {
+        flex-grow: 1;
+        background: rgba(0, 0, 0, 0.3);
+        border-radius: 10px;
+        padding: 15px;
+        overflow: auto;
+        font-family: monospace;
+        max-height: 300px;
+        min-height: 150px;
+        color: #dff;
+    }
+    
+    .result-text {
+        white-space: pre-wrap;
+        word-break: break-all;
+        line-height: 1.3;
+    }
+    
+    .action-buttons {
+        display: flex;
+        gap: 10px;
+        margin-top: 20px;
+    }
+    
+    .notification {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #0d47a1;
+        color: white;
+        padding: 12px 25px;
+        border-radius: 50px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        display: none;
+        z-index: 1000;
+    }
+    
+    footer {
+        text-align: center;
+        margin-top: 40px;
+        padding: 20px;
+        font-size: 0.9rem;
+        color: rgba(255, 255, 255, 0.7);
+    }
+    
+    .loading {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 3px solid rgba(255,255,255,.3);
+        border-radius: 50%;
+        border-top-color: #64b3f4;
+        animation: spin 1s ease-in-out infinite;
+    }
+    
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+
+    img{user-select:none;-moz-user-select:none;-webkit-user-select:none;-ms-user-select:none;
+        image-rendering:optimizeSpeed;image-rendering:-moz-crisp-edges;image-rendering:-o-crisp-edges;image-rendering:-webkit-optimize-contrast;image-rendering:pixelated;-ms-interpolation-mode:nearest-neighbor}
+</style>
+
+<div class="container">
+
+    <div class="main-content">
+        <div class="upload-section">
+            <h2 class="section-title">上传图片</h2>
+            <div class="drop-area" id="dropArea">
+                <div class="icon">📁</div>
+                <p>拖拽图片到此处，或者 <span style="color: #64b3f4;">点击选择文件</span></p>
+                <p><small>图片尺寸建议不超过60像素。</small></p>
+                <input type="file" id="fileInput" class="file-input" accept="image/*">
+            </div>
+            
+            <div class="controls">
+                <label for="imageScale">
+                    <span id="scaleValue"></span>
+                </label>
+                <input style="display:none;" type="range" id="imageScale" min="10" max="100" value="50">
+                
+                <div class="action-buttons">
+                    <button id="processBtn" disabled>处理图片</button>
+                    <button id="resetBtn">重置</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="preview-section">
+            <div class="image-preview-container">
+                <img id="imagePreview" class="image-preview">
+                <p id="previewPlaceholder"></p>
+            </div>
+            
+            <label for="resultContainer">处理结果（<span id="pixelCount">0</span> 像素）:</label>
+            <div class="action-buttons">
+                <button id="copyBtn" disabled>复制结果</button>
+            </div>
+            <div class="result-container">
+                <div id="resultText" class="result-text"></div>
+            </div>
+            
+
+        </div>
+    </div>
+    
+    <div class="notification" id="notification">操作成功！</div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const fileInput = document.getElementById('fileInput');
+        const dropArea = document.getElementById('dropArea');
+        const imagePreview = document.getElementById('imagePreview');
+        const previewPlaceholder = document.getElementById('previewPlaceholder');
+        const imageScale = document.getElementById('imageScale');
+        const scaleValue = document.getElementById('scaleValue');
+        const processBtn = document.getElementById('processBtn');
+        const resetBtn = document.getElementById('resetBtn');
+        const resultText = document.getElementById('resultText');
+        const copyBtn = document.getElementById('copyBtn');
+        const notification = document.getElementById('notification');
+        const pixelCount = document.getElementById('pixelCount');
+        
+        let originalImage = null;
+        
+        // 拖拽区域事件
+        dropArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropArea.style.borderColor = '#64b3f4';
+            dropArea.style.backgroundColor = 'rgba(100, 179, 244, 0.2)';
+        });
+        
+        dropArea.addEventListener('dragleave', () => {
+            dropArea.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+            dropArea.style.backgroundColor = '';
+        });
+        
+        dropArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropArea.style.borderColor = 'rgba(255, 255, 255, 0.3)';
+            dropArea.style.backgroundColor = '';
+            
+            if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+                const file = e.dataTransfer.files[0];
+                handleImageUpload(file);
+            }
+        });
+        
+        // 文件上传事件
+        fileInput.addEventListener('change', () => {
+            if (fileInput.files && fileInput.files[0]) {
+                handleImageUpload(fileInput.files[0]);
+            }
+        });
+        
+        // 调整预览尺寸
+        imageScale.addEventListener('input', () => {
+            scaleValue.textContent = `${imageScale.value}%`;
+            if (originalImage) {
+                imagePreview.style.width = `${imageScale.value}%`;
+            }
+        });
+        
+        // 处理图片
+        processBtn.addEventListener('click', processImage);
+        
+        // 重置按钮
+        resetBtn.addEventListener('click', resetApp);
+        
+        // 复制结果
+        copyBtn.addEventListener('click', () => {
+            const text = resultText.textContent;
+            navigator.clipboard.writeText(text).then(() => {
+                showNotification('结果已复制到剪贴板！');
+            });
+        });
+        
+        // 处理图片上传
+        function handleImageUpload(file) {
+            if (!file.type.match('image.*')) {
+                showNotification('请上传图片文件！');
+                return;
+            }
+            
+            const reader = new FileReader();
+            
+            reader.onload = (e) => {
+                originalImage = new Image();
+                originalImage.onload = () => {
+                    previewPlaceholder.style.display = 'none';
+                    imagePreview.style.display = 'block';
+                    imagePreview.src = e.target.result;
+                    imagePreview.style.width = `${imageScale.value}%`;
+                    processBtn.disabled = false;
+                };
+                originalImage.src = e.target.result;
+            };
+            
+            reader.readAsDataURL(file);
+        }
+        
+        // 处理图片
+        function processImage() {
+            if (!originalImage) return;
+            
+            processBtn.disabled = true;
+            processBtn.innerHTML = '<div class="loading"></div> 处理中...';
+            
+            // 使用setTimeout确保UI更新
+            setTimeout(() => {
+                const tempCanvas = document.createElement('canvas');
+                const ctx = tempCanvas.getContext('2d');
+                
+                // 设置canvas尺寸为图片尺寸
+                tempCanvas.width = originalImage.width;
+                tempCanvas.height = originalImage.height;
+                
+                // 绘制图片到canvas
+                ctx.drawImage(originalImage, 0, 0, tempCanvas.width, tempCanvas.height);
+                
+                // 获取像素数据
+                const imageData = ctx.getImageData(0, 0, tempCanvas.width, tempCanvas.height);
+                const data = imageData.data;
+                
+                let result = '';
+                let count = 0;
+                
+                // 遍历每个像素
+                for (let y = 0; y < tempCanvas.height; y++) {
+                    for (let x = 0; x < tempCanvas.width; x++) {
+                        const idx = (y * tempCanvas.width + x) * 4;
+                        const r = data[idx].toString(16).padStart(2, '0').toUpperCase();
+                        const g = data[idx + 1].toString(16).padStart(2, '0').toUpperCase();
+                        const b = data[idx + 2].toString(16).padStart(2, '0').toUpperCase();
+                        
+                        const hexColor = `${r}${g}${b}`;
+                        
+                        result += `{col:${hexColor}}█{/col}`;
+                        count++;
+                    }
+                    result += '\n';
+                }
+                
+                resultText.textContent = result;
+                pixelCount.textContent = count.toLocaleString();
+                
+                processBtn.disabled = false;
+                processBtn.innerHTML = '处理图片';
+                copyBtn.disabled = false;
+                
+                showNotification(`图片处理完成！共 ${count} 像素`);
+            }, 500);
+        }
+        
+        // 重置应用
+        function resetApp() {
+            fileInput.value = '';
+            originalImage = null;
+            imagePreview.src = '';
+            imagePreview.style.display = 'none';
+            previewPlaceholder.style.display = 'block';
+            resultText.textContent = '处理完成后结果将显示在这里...';
+            processBtn.disabled = true;
+            copyBtn.disabled = true;
+            pixelCount.textContent = '0';
+        }
+        
+        // 显示通知
+        function showNotification(message) {
+            notification.textContent = message;
+            notification.style.display = 'block';
+            
+            setTimeout(() => {
+                notification.style.display = 'none';
+            }, 3000);
+        }
+    });
+</script>
