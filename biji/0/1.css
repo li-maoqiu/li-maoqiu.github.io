@@ -41,7 +41,7 @@ i[黑]{background-color:#000000}
 i[靛]{background-color:#153FA0}
 i[青]{background-color:#46ACC8}
 
-@media screen and (max-width:767px){
+@media screen and (max-width:768px){
     body{width:90%}
     .index{display:none}
 }

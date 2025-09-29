@@ -3,7 +3,9 @@
     let h1="魔兽世界的宏";
     let nav=["x","猫球搜索#游戏笔记","魔兽世界"];
     let index=["自动"];
-</script><link rel="stylesheet" href="../0/1.css"><div id="dy"></div><script src="../0/1.js"></script><div id="a">
+</script><link rel="stylesheet" href="../0/1.css"><div id="dy"></div><script src="../0/1.js"></script>
+<script src="复制指令.js"></script>
+<div id="a">
 
 <style>pre fieldset:before{cursor:pointer;color:#006699;content:attr(bt);display:block;font-weight:bold;font-family:Helvetica,Arial,"Microsoft YaHei",sans-serif,"Droid Sans Fallback";}
 pre fieldset:after{content:attr(by);color:#9b9b9b;font-size:0.8em;display:block;font-family:Helvetica,Arial,"Microsoft YaHei",sans-serif,"Droid Sans Fallback";}</style>
@@ -111,11 +113,23 @@ pre fieldset:after{content:attr(by);color:#9b9b9b;font-size:0.8em;display:block;
 〈复制|开启技能介绍|/console UberTooltips 1〉 　〈复制|关闭|/console UberTooltips 0〉<br>
 〈复制|/eq 名字|/eq〉 　装备物品<br>
 〈复制|/dismount|/dismount〉 　解散坐骑<br>
+播放音频 <span>/script PlaySound(<input type="text" placeholder="音频编号">) <a onclick="复制指令(event)">复制</a></span>（只有自己能听到，编号可以在数据库网站里找）<br>
+<a onclick="this.style.display='none';this.nextElementSibling.style.display='inline'">一些台词编号</a><fieldset style="display:none;"><ul>
+    <li><small>莎赫拉丝主母：</small>是办正事还是找乐子？ 〈复制|/script PlaySound(11504)〉</li>
+    <li><small>莎赫拉丝主母：</small>你看起来有点紧张 〈复制|/script PlaySound(11505)〉</li>
+    <li><small>莎赫拉丝主母：</small>不要害羞 〈复制|/script PlaySound(11506)〉</li>
+    <li><small>莎赫拉丝主母：</small>我是，你的了 〈复制|/script PlaySound(11507)〉</li>
+    <li><small>莎赫拉丝主母：</small>多么快乐的结局呀 〈复制|/script PlaySound(11509)〉</li>
+    <li><small>伊利丹：</small>你们这是自寻死路 〈复制|/script PlaySound(11466)〉</li>
+    <li><small>猢狲：</small>人人都得吃香蕉 〈复制|/script PlaySound(29546)〉</li>
+    <li> 〈复制|/script PlaySound()〉</li>
+</ul></fieldset>
 <br>
 
 <hr>
 
 〈h4|宏记录〉<br>
+
 
 <pre><fieldset onclick="复(this.innerHTML.replace(new RegExp('<br>','g'),'\n'))" bt="坐骑（联盟）狮鹫">
 /dismount [mounted]<br>
@@ -167,10 +181,26 @@ pre fieldset:after{content:attr(by);color:#9b9b9b;font-size:0.8em;display:block;
 /changeactionbar 6
 </fieldset></pre>
 
-<pre><fieldset onclick="复(this.innerHTML.replace(new RegExp('<br>','g'),'\n'))" bt="坐骑（怀旧服）">
-#showtooltips<br>
-/castrandom [flyable]波利·罗杰;[swimming]驯服的海马;条纹霜刃豹
+<br>〈h5|德鲁伊〉<br>
+
+<pre><fieldset onclick="复(this.innerHTML.replace(new RegExp('<br>','g'),'\n'))" bt="奔跑">
+/cast [outdoors,nostance:3,nocombat] 旅行形态;[nostance:1,nostance:2,nostealth] 狂奔怒吼;猛虎冲刺
 </fieldset></pre>
+
+<pre><fieldset onclick="复(this.innerHTML.replace(new RegExp('<br>','g'),'\n'))" bt="潜行">
+/cancelform [stance:3]<br>
+/cast [combat,nostance:3] 猎豹形态;[nocombat,nostealth] 潜行
+</fieldset></pre>
+
+<br>〈h5|怀旧服〉
+
+<pre><fieldset onclick="复(this.innerHTML.replace(new RegExp('<br>','g'),'\n'))" bt="坐骑">
+#showtooltips 波利·罗杰<br>
+/run if GetZoneText()=="达拉然" or not IsFlyableArea() then CastSpellByName("大战熊") else CastSpellByName("波利·罗杰") end
+</fieldset></pre>
+
+
+
 
 <!-- <pre><fieldset onclick="复(this.innerHTML.replace(new RegExp('<br>','g'),'\n'))" bt="">
 </fieldset></pre> -->

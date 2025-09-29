@@ -3,7 +3,10 @@
     let h1="魔兽世界";
     let nav=["x","猫球搜索#游戏笔记"];
     let index=["自动"];
-</script><link rel="stylesheet" href="../0/1.css"><div id="dy"></div><script src="../0/1.js"></script><div id="a">
+</script><link rel="stylesheet" href="../0/1.css"><input type="text" id="搜索输入" value=""> 
+<a onclick="搜索('百度')">百度</a> . 
+<a onclick="搜索('WIKI')">WIKI</a> . 
+<a onclick="搜索('数据库')">数据库</a><div id="dy"></div><script src="../0/1.js"></script><div id="a">
 
 <fieldset><legend>个人内容</legend>
 〈写宏|魔兽世界／宏〉 . 〈RP|魔兽世界_RP〉<br>
@@ -17,25 +20,8 @@
 <br>
 
 <a href="https://warcraft.huijiwiki.com/wiki/首页">灰机wiki</a><br>
-数据库：<a href="https://www.wowhead.com/" class='提示' data-msg='屏蔽国内IP'>wowhead</a> . dvg.cn（<a href="https://60.dvg.cn/">60年代</a> . <a href="https://70.dvg.cn/">70年代</a> . <a href="https://80.dvg.cn/">80年代</a>） . <a href="http://db.178.com/wow/">军团再临</a><br>
-
-<br>
-
-<input type="text" id="搜索输入" value=""> 
-<a onclick="搜索('百度')">百度</a> . 
-<a onclick="搜索('WIKI')">WIKI</a> . 
-<a onclick="搜索('数据库')">数据库</a>
-
-<script>
-    let 搜索列表={
-        "百度":"https://www.baidu.com/s?wd=魔兽世界 【】",
-        "数据库":"https://www.wowhead.com/search?q=【】",
-        "WIKI":"https://warcraft.huijiwiki.com/index.php?title=特殊:搜索&search=【】&profile=default&sort=just_match",
-    }
-    function 搜索(o){
-        window.open(搜索列表[o].replace(new RegExp('【】',"g"),document.getElementById("搜索输入").value))
-    }
-</script>
+数据库：<a href="https://www.wowhead.com/" class='提示' data-msg='屏蔽国内IP'>wowhead</a> . dvg.cn(<a href="https://60.dvg.cn/">60年代</a> . <a href="https://70.dvg.cn/">70年代</a> . <a href="https://80.dvg.cn/">80年代</a>) . <a href="http://db.178.com/wow/">军团再临</a><br>
+<a href="https://wow.kernel.moe/Schedule">事件时间表</a><br>
 
 <hr>
 
@@ -366,51 +352,25 @@
 
 〈h4|账号〉<br>
 <style>
-    [联盟]{background-color:#093a7a;color:#f4b225;font-weight:bold}
-    [部落]{background-color:#d81020;color:#6a0814;font-weight:bold}
+    [联盟]{color:#1a62c2}
+    [部落]{color:#d82f3d}
     /*[部落]{background-color:#6a0814;color:#d81020;font-weight:bold}*/
 </style>
-<table>
-    <tr style="position:sticky;top:0;font-weight:bold"><td>名字</td><td>种族/职业</td><td>生活职业</td><td>其他</td></tr>
-    <tr><td 联盟>大猫球</td><td>熊猫人 术士</td><td>采矿 草药</td><td>进度、烹饪：卡兹阿加</td></tr>
-    <tr><td 部落>初代</td><td>亡灵 盗贼</td><td>工程学 炼金术</td><td>进度：旧版本 / 烹饪：旧世-德拉诺</td></tr>
-    <tr><td 部落>小猫球</td><td>血精灵 法师</td><td>裁缝 附魔</td><td>拍卖行</td></tr>
-    <tr><td 部落>扳手大师</td><td>地精 猎人</td><td>锻造</td><td></td></tr>
-    <tr><td 联盟>艾露恩</td><td>德莱尼 圣骑士</td><td>珠宝加工 铭文</td><td></td></tr>
-    <tr><td 部落>云壬</td><td>熊猫人 武僧</td><td></td><td>破碎群岛</td></tr>
-    <tr><td 联盟>猫球</td><td>侏儒 死亡骑士</td><td>制皮</td><td></td></tr>
-    <tr><td 联盟>李猫球</td><td>熊猫人 武僧</td><td></td><td>在金色平原RP</td></tr>
-
-    <tr><td colspan="4"><b>工具人</b></td></tr>
-    <tr><td 联盟>雷杰德</td><td>矮人 猎人</td><td></td><td>收藏酒</td></tr>
-    <tr><td 联盟>维拉特</td><td>矮人 猎人</td><td></td><td>多余的酒</td></tr>
-    <tr><td 联盟>马莱斯</td><td>矮人 猎人</td><td></td><td>备用的酒仓库</td></tr>
-    <tr><td 联盟>宝藏看守人</td><td>龙希尔 唤魔师</td><td></td><td>收藏达拉然葡萄酒</td></tr>
-    <tr><td 部落>卡亚可乐</td><td>地精 盗贼</td><td></td><td>捡卡亚可乐</td></tr>
-
-    <tr><td colspan="4"><b>没用的号</b></td></tr>
-    <tr><td 联盟>科林烈酒</td><td>黑铁矮人 猎人</td><td></td><td></td></tr>
-    <tr><td 部落>小社长</td><td>血精灵 法师</td><td></td><td></td></tr>
-    <tr><td 部落>老桑博</td><td>地精 潜行者</td><td></td><td></td></tr>
-    <tr><td 部落>力卡提</td><td>狐人 猎人</td><td></td><td></td></tr>
-    <tr><td 联盟>牛莉莉</td><td>德莱尼 圣骑士</td><td></td><td></td></tr>
-    <tr><td 部落>玛尔迦</td><td>夜之子 牧师</td><td></td><td></td></tr>
-    <tr><td></td><td></td><td></td><td></td></tr>
-</table>
+<div id="账号记录"></div>
 <br>
 
 〈h5|游戏版本〉<br>
-1.0 经典旧世 东部王国，卡姆利多<br>
-2.0 TBC 燃烧的远征 外域<br>
-3.0 WLK 巫妖王之怒 诺森德<br>
-4.0 CTM 大地的裂变 大漩涡（瓦丝琪尔）<br>
-5.0 MOP 熊猫人之谜 潘达利亚大陆<br>
-6.0 WOD 德拉诺之王 德拉诺<br>
-7.0 LEG 军团再临 破碎群岛<br>
-8.0 争霸艾泽拉斯 库尔提拉斯、赞达拉大陆<br>
-9.0 暗影国服 暗影界<br>
-10.0 巨龙时代 巨龙群岛<br>
-11.0 地心之战 卡兹阿加（多恩岛）<br>
+1.0 经典旧世 东部王国，卡姆利多 2005年<br>
+2.0 TBC 燃烧的远征 外域 2007年<br>
+3.0 WLK 巫妖王之怒 诺森德 2010年<br>
+4.0 CTM 大地的裂变 大漩涡（瓦丝琪尔） 2011年<br>
+5.0 MOP 熊猫人之谜 潘达利亚大陆 2012年<br>
+6.0 WOD 德拉诺之王 德拉诺 2014年<br>
+7.0 LEG 军团再临 破碎群岛 2016年<br>
+8.0 争霸艾泽拉斯 库尔提拉斯、赞达拉大陆 2018年<br>
+9.0 暗影国服 暗影界 2020年<br>
+10.0 巨龙时代 巨龙群岛 2022年<br>
+11.0 地心之战 卡兹阿加（多恩岛） 2024年<br>
 <br>
 
 <br>
@@ -425,3 +385,79 @@
 布莱恩的通讯器：风暴峭壁任务。<br>
 
 </div>
+
+
+
+<script>
+    let 搜索列表={
+        "百度":"https://www.baidu.com/s?wd=魔兽世界 【】",
+        "数据库":"https://www.wowhead.com/search?q=【】",
+        "WIKI":"https://warcraft.huijiwiki.com/index.php?title=特殊:搜索&search=【】&profile=default&sort=just_match",
+    }
+    function 搜索(o){
+        window.open(搜索列表[o].replace(new RegExp('【】',"g"),document.getElementById("搜索输入").value))
+    }
+
+    const dqurl = window.location.href;
+    if (dqurl.includes('?')) {
+        document.getElementById('搜索输入').value=decodeURI(dqurl.split('?')[1]);
+    }
+
+    let 账号=[
+        ["暗月鱼","暗影界"],
+        ["大猫球","联盟","熊猫人 术士","采矿 草药","进度、烹饪：卡兹阿加 / 暗影界：温西尔","11"],
+        ["初代","部落","亡灵 盗贼","工程学 炼金术","进度：旧版本 / 烹饪：旧世-德拉诺 / 暗影界：通灵领主","11"],
+        ["小猫球","部落","血精灵 法师","裁缝 附魔","守拍卖行","1"],
+        ["扳手大师","部落","地精 猎人","锻造","","1"],
+        ["艾露恩","联盟","德莱尼 圣骑士","珠宝加工 铭文","暗影界：格里恩","11"],
+        ["云壬","部落","熊猫人 武僧","","破碎群岛 / 暗影界：法夜","11"],
+        ["猫球","联盟","侏儒 死亡骑士","制皮","","1"],
+        ["李猫球","联盟","熊猫人 武僧","","在金色平原RP",""],
+        ["自然图腾","部落","牛头人 德鲁伊","采矿 草药 考古","","01"],
+        // ["","","","","",""],
+
+        ["hr","工具人"],
+        ["雷杰德","联盟","矮人 猎人","","收藏酒",""],
+        ["维拉特","联盟","矮人 猎人","","多余的酒",""],
+        ["马莱斯","联盟","矮人 猎人","","备用的酒仓库",""],
+        ["宝藏看守人","联盟","龙希尔 唤魔师","","收藏达拉然葡萄酒","1"],
+        ["卡亚可乐","部落","地精 盗贼","","捡卡亚可乐",""],
+        // ["","","","","",""],
+
+        ["hr","没用的号"],
+        ["科林烈酒","联盟","黑铁矮人 猎人","","",""],
+        ["小社长","部落","血精灵 法师","","","1"],
+        ["老桑博","部落","地精 潜行者","","",""],
+        ["力卡提","部落","狐人 猎人","","",""],
+        ["牛莉莉","联盟","德莱尼 圣骑士","","","1"],
+        ["玛尔迦","部落","夜之子 牧师","","",""],
+        ["幸运图腾","部落","牛头人 萨满","","",""],
+        // ["","","","","",""],
+    ];
+    let 账号dy=`<table><tr style="position:sticky;top:0;font-weight:bold"><td>名字</td><td>种族/职业</td><td>生活职业</td><td>其他</td></tr>`
+    for(let i=1;账号.length>i;i++){
+        if(账号[i][0]=="hr"){账号dy+="<tr><td colspan='4'><br><b>【"+账号[i][1]+"】</b></td></tr>"}
+        else{
+            账号dy+=`<tr><td><b><span ${账号[i][1]}>•</span> ${账号[i][0]}</b></td><td>${账号[i][2]}</td><td>${账号[i][3]}</td><td>${账号[i][4]}</td></tr>`;
+        }
+    }
+    账号dy+="</table>";
+    for(let i=0;账号[0].length>i;i++){
+        账号dy+="<br><b>"+账号[0][i]+"</b>：";
+        let 账号dy2="<small>已完成：";
+        for(let i2=1;账号.length>i2;i2++){
+            if(账号[i2][0]=="hr"){
+            }else if(账号[i2][5]==""){
+                账号dy+=账号[i2][0]+" ";
+            }else if(!账号[i2][5][i]){
+                账号dy+=账号[i2][0]+" ";
+            }else if(账号[i2][5][i]=="0"){
+                账号dy+=账号[i2][0]+" ";
+            }else{
+                账号dy2+=账号[i2][0]+" ";
+            }
+        }
+        账号dy+="<br>"+账号dy2+"</small><br>";
+    }
+    document.getElementById("账号记录").innerHTML=账号dy;
+</script>

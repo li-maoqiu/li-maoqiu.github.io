@@ -1,0 +1,94 @@
+
+<meta http-equiv="content-type" content="text/html; charset=UTF-8"><script>
+    let h1="";
+    let nav=["x"];
+    let index=["自动"];
+</script><link rel="stylesheet" href="../0/1.css"><div id="dy"></div><script src="../0/1.js"></script><script src="0.js"></script><div id="a">
+
+</div>
+
+<script>
+    let 关键词=[
+        
+    ];
+    let data=[
+        //[3,"标题"], h3
+        //["场景","关键词",0,"隐藏的关键词"]
+        [3,"海边"],
+        ["东港","无沙滩","　","海鸥","骑自行车","日落","　","距离1小时",0,"海边"],
+        ["付家庄","鹅卵石","　","清澈","　","距离1小时",0,"海边"],
+
+        [3,"公园、广场"],
+        ["星海广场","像哈尔滨江边","人很多","大台历","海鸥","　","距离1小时"],
+
+        [3,"待记录"],
+        ["滨海路木栈道","距离1小时","散步","景色"],
+        ["跨海大桥","拍照出片","距离1小时30分钟"],
+        ["银沙滩公园","距离1小时","海边","沙滩","清澈"],
+        ["交大夜市","距离30分钟","23:00结束"],
+        ["菱角湾","距离1小时20分钟","拍照出片","山、海、房"],
+        ["渔人码头","距离1小时","欧式建筑","十点前可以吃到新鲜海鲜"],
+        ["棒棰岛","门票40元","观光车20元","海边","鹅卵石","海鸥"],
+        ["港东五街","距离1小时","拍照出片","看海公路","游轮经过，10:30和16:30"],
+        ["威尼斯水城","距离1小时","夜游60元","19:00亮灯","人造水城","逛店"],
+        ["中山广场","距离45分钟","大连很具代表性的城市建筑"],
+        ["胜利街","距离1小时","拍照出片","有轨电车"],
+        ["大连美术馆","距离1小时"],
+        ["201有轨电车","2元"],
+        ["俄罗斯风情街","距离1小时"],
+        ["西安路(长兴里小吃街)","距离45分钟","10:30~22:30"],
+        ["罗斯福和中央大道","列表推荐","很多谷子店和剧本杀桌游店"],
+        ["胜代日本料理","列表推荐","美食","日料"],
+        ["京和日法料理","列表推荐","美食","生鱼片很棒","半自助","四百到七百一位"],
+        ["花亭小馆","列表推荐","美食","炒菜","自酿的青梅酒","服务态度很好"],
+        ["君霖私房菜","列表推荐","美食","海鲜","黄花鱼丸汤巨鲜"],
+        ["南山路七七街","列表推荐","拍照出片","很多咖啡厅小酒馆"],
+        ["鲁能","列表推荐","温泉"],
+        ["金青果","列表推荐","KTV","3小时78元","能找到比较少见的二次元歌"],
+        [""],
+        [""],
+    ];
+    function 排序(o){
+        let dy="<fieldset><legend>关键词</legend><a onclick=\"排序(0)\">全部</a>";
+        for(let i=0;关键词.length>i;i++){
+            if(关键词[i]=="br"){
+                dy+="<br>";
+            }else{
+                dy+="<a onclick=\"排序('"+关键词[i]+"')\">"+关键词[i]+"</a>";
+            }
+        }
+        dy+="</fieldset><br>";
+
+        for(let i=0;data.length>i;i++){
+            if(data[i][0]>0){
+                if(o==0){
+                    if(i!=0){dy+="<br>"}
+                    dy+="〈h"+data[i][0]+"|"+data[i][1]+"〉<br>";
+                }
+            }else if(data[i].length>1){
+                if(o==0||data[i].indexOf(o)!=-1){
+                    dy+="<b>"+data[i][0]+"</b>：";
+                    for(let j=1;data[i].length>j;j++){
+                        if(data[i][j]=="0"){break;}
+                        else if(data[i][j]=="　"){dy+="　"}
+                        else{dy+="<span>"+data[i][j]+"</span>";}
+                    }
+                    dy+="<br>";
+                }
+            }else if(o==0){
+                dy+="<b>"+data[i][0]+"</b><br>";
+            }
+        }
+        document.getElementById("a").innerHTML=dy;
+        更新()
+    }
+    排序(0);
+</script>
+
+<style>
+    #a{line-height:2.4em;}
+    h3{font-size:2em;line-height:1.6em;color:#c1c1c1;}
+    #a span{border:1px solid #41ff3b;border-radius:12px;padding:4px;margin:4px;}
+    #a b{font-size:1.2em;text-decoration:underline double;text-decoration-color:#ff0000;text-underline-offset:4px;}
+    fieldset a{border:1px solid #41ff3b;border-radius:12px;padding:4px;margin:4px;}
+</style>

@@ -13,7 +13,7 @@
 <b>[DST]WhaRang</b>：千年狐。<br>
 <b>Ice Backpack</b>：冰背包。<br>
 <b>More In Tumbleweed</b>：风滚草盲盒。<br>
-<b>Storeroom</b>：地窖。<br>
+<b>Storeroom</b>：地窖。可以设置开启食物不腐烂、禁止怪物破坏。<br>
 
 <hr>
 〈h3|指令〉<br>
@@ -25,14 +25,15 @@
     let dy="";
 
     let 常用=[
-        ["重生 restart<br><small>按U用密语发送文字</small>","#restart"],
+        ["重生 resurrect<br><small>按U用密语发送文字</small>","#resurrect"],
+        // ["重生 restart<br><small>按U用密语发送文字</small>","#restart"],
     ];
 
     dy+="〈h4|常用指令〉";
     dy+="<table>";
     for(let i=0;常用.length>i;i++){
         dy+="<tr><td>"+常用[i][0]+"</td>";
-        dy+=`<td><a onclick="生成复(生成制='${常用[i][1]}')">复制</a></td>`;
+        dy+=`<td><a onclick="复(制='${常用[i][1]}')">复制</a></td>`;
         dy+="<td>"+常用[i][1]+"</td></tr>";
     }
     dy+="</table><br>";

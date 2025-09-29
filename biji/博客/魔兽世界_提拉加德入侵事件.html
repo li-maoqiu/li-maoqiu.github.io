@@ -1,0 +1,117 @@
+
+<style>
+    body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        background: #f5f5f5;
+    }
+    .container {
+        background: white;
+        padding: 2rem 3rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        text-align: center;
+        max-width: 600px;
+        width: 90%;
+    }
+    h2 {
+        color: #333;
+        margin-bottom: 1.5rem;
+    }
+    p {
+        font-size: 1.2rem;
+        line-height: 1.6;
+        color: #666;
+        min-height: 120px;
+    }
+    .highlight {
+        color: #2c3e50;
+        font-weight: bold;
+    }
+    .progress{
+        color: #ffffff;
+        background-color: #ff0000;
+    }
+</style>
+
+<div class="container">
+    <h2>提拉加德入侵事件</h2>
+    <p id="statusInfo"></p>
+</div>
+
+<script>
+    const FIRST_EVENT_START = new Date('2025-01-05T19:00:00');
+    const EVENT_DURATION = 7 * 60 * 60 * 1000;
+    const REST_DURATION = 107 * 60 * 60 * 1000;
+    const CYCLE_DURATION = EVENT_DURATION + REST_DURATION;
+
+    const statusElement = document.getElementById('statusInfo');
+
+    function formatDuration(ms) {
+        const hours = Math.floor(ms / (1000 * 60 * 60));
+        const minutes = Math.floor((ms % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor( (ms % (1000 * 60 * 60)) % (1000 * 60) / 1000 ); 
+        return `${pad(hours)}时${pad(minutes)}分${pad(seconds)}秒`;
+    }
+
+    function formatDateTime(date) {
+        return [
+            date.getFullYear(),
+            pad(date.getMonth() + 1),
+            pad(date.getDate())
+        ].join('年') + '日 ' + pad(date.getHours()) + ':00';
+    }
+
+    function pad(num) {
+        return num.toString().padStart(2, '0');
+    }
+
+    function updateStatus() {
+        const now = new Date();
+        const timeDiff = now - FIRST_EVENT_START;
+
+        if (timeDiff < 0) {
+            const nextStart = FIRST_EVENT_START;
+            const timeLeft = FIRST_EVENT_START - now;
+            statusElement.innerHTML = `
+                尚未开始<br>
+                <small>下一次</small> <span class="highlight">${formatDateTime(nextStart)}</span><br>
+                <small>距今</small> <span class="highlight">${formatDuration(timeLeft)}</span>
+            `;
+        } else {
+            const currentCycleOffset = timeDiff % CYCLE_DURATION;
+            const isEventPhase = currentCycleOffset < EVENT_DURATION;
+
+            if (isEventPhase) {
+                const elapsed = currentCycleOffset;
+                const remaining = EVENT_DURATION - elapsed;
+
+                const nextStart = new Date(FIRST_EVENT_START.getTime() + 
+                Math.ceil(timeDiff / CYCLE_DURATION) * CYCLE_DURATION);
+                const timeLeft = nextStart - now;
+                statusElement.innerHTML = `
+                    <span class="progress">正在入侵</span><br>
+                    <small>剩余时间</small> <span class="highlight">${formatDuration(remaining)}</span><br>
+                    <br>
+                    <small>下一次</small> <span class="highlight">${formatDateTime(nextStart)}</span><br>
+                    <small>距今</small> <span class="highlight">${formatDuration(timeLeft)}</span>
+                `;
+            } else {
+                const nextStart = new Date(FIRST_EVENT_START.getTime() + 
+                    Math.ceil(timeDiff / CYCLE_DURATION) * CYCLE_DURATION);
+                const timeLeft = nextStart - now;
+                statusElement.innerHTML = `
+                    尚未开始<br>
+                    <small>下一次</small> <span class="highlight">${formatDateTime(nextStart)}</span><br>
+                    <small>距今</small> <span class="highlight">${formatDuration(timeLeft)}</span>
+                `;
+            }
+        }
+    }
+
+    updateStatus();
+    setInterval(updateStatus, 600);
+</script>
