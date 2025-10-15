@@ -46,7 +46,7 @@ let 购物=[
     ["一年陈的蓝酒",20,1],
     ["两年陈的蓝酒",20,2],
     ["三年陈的蓝酒",5,2],
-    ["龙血酒",5,8],
+    ["龙血酒",2,8],
     ["雷酒老爹的止咳糖浆",100,2],
 
     //其他
@@ -567,13 +567,13 @@ let 购物=[
     }
 
     function 备用仓库(){
-        let 购物dy="<ul>";
+        let 购物dy="<table>";
         for(let i=0;购物.length>i;i++){
             if(购物[i][2]){
-                购物dy+="<li>"+购物[i][0]+"（"+购物[i][2]+"）"+"</li>";
+                购物dy+="<tr><td>"+购物[i][0]+"</td><td>"+购物[i][2]+"</td></tr>";
             }
         }
-        购物dy+="</ul>";
+        购物dy+="</table>";
         document.getElementById("拍卖行购物").innerHTML=购物dy;
         document.getElementById("拍卖行购物").style="display:block;";
     }

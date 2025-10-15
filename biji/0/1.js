@@ -74,6 +74,7 @@ for(let i=0;nav.length>i;i++){
     if(nav[i]=="搜索"||nav[i]=="x"){}
     else if(Array.isArray(nav[i])&&nav[i][0]=="t"){dy1js+=nav[i][1]}
     else if(nav[i]=="相关"){dy1js+="<br><small>相关</small>"}
+    else if(nav[i]=="猫球博客"){dy1js+="<a href='"+代码["博客"]+"'>猫球博客</a>"}
     else if(!本地&&(nav[i].startsWith("设计中/")||nav[i].startsWith("参考/"))){}
     else{
         let 临u=nav[i],临名=nav[i];
