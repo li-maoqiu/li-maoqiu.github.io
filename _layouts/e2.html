@@ -36,11 +36,7 @@ footer img{position:relative;bottom:50px;display:block;margin:0 auto}
 @media screen and (max-width:767px){
 .内容1{padding:20px 12px 0;width:95%}
 #书名,.导航{padding:3px 12px}
-#右侧{right:3%;
-    transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1), 
-                  opacity 0.4s cubic-bezier(0.25, 0.1, 0.25, 1),
-                  box-shadow 0.4s ease;
-      opacity: 1; /* 默认完全显示 */}
+#右侧{right:3%;transition:opacity 0.5s ease;opacity:1}
 #设置{padding:5px;width:90%;height:80%;right:5%}
 .底部{width:90%}
 }
@@ -248,7 +244,6 @@ footer img{position:relative;bottom:50px;display:block;margin:0 auto}
 
     const elem=document.getElementById('右侧');
     let lastScrollTop=0;
-    const threshold=50;
     let scrollDistance=0;
 
     function handleScroll(){
@@ -257,7 +252,7 @@ footer img{position:relative;bottom:50px;display:block;margin:0 auto}
         const scrollTop=window.pageYOffset;
         const scrollDiff=scrollTop-lastScrollTop;
         scrollDistance+=Math.abs(scrollDiff);
-        if(scrollDistance>threshold){
+        if(scrollDistance>30){
         if(scrollDiff>0){
             elem.style.transform='translateY(-100%)';
             elem.style.opacity='0';
