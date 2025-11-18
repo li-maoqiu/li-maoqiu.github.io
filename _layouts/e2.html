@@ -246,32 +246,31 @@ footer img{position:relative;bottom:50px;display:block;margin:0 auto}
 
     document.addEventListener('contextmenu',function(e){e.preventDefault();window.location.href='#底部';})
 
-    const elems=document.getElementById('右侧');
+    const elem=document.getElementById('右侧');
     let lastScrollTop=0;
     const threshold=50;
     let scrollDistance=0;
+
     function handleScroll(){
-      const windowWidth=window.innerWidth;
-      if(windowWidth<767){
+    const windowWidth=window.innerWidth;
+    if(windowWidth<767){
         const scrollTop=window.pageYOffset;
         const scrollDiff=scrollTop-lastScrollTop;
         scrollDistance+=Math.abs(scrollDiff);
         if(scrollDistance>threshold){
-          elems.forEach(elem=>{
-            if(scrollDiff>0){
-              elem.style.transform='translateY(-100%)';
-              elem.style.opacity='0';
-              elem.style.boxShadow='none';
-            }else{
-              elem.style.transform='translateY(0)';
-              elem.style.opacity='1';
-              elem.style.boxShadow='0 2px 10px rgba(0,0,0,0.1)';
-            }
-          });
-          scrollDistance=0;
+        if(scrollDiff>0){
+            elem.style.transform='translateY(-100%)';
+            elem.style.opacity='0';
+            elem.style.boxShadow='none';
+        }else{
+            elem.style.transform='translateY(0)';
+            elem.style.opacity='1';
+            elem.style.boxShadow='0 2px 10px rgba(0,0,0,0.1)';
+        }
+        scrollDistance=0;
         }
         lastScrollTop=scrollTop<=0?0:scrollTop;
-      }
+    }
     }
     window.addEventListener('scroll',handleScroll);
 </script>
