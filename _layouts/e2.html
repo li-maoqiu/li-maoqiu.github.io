@@ -254,11 +254,9 @@ footer img{position:relative;bottom:50px;display:block;margin:0 auto}
         scrollDistance+=Math.abs(scrollDiff);
         if(scrollDistance>30){
         if(scrollDiff>0){
-            elem.style.transform='translateY(-100%)';
             elem.style.opacity='0';
             elem.style.boxShadow='none';
         }else{
-            elem.style.transform='translateY(0)';
             elem.style.opacity='1';
             elem.style.boxShadow='0 2px 10px rgba(0,0,0,0.1)';
         }
