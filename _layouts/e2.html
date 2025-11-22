@@ -1,7 +1,7 @@
 ---
 layout: default
 ---
-<title>{% if page.BiaoTi %}{{ page.BiaoTi }} - {{ page.ShuMing }}{% else %}{{ site.title }}{% endif %}</title>
+<title></title>
 
 <script src="/i/5/mq-wzjm.js"></script>
 
@@ -49,7 +49,7 @@ footer img{position:relative;bottom:50px;display:block;margin:0 auto}
 <br><br><br>
 <div class="内容1">
     <div class="导航"><a href="/">{{ site.title }}</a> &nbsp;/ &nbsp;<a href="/{% if page.MuLu %}{{ page.MuLu }}{% else %}{% endif %}">{% if page.ShuMing %}{{ page.ShuMing }}{% endif %}</a></div>
-    <h1 class="tubiao" id="书名">{% if page.BiaoTi %}{{ page.BiaoTi }}{% endif %}</h1>
+    <h1 class="tubiao" id="书名"></h1>
     <small>{% if page.ZuoZhe %}作者: {{ page.ZuoZhe }}{% endif %}{% if page.ZuoZhe and page.ShiJian %}　{% endif %}{% if page.ShiJian %}时间: {{ page.ShiJian }}{% endif %}{% if page.QiTa %}{{ page.QiTa }}{% endif %}</small>
     <hr class="hr4">
     {% if page.JiaZai %}{{ page.JiaZai }}{% endif %}
@@ -79,12 +79,14 @@ footer img{position:relative;bottom:50px;display:block;margin:0 auto}
 
 <script>
     let 书名="{% if page.ShuMing %}{{ page.ShuMing }}{% else %}无{% endif %}";
+    let 书名临时=["{% if page.BiaoTi %}{{ page.BiaoTi }} - {{ page.ShuMing }}{% else %}{{ site.title }}{% endif %}","{% if page.BiaoTi %}{{ page.BiaoTi }}{% endif %}"];
     let wzjm_输入="{{ content }}";
     let wzjm_密码="ix";
     {% if page.MiMa %}if(localStorage.getItem(书名+"_密码")){wzjm_密码=localStorage.getItem(书名+"_密码");}{% else %}{% endif %}
     try{wzjm_解密();}catch(e){}
     let 正文="本页无内容。";if(wzjm_输入.indexOf("。")!=-1||wzjm_输入.indexOf("<")!=-1||wzjm_输入.indexOf(" ")!=-1||wzjm_输入.indexOf("　")!=-1){正文=wzjm_输入;}
-    else{document.getElementById("书名").innerHTML=encodeURI(document.getElementById("书名").innerHTML).replace(new RegExp('%',"g"),"");document.title=document.getElementById("书名").innerHTML}
+    else{书名临时[0]=encodeURI(书名临时[1]).replace(new RegExp('%',"g"),"");书名临时[1]=书名临时[0]}
+    document.getElementById("书名").innerHTML=书名临时[1];document.title=书名临时[0]
 
     function 保存代码(a,b){
         let 临时=localStorage.getItem(书名+"_代码");
