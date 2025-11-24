@@ -4,6 +4,7 @@ let dy1js="<meta name='viewport' content='width=device-width, initial-scale=1'>"
 统一=["../0/2/"],
 最后执行={},
 本地=(location.protocol=="file:")?1:null,
+二级=(decodeURI(location.href).indexOf("mq/异梦笔记/biji/设计中/")!=-1||decodeURI(location.href).indexOf("mq/异梦笔记/biji/参考/")!=-1)?"../":"",
 代码={
     "博客":"https://limaoqiu.com/",
     "目录":"C:/mq/目录/",
@@ -41,7 +42,7 @@ const _执行a={
     "ts":"t",
     "跳转":()=>{if(临时0[1]=="br"){index_dy1js+="<br>"}else if(临时0[2]){dy1js+="<a name='"+临时0[1]+"'>"+临时0[2]+"</a>";index_dy1js+="<a href='#"+临时0[1]+"'>"+临时0[2]+"</a><br>"}else{dy1js+="<a name='"+临时0[1]+"'></a>";index_dy1js+="<a href='#"+临时0[1]+"'>"+临时0[1]+"</a><br>"}},
     "h0":()=>{if(临时0[1]==0){index_dy1js+=临时0[2]+"<br>"}else if(临时0[1]==1){index_dy1js+="<div class='nav_drop'><a class='nav_drop_btn'";if(临时0[3]){index_dy1js+=" href='"+临时0[3]+"'"}index_dy1js+=">"+临时0[2]+"<small>▼</small></a><div class='nav_drop_down'>"}else if(临时0[1]==2){index_dy1js+="</div></div><br>"}},
-    "h1":()=>{if(临时0[2]){}else{临时0[2]=临时0[1]}dy1js+="<a name='"+临时0[2]+"'></a><"+临时0[0]+">"+临时0[1]+"</"+临时0[0]+">";index_dy1js+="<a href='#"+临时0[2]+"'>";if(临时0[0]=="h1"){index_dy1js+="<h3>"+临时0[1]+"</h3>"}else if(临时0[0]=="h2"){index_dy1js+="<h4>"+临时0[1]+"</h4>"}else if(临时0[0]=="h3"){index_dy1js+="　<b>"+临时0[1]+"</b>"}else if(临时0[0]=="h4"){index_dy1js+="　"+临时0[1]}else if(临时0[0]=="h5"||临时0[0]=="b"){index_dy1js+="　<small>"+临时0[1]+"</small>"}else{index_dy1js+=临时0[1]}index_dy1js+="</a><br>"},
+    "h1":()=>{if(临时0[2]){}else{临时0[2]=临时0[1]}临时0[1]=临时0[1].split("_")[0];dy1js+="<a name='"+临时0[2]+"'></a><"+临时0[0]+">"+临时0[1]+"</"+临时0[0]+">";index_dy1js+="<a href='#"+临时0[2]+"'>";if(临时0[0]=="h1"){index_dy1js+="<h3>"+临时0[1]+"</h3>"}else if(临时0[0]=="h2"){index_dy1js+="<h4>"+临时0[1]+"</h4>"}else if(临时0[0]=="h3"){index_dy1js+="　<b>"+临时0[1]+"</b>"}else if(临时0[0]=="h4"){index_dy1js+="　"+临时0[1]}else if(临时0[0]=="h5"||临时0[0]=="b"){index_dy1js+="　<small>"+临时0[1]+"</small>"}else{index_dy1js+=临时0[1]}index_dy1js+="</a><br>"},
     "h2":"h1","h3":"h1","h4":"h1","h5":"h1","h6":"h1","b":"h1",
     "zk":()=>{临时0[3]=临时0[3]||临时0[1];dy1js+="<a onclick=\"dw(dwb='"+临时0[2]+"',dwd='"+临时0[3]+"')\">"+临时0[1]+"</a>"},
     "http":()=>{dy1js+="<a href='"+临时0[0]+"://"+临时0[1]+"'>"+临时0[2]+"</a>"},
@@ -257,15 +258,15 @@ dy1js=临时[0];
 if(typeof(qm)!="undefined"){}else{index_dy1js=""}
 for(let i=1;临时.length>i;i++){
     let 临时2=临时[i].split("〉");
-    if(临时2[0].indexOf("|")!=-1){
+    if(临时2[0].indexOf("|")!=-1){//包含|
         临时0=临时2[0].split("|");
 
     if(_执行a[临时0[0]]){if(typeof _执行a[临时0[0]]=="string"){_执行a[_执行a[临时0[0]]](i)}else{_执行a[临时0[0]](i)}}
 
     else{
-        if(临时0[1].indexOf("#")!=-1){临时0[1]=临时0[1].split("#");dy1js+="<a href='";if(临时0[1][0]==""){dy1js+="#"+临时0[1][1]}else{dy1js+=临时0[1][0]+".html#"+临时0[1][1]}dy1js+="'>"+临时0[0]+"</a>";
+        if(临时0[1].indexOf("#")!=-1){临时0[1]=临时0[1].split("#");dy1js+="<a href='"+二级;if(临时0[1][0]==""){dy1js+="#"+临时0[1][1]}else{dy1js+=临时0[1][0]+".html#"+临时0[1][1]}dy1js+="'>"+临时0[0]+"</a>";
         // }else if(临时0[1]>0){dy1js+="<a href='1/"+临时0[1]+".html'>"+临时0[0]+"</a>";
-        }else{dy1js+="<a href='"+临时0[1]+".html'>"+临时0[0]+"</a>"}
+        }else{dy1js+="<a href='"+二级+临时0[1]+".html'>"+临时0[0]+"</a>"}
     }
 
     }else{//不包含|
@@ -301,18 +302,7 @@ for(let i=1;临时.length>i;i++){
             临名=临名.split("/");
             临名=临名[临名.length-1];
         }
-        dy1js+="<a href='"+临u+"'>"+临名+"</a>"
-
-        // if(临时0.indexOf("#")!=-1){
-        //     if(临时0[0]=="#"){
-        //         dy1js+="<a href='#"+临时0.split("#")[1]+"'>#"+临时0.split("#")[1]+"</a>"
-        //     }else{
-        //         dy1js+="<a href='"+临时0.split("#")[0]+".html#"+临时0.split("#")[1]+"'>"+临时0.split("#")[0]+"-"+临时0.split("#")[1]+"</a>";
-        //     }
-        // }
-        // else if(临时0.indexOf("／")!=-1){let 临时3=临时0.split("／");dy1js+="<a href='"+临时0+".html'>"+临时3[临时3.length-1].replace(new RegExp('（本地）',"g"),"")+"</a>"}
-        // else{dy1js+="<a href='"+临时0+".html'>"+临时0.replace(new RegExp('（本地）',"g"),"")+"</a>"}
-
+        dy1js+="<a href='"+二级+临u+"'>"+临名+"</a>"
         }
     }
     dy1js+=临时2[1];
