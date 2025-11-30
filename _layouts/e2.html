@@ -44,6 +44,10 @@ footer img{position:relative;bottom:50px;display:block;margin:0 auto}
 
 </head><body>
 
+
+{% if page.sdqr %}<script src="/biji/0/mq-手动确认.js"></script>
+{% if page.sdqr == 1 %}<div id="yzdy"></div>{% else %}<div id="yzdy">{{ page.sdqr }}</div>{% endif %}{% endif %}
+
 <style id="配色"></style>
 
 <br><br><br>
