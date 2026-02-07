@@ -1,0 +1,59 @@
+---
+layout: e0
+permalink: 一张白纸的梦/3
+BeiJing: 0
+BeiJing_SJ: 0
+BiaoTi: 一张白纸的梦
+title: 一张白纸的梦
+PingLun: 
+---
+<style>
+#画 img{position: relative;box-shadow: 0px 0px 20px 8px rgb(88, 88, 88);}
+h1{display:inline;}
+</style>
+<div id="画"></div>
+<div id="dy" style=""></div>
+<script>
+let 目录=["1","2","3"];
+let data={
+    "1":["标题","0","宽度","作者：xx　参考价：xx　归属：xx","其他说明"],
+    "2":["标题","b01","宽度","作者：xx　参考价：xx　归属：xx","其他说明"],
+    "3":["标题","j01","宽度","作者：xx　参考价：xx　归属：xx","其他说明"],
+}
+
+let dy="";
+for(let i=0;目录.length>i;i++){
+    if(Array.isArray(目录[i])){
+        dy+=`<${目录[i][0]}>${目录[i][1]}</${目录[i][0]}>`;
+    }else if(目录[i]=="br"){
+        dy+="<br>";
+    }else{
+        dy+=`${目录[i]}.<a name="${目录[i]}"></a><span class="章节">${data[目录[i]][0]} <a onclick="打开('${目录[i]}')">查看</a><br>`;
+    }
+}
+document.getElementById("dy").innerHTML=dy;
+
+function 复制地址(o){
+    制="{{ site.mq_url }}/一张白纸的梦/3?t="+o;
+    复();
+}
+
+function 打开(o){
+    window.location.hash='画';
+    document.getElementById("dy").style="display:none;";
+    document.getElementById("画").innerHTML=`<img src="/x/yzbz3/${data[o][1]}.png" style="${data[o][2]}px"><br><h1>${data[o][0]}</h1> <a onclick="返回('${o}')">返回</a><br>${data[o][3]}`+((data[o][4])?("<blockquote>"+data[o][4]+"</blockquote>"):"")+`<br><small><a onclick="复制地址('${o}')">复制地址</a></small>`;
+}
+
+function 返回(o){
+    document.getElementById("dy").style="";
+    document.getElementById("画").innerHTML="";
+    window.location.hash=o;
+}
+
+let url=decodeURIComponent(window.location.search.slice(1)||'0');
+if(url=="0"){
+    document.getElementById("dy").style="";
+}else{
+    打开(url);
+}
+</script>
