@@ -76,7 +76,7 @@ function 复制地址(o){
 
 function 打开(o){
     if(!data[o]){notyf.alert("编号不正确。");window.location.href="/一张白纸的梦/3";}
-    window.location.hash='画';
+    window.location.hash='div0';
     document.getElementById("dy").style="display:none;";
     document.getElementById("画").innerHTML=`<img src="/x/yzbz3/${data[o][1]}.png" style="width:${data[o][2]}px"><br><h1 class='i'>«${data[o][0]}»</h1> <a onclick="返回('${o}')">返回</a><br>${data[o][3]}`+((data[o][4])?("<blockquote>"+data[o][4]+"</blockquote>"):"")+`<br><small><a onclick="复制地址('${o}')">复制地址</a></small>`;
 }
