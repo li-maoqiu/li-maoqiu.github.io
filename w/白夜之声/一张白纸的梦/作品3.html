@@ -15,7 +15,7 @@ h1.i{display:inline;}
 <div id="dy" style=""></div>
 <script>
 let 目录=[
-    ["h3","纯粹系列"],
+    ["h2","纯粹系列"],
     "c1","c2","c3","c4","c5","c6","c7","c8","c9",
 ];
 let data={//kw=千瓦 1千瓦时=1度电≈0.5元
@@ -32,7 +32,7 @@ let data={//kw=千瓦 1千瓦时=1度电≈0.5元
     // "c":["","0","1000","作者：李猫球　参考价：10kw　归属：-"],
 }
 
-let dy="";
+let dy="<h1>一张白纸的梦</h1><hr>";
 for(let i=0;目录.length>i;i++){
     if(Array.isArray(目录[i])){
         dy+=`<${目录[i][0]}>${目录[i][1]}</${目录[i][0]}>`;
@@ -52,7 +52,7 @@ function 复制地址(o){
 function 打开(o){
     window.location.hash='画';
     document.getElementById("dy").style="display:none;";
-    document.getElementById("画").innerHTML=`<img src="/x/yzbz3/${data[o][1]}.png" style="${data[o][2]}px"><br><h1 class='i'>«${data[o][0]}»</h1> <a onclick="返回('${o}')">返回</a><br>${data[o][3]}`+((data[o][4])?("<blockquote>"+data[o][4]+"</blockquote>"):"")+`<br><small><a onclick="复制地址('${o}')">复制地址</a></small>`;
+    document.getElementById("画").innerHTML=`<img src="/x/yzbz3/${data[o][1]}.png" style="width:${data[o][2]}px"><br><h1 class='i'>«${data[o][0]}»</h1> <a onclick="返回('${o}')">返回</a><br>${data[o][3]}`+((data[o][4])?("<blockquote>"+data[o][4]+"</blockquote>"):"")+`<br><small><a onclick="复制地址('${o}')">复制地址</a></small>`;
 }
 
 function 返回(o){
