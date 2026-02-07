@@ -9,16 +9,27 @@ PingLun:
 ---
 <style>
 #画 img{position: relative;box-shadow: 0px 0px 20px 8px rgb(88, 88, 88);}
-h1{display:inline;}
+h1.i{display:inline;}
 </style>
 <div id="画"></div>
 <div id="dy" style=""></div>
 <script>
-let 目录=["1","2","3"];
-let data={
-    "1":["标题","0","宽度","作者：xx　参考价：xx　归属：xx","其他说明"],
-    "2":["标题","b01","宽度","作者：xx　参考价：xx　归属：xx","其他说明"],
-    "3":["标题","j01","宽度","作者：xx　参考价：xx　归属：xx","其他说明"],
+let 目录=[
+    ["h3","纯粹系列"],
+    "c1","c2","c3","c4","c5","c6","c7","c8","c9",
+];
+let data={//kw=千瓦 1千瓦时=1度电≈0.5元
+    // "编号":["标题","文件名","宽度","作者：xx　参考价：xx　归属：xx","其他说明，可不加"],
+    "c1":["空白画","0","1000","作者：李猫球　参考价：10kw　归属：-"],
+    "c2":["皇帝的新作","0","1000","作者：李猫球　参考价：10kw　归属：-"],
+    "c3":["一幅画","0","1000","作者：李猫球　参考价：10kw　归属：-"],
+    "c4":["精神作品01","0","1000","作者：李猫球　参考价：10kw　归属：-"],
+    "c5":["艺术的本质","0","1000","作者：李猫球　参考价：10kw　归属：-"],
+    "c6":["新生","0","1000","作者：李猫球　参考价：10kw　归属：-"],
+    "c7":["未来","0","1000","作者：李猫球　参考价：10kw　归属：-"],
+    "c8":["一幅无意义","0","1000","作者：李猫球　参考价：10kw　归属：-"],
+    "c9":["非存在","0","1000","作者：李猫球　参考价：10kw　归属：-"],
+    // "c":["","0","1000","作者：李猫球　参考价：10kw　归属：-"],
 }
 
 let dy="";
@@ -28,20 +39,20 @@ for(let i=0;目录.length>i;i++){
     }else if(目录[i]=="br"){
         dy+="<br>";
     }else{
-        dy+=`${目录[i]}.<a name="${目录[i]}"></a><span class="章节">${data[目录[i]][0]} <a onclick="打开('${目录[i]}')">查看</a><br>`;
+        dy+=`${目录[i]}.<a name="${目录[i]}"></a><span class="章节">${data[目录[i]][0]} </span><a onclick="打开('${目录[i]}')">查看</a><br>`;
     }
 }
 document.getElementById("dy").innerHTML=dy;
 
 function 复制地址(o){
-    制="{{ site.mq_url }}/一张白纸的梦/3?t="+o;
+    制="{{ site.mq_url }}/一张白纸的梦/3?"+o;
     复();
 }
 
 function 打开(o){
     window.location.hash='画';
     document.getElementById("dy").style="display:none;";
-    document.getElementById("画").innerHTML=`<img src="/x/yzbz3/${data[o][1]}.png" style="${data[o][2]}px"><br><h1>${data[o][0]}</h1> <a onclick="返回('${o}')">返回</a><br>${data[o][3]}`+((data[o][4])?("<blockquote>"+data[o][4]+"</blockquote>"):"")+`<br><small><a onclick="复制地址('${o}')">复制地址</a></small>`;
+    document.getElementById("画").innerHTML=`<img src="/x/yzbz3/${data[o][1]}.png" style="${data[o][2]}px"><br><h1 class='i'>«${data[o][0]}»</h1> <a onclick="返回('${o}')">返回</a><br>${data[o][3]}`+((data[o][4])?("<blockquote>"+data[o][4]+"</blockquote>"):"")+`<br><small><a onclick="复制地址('${o}')">复制地址</a></small>`;
 }
 
 function 返回(o){
