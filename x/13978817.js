@@ -73,16 +73,20 @@ let 执行={
 "涂壁":()=>{标题="涂壁";输入("你被一面巨大的墙壁挡住去路，高耸入云，左右都望不到尽头。{<br>}正当你一筹莫展之时，墙壁发出一阵闷沉而巨大的声响，它向你提问：「何物越洗越脏？」{<br><br><input id='涂壁回答' type='text' placeholder='你的回答' autocomplete='off'>　<a onclick=\"执行['执行_涂壁']()\">你如此回答</a>。}")},
 "执行_涂壁":()=>{
 let 临时=document.getElementById("涂壁回答").value;
-if(临时=="水"){
+if(临时=="水"||临时.indexOf("水")!=-1){
     d.splice(随机数,1);
     输入("忽然墙壁消失不见，仿佛从未存在。");document.getElementById("按钮").innerHTML="<br><a onclick='下一页()'>继续赶路</a>";
-}else if(临时=="人心"){
+}else if(临时=="人心"||临时.indexOf("人心")!=-1||临时.indexOf("的心")!=-1){
     d.splice(随机数,1);
     输入("忽然墙壁碎裂崩塌，露出内部的累累尸骨。");
     document.getElementById("按钮").innerHTML="<br><a onclick='下一页()'>继续赶路</a>";
 }else if(临时.indexOf("打")!=-1||临时.indexOf("敲")!=-1){
     d.splice(随机数,1);
     输入("你捡起路边的树枝敲打在墙壁上，看似坚不可摧的墙壁忽然破碎崩塌。");
+    document.getElementById("按钮").innerHTML="<br><a onclick='下一页()'>继续赶路</a>";
+}else if(临时=="不知道"||临时.indexOf("不知道")!=-1){
+    d.splice(随机数,1);
+    输入("墙壁渐渐消失了，就好像从来没有存在过。");
     document.getElementById("按钮").innerHTML="<br><a onclick='下一页()'>继续赶路</a>";
 }else{
     输入("墙壁一动不动，再也没发出什么声音。{<br>}你只好走了很远的路，终于绕开了墙壁。");
