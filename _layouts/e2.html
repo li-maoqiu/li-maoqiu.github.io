@@ -85,7 +85,7 @@ footer img{position:relative;bottom:50px;display:block;margin:0 auto}
     let wzjm_密码="ix";
     {% if page.MiMa %}if(localStorage.getItem(书名+"_密码")){wzjm_密码=localStorage.getItem(书名+"_密码");}{% else %}{% endif %}
     try{wzjm_解密();}catch(e){}
-    let 正文="本页无内容。";if(wzjm_输入.indexOf("。")!=-1||wzjm_输入.indexOf("<")!=-1||wzjm_输入.indexOf(" ")!=-1||wzjm_输入.indexOf("　")!=-1){正文=wzjm_输入;
+    let 正文="本页无内容，或未解锁。";if(wzjm_输入.indexOf("。")!=-1||wzjm_输入.indexOf("<")!=-1||wzjm_输入.indexOf(" ")!=-1||wzjm_输入.indexOf("　")!=-1){正文=wzjm_输入;
         {% if page.sdqr %}
         let yzdy="{% if page.sdqr == 1 %}本页可能含有敏感内容/我已成年{% else %}{{ page.sdqr }}{% endif %}".split("/");
         document.getElementById("yzdy").innerHTML=`
