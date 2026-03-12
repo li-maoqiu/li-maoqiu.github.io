@@ -181,6 +181,13 @@ pre fieldset:after{content:attr(by);color:#9b9b9b;font-size:0.8em;display:block;
 /changeactionbar 6
 </fieldset></pre>
 
+<br>〈h5|盗贼〉<br>
+
+<pre><fieldset onclick="复(this.innerHTML.replace(new RegExp('<br>','g'),'\n'))" bt="下坐骑">
+/cast [nocombat] 潜行
+/run if IsMounted() then Dismount() else C_MountJournal.SummonByID(0) end
+</fieldset></pre>
+
 <br>〈h5|德鲁伊〉<br>
 
 <pre><fieldset onclick="复(this.innerHTML.replace(new RegExp('<br>','g'),'\n'))" bt="奔跑">
