@@ -39,9 +39,31 @@ const stepDistance = 0;
 function initR2Array() {
     const text = elR2.innerText;
     r2Array = text.split('／');
+    
     if (r2Array.length > 0) {
         lastWord = r2Array[0];
-        elR2.innerText = lastWord;
+
+        let longestText = '';
+        r2Array.forEach(item => {
+            if (item.length > longestText.length) longestText = item;
+        });
+
+        elR2.innerText = longestText;
+        elR2.style.visibility = 'hidden';
+        elR2.style.whiteSpace = 'pre-wrap';
+        elR2.style.wordBreak = 'break-word';
+
+        const realText = document.createElement('span');
+        realText.id = 'R2-real-text';
+        realText.innerText = lastWord;
+        realText.style.position = 'absolute';
+        realText.style.inset = '0';
+        realText.style.whiteSpace = 'pre-wrap';
+        realText.style.wordBreak = 'break-word';
+        realText.style.visibility = 'visible';
+        
+        elR2.style.position = 'relative';
+        elR2.appendChild(realText);
     }
 }
 
@@ -72,13 +94,14 @@ function startScrollRandom() {
         if (diff >= stepDistance) {
             const newWord = getR2RandomWord();
             lastWord = newWord;
+            const textEl = document.getElementById('R2-real-text');
 
-            elR2.classList.add('run-glitch');
+            textEl.classList.add('run-glitch');
             setTimeout(() => {
-                elR2.innerText = newWord;
+                textEl.innerText = newWord;
             }, 150);
             setTimeout(() => {
-                elR2.classList.remove('run-glitch');
+                textEl.classList.remove('run-glitch');
             }, 800);
 
             lastScroll = now;
