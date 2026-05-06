@@ -36,6 +36,9 @@ let lastScroll = 0;
 let lastWord = '';
 const stepDistance = 0;
 
+let isCooling = false;
+const COOLDOWN_TIME = 500;
+
 function initR2Array() {
     const text = elR2.innerText;
     r2Array = text.split('／');
@@ -52,7 +55,7 @@ function initR2Array() {
         elR2.style.visibility = 'hidden';
         elR2.style.whiteSpace = 'pre-wrap';
         elR2.style.wordBreak = 'break-word';
-
+        
         const realText = document.createElement('span');
         realText.id = 'R2-real-text';
         realText.innerText = lastWord;
@@ -88,10 +91,14 @@ function waitForR2() {
 
 function startScrollRandom() {
     window.addEventListener('scroll', () => {
+        if (isCooling) return;
+
         const now = window.scrollY;
         const diff = Math.abs(now - lastScroll);
 
         if (diff >= stepDistance) {
+            isCooling = true;
+
             const newWord = getR2RandomWord();
             lastWord = newWord;
             const textEl = document.getElementById('R2-real-text');
@@ -102,6 +109,7 @@ function startScrollRandom() {
             }, 150);
             setTimeout(() => {
                 textEl.classList.remove('run-glitch');
+                isCooling = false;
             }, 800);
 
             lastScroll = now;
