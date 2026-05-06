@@ -1,4 +1,4 @@
-const wordArr = ['已经','将要','注定'];
+const wordArr = ['已经','将要','注定','可能','必然','终将'];
 let el = null;
 
 function getRandWord(){
@@ -34,11 +34,11 @@ let elR2 = null;
 let r2Array = [];
 let lastScroll = 0;
 let lastWord = '';
-const stepDistance = 20;
+const stepDistance = 0;
 
 function initR2Array() {
-    const text = elR2.innerText.trim();
-    r2Array = text.split('／').map(item => item.trim());
+    const text = elR2.innerText;
+    r2Array = text.split('／');
     if (r2Array.length > 0) {
         lastWord = r2Array[0];
         elR2.innerText = lastWord;
