@@ -112,7 +112,9 @@ function renderRank(){
   const shuffledAds=shuffleArray(adData);
   let adIndex=0;
 
-  let topHtml="";
+  let timeStr = new Date().getFullYear() + "年" + String(new Date().getMonth()+1).padStart(2,0) + "月" + String(new Date().getDate()).padStart(2,0) + "日 " + String(new Date().getHours()).padStart(2,0) + ":" + String(new Date().getMinutes()).padStart(2,0);
+  let topHtml="<div class='timeStr'>　　榜单更新时间："+timeStr+"</div><br>";
+
   top9.forEach((item,idx)=>{
     topHtml+=`
     <div class="rank-item" onclick="showTip('${item.tip.replace(/'/g,"\\'")}')">
