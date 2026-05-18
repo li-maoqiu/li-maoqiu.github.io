@@ -1,0 +1,91 @@
+---
+permalink: o/c/ceshi
+---
+<style>
+    body{background-color:#0E100F;}
+    img{position:absolute;top:0;left:0;}
+    .雪花屏{
+        left:301px;top:622px;
+        animation: 雪花屏 0.2s infinite steps(1);
+    }
+    #电视{cursor:pointer;}
+    @keyframes 雪花屏{
+        0%{transform:scaleX(1)scaleY(1);}
+        25%{transform:scaleX(1)scaleY(-1);}
+        50%{transform:scaleX(-1)scaleY(-1);}
+        75%{transform:scaleX(-1)scaleY(1);}
+        100%{transform:scaleX(1)scaleY(1);}
+    }
+    .角色{
+        animation: 角色 5s ease forwards;
+    }
+    @keyframes 角色{
+        0%{content: url("q1.png");}
+        90%,100%{content: url("q2.png");}
+    }
+
+    @keyframes 关电视{
+      0%{
+        transform:scaleY(1);
+      }
+      80%{
+        transform:scaleY(0.02);
+        opacity:1;
+      }
+      100%{
+        transform:scaleY(0.02);
+        opacity:0;
+      }
+    }
+
+@keyframes 场景放大{
+    0%,10%{
+        transform: translate(0,0) scale(1);
+    }
+    100% {
+        transform: translate(50px,-400px) scale(5);
+    }
+}
+    .大图{
+        animation: 大图 10s ease forwards;
+    }
+    @keyframes 大图{
+    0%,80%{
+        opacity:0;
+    }
+    82%,100%{
+        opacity:1;
+    }
+}
+
+</style>
+
+<img src="场景.jpg" id="场景">
+<div id="电视" onclick="电视()">
+<img src="雪花屏.jpg" class="雪花屏">
+</div>
+
+<script>
+    let 当前=1;
+    function 电视(){
+        if(当前==1){
+            document.getElementById("电视").innerHTML=`<img src="雪花屏.jpg" class="雪花屏"><img src="q1.png" class="角色">`;
+            当前=2;
+        }else if(当前==2){
+            当前=3;
+            document.getElementById("电视").innerHTML=`<img src="雪花屏.jpg" class="雪花屏" id="雪花屏"><img src="大图.jpg" class="大图">`;
+            document.getElementById("雪花屏").style.animation="关电视 0.25s linear forwards";
+            document.getElementById("场景").style.animation="场景放大 5s linear forwards";
+            document.body.style.overflow = "hidden";
+
+            
+        }
+    }
+</script>
+
+
+<svg style="display:none;"><defs>
+<filter id="Eror" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="linearRGB">
+<feTurbulence type="turbulence" baseFrequency="0.001 0.4" numOctaves="2" seed="2" stitchTiles="stitch" x="0%" y="0%" width="100%" height="100%" result="turbulence"/>
+<feDisplacementMap in="SourceGraphic" in2="turbulence" scale="020" xChannelSelector="R" yChannelSelector="B" x="0%" y="0%" width="100%" height="100%" result="displacementMap"/>
+</filter></defs></svg>
