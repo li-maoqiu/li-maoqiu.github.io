@@ -1,3 +1,4 @@
+body{background-color:#CFDDE1;}
 .wrap{max-width:750px;margin:0 auto;background:#fff;border-radius:12px;padding:25px;}
 h2{text-align:center;color:#222;margin-bottom:6px;}
 .rank-item{display:flex;align-items:center;padding:14px 0;border-bottom:1px solid #eee;gap:15px;cursor:pointer;transition:0.2s;}
