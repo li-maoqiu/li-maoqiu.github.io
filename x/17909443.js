@@ -31,6 +31,10 @@ const novelData=[
 //0
 {name:"猫球和二扯的日常 <small>日常 漫改</small>",desc:"在很久很久以前，万事万物还未被创立之时，有一位创世神……开始了他的艺术创作。",tip:"没听说过。",star:3,weight:0},
 //{name:" <small></small>",desc:"",tip:"",star:,weight:0},
+
+//？
+//{name:" <small></small>",desc:"",tip:"",star:,weight:},
+//{name:" <small></small>",desc:"",tip:"",star:,weight:},
 ];
 
 const adData=[
@@ -90,11 +94,6 @@ function getHourFixedSort(){
     return x-Math.floor(x);
  }
 
-//   return novelData.map(item=>{
-//     const score=item.weight*60+random()*400+item.star*80;
-//     return{...item,score};
-//  }).sort((a,b)=>b.score-a.score);
-
   return novelData.map(item=>{
     let finalStar=item.star;
     const r=random();
@@ -103,7 +102,7 @@ function getHourFixedSort(){
       finalStar=Math.max(1,Math.min(5,finalStar+delta));
     }
 
-    const score=item.weight*60+random()*400+finalStar*80;
+    const score=item.weight*200+random()*500+finalStar*80;
     return {...item,star:finalStar,score};
  }).sort((a,b)=>b.score-a.score);
 
@@ -125,7 +124,7 @@ function renderRank(){
   const shuffledAds=shuffleArray(adData);
   let adIndex=0;
 
-  let timeStr = new Date().getFullYear() + "年" + String(new Date().getMonth()+1).padStart(2,0) + "月" + String(new Date().getDate()).padStart(2,0) + "日 " + String(new Date().getHours()).padStart(2,0) + ":00"// + String(new Date().getMinutes()).padStart(2,0);
+  let timeStr = new Date().getFullYear() + "年" + String(new Date().getMonth()+1).padStart(2,0) + "月" + String(new Date().getDate()).padStart(2,0) + "日 " + String(new Date().getHours()).padStart(2,0) + ":00";
   let topHtml="<div class='timeStr'>　　更新时间："+timeStr+"</div><br>";
 
   top9.forEach((item,idx)=>{
