@@ -16,11 +16,14 @@ h2: <a href="/">返回主页</a>
 
     if(已故){
         顺带一提="对了，<b>"+已故+"</b>还好么？<br>你……没有杀掉它吧？"
+        localStorage.removeItem("x17986889");
     }
-    document.getElementById("舞台").innerHTML="点击“<a onclick='开始游戏()'>开始游戏</a>”，将生成一只小生物。<br>需要保持网页一直开着，它才能继续存活，如果网页关闭了，它也就死了。<br><br>"+顺带一提;
+    document.getElementById("舞台").innerHTML="点击“<a onclick='开始游戏()'>开始游戏</a>”，将诞生一只小生物。<br>需要保持网页一直开着，它才能继续存活，如果网页关闭了，它也就死了。<br><br>"+顺带一提;
+    let 生日;
 
     function 开始游戏(){
-        let id=(Math.floor((Date.now()-new Date(2000,0,1))/10000)+"");
+        生日=Date.now();
+        let id=(Math.floor((生日-new Date(2000,0,1))/10000)+"");
         let len=名.length;
         let 它='';
         let n=+id;
@@ -34,7 +37,20 @@ h2: <a href="/">返回主页</a>
             document.getElementById("舞台").innerHTML="这里还在打扫……请稍后再来。";
         }else{
             localStorage.setItem("x17986889",它);
-            document.getElementById("舞台").innerHTML="它的名字是：<b>"+它+"</b>。<br>请照顾好它，关闭网页或者刷新页面，它就会死，所以请尽量保持网页存在。<br><br><img src='/x/17986889/"+(id%生物数量)+".png' style='max-width:100%'>";
+            document.getElementById("舞台").innerHTML="它的名字是：<b>"+它+"</b>。<br>请照顾好它，关闭网页或者刷新页面，它就会死，所以请尽量保持网页存在。<br><br><img onclick='存活()' src='/x/17986889/"+(id%生物数量)+".png' style='max-width:100%'>";
         }
+    }
+
+    function 存活(){
+        let 已=Math.floor((Date.now()-生日)/1000);
+        const d=Math.floor(已/86400);
+        const h=Math.floor(已%86400/3600);
+        const m=Math.floor(已%3600/60);
+        let txt;
+        if(d>0)txt=`${d}天${h}小时${m}分钟`;
+        else if(h>0)txt=`${h}小时${m}分钟`;
+        else if(m>0)txt=`${m}分钟`;
+        else txt=`不到1分钟`;
+        try{notyf.confirm("它已经存活了"+txt)}catch(e){alert("它已经存活了"+txt);}
     }
 </script>
