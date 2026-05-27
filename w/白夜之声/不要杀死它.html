@@ -13,7 +13,12 @@ h2: <a href="/">返回主页</a>
 
 <script>
     let 名="阿巴比布波达多哈罗拉玛那";
-    let 生物数量=15;
+    let 生物=[
+        "0",
+        "A1","A2","A3","A4",
+        "B1","B2","B3","B4","B5","B6",
+        "C1","C2","C3","C4",
+    ];
 
     let 顺带一提="或者从一开始就不要开始。";
     let 已故=localStorage.getItem("x17986889");
@@ -41,7 +46,7 @@ h2: <a href="/">返回主页</a>
             document.getElementById("舞台").innerHTML="这里还在打扫……请稍后再来。";
         }else{
             localStorage.setItem("x17986889",它);
-            document.getElementById("舞台").innerHTML="它的名字是：<b>"+它+"</b>。<br>请照顾好它，关闭网页或者刷新页面，它就会死，所以请尽量保持网页存在。<br><br><img class='它' onclick='存活()' src='/x/17986889/"+(id%生物数量)+".png'>";
+            document.getElementById("舞台").innerHTML="它的名字是：<b>"+它+"</b>。<br>请照顾好它，关闭网页或者刷新页面，它就会死，所以请尽量保持网页存在。<br><br><img class='它' onclick='存活()' src='/x/17986889/"+(生物[id%生物.length])+".png'>";
         }
     }
 
