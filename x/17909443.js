@@ -29,7 +29,9 @@ const novelData=[
 //{name:" <small></small>",desc:"",tip:"",star:,weight:1},
 
 //0
-{name:"猫球和二扯的日常 <small>日常 漫改</small>",desc:"在很久很久以前，万事万物还未被创立之时，有一位创世神……开始了他的艺术创作。",tip:"没听说过。",star:3,weight:0},
+
+//-10
+{name:"猫球和二扯的日常 <small>日常 漫改</small>",desc:"在很久很久以前，万事万物还未被创立之时，有一位创世神……开始了他的艺术创作。",tip:"没听说过。",star:3,weight:-10},
 //{name:" <small></small>",desc:"",tip:"",star:,weight:0},
 
 //？
