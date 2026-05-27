@@ -9,15 +9,15 @@ h2: <a href="/">返回主页</a>
 
 <script>
     let 名="阿巴比布波达多哈罗拉玛那";
-    let 生物数量=6;
+    let 生物数量=10;
 
-    let 顺带一提="";
+    let 顺带一提="或者从一开始就不要开始。";
     let 已故=localStorage.getItem("x17986889");
 
     if(已故){
-        顺带一提="<br><br>对了，<b>"+已故+"</b>还好么？<br>你……没有杀掉它吧？"
+        顺带一提="对了，<b>"+已故+"</b>还好么？<br>你……没有杀掉它吧？"
     }
-    document.getElementById("舞台").innerHTML="点击“<a onclick='开始游戏()'>开始游戏</a>”，将生成一只小生物。<br>需要保持网页一直开着，它才能继续存活，如果网页关闭了，它也就死了。<br>或者从一开始就不要开始。"+顺带一提;
+    document.getElementById("舞台").innerHTML="点击“<a onclick='开始游戏()'>开始游戏</a>”，将生成一只小生物。<br>需要保持网页一直开着，它才能继续存活，如果网页关闭了，它也就死了。<br><br>"+顺带一提;
 
     function 开始游戏(){
         let id=(Math.floor((Date.now()-new Date(2000,0,1))/10000)+"");
