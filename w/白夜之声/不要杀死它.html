@@ -3,15 +3,16 @@ layout: o1
 permalink: w/17986889
 BiaoTi: 不要杀死它
 h1: 不要杀死它
-h2: <a href="/">返回</a>
+h2: <a href="/">返回主页</a>
 ---
 <div id="舞台"></div>
 
 <script>
-    let 已故=localStorage.getItem("x17986889");
     let 名="阿巴比布波达多哈罗拉玛那";
-    let 生物数量=3;
+    let 生物数量=6;
+
     let 顺带一提="";
+    let 已故=localStorage.getItem("x17986889");
 
     if(已故){
         顺带一提="<br><br>对了，<b>"+已故+"</b>还好么？<br>你……没有杀掉它吧？"
@@ -33,7 +34,7 @@ h2: <a href="/">返回</a>
             document.getElementById("舞台").innerHTML="这里还在打扫……请稍后再来。";
         }else{
             localStorage.setItem("x17986889",它);
-            document.getElementById("舞台").innerHTML="它的名字是：<b>"+它+"</b>。<br>请照顾好它，关闭网页或者刷新页面，它就会死，所以请尽量保持网页存在。<br><br><img src='/x/17986889/"+(id%生物数量)+".png'>";
+            document.getElementById("舞台").innerHTML="它的名字是：<b>"+它+"</b>。<br>请照顾好它，关闭网页或者刷新页面，它就会死，所以请尽量保持网页存在。<br><br><img src='/x/17986889/"+(id%生物数量)+".png' style='max-width:100%'>";
         }
     }
 </script>
