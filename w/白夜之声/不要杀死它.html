@@ -5,10 +5,16 @@ BiaoTi: 不要杀死它
 ---
 <div id="舞台"></div>
 
+<style>
+    @media screen and (min-width:768px){
+        #舞台{margin:3%;}
+    }
+</style>
+
 <script>
     let 顺带一提=localStorage.getItem("x17986889")||"";
-    let 名="阿巴比布达哈罗拉玛那";
-    let 生物=1;
+    let 名="阿巴比布波达多哈罗拉玛那";
+    let 生物数量=3;
 
     if(顺带一提!=""){
         顺带一提="<br><br>对了，<b>"+顺带一提+"</b>还好么？<br>你……没有杀掉它吧？"
@@ -16,9 +22,18 @@ BiaoTi: 不要杀死它
     document.getElementById("舞台").innerHTML="点击“<a onclick='开始游戏()'>开始游戏</a>”，将生成一只小生物。<br>需要保持网页一直开着，它才能继续存活，如果网页关闭了，它也就死了。<br>或者从一开始就不要开始。"+顺带一提;
 
     function 开始游戏(){
-        let id=Math.floor((Date.now()-new Date(2000,0,1))/1000)+"";
-        let 它=[...id].map(n=>名[+n]||"?").join("");
+        let id=(Math.floor((Date.now()-new Date(2000,0,1))/300)+"");
+        let len=名.length;
+        let 它='';
+        let n=+id;
+        while(true){
+            它=名[n%len]+它;
+            n=Math.floor(n/len);
+            if(n===0)break;
+            n--;
+        }
+        // let 它=[...id].map(n=>名[+n]||"?").join("");
         localStorage.setItem("x17986889",它);
-        document.getElementById("舞台").innerHTML="它的名字是：<b>"+它+"</b>。<br>请照顾好它，关闭网页或者刷新页面，它就会死，所以请尽量保持网页存在。<br><br><img src='/x/17986889/"+(id%生物)+".png'>";
+        document.getElementById("舞台").innerHTML="它的名字是：<b>"+它+"</b>。<br>请照顾好它，关闭网页或者刷新页面，它就会死，所以请尽量保持网页存在。<br><br><img src='/x/17986889/"+(id%生物数量)+".png'>";
     }
 </script>
