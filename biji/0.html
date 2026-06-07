@@ -2,7 +2,7 @@
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"><script>
     let h1="异梦笔记";
     let nav=["搜索"];
-    let index=["自动"];
+    let index=[];
     let ts={
         "使徒":"被神选中的使者",
         "异族":"除人以外的智慧种族",
@@ -20,7 +20,7 @@
     癌细胞
 -->
 
-<span class="zhushi">本页面为自用的笔记，不对外开放，没加密纯属因为懒<!--<a onclick="键入()">.</a>-->...</span><br><!--<a onclick="sjtk_键入()">.</a>-->
+<span id="欢迎词" class="zhushi">本页面为自用的笔记，不对外开放，没加密纯属因为懒<!--<a onclick="键入()">.</a>-->...</span><br><!--<a onclick="sjtk_键入()">.</a>-->
 <small>创作：</small>〈参考/找灵感〉 | 〈参考/学习资料〉 | 〈设计中/设计中〉 | <b><a href="../［小工具］.html">小工具</a></b> | <a href="../../目录/0.html">本地目录</a><br>
 <small>规范：</small>〈词语、设定|词语、设定规范〉 | 〈符号和文字|符号和文字的用法〉 | 〈现象（本地）〉 | 〈设计原则〉<br>
 <b>进行中</b>：〈设计中/第零页〉<br>
@@ -112,10 +112,11 @@ let 分类={ //目录
 },角色=[//首字母是数字加个1
 // ["标题","首字母",["分类"],["真实地址","关键词2 关键词3","额外说明"]],
 // ["","",[""]],
-["倩倩和兮兮","QQHXX",["人"]],
+["陆球","LQ"],
 ["兮兮","XX",["人"]],
 ["倩倩","QQ",["人"]],
 
+["倩倩和兮兮","QQHXX",["人"]],
 ["林疏影","LSY",["人"]],
 ["沈安然","SAR",["人"]],
 ["叶潇潇","YXX",["人"]],
@@ -594,6 +595,11 @@ function 类(o){
     index[0]="自动";
     更新();
     document.getElementById("选择").innerHTML=`[onclick="类('${o}')"]{font-weight:bold}`;
+}
+
+let 欢迎词=["展示，而非告知。"];
+if(本地==1){
+    document.getElementById("欢迎词").innerHTML=欢迎词[Math.floor(Math.random()*欢迎词.length)];
 }
 
 if(location.href.indexOf("?")!=-1){

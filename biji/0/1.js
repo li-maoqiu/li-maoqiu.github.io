@@ -308,7 +308,7 @@ for(let i=1;临时.length>i;i++){
     dy1js+=临时2[1];
 }
     if(dy1js.indexOf("〈")!=-1){重复更新=1}
-    if(typeof(index)!="undefined"){if(index[0]=="自动"){index[0]="";document.getElementById("index_dy1js").innerHTML=index_dy1js}}
+    if(typeof(index)!="undefined"){if(index[0]!="不自动"){document.getElementById("index_dy1js").innerHTML=index_dy1js}}
     if(乱=="a"){dy1js+="<br class='br_a'><br class='br_a'><br class='br_a'><br class='br_a'><br class='br_a'>"}
     dy1js=dy1js.replace(/\n/g,"").replace(/<br><br><br><br><br>/g,"<br><br class='br_a'><br class='br_a'><br class='br_a'><br class='br_a'>").replace(/<br><br><br><br>/g,"<br><br class='br_a'><br class='br_a'><br class='br_a'>").replace(/<br><br><br>/g,"<br><br class='br_a'><br class='br_a'>").replace(/<br><br>/g,"<br><br class='br_a'>").replace(/<\/div><br>/g,"</div><br class='br_a'>").replace(/ \| /g,"<span class=\"a\"> | </span>").replace(/ &gt; /g,"<span class=\"a\"> > </span>").replace(/<hr>/g,"<hr class='hr1'>").replace(/“/g,"<b>“</b>").replace(/”/g,"<b>”</b>");
     document.getElementById(乱).innerHTML=dy1js}乱="dy"}
