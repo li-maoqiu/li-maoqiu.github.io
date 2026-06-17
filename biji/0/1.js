@@ -122,6 +122,7 @@ dy1js+="<div id='sjtk'></div>"}
 if(typeof(qm)!="undefined"){dy1js+="<button onclick='打(乱=qm);qm_随机()'>随机</button><input type='text' id='qm_输入' placeholder='抽取次数' autocomplete='off'/><br><br><div id='qm'></div>"}
 dy1js+="<textArea id='复制' style='position:absolute;top:-1000px'></textArea>";
 dy1js+="<div class='dw_zz' id='dw_zz' style='display:none;'><div id='dw_x' onclick='dw_x()' style='display:none;'></div><div class='dw_tk'><div id='dw_hd'><span id='dwd'></span><span id='dwc'></span><div id='dw_hd_r' onclick='dw_x()' class='bukexuanzhong'>×</div></div></div></div>";
+dy1js+="<img class='big-img'>";
 if(window.location.href.indexOf("file:///storage/emulated")!=-1){
     dy1js+="<link rel='stylesheet' href='0/all.css'>";
     统一[0]="../0/2/";
@@ -332,9 +333,15 @@ document.addEventListener('keyup',(e)=>{
   }
 });
 
+
+
 window.onload=function(){
     if(window.location.href.indexOf("#")!=-1){window.location.href=window.location.href}
     更新();
     if(window.location.href.indexOf("#")!=-1){window.location.href=window.location.href}
     if(最后执行["六维图"]){六维图()}
+
+const bigImg=document.querySelector('.big-img');document.querySelectorAll('img:not(.big-img)').forEach(smallImg=>{smallImg.onmouseenter=()=>{bigImg.src=smallImg.src;bigImg.style.display='block';};smallImg.onmouseleave=()=>{bigImg.style.display='none';};
+});
+
 }
