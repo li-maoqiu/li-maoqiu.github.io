@@ -39,11 +39,9 @@ h2: <a href="/">猫.cafe</a> / <a href="/无用游戏">无用游戏</a>
 <div id="挖" onclick="挖()"><img src="/x/18239369/f.png"></div>
 
 <script>
-    // let 球=500;
     let 球=12742000;
     let 米=0;
     function 挖(){
-
         if(Math.floor(Math.random()*20)==0){
             米+=100;
             document.getElementById("米").style=`animation:暴击 0.3s linear 0s 1 forwards;`;
@@ -55,6 +53,14 @@ h2: <a href="/">猫.cafe</a> / <a href="/无用游戏">无用游戏</a>
         let 进度=((米/球)*630).toFixed(1)*1;
         document.getElementById("进度").innerHTML="#a{clip-path:inset("+(31+进度)+"px 0 0 0);}#e{transform:translate(0,"+进度+"px);}";
 
+        if(米>=球){
+            document.getElementById("挖").innerHTML="";
+            document.getElementById("进度").innerHTML=`#a,#e{display:none;}`;
+            document.getElementById("b").style=`animation:b 2s linear 0s 1 forwards;`;
+            document.getElementById("c").style=`animation:c 2s linear 0s 1 forwards;`;
+            米=球;
+        }
+
         let dy="";
         let 米米=米+"";
         for(let i=0;米米.length>i;i++){
@@ -62,12 +68,5 @@ h2: <a href="/">猫.cafe</a> / <a href="/无用游戏">无用游戏</a>
         }
         dy+="<img src='/x/18239369/m.png'>";
         document.getElementById("米").innerHTML=dy;
-
-        if(米>=球){
-            document.getElementById("挖").innerHTML="";
-            document.getElementById("进度").innerHTML=`#a,#e{display:none;}`;
-            document.getElementById("b").style=`animation:b 2s linear 0s 1 forwards;`;
-            document.getElementById("c").style=`animation:c 2s linear 0s 1 forwards;`;
-        }
     }
 </script>
