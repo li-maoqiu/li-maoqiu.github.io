@@ -10,7 +10,8 @@ div0: 1
 ---
 <style>
 @keyframes duib{0%,20%,32%,80%,92%,100%{filter:none}26%,86%,96%{filter:url(#Eror)}}
-.上一页{color:#C0C0C0;}
+@keyframes fadeOut{0%,80%{opacity:1}100%{opacity:0.3}}
+.上一页{color:#C0C0C080;}
 </style>
 
 <span class="书名">旧梦</span> <a href="/旧梦">打开</a><br>
@@ -37,7 +38,7 @@ const box=document.querySelector('.上一页');
 function playAnimation(){
   box.style.animation='none';
   void box.offsetWidth;
-  box.style.animation = 'duib 5s linear forwards';
+  box.style.animation = 'duib 5s linear forwards,fadeOut 60s linear forwards';
 }
 box.addEventListener('animationend', () => {
   const waitTime = Math.random() * 5000 + 5000;
