@@ -1,10 +1,49 @@
 
 <meta http-equiv="content-type" content="text/html; charset=UTF-8"><script>
     let h1="Vita";
-    let nav=["列表?Vita"];
+    let nav=["列表?Vita","设计中/摩恩粒子篇"];
     let index=[];
 </script><link rel="stylesheet" href="0/1.css"><div id="dy"></div><script src="0/1.js"></script><div id="a">
 
 〈图片|13884308|150〉<br>
+<br>
+
+由〈猪头博士〉发明的〈摩恩粒子〉召唤的生物，都是年轻女性，头顶会浮空一个简笔小皇冠符号。<br>
+由于是〈灰科技〉的神秘技术，原理未知。（一种猜测是〈幻灵〉）<br>
+对Vita们来说，她们是来自另一个世界的人（这些世界也的确存在），来历的名字里总会有“摩恩”二字，比如“摩恩王国”、“摩恩工厂”、“摩恩实验室”。<br>
+离开自己的世界后，她们会消耗能量，进食也无法补充。能量耗尽会导致她们陷入沉睡，没有及时回到原本的世界或补充能量的话，会变成一种类似钻石的石头。<br>
+<br>
+
+“方糖”：一种可以让Vita补充能量的消耗品。<br>
+通过〈灰白〉可以补充能量，GEU需要肢体接触，JFD需要获取体液。<br>
+<br>
+
+分为“GEU”和“JFD”两种，GEU是金色皇冠，通常更幼稚、清纯；JFD是红色皇冠，通常更成熟、智慧。<br>
+<br>
+
+<fieldset><legend>型号</legend>
+<input type="radio" name="a" id="a1" onclick="b=0;a()" checked><label for="a1">GEU 金色皇冠</label><br>
+<input type="radio" name="a" id="a2" onclick="b=1;a()"><label for="a2">JFD 红色皇冠</label><br>
+<br>
+<table>
+    <tr style="font-weight:bold"><td>型号</td><td>年纪</td><td>形象</td><td><span class='zhushi'>参考角色</span></td></tr>
+    <tr><td><input type="radio" name="b" id="b1" onclick="c=0;a()" checked><label for="b1">I型</label></td><td>幼女</td><td>小动物</td><td></td></tr>
+    <tr><td><input type="radio" name="b" id="b2" onclick="c=1;a()"><label for="b2">II型</label></td><td>女童</td><td>幼儿园、小学</td><td><span class='zhushi'>可莉、白露</span></td></tr>
+    <tr><td><input type="radio" name="b" id="b3" onclick="c=2;a()"><label for="b3">III型</label></td><td>少女</td><td>初中</td><td><span class='zhushi'>小圆、凸守早苗、木之本樱</span></td></tr>
+    <tr><td><input type="radio" name="b" id="b4" onclick="c=3;a()"><label for="b4">IV型</label></td><td>女高</td><td>高中</td><td><span class='zhushi'>御坂美琴</span></td></tr>
+    <tr><td><input type="radio" name="b" id="b5" onclick="c=4;a()"><label for="b5">V型</label></td><td>成女</td><td>大学</td><td></td></tr>
+</table>
+<br>
+比如 <span id="c0" onclick="复(制=d[3])"></span><br>
+</fieldset>
+
+<script>
+    let b=0,c=0,d=[["GEU","JFD"],["I","II","III","IV","V"],""];
+    function a(){
+        d[3]="Vita-"+d[0][b]+"-"+d[1][c]+"型";
+        document.getElementById("c0").innerHTML=d[3];
+    }
+    a();
+</script>
 
 </div>

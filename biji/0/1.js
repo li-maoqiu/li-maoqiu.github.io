@@ -108,7 +108,7 @@ if(nav[0]=="搜索"){dy1js+="　<input type='text' id='输入' placeholder='搜�
 dy1js+="<hr class='hr0'>";
 dy1js+=`<style id="改br">#a br:before{content:" ↩";color:#d9d9d9;font-size:0.7em;}#a br{content:"&nbsp;" !important}#a br::after{content:"\\000A";white-space:pre}#a br.br_a:before{content:""}span.br_a{color:#aaa}</style>
 <style>${(!本地)?"[href$='（本地）.html']{text-decoration:line-through}":""}</style><div class='index'><div class='index_top'><a onclick='编辑()'>编辑</a>　<a onclick='javascript:location.reload();'>刷新</a>　<a onclick='window.scrollTo({top:0})'>top</a><br></div><br><div id='index_dy1js'>`;
-for(let i=0;index.length>i;i++){if(index[i]=="br"){dy1js+="<br>"}else{dy1js+="<a href='#"+index[i]+"'>"+index[i]+"</a><br>"}}
+for(let i=0;index.length>i;i++){if(index[i]=="br"){dy1js+="<br>"}else if(index[i]=="不自动"){}else{dy1js+="<a href='#"+index[i]+"'>"+index[i]+"</a><br>"}}
 dy1js+="</div><br></div>";
 
 临时=h1.replace(/<small>/g,"").replace(/<\/small>/g,"");
@@ -256,7 +256,7 @@ if(document.getElementById(乱)){
 临时=document.getElementById(乱).innerHTML;
 临时=临时.split("〈");
 dy1js=临时[0];
-if(typeof(qm)!="undefined"){}else{index_dy1js=""}
+// if(typeof(qm)!="undefined"){}else{index_dy1js=""}
 for(let i=1;临时.length>i;i++){
     let 临时2=临时[i].split("〉");
     if(临时2[0].indexOf("|")!=-1){//包含|
@@ -309,7 +309,7 @@ for(let i=1;临时.length>i;i++){
     dy1js+=临时2[1];
 }
     if(dy1js.indexOf("〈")!=-1){重复更新=1}
-    if(typeof(index)!="undefined"){if(index[0]!="不自动"){document.getElementById("index_dy1js").innerHTML=index_dy1js}}
+    // if(typeof(index)!="undefined"){if(index[0]!="不自动"){document.getElementById("index_dy1js").innerHTML=index_dy1js}}
     if(乱=="a"){dy1js+="<br class='br_a'><br class='br_a'><br class='br_a'><br class='br_a'><br class='br_a'>"}
     dy1js=dy1js.replace(/\n/g,"").replace(/<br><br><br><br><br>/g,"<br><br class='br_a'><br class='br_a'><br class='br_a'><br class='br_a'>").replace(/<br><br><br><br>/g,"<br><br class='br_a'><br class='br_a'><br class='br_a'>").replace(/<br><br><br>/g,"<br><br class='br_a'><br class='br_a'>").replace(/<br><br>/g,"<br><br class='br_a'>").replace(/<\/div><br>/g,"</div><br class='br_a'>").replace(/ \| /g,"<span class=\"a\"> | </span>").replace(/ &gt; /g,"<span class=\"a\"> > </span>").replace(/<hr>/g,"<hr class='hr1'>").replace(/“/g,"<b>“</b>").replace(/”/g,"<b>”</b>");
     document.getElementById(乱).innerHTML=dy1js}乱="dy"}
@@ -344,4 +344,6 @@ window.onload=function(){
 const bigImg=document.querySelector('.big-img');document.querySelectorAll('img:not(.big-img)').forEach(smallImg=>{smallImg.onmouseenter=()=>{bigImg.src=smallImg.src;bigImg.style.display='block';};smallImg.onmouseleave=()=>{bigImg.style.display='none';};
 });
 
+
+if(typeof(index)!="undefined"){if(index[0]!="不自动"){document.getElementById("index_dy1js").innerHTML=index_dy1js}}
 }
