@@ -9,14 +9,14 @@ PingLun:
 div0: 1
 ---
 <style>
-.cj{display:inline-block;padding:12px;line-height:20px;border-width:2px;border-color:#ffffff40;border-style:solid;width:200px;height:245px;opacity:0.8;filter:alpha(opacity=80);transition:all 0.3s;position:relative;font-size:90%;}
+.cj{display:inline-block;margin:auto 20px auto auto;padding:12px;line-height:20px;border-width:2px;border-color:#ffffff40;border-style:solid;width:200px;height:245px;opacity:0.8;filter:alpha(opacity=80);transition:all 0.3s;position:relative;font-size:90%;}
 .cj:hover{opacity:1.0;filter:alpha(opacity=100);transform:scale(1.6);z-index:10;}
 .cj img{width:200px;}
 .cj b{color:var(--fanse-color)}
 .cj a b{color:var(--a-color)}
 .cj sup,.开放下载{color:#00e61b;}
 .cj sub,.不推荐{color:#eb0000;}
-.tsxt{border:1px solid #c0c0c0;visibility:hidden;width:200px;background-color:var(--zhengse-color);text-align:center;border-radius:6px;padding:5px 0;font-size:85%;position:absolute;z-index:1;top:220px;left:10px;margin-left:0px;}
+.tsxt{border:1px solid #c0c0c0;visibility:hidden;width:200px;background-color:var(--zhengse-color);text-align:center;border-radius:6px;padding:5px 0;font-size:85%;position:absolute;z-index:1;top:220px;left:10px;margin-left:0px;background-color:#1E1D2B}
 .cj:hover .tsxt{visibility:visible;transform:translate(0,20px);transition:all 0.5s;}
 .hs,.cj small{color:var(--body-color);}
 /* @media screen and (min-width:768px){
@@ -26,6 +26,7 @@ div0: 1
 .cj{margin:10px;padding:6px;}
 }
 </style>
+<h1>周边</h1>
 我设计这些周边是出于自己的兴趣，并不是为了赚钱，所以我会将素材文件分享出来，大家可以自行下载、修改、联系店铺定制。<br>
 
 <hr>
@@ -34,16 +35,19 @@ div0: 1
     let d=[
         //[".","文字"], 直接显示文字(记得在前后加<br>)
         //["图片cj(.png)","标题","文字说明","链接(可留空)","额外介绍(可留空)"],
-        // <sup>可购买 开放下载 寄售</sup> <sub>停售</sub>
-    
-        ["1","仿主页 透卡","带小像素点出去玩~","/zb/1","约12元"],
-        ["2","安全出口 钥匙扣","　","/zb/2","约10元"],
-        // ["","","","/",""],
 
-        [".","<hr><a name='非实体周边'></a><h3>非实体周边</h3>"],
-        ["11783262","表情包、梗图","","/梗图",""],
-        ["11783052","安全出口 壁纸","","/zb/11783052",""],
-        // ["","","","/",""],
+        ["19251003","不要杀死它 <small>盘子</small>","","/zb/19251006",""],
+        // ["","","","/zb/",""],
+
+        [".","<hr><a name='小像素点'></a><h3>小像素点</h3>"],
+        ["19250852","梗图合集","","https://像素点.cn/梗图",""],
+        ["19250796","仿主页 <small>透卡</small>","带小像素点出去玩~","/zb/19250740",""],
+        ["19250956","安全出口 <small>壁纸、钥匙扣</small>","","/zb/19250935",""],
+        // ["","","","/zb/",""],
+
+        [".","<hr><a name='二创'></a><h3>二创</h3>（定制实物请遵守对应IP的相关规则）"],
+        ["19251034","卡芙卡","","/zb/19251039",""],
+        // ["","","","/zb/",""],
     ];
     let dy="";
     for(let i=0;d.length>i;i++){
@@ -55,7 +59,7 @@ div0: 1
             if(d[i][3]&&d[i][3]!=""){d[i][3]=["<a href='"+d[i][3]+"'>","</a>"]}else{d[i][3]=["",""]}
             if(d[i][4]&&d[i][4]!=""){d[i][4]="<span class='tsxt hs'>"+d[i][4]+"</span>"}else{d[i][4]=""}
 
-            dy+="<div class='cj'>"+d[i][3][0]+"<img src='/x/周边/"+d[i][0]+"'>"+d[i][1]+d[i][3][1]+"<br><span class='hs'>"+d[i][2]+"</span>"+d[i][4]+"</div>";
+            dy+="<div class='cj'>"+d[i][3][0]+"<img src='/x/周边/cj/"+d[i][0]+"'>"+d[i][1]+d[i][3][1]+"<br><span class='hs'>"+d[i][2]+"</span>"+d[i][4]+"</div>";
         }
     }
     document.getElementById("dy").innerHTML=dy;
