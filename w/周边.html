@@ -1,0 +1,64 @@
+---
+layout: e0
+permalink: 周边
+BeiJing: 0
+BeiJing_SJ: 0
+BiaoTi: 周边
+title: 周边
+PingLun: 
+div0: 1
+---
+<style>
+.cj{display:inline-block;padding:12px;line-height:20px;border-width:2px;border-color:#ffffff40;border-style:solid;width:200px;height:245px;opacity:0.8;filter:alpha(opacity=80);transition:all 0.3s;position:relative;font-size:90%;}
+.cj:hover{opacity:1.0;filter:alpha(opacity=100);transform:scale(1.6);z-index:10;}
+.cj img{width:200px;}
+.cj b{color:var(--fanse-color)}
+.cj a b{color:var(--a-color)}
+.cj sup,.开放下载{color:#00e61b;}
+.cj sub,.不推荐{color:#eb0000;}
+.tsxt{border:1px solid #c0c0c0;visibility:hidden;width:200px;background-color:var(--zhengse-color);text-align:center;border-radius:6px;padding:5px 0;font-size:85%;position:absolute;z-index:1;top:220px;left:10px;margin-left:0px;}
+.cj:hover .tsxt{visibility:visible;transform:translate(0,20px);transition:all 0.5s;}
+.hs,.cj small{color:var(--body-color);}
+/* @media screen and (min-width:768px){
+.内容0{width:60%}
+} */
+@media screen and(max-width:767px){
+.cj{margin:10px;padding:6px;}
+}
+</style>
+我设计这些周边是出于自己的兴趣，并不是为了赚钱，所以我会将素材文件分享出来，大家可以自行下载、修改、联系店铺定制。<br>
+
+<hr>
+<div id="dy"></div>
+<script>
+    let d=[
+        //[".","文字"], 直接显示文字(记得在前后加<br>)
+        //["图片cj(.png)","标题","文字说明","链接(可留空)","额外介绍(可留空)"],
+        // <sup>可购买 开放下载 寄售</sup> <sub>停售</sub>
+    
+        ["1","仿主页 透卡","带小像素点出去玩~","/zb/1","约12元"],
+        ["2","安全出口 钥匙扣","　","/zb/2","约10元"],
+        // ["","","","/",""],
+
+        [".","<hr><a name='非实体周边'></a><h3>非实体周边</h3>"],
+        ["11783262","表情包、梗图","","/梗图",""],
+        ["11783052","安全出口 壁纸","","/zb/11783052",""],
+        // ["","","","/",""],
+    ];
+    let dy="";
+    for(let i=0;d.length>i;i++){
+        if(d[i][0]=="."){dy+=d[i][1]}
+        else{
+            if(d[i][0].indexOf(".")!=-1){}else{d[i][0]+=".jpg"}
+            if(d[i][0].split(".")[0]<10000000){d[i][1]="<small>"+d[i][0].split(".")[0]+".</small><b>"+d[i][1]+"</b>";}
+            else{d[i][1]="<b>"+d[i][1]+"</b>"}
+            if(d[i][3]&&d[i][3]!=""){d[i][3]=["<a href='"+d[i][3]+"'>","</a>"]}else{d[i][3]=["",""]}
+            if(d[i][4]&&d[i][4]!=""){d[i][4]="<span class='tsxt hs'>"+d[i][4]+"</span>"}else{d[i][4]=""}
+
+            dy+="<div class='cj'>"+d[i][3][0]+"<img src='/x/周边/"+d[i][0]+"'>"+d[i][1]+d[i][3][1]+"<br><span class='hs'>"+d[i][2]+"</span>"+d[i][4]+"</div>";
+        }
+    }
+    document.getElementById("dy").innerHTML=dy;
+</script>
+
+
